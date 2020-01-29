@@ -67,7 +67,7 @@
 
             <ul class="nav-shop">
               <li class="nav-item"><button><i class="ti-search"></i></button></li>
-              <li class="nav-item"><button><i class="ti-shopping-cart"></i><span class="nav-shop__circle">3</span></button> </li>
+              <li class="nav-item"><button onclick="location.href='cart.html'"><i class="ti-shopping-cart"></i><span class="nav-shop__circle">3</span></button> </li>
               <li class="nav-item"><a class="button button-header" href="#">Buy Now</a></li>
             </ul>
           </div>
@@ -82,11 +82,11 @@
 		<div class="container h-100">
 			<div class="blog-banner">
 				<div class="text-center">
-					<h1>Order Tracking</h1>
+					<h1>Seguimiento del pedido</h1>
 					<nav aria-label="breadcrumb" class="banner-breadcrumb">
             <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active" aria-current="page">Order Tracking</li>
+              <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Seguimiento del pedido</li>
             </ol>
           </nav>
 				</div>
@@ -100,17 +100,17 @@
   <section class="tracking_box_area section-margin--small">
       <div class="container">
           <div class="tracking_box_inner">
-              <p>To track your order please enter your Order ID in the box below and press the "Track" button. This
-                  was given to you on your receipt and in the confirmation email you should have received.</p>
+              <p>Para realizar el seguimiento de un pedido introduce el ID de un pedido y el correo electrónico al que se encuentre vinculado.<br>
+					Éste ID se facilita en la factura recibida una vez se realiza un pedido. Consulte su email.</p>
               <form class="row tracking_form" action="#" method="post" novalidate="novalidate">
                   <div class="col-md-12 form-group">
-                      <input type="text" class="form-control" id="order" name="order" placeholder="Order ID" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Order ID'">
+                      <input type="text" class="form-control" id="order" name="order" placeholder="ID de pedido" onfocus="this.placeholder = ''" onblur="this.placeholder = 'ID de pedido'">
                   </div>
                   <div class="col-md-12 form-group">
-                      <input type="email" class="form-control" id="email" name="email" placeholder="Billing Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Billing Email Address'">
+                      <input type="email" class="form-control" id="email" name="email" placeholder="Correo electrónico" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Correo electrónico'">
                   </div>
                   <div class="col-md-12 form-group">
-                      <button type="submit" value="submit" class="button button-tracking">Track Order</button>
+                      <button type="submit" value="submit" class="button button-tracking">Localizar</button>
                   </div>
               </form>
           </div>

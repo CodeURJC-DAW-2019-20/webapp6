@@ -25,7 +25,7 @@
     <div class="main_menu">
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
-          <a class="navbar-brand logo_h" href="index.html"><img src="img/logo.png" alt=""></a>
+          <a class="navbar-brand logo_h" href="index.html"><img src="img/Title.png" alt=""></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="icon-bar"></span>
@@ -34,16 +34,16 @@
           </button>
           <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
             <ul class="nav navbar-nav menu_nav ml-auto mr-auto">
-              <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
               <li class="nav-item active submenu dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                   aria-expanded="false">Shop</a>
                 <ul class="dropdown-menu">
-                  <li class="nav-item"><a class="nav-link" href="category.html">Shop Category</a></li>
-                  <li class="nav-item"><a class="nav-link" href="single-product.html">Product Details</a></li>
-                  <li class="nav-item"><a class="nav-link" href="checkout.html">Product Checkout</a></li>
-                  <li class="nav-item"><a class="nav-link" href="confirmation.html">Confirmation</a></li>
-                  <li class="nav-item"><a class="nav-link" href="cart.html">Shopping Cart</a></li>
+                  <li class="nav-item"><a class="nav-link" href="category.html">Categorías</a></li>
+                  <li class="nav-item"><a class="nav-link" href="single-product.html">Detalles del producto</a></li>
+                  <li class="nav-item"><a class="nav-link" href="checkout.html">Checkout</a></li>
+                  <li class="nav-item"><a class="nav-link" href="confirmation.html">Confirmación</a></li>
+                  <li class="nav-item"><a class="nav-link" href="cart.html">Cesta</a></li>
                 </ul>
 							</li>
               <li class="nav-item submenu dropdown">
@@ -51,7 +51,7 @@
                   aria-expanded="false">Blog</a>
                 <ul class="dropdown-menu">
                   <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
-                  <li class="nav-item"><a class="nav-link" href="single-blog.html">Blog Details</a></li>
+                  <li class="nav-item"><a class="nav-link" href="single-blog.html">Detalles del blog</a></li>
                 </ul>
 							</li>
 							<li class="nav-item submenu dropdown">
@@ -59,17 +59,17 @@
                   aria-expanded="false">Pages</a>
                 <ul class="dropdown-menu">
                   <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
-                  <li class="nav-item"><a class="nav-link" href="register.html">Register</a></li>
-                  <li class="nav-item"><a class="nav-link" href="tracking-order.html">Tracking</a></li>
+                  <li class="nav-item"><a class="nav-link" href="register.html">Registro</a></li>
+                  <li class="nav-item"><a class="nav-link" href="tracking-order.html">Seguimiento</a></li>
                 </ul>
               </li>
-              <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+              <li class="nav-item"><a class="nav-link" href="contact.html">Contacto</a></li>
             </ul>
 
             <ul class="nav-shop">
               <li class="nav-item"><button><i class="ti-search"></i></button></li>
-              <li class="nav-item"><button><i class="ti-shopping-cart"></i><span class="nav-shop__circle">3</span></button> </li>
-              <li class="nav-item"><a class="button button-header" href="#">Buy Now</a></li>
+              <li class="nav-item"><button onclick="location.href='cart.html'"><i class="ti-shopping-cart"></i><span class="nav-shop__circle">3</span></button> </li>
+              <li class="nav-item"><a class="button button-header" href="category.html">Comprar ahora</a></li>
             </ul>
           </div>
         </div>
@@ -101,128 +101,188 @@
   <section class="checkout_area section-margin--small">
     <div class="container">
         <div class="returning_customer">
-            <div class="check_title">
-                <h2>Returning Customer? <a href="#">Click here to login</a></h2>
-            </div>
-            <p>If you have shopped with us before, please enter your details in the boxes below. If you are a new
-                customer, please proceed to the Billing & Shipping section.</p>
-            <form class="row contact_form" action="#" method="post" novalidate="novalidate">
-                <div class="col-md-6 form-group p_star">
-                    <input type="text" class="form-control" placeholder="Username or Email*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Username or Email*'" id="name" name="name">
-                    <!-- <span class="placeholder" data-placeholder="Username or Email"></span> -->
-                </div>
-                <div class="col-md-6 form-group p_star">
-                    <input type="password" class="form-control" placeholder="Password*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Password*'" id="password" name="password">
-                    <!-- <span class="placeholder" data-placeholder="Password"></span> -->
-                </div>
-                <div class="col-md-12 form-group">
-                    <button type="submit" value="submit" class="button button-login">login</button>
-                    <div class="creat_account">
-                        <input type="checkbox" id="f-option" name="selector">
-                        <label for="f-option">Remember me</label>
-                    </div>
-                    <a class="lost_pass" href="#">Lost your password?</a>
-                </div>
-            </form>
+          <div class="check_title">
+              <h2>¿Eres nuevo? <a href="register.html">Regístrate</a></h2>
+          </div>
+          <p>Si has comprado alguna vez con nosotros, por favor, introduce tus credenciales abajo. Si eres nuevo y no deseas crearte una cuenta,
+              por favor, rellene los datos de dirección y facturación.</p>
+          <form class="row contact_form" action="#" method="post" id="loginCheck">
+              <div class="col-md-6 form-group p_star">
+                  <input type="text" class="form-control" placeholder="Usuario o Correo*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Username or Email*'" id="name" name="name" required>
+                  <!-- <span class="placeholder" data-placeholder="Username or Email"></span> -->
+              </div>
+              <div class="col-md-6 form-group p_star">
+                  <input type="password" class="form-control" placeholder="Contraseña*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Password*'" id="password" name="password" requires>
+                  <!-- <span class="placeholder" data-placeholder="Password"></span> -->
+              </div>
+              <div class="col-md-12 form-group">
+                  <button type="submit" value="submit" class="button button-login" form="loginCheck">Iniciar sesión</button>
+                  <div class="creat_account">
+                      <input type="checkbox" id="f-option" name="selector">
+                      <label for="f-option">Recordarme</label>
+                  </div>
+                  <a class="lost_pass" href="contact.html">¿Olvidaste tu contraseña?</a>
+              </div>
+          </form>
         </div>
-        <div class="cupon_area">
-            <div class="check_title">
-                <h2>Have a coupon? <a href="#">Click here to enter your code</a></h2>
-            </div>
-            <input type="text" placeholder="Enter coupon code">
-            <a class="button button-coupon" href="#">Apply Coupon</a>
+        <div class="returning_customer">
+          <div class="check_title">
+              <p><h2>¿Tienes un código?</h2></p>
+          </div>
+          <form class="row contact_form" action="#" method="post" id="cuponCheck">
+              <div class="col-md-6 form-group p_star">
+                  <input type="text" class="form-control" placeholder="Código" required>
+                  <!-- <span class="placeholder" data-placeholder="Username or Email"></span> -->
+              </div>
+              <div class="col-md-12 form-group">
+                  <button type="submit" value="submit" class="button button-coupon" form="cuponCheck">Aplicar cupón</button>
+              </div>
+          </form>
         </div>
+        <p></p>
+          <!--<div class="cupon_area">
+              <div class="check_title">
+                  <h2>¿Tienes un código?</h2>
+              </div>
+              <input type="text" placeholder="Enter coupon code">
+              <a class="button button-coupon" href="#">Apply Coupon</a>
+          </div>-->
         <div class="billing_details">
             <div class="row">
                 <div class="col-lg-8">
-                    <h3>Billing Details</h3>
-                    <form class="row contact_form" action="#" method="post" novalidate="novalidate">
+                    <h3>Detalles de la dirección</h3>
+                    <form class="row contact_form" id="myForm" method="POST" onsubmit="window.location.href = 'confirmation.html';">
                         <div class="col-md-6 form-group p_star">
-                            <input type="text" class="form-control" id="first" name="name">
+                            <input type="text" class="form-control" id="first" name="name" placeholder="Nombre" required>
                             <span class="placeholder" data-placeholder="First name"></span>
                         </div>
                         <div class="col-md-6 form-group p_star">
-                            <input type="text" class="form-control" id="last" name="name">
+                            <input type="text" class="form-control" id="last" name="lastname" placeholder="Apellidos" required>
                             <span class="placeholder" data-placeholder="Last name"></span>
                         </div>
                         <div class="col-md-12 form-group">
-                            <input type="text" class="form-control" id="company" name="company" placeholder="Company name">
+                            <input type="text" class="form-control" id="company" name="company" placeholder="Empresa">
                         </div>
                         <div class="col-md-6 form-group p_star">
-                            <input type="text" class="form-control" id="number" name="number">
+                            <input type="text" class="form-control" id="number" name="number" placeholder="Teléfono" required>
                             <span class="placeholder" data-placeholder="Phone number"></span>
                         </div>
                         <div class="col-md-6 form-group p_star">
-                            <input type="text" class="form-control" id="email" name="compemailany">
+                            <input type="text" class="form-control" id="email" name="compemailany" placeholder="Correo electrónico" required>
                             <span class="placeholder" data-placeholder="Email Address"></span>
                         </div>
                         <div class="col-md-12 form-group p_star">
-                            <select class="country_select">
-                                <option value="1">Country</option>
-                                <option value="2">Country</option>
-                                <option value="4">Country</option>
+                            <select class="country_select" id="options" required>
+                                <option value="" disabled selected>Elija una opción</option>
+                                <option id="pen" name="pen" value="pen">Península y Baleares</option>
+                                <option id="can" name="can" value="can">Islas Canarias</option>
                             </select>
                         </div>
-                        <div class="col-md-12 form-group p_star">
-                            <input type="text" class="form-control" id="add1" name="add1">
+                        <div class="col-md-6 form-group p_star">
+                            <input type="text" class="form-control" id="add1" name="add1" placeholder="Calle" required>
                             <span class="placeholder" data-placeholder="Address line 01"></span>
                         </div>
-                        <div class="col-md-12 form-group p_star">
-                            <input type="text" class="form-control" id="add2" name="add2">
+                        <div class="col-md-6 form-group p_star">
+                            <input type="text" class="form-control" id="add2" name="floor" placeholder="Piso">
                             <span class="placeholder" data-placeholder="Address line 02"></span>
                         </div>
                         <div class="col-md-12 form-group p_star">
-                            <input type="text" class="form-control" id="city" name="city">
+                            <input type="text" class="form-control" id="city" name="city" placeholder="Ciudad">
                             <span class="placeholder" data-placeholder="Town/City"></span>
                         </div>
                         <div class="col-md-12 form-group p_star">
-                            <select class="country_select">
-                                <option value="1">District</option>
-                                <option value="2">District</option>
-                                <option value="4">District</option>
+                            <select class="country_select" id="choices">
                             </select>
                         </div>
                         <div class="col-md-12 form-group">
-                            <input type="text" class="form-control" id="zip" name="zip" placeholder="Postcode/ZIP">
+                            <input type="text" class="form-control" id="zip" name="zip" placeholder="Código postal" required>
                         </div>
-                        <div class="col-md-12 form-group">
+                        <!--
+                        <div class="col-md-4 form-group">
                             <div class="creat_account">
-                                <input type="checkbox" id="f-option2" name="selector">
-                                <label for="f-option2">Create an account?</label>
+                                <button class="button button-paypal" type="submit" form="myForm">Comprobar dirección</button>
                             </div>
-                        </div>
+                        </div>-->
                         <div class="col-md-12 form-group mb-0">
                             <div class="creat_account">
-                                <h3>Shipping Details</h3>
-                                <input type="checkbox" id="f-option3" name="selector">
-                                <label for="f-option3">Ship to a different address?</label>
+                                <h3>Detalles de facturación</h3>
+                                <input type="checkbox" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                <label for="f-option3">Enviar a una dirección distinta</label>
+                                  <div class="collapse" id="collapseExample">
+                                    <div class="col-md-6 form-group p_star">
+                                      <input type="text" class="form-control" id="first" name="name" placeholder="Nombre">
+                                      <span class="placeholder" data-placeholder="First name"></span>
+                                  </div>
+                                  <div class="col-md-6 form-group p_star">
+                                      <input type="text" class="form-control" id="last" name="lastname" placeholder="Apellidos">
+                                      <span class="placeholder" data-placeholder="Last name"></span>
+                                  </div>
+                                  <div class="col-md-12 form-group">
+                                      <input type="text" class="form-control" id="company" name="company" placeholder="Empresa">
+                                  </div>
+                                  <div class="col-md-6 form-group p_star">
+                                      <input type="text" class="form-control" id="number" name="number" placeholder="Teléfono">
+                                      <span class="placeholder" data-placeholder="Phone number"></span>
+                                  </div>
+                                  <div class="col-md-6 form-group p_star">
+                                      <input type="text" class="form-control" id="email" name="compemailany" placeholder="Correo electrónico">
+                                      <span class="placeholder" data-placeholder="Email Address"></span>
+                                  </div>
+                                  <div class="col-md-12 form-group p_star">
+                                      <select class="country_select" id="options">
+                                          <option value="" disabled selected>Elija una opción</option>
+                                          <option id="pen" name="pen" value="pen">Península y Baleares</option>
+                                          <option id="can" name="can" value="can">Islas Canarias</option>
+                                      </select>
+                                  </div>
+                                  <div class="col-md-6 form-group p_star">
+                                      <input type="text" class="form-control" id="add1" name="add1" placeholder="Calle">
+                                      <span class="placeholder" data-placeholder="Address line 01"></span>
+                                  </div>
+                                  <div class="col-md-6 form-group p_star">
+                                      <input type="text" class="form-control" id="add2" name="floor" placeholder="Piso">
+                                      <span class="placeholder" data-placeholder="Address line 02"></span>
+                                  </div>
+                                  <div class="col-md-12 form-group p_star">
+                                      <input type="text" class="form-control" id="city" name="city" placeholder="Ciudad">
+                                      <span class="placeholder" data-placeholder="Town/City"></span>
+                                  </div>
+                                  <div class="col-md-12 form-group p_star">
+                                      <select class="country_select" id="choices">
+                                      </select>
+                                  </div>
+                                  <div class="col-md-12 form-group">
+                                      <input type="text" class="form-control" id="zip" name="zip" placeholder="Código postal">
+                                  </div>
+                                </div>
                             </div>
-                            <textarea class="form-control" name="message" id="message" rows="1" placeholder="Order Notes"></textarea>
+                            <textarea class="form-control" name="message" id="message" rows="1" placeholder="Notas"></textarea>
                         </div>
                     </form>
                 </div>
                 <div class="col-lg-4">
                     <div class="order_box">
-                        <h2>Your Order</h2>
+                        <h2>Tu pedido</h2>
                         <ul class="list">
-                            <li><a href="#"><h4>Product <span>Total</span></h4></a></li>
-                            <li><a href="#">Fresh Blackberry <span class="middle">x 02</span> <span class="last">$720.00</span></a></li>
-                            <li><a href="#">Fresh Tomatoes <span class="middle">x 02</span> <span class="last">$720.00</span></a></li>
-                            <li><a href="#">Fresh Brocoli <span class="middle">x 02</span> <span class="last">$720.00</span></a></li>
+                            <li><a><h4>Productos <span>Total</span></h4></a></li>
+                            <li><a>Charlotte Katakuri<span class="middle">x 1</span> <span class="last">61.25€</span></a></li>
+                            <li><a>Naruto y Sasuke<span class="middle">x 1</span> <span class="last">141.25€</span></a></li>
+                            <li><a>Luigi & Polterpup<span class="middle">x 1</span> <span class="last">85.00€</span></a></li>
                         </ul>
                         <ul class="list list_2">
-                            <li><a href="#">Subtotal <span>$2160.00</span></a></li>
-                            <li><a href="#">Shipping <span>Flat rate: $50.00</span></a></li>
-                            <li><a href="#">Total <span>$2210.00</span></a></li>
+                          <form>
+                            <li><a>Subtotal <span>287.50€</span></a></li>
+                            <li><a>Precio envío <span>2.90€</span></a></li>
+                            <li><a>Total <span>290.40€</span></a></li>
+                          </form>
                         </ul>
                         <div class="payment_item">
                             <div class="radion_btn">
                                 <input type="radio" id="f-option5" name="selector">
-                                <label for="f-option5">Check payments</label>
+                                <label for="f-option5">Contrarreembolso</label>
                                 <div class="check"></div>
                             </div>
-                            <p>Please send a check to Store Name, Store Street, Store Town, Store State / County,
-                                Store Postcode.</p>
+                            <p>Este método de pago conlleva un recargo adicional de 2.90€.</p>
                         </div>
                         <div class="payment_item active">
                             <div class="radion_btn">
@@ -231,16 +291,16 @@
                                 <img src="img/product/card.jpg" alt="">
                                 <div class="check"></div>
                             </div>
-                            <p>Pay via PayPal; you can pay with your credit card if you don’t have a PayPal
-                                account.</p>
+                            <p>Puedes pagar con tu tarjeta de crédito si no tienes una cuenta
+                                de Paypal.</p>
                         </div>
                         <div class="creat_account">
-                            <input type="checkbox" id="f-option4" name="selector">
-                            <label for="f-option4">I’ve read and accept the </label>
-                            <a href="#">terms & conditions*</a>
+                            <input type="checkbox" id="f-option4" name="selector" required>
+                            <label for="f-option4">He leído y acepto</label>
+                            <a href="https://themes.getbootstrap.com/terms/">los términos y condiciones*</a>
                         </div>
                         <div class="text-center">
-                          <a class="button button-paypal" href="#">Proceed to Paypal</a>
+                          <button class="button button-paypal" type="submit" form="myForm">Proceder al pago</button>
                         </div>
                     </div>
                 </div>
@@ -352,5 +412,8 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
   <script src="vendors/jquery.ajaxchimp.min.js"></script>
   <script src="vendors/mail-script.js"></script>
   <script src="js/main.js"></script>
+  <script src="vendors/localidad.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <script src='vendors/otherAddres.js'></script>
 </body>
 </html>
