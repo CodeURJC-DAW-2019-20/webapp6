@@ -4,22 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Anime Shop - Order Tracking</title>
+  <title>Anime Shop - Usuario</title>
 	<link rel="icon" href="img/Fevicon.png" type="image/png">
     <link rel="stylesheet" href="vendors/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="vendors/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="vendors/bootstrap/css/bootstrap.css">
   <link rel="stylesheet" href="vendors/fontawesome/css/all.min.css">
 	<link rel="stylesheet" href="vendors/themify-icons/themify-icons.css">
 	<link rel="stylesheet" href="vendors/linericon/style.css">
   <link rel="stylesheet" href="vendors/owl-carousel/owl.theme.default.min.css">
   <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
-  <link rel="stylesheet" href="vendors/nice-select/nice-select.css">
-  <link rel="stylesheet" href="vendors/nouislider/nouislider.min.css">
 
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	<!--================ Start Header Menu Area =================-->
+  <!--================ Start Header Menu Area =================-->
 	<header class="header_area">
     <div class="main_menu">
       <nav class="navbar navbar-expand-lg navbar-light">
@@ -38,27 +36,27 @@
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                   aria-expanded="false">Shop</a>
                 <ul class="dropdown-menu">
-                  <li class="nav-item"><a class="nav-link" href="category.html">Categorías</a></li>
-                  <li class="nav-item"><a class="nav-link" href="single-product.html">Detalles de producto</a></li>
-                  <li class="nav-item"><a class="nav-link" href="checkout.html">Checkout</a></li>
-                  <li class="nav-item"><a class="nav-link" href="confirmation.html">Confirmación</a></li>
-                  <li class="nav-item"><a class="nav-link" href="cart.html">Cesta</a></li>
+                  <li class="nav-item"><a class="nav-link" href="category.html">Shop Category</a></li>
+                  <li class="nav-item"><a class="nav-link" href="single-product.html">Product Details</a></li>
+                  <li class="nav-item"><a class="nav-link" href="checkout.html">Product Checkout</a></li>
+                  <li class="nav-item"><a class="nav-link" href="confirmation.html">Confirmation</a></li>
+                  <li class="nav-item"><a class="nav-link" href="cart.html">Shopping Cart</a></li>
                 </ul>
 							</li>
-              <li class="nav-item submenu dropdown">
+              <li class="nav-item active submenu dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                   aria-expanded="false">Blog</a>
                 <ul class="dropdown-menu">
-                  <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                  <li class="nav-item active"><a class="nav-link" href="blog.html">Blog Single</a></li>
                   <li class="nav-item"><a class="nav-link" href="single-blog.html">Blog Details</a></li>
                 </ul>
 							</li>
-							<li class="nav-item active submenu dropdown">
+							<li class="nav-item submenu dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                   aria-expanded="false">Pages</a>
                 <ul class="dropdown-menu">
-									<li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
-                  <li class="nav-item"><a class="nav-link" href="register.html">Register</a></li>									
+                  <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+                  <li class="nav-item"><a class="nav-link" href="register.html">Register</a></li>
                   <li class="nav-item"><a class="nav-link" href="tracking-order.html">Tracking</a></li>
                 </ul>
               </li>
@@ -67,7 +65,7 @@
 
             <ul class="nav-shop">
               <li class="nav-item"><button><i class="ti-search"></i></button></li>
-              <li class="nav-item"><button onclick="location.href='cart.html'"><i class="ti-shopping-cart"></i><span class="nav-shop__circle">3</span></button> </li>
+              <li class="nav-item"><button><i class="ti-shopping-cart"></i><span class="nav-shop__circle">3</span></button> </li>
               <li class="nav-item"><a class="button button-header" href="#">Buy Now</a></li>
             </ul>
           </div>
@@ -76,57 +74,55 @@
     </div>
   </header>
 	<!--================ End Header Menu Area =================-->
+
+
   
-	<!-- ================ start banner area ================= -->	
-	<section class="blog-banner-area" id="category">
-		<div class="container h-100">
-			<div class="blog-banner">
-				<div class="text-center">
-					<h1>Seguimiento del pedido</h1>
-					<nav aria-label="breadcrumb" class="banner-breadcrumb">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-              <li class="breadcrumb-item active" aria-current="page">Seguimiento del pedido</li>
-            </ol>
-          </nav>
-				</div>
-			</div>
-    </div>
-	</section>
-	<!-- ================ end banner area ================= -->
-  
-  
-  <!--================Tracking Box Area =================-->
-  <section class="tracking_box_area section-margin--small">
+
+  <main class="site-main">
+    
+    <!--================ Hero banner start =================-->
+    <section class="hero-banner">
       <div class="container">
-          <div class="tracking_box_inner">
-              <p>Para realizar el seguimiento de un pedido introduce el ID de un pedido y el correo electrónico al que se encuentre vinculado.<br>
-					Éste ID se facilita en la factura recibida una vez se realiza un pedido. Consulte su email.</p>
-              <form class="row tracking_form" action="#" method="post" novalidate="novalidate">
-                  <div class="col-md-12 form-group">
-                      <input type="text" class="form-control" id="order" name="order" placeholder="ID de pedido" onfocus="this.placeholder = ''" onblur="this.placeholder = 'ID de pedido'">
-                  </div>
-                  <div class="col-md-12 form-group">
-                      <input type="email" class="form-control" id="email" name="email" placeholder="Correo electrónico" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Correo electrónico'">
-                  </div>
-                  <div class="col-md-12 form-group">
-                      <button type="submit" value="submit" class="button button-tracking">Localizar</button>
-                  </div>
-              </form>
+        <div class="row no-gutters align-items-center pt-60px">
+          <div class="col-5 d-none d-sm-block">
+            <div class="hero-banner__img">
+              <img class="img-fluid" src="img/user/login.jpg" alt="">
+            </div>
           </div>
+          <div class="col-sm-7 col-lg-6 offset-lg-1 pl-4 pl-md-5 pl-lg-0">
+            <div class="hero-banner__content">
+              <h4>Alex Turner</h4>
+              <h5>Dirección de facturación:</h5>
+              <h6>One Apple Park Way, Cupertino, CA 95014, Estados Unidos</h6>
+              <h5>Dirección de entrega:</h5>
+              <h6>One Apple Park Way, Cupertino, CA 95014, Estados Unidos</h6>
+              <h5>Mis métodos de pago:</h5>
+              <h6 id="payment">VISA que termina en 7694</h6>
+
+              <div class="row">
+                <div class="column">
+                  <a class="button button-hero" href="#">Mis pedidos</a>
+                </div>
+
+                <div class="column">
+                  <a class="button button-hero" href="#">Editar información</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-  </section>
-  <!--================End Tracking Box Area =================-->
-
-
+    </section>
+    <!--================ Hero banner start =================-->
+  
 
   <!--================ Start footer Area  =================-->	
 	<footer>
-		<div class="footer-area footer-only">
+		<div class="footer-area">
 			<div class="container">
 				<div class="row section_gap">
 					<div class="col-lg-3 col-md-6 col-sm-6">
-						<div class="single-footer-widget tp_widgets ">
+						<div class="single-footer-widget tp_widgets">
 							<h4 class="footer_title large_title">Our Mission</h4>
 							<p>
 								So seed seed green that winged cattle in. Gathering thing made fly you're no 
