@@ -4792,4 +4792,6 @@ a {
 	filter: alpha(opacity=50);
 }*/
 
-
+.error-margin{
+	margin-top: 40px;
+}
