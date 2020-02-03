@@ -33,3 +33,8 @@
 
 ### Graphics
 Benefit per category
+
+### Screenshots :camera:
+* **Home**
+<img src="" width="" height="" />
+In this screen we can see the home of the page, which includes the recommendations based in your last purchases.
