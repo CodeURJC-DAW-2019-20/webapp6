@@ -19,8 +19,8 @@
 * Custom recommendations based on previous purchases
 
 ### User types :bust_in_silhouette: :construction_worker: :cop:
-* **Annonymous user**: View products, read, read the blog and commentarios
-* **Registered user**: All permission of Anonymous user. Write comments and place orders
+* **Annonymous user**: View products, read the blog
+* **Registered user**: All permission of Anonymous user.Place orders
 * **Admin user**: All permission of Registeted user. Add/Remove products, add/delete blog entries
 
 ### Tools :hammer:
@@ -30,3 +30,6 @@
 
 ### UML diagram
 <img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/animeshop/uml/UML-resized.png" width="400" height="400" />
+
+### Graphics
+Benefit per category
