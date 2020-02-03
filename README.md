@@ -1,4 +1,9 @@
 # Anime Shop
+
+<p align="">
+  <img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/animeshop/img/shop-logo.png" width="" height="" />
+</p>
+
 ### Developer team :alien:
 | Name        | E-mail           | GitHub  |
 | :-------------: |:-------------:| :-----:|
