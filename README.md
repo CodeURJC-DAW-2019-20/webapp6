@@ -44,53 +44,63 @@ Benefit per category
 <img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/animeshop/Screenshots/Inicio.PNG" width="" height="" />
 In this screen we can see the home of the page, which includes the recommendations based in your last purchases.
 
-* **Comprar - Categorías** 
-<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/animeshop/Screenshots/Comprar.Categor%C3%ADas.PNG" width="" height="" />
-Description
 
-* **Detalles del producto** 
+* **Categories** 
+<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/animeshop/Screenshots/Comprar.Categor%C3%ADas.PNG" width="" height="" />
+Here we can see the products based on different categories and other filters that we can apply.
+
+
+* **Product Details** 
 <img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/animeshop/Screenshots/Comprar.DetallesProducto.PNG" width="" height="" />
-Description
+As the name says, there are details: descriptions, specifications.. And we can add the product to the shopping basket.
+
 
 * **Checkout** 
 <img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/animeshop/Screenshots/Comprar.Checkout.PNG" width="" height="" />
-Description
+In this screen users hves to fill in all the necessary pieces of information that we need in order to send them the items.
 
-* **Conformación** 
+
+* **Confirmation** 
 <img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/animeshop/Screenshots/Comprar.Confirmaci%C3%B3n.PNG" width="" height="" />
-Description
+It's a summary with all the useful information about the order.
 
-* **Cesta** 
+
+* **Shopping basket** 
 <img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/animeshop/Screenshots/Comprar.Cesta.PNG" width="" height="" />
-Description
+This Screen shows all the items the user is currently holding in his shopping basket to buy them later.
 
-* **Blog - Blog** 
+
+* **Blog** 
 <img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/animeshop/Screenshots/Blog.PNG" width="" height="" />
-Description
+Every time a new figure comes to the Anime Shop there will be news here about it.
 
-* **Blog - Blog details** 
+
+* **Blog details** 
 <img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/animeshop/Screenshots/Blogextend.PNG" width="" height="" />
-Description
+To see more information about posts in the blog, here is the post with all the details.
 
-* **Usuarios - Iniciar Sesión** 
+
+* **Login** 
 <img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/animeshop/Screenshots/Registro.PNG" width="" height="" />
-Description
+Screen to enter an account.
 
-* **Usuarios - Registrarse** 
+
+* **Register** 
 <img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/animeshop/Screenshots/Login.PNG" width="" height="" />
-Description
+Here you can create a new account if you don't have one.
 
-* **Usuarios - Seguimiento** 
+
+* **Tracking** 
 <img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/animeshop/Screenshots/Seguimiento.PNG" width="" height="" />
-Description
+Here you can track an order if you want to see what stage it is in.
 
-* **Usuarios - Mi perfil** 
+
+* **My profile** 
 <img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/animeshop/Screenshots/Mi%20Perfil.PNG" width="" height="" />
-Description
+This screen show information about your account, orders and the possibility to change it.
 
-* **Contacto** 
+
+* **Contact** 
 <img src="" width="" height="" />
-Description
-
-
+To contact the Anime Shop use this information.
 
