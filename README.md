@@ -5,7 +5,7 @@
 | David Amor Antolín | d.amora@alumnos.urjc.es | https://github.com/Almendron100|
 | Carlos Francisco Corraliza | c.franciscoc@alumnos.urjc.es | https://github.com/CarlosFco|
 | Ramón Barrabes Parra |  |  |
-| Enrique Márquez Jiménez |  |  |
+| Enrique Márquez Jiménez | e.marquezj.2017@alumnos.urjc.es | https://github.com/Kikemaji |
 | Carlos González Valtierra |  |  |
 
 ### Entities :ghost:
