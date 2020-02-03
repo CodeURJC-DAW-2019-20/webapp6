@@ -6,7 +6,7 @@
 | Carlos Francisco Corraliza | c.franciscoc@alumnos.urjc.es | https://github.com/CarlosFco|
 | Ramón Barrabes Parra |  |  |
 | Enrique Márquez Jiménez | e.marquezj.2017@alumnos.urjc.es | https://github.com/Kikemaji |
-| Carlos González Valtierra |  |  |
+| Carlos González Valtierra | c.gonzalezva.2017@alumnos.urjc.es |  https://github.com/Carlos237|
 
 ### Entities :ghost:
 * User
