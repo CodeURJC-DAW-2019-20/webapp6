@@ -1169,6 +1169,18 @@ a {
 	transition: all .4s ease
 }
 
+.button-red {
+	display: inline-block;
+	border: 1px solid #ff0000;
+	border-radius: 30px;
+	color: #222;
+	font-weight: 500;
+	padding: 12px 50px;
+	background: #ff0000;
+	color: #fff;
+	transition: all .4s ease
+}
+
 @media (max-width: 767px) {
 	.button {
 		padding: 8px 25px !important
