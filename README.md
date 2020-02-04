@@ -106,3 +106,5 @@ This screen show information about your account, orders and the possibility to c
 <img src="" width="" height="" />
 To contact the Anime Shop use this information.
 
+### Desription
+Shop and blog where the community can purchase figures and collectibles from anime series and can be up to date with the new releases
