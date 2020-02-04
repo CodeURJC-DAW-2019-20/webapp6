@@ -13,11 +13,14 @@
 | Enrique Márquez Jiménez | e.marquezj.2017@alumnos.urjc.es | https://github.com/Kikemaji |
 | Carlos González Valtierra | c.gonzalezva.2017@alumnos.urjc.es |  https://github.com/Carlos237|
 
+### Desription
+Shop and blog where the community can purchase figures and collectibles from anime series and can be up to date with the new releases
+
 ### Entities :ghost:
 * User
 * Product
 * Order
-* Blog
+* Blog entry
 
 ### Advanced functionality (ideas) :rocket:
 * Sales based on product's stock
@@ -105,6 +108,3 @@ This screen show information about your account, orders and the possibility to c
 * **Contact** 
 <img src="" width="" height="" />
 To contact the Anime Shop use this information.
-
-### Desription
-Shop and blog where the community can purchase figures and collectibles from anime series and can be up to date with the new releases
