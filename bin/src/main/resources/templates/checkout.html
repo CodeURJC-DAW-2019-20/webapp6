@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Anime Shop - Proceso de compra</title>
+	<link rel="icon" href="img/Fevicon.png" type="image/png">
+
+  <link rel="stylesheet" href="vendors/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="vendors/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="vendors/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="vendors/themify-icons/themify-icons.css">
+    <link rel="stylesheet" href="vendors/linericon/style.css">
+  <link rel="stylesheet" href="vendors/owl-carousel/owl.theme.default.min.css">
+  <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
+  <link rel="stylesheet" href="vendors/nice-select/nice-select.css">
+  <link rel="stylesheet" href="vendors/nouislider/nouislider.min.css">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!--================ Start Header Menu Area =================-->
+	<header class="header_area">
+    <div class="main_menu">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+          <a class="navbar-brand logo_h" href="index.html"><img src="img/shop-logo.png" alt=""></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+            <ul class="nav navbar-nav menu_nav ml-auto mr-auto">
+              <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+              <li class="nav-item active submenu dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                  aria-expanded="false">Comprar</a>
+                <ul class="dropdown-menu">
+                  <li class="nav-item"><a class="nav-link" href="category.html">Categorías</a></li>
+                  <li class="nav-item"><a class="nav-link" href="single-product.html">Detalles del producto</a></li>
+                  <li class="nav-item"><a class="nav-link" href="checkout.html">Checkout</a></li>
+                  <li class="nav-item"><a class="nav-link" href="confirmation.html">Confirmación</a></li>
+                  <li class="nav-item"><a class="nav-link" href="cart.html">Cesta</a></li>
+                </ul>
+							</li>
+              <li class="nav-item submenu dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                  aria-expanded="false">Blog</a>
+                <ul class="dropdown-menu">
+                  <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                  <li class="nav-item"><a class="nav-link" href="single-blog.html">Detalles del blog</a></li>
+                </ul>
+							</li>
+							<li class="nav-item submenu dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                  aria-expanded="false">Usuarios</a>
+                <ul class="dropdown-menu">
+                  <li class="nav-item"><a class="nav-link" href="login.html">Iniciar sesión</a></li>
+                  <li class="nav-item"><a class="nav-link" href="register.html">Registrarse</a></li>
+                  <li class="nav-item"><a class="nav-link" href="tracking-order.html">Seguimiento</a></li>
+                  <li class="nav-item"><a class="nav-link" href="user-page.html">Mi perfil</a></li>
+                </ul>
+              </li>
+              <li class="nav-item"><a class="nav-link" href="contact.html">Contacto</a></li>
+            </ul>
+
+            <ul class="nav-shop">
+              <li class="nav-item"><button><i class="ti-search"></i></button></li>
+              <li class="nav-item"><button onclick="location.href='cart.html'"><i class="ti-shopping-cart"></i><span class="nav-shop__circle">3</span></button> </li>
+              <li class="nav-item"><a class="button button-header" href="category.html">Comprar ahora</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+	<!--================ End Header Menu Area =================-->
+
+	<!-- ================ start banner area ================= 
+	<section class="blog-banner-area" id="category">
+		<div class="container h-100">
+			<div class="blog-banner">
+				<div class="text-center">
+					<h1>Proceso de compra</h1>
+					<nav aria-label="breadcrumb" class="banner-breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Proceso de compra</li>
+            </ol>
+          </nav>
+				</div>
+			</div>
+    </div>
+	</section>
+	================ end banner area ================= -->
+  
+  
+  <!--================Checkout Area =================-->
+  <section class="checkout_area section-margin--small">
+    <div class="container">
+        <div class="returning_customer">
+          <div class="check_title">
+              <h2>¿Eres nuevo? <a href="register.html">Regístrate</a></h2>
+          </div>
+          <p>Si has comprado alguna vez con nosotros, por favor, introduce tus credenciales abajo. Si eres nuevo y no deseas crearte una cuenta,
+              por favor, rellene los datos de dirección y facturación.</p>
+          <form class="row contact_form" action="#" method="post" id="loginCheck">
+              <div class="col-md-6 form-group p_star">
+                  <input type="text" class="form-control" placeholder="Usuario o Correo*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Username or Email*'" id="name" name="name" required>
+                  <!-- <span class="placeholder" data-placeholder="Username or Email"></span> -->
+              </div>
+              <div class="col-md-6 form-group p_star">
+                  <input type="password" class="form-control" placeholder="Contraseña*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Password*'" id="password" name="password" requires>
+                  <!-- <span class="placeholder" data-placeholder="Password"></span> -->
+              </div>
+              <div class="col-md-12 form-group">
+                  <button type="submit" value="submit" class="button button-login" form="loginCheck">Iniciar sesión</button>
+                  <div class="creat_account">
+                      <input type="checkbox" id="f-option" name="selector">
+                      <label for="f-option">Recordarme</label>
+                  </div>
+                  <a class="lost_pass" href="contact.html">¿Olvidaste tu contraseña?</a>
+              </div>
+          </form>
+        </div>
+        <div class="returning_customer">
+          <div class="check_title">
+              <p><h2>¿Tienes un código?</h2></p>
+          </div>
+          <form class="row contact_form" action="#" method="post" id="cuponCheck">
+              <div class="col-md-6 form-group p_star">
+                  <input type="text" class="form-control" placeholder="Código" required>
+                  <!-- <span class="placeholder" data-placeholder="Username or Email"></span> -->
+              </div>
+              <div class="col-md-12 form-group">
+                  <button type="submit" value="submit" class="button button-coupon" form="cuponCheck">Aplicar cupón</button>
+              </div>
+          </form>
+        </div>
+        <p></p>
+          <!--<div class="cupon_area">
+              <div class="check_title">
+                  <h2>¿Tienes un código?</h2>
+              </div>
+              <input type="text" placeholder="Enter coupon code">
+              <a class="button button-coupon" href="#">Apply Coupon</a>
+          </div>-->
+        <div class="billing_details">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h3>Detalles de la dirección</h3>
+                    <form class="row contact_form" id="myForm" method="POST" onsubmit="window.location.href = 'confirmation.html';">
+                        <div class="col-md-6 form-group p_star">
+                            <input type="text" class="form-control" id="first" name="name" placeholder="Nombre" required>
+                            <span class="placeholder" data-placeholder="First name"></span>
+                        </div>
+                        <div class="col-md-6 form-group p_star">
+                            <input type="text" class="form-control" id="last" name="lastname" placeholder="Apellidos" required>
+                            <span class="placeholder" data-placeholder="Last name"></span>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <input type="text" class="form-control" id="company" name="company" placeholder="Empresa">
+                        </div>
+                        <div class="col-md-6 form-group p_star">
+                            <input type="text" class="form-control" id="number" name="number" placeholder="Teléfono" required>
+                            <span class="placeholder" data-placeholder="Phone number"></span>
+                        </div>
+                        <div class="col-md-6 form-group p_star">
+                            <input type="text" class="form-control" id="email" name="compemailany" placeholder="Correo electrónico" required>
+                            <span class="placeholder" data-placeholder="Email Address"></span>
+                        </div>
+                        <div class="col-md-12 form-group p_star">
+                            <select class="country_select" id="options" required>
+                                <option value="" disabled selected>Elija una opción</option>
+                                <option id="pen" name="pen" value="pen">Península y Baleares</option>
+                                <option id="can" name="can" value="can">Islas Canarias</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 form-group p_star">
+                            <input type="text" class="form-control" id="add1" name="add1" placeholder="Calle" required>
+                            <span class="placeholder" data-placeholder="Address line 01"></span>
+                        </div>
+                        <div class="col-md-6 form-group p_star">
+                            <input type="text" class="form-control" id="add2" name="floor" placeholder="Piso">
+                            <span class="placeholder" data-placeholder="Address line 02"></span>
+                        </div>
+                        <div class="col-md-12 form-group p_star">
+                            <input type="text" class="form-control" id="city" name="city" placeholder="Ciudad">
+                            <span class="placeholder" data-placeholder="Town/City"></span>
+                        </div>
+                        <div class="col-md-12 form-group p_star">
+                            <select class="country_select" id="choices">
+                            </select>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <input type="text" class="form-control" id="zip" name="zip" placeholder="Código postal" required>
+                        </div>
+                        <!--
+                        <div class="col-md-4 form-group">
+                            <div class="creat_account">
+                                <button class="button button-paypal" type="submit" form="myForm">Comprobar dirección</button>
+                            </div>
+                        </div>-->
+                        <div class="col-md-12 form-group mb-0">
+                            <div class="creat_account">
+                                <h3>Detalles de facturación</h3>
+                                <input type="checkbox" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                <label for="f-option3">Enviar a una dirección distinta</label>
+                                  <div class="collapse" id="collapseExample">
+                                    <div class="col-md-6 form-group p_star">
+                                      <input type="text" class="form-control" id="first" name="name" placeholder="Nombre">
+                                      <span class="placeholder" data-placeholder="First name"></span>
+                                  </div>
+                                  <div class="col-md-6 form-group p_star">
+                                      <input type="text" class="form-control" id="last" name="lastname" placeholder="Apellidos">
+                                      <span class="placeholder" data-placeholder="Last name"></span>
+                                  </div>
+                                  <div class="col-md-12 form-group">
+                                      <input type="text" class="form-control" id="company" name="company" placeholder="Empresa">
+                                  </div>
+                                  <div class="col-md-6 form-group p_star">
+                                      <input type="text" class="form-control" id="number" name="number" placeholder="Teléfono">
+                                      <span class="placeholder" data-placeholder="Phone number"></span>
+                                  </div>
+                                  <div class="col-md-6 form-group p_star">
+                                      <input type="email" class="form-control" id="email" name="compemailany" placeholder="Correo electrónico">
+                                      <span class="placeholder" data-placeholder="Email Address"></span>
+                                  </div>
+                                  <div class="col-md-12 form-group p_star">
+                                      <select class="country_select" id="options">
+                                          <option value="" disabled selected>Elija una opción</option>
+                                          <option id="pen" name="pen" value="pen">Península y Baleares</option>
+                                          <option id="can" name="can" value="can">Islas Canarias</option>
+                                      </select>
+                                  </div>
+                                  <div class="col-md-6 form-group p_star">
+                                      <input type="text" class="form-control" id="add1" name="add1" placeholder="Calle">
+                                      <span class="placeholder" data-placeholder="Address line 01"></span>
+                                  </div>
+                                  <div class="col-md-6 form-group p_star">
+                                      <input type="text" class="form-control" id="add2" name="floor" placeholder="Piso">
+                                      <span class="placeholder" data-placeholder="Address line 02"></span>
+                                  </div>
+                                  <div class="col-md-12 form-group p_star">
+                                      <input type="text" class="form-control" id="city" name="city" placeholder="Ciudad">
+                                      <span class="placeholder" data-placeholder="Town/City"></span>
+                                  </div>
+                                  <div class="col-md-12 form-group p_star">
+                                      <select class="country_select" id="choices">
+                                      </select>
+                                  </div>
+                                  <div class="col-md-12 form-group">
+                                      <input type="text" class="form-control" id="zip" name="zip" placeholder="Código postal">
+                                  </div>
+                                </div>
+                            </div>
+                            <textarea class="form-control" name="message" id="message" rows="1" placeholder="Notas"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-lg-4">
+                    <div class="order_box">
+                        <h2>Tu pedido</h2>
+                        <ul class="list">
+                            <li><a><h4>Productos <span>Total</span></h4></a></li>
+                            <li><a>Charlotte Katakuri<span class="middle">x 1</span> <span class="last">61.25€</span></a></li>
+                            <li><a>Naruto y Sasuke<span class="middle">x 1</span> <span class="last">141.25€</span></a></li>
+                            <li><a>Luigi & Polterpup<span class="middle">x 1</span> <span class="last">85.00€</span></a></li>
+                        </ul>
+                        <ul class="list list_2">
+                          <form>
+                            <li><a>Subtotal <span>287.50€</span></a></li>
+                            <li><a>Precio envío <span>2.90€</span></a></li>
+                            <li><a>Total <span>290.40€</span></a></li>
+                          </form>
+                        </ul>
+                        <div class="payment_item">
+                            <div class="radion_btn">
+                                <input type="radio" id="f-option5" name="selector">
+                                <label for="f-option5">Contrarreembolso</label>
+                                <div class="check"></div>
+                            </div>
+                            <p>Este método de pago conlleva un recargo adicional de 2.90€.</p>
+                        </div>
+                        <div class="payment_item active">
+                            <div class="radion_btn">
+                                <input type="radio" id="f-option6" name="selector">
+                                <label for="f-option6">Paypal </label>
+                                <img src="img/product/card.jpg" alt="">
+                                <div class="check"></div>
+                            </div>
+                            <p>Puedes pagar con tu tarjeta de crédito si no tienes una cuenta
+                                de Paypal.</p>
+                        </div>
+                        <div class="creat_account">
+                            <input type="checkbox" id="f-option4" name="selector" required>
+                            <label for="f-option4">He leído y acepto</label>
+                            <a href="https://themes.getbootstrap.com/terms/">los términos y condiciones*</a>
+                        </div>
+                        <div class="text-center">
+                          <button class="button button-paypal" type="submit" form="myForm">Proceder al pago</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+  <!--================End Checkout Area =================-->
+
+
+
+  <!--================ Start footer Area  =================-->	
+	<footer class="footer">
+		<div class="footer-area">
+			<div class="container">
+				<div class="row section_gap">
+					<div class="col-lg-3 col-md-6 col-sm-6">
+						<div class="single-footer-widget tp_widgets">
+							<h4 class="footer_title large_title">Objetivo</h4>
+							<p>
+                Nuestro objetivo es proporcionar a los amantes de los comics, mangas y videojuegos 
+                las figuras de sus personajes favoritos.  
+              </p>
+						</div>
+					</div>
+					<div class="offset-lg-1 col-lg-2 col-md-6 col-sm-6">
+						<div class="single-footer-widget tp_widgets">
+							<h4 class="footer_title">Atajos</h4>
+							<ul class="list">
+								<li><a href="#">Home</a></li>
+								<li><a href="#">Tienda</a></li>
+								<li><a href="#">Blog</a></li>
+								<li><a href="#">Productos</a></li>
+								<li><a href="#">Contacto</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-6 col-sm-6">
+						<div class="single-footer-widget instafeed">
+							<h4 class="footer_title">Gallería</h4>
+							<ul class="list instafeed d-flex flex-wrap">
+								<li><img src="img/gallery/r1.jpg" alt=""></li>
+								<li><img src="img/gallery/r2.jpg" alt=""></li>
+								<li><img src="img/gallery/r3.jpg" alt=""></li>
+								<li><img src="img/gallery/r5.jpg" alt=""></li>
+								<li><img src="img/gallery/r7.jpg" alt=""></li>
+								<li><img src="img/gallery/r8.jpg" alt=""></li>
+							</ul>
+						</div>
+					</div>
+					<div class="offset-lg-1 col-lg-3 col-md-6 col-sm-6">
+						<div class="single-footer-widget tp_widgets">
+							<h4 class="footer_title">Contáctanos</h4>
+							<div class="ml-40">
+								<p class="sm-head">
+									<span class="fa fa-location-arrow"></span>
+									Sede
+								</p>
+								<p>Capsule Corp. , West City</p>
+	
+								<p class="sm-head">
+									<span class="fa fa-phone"></span>
+									Número de teléfono
+								</p>
+								<p>
+									+34 600 00 00 00 <br>
+								</p>
+	
+								<p class="sm-head">
+									<span class="fa fa-envelope"></span>
+									Email
+								</p>
+								<p>
+									free@infoexample.com <br>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="footer-bottom">
+			<div class="container">
+				<div class="row d-flex">
+					<p class="col-lg-12 footer-text text-center">
+						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!--================ End footer Area  =================-->
+
+
+
+  <script src="vendors/jquery/jquery-3.2.1.min.js"></script>
+  <script src="vendors/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="vendors/skrollr.min.js"></script>
+  <script src="vendors/owl-carousel/owl.carousel.min.js"></script>
+  <script src="vendors/nice-select/jquery.nice-select.min.js"></script>
+  <script src="vendors/jquery.ajaxchimp.min.js"></script>
+  <script src="vendors/mail-script.js"></script>
+  <script src="js/main.js"></script>
+  <script src="vendors/localidad.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <script src='vendors/otherAddres.js'></script>
+</body>
+</html>
