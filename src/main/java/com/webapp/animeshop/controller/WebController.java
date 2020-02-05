@@ -3,6 +3,7 @@ package com.webapp.animeshop.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
 import com.webapp.animeshop.user.UserComponent;
@@ -23,5 +24,24 @@ public class WebController {
         }
     }
 
+	@GetMapping("/blog")
+	public String blog(Model model) {		
+		return "blog";
+	}
+	
+	@GetMapping("/category")
+	public String category(Model model) {		
+		return "category";
+	}
+	
+	@GetMapping("/singleBlog")
+	public String singleBlog(Model model) {		
+		return "singleBlog";
+	}
+	
+	@GetMapping("/singleProduct")
+	public String singleProduct(Model model) {		
+		return "singleProduct";
+	}
 	
 }
