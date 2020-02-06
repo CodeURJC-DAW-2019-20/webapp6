@@ -33,6 +33,11 @@ public class User implements Serializable {
     
     private String password;
     
+    private String delivery;
+    private String billing;
+    
+    private int payment;
+    
     @ElementCollection(fetch = FetchType.LAZY)
     private List<String> roles;
 
@@ -76,7 +81,36 @@ public class User implements Serializable {
     public void setRoles(List<String> roles) {
         this.roles = roles;
     }
-  
+    
+    public String getDelivery() {
+		return delivery;
+	}
+
+
+	public void setDelivery(String delivery) {
+		this.delivery = delivery;
+	}
+	
+	public String getBilling() {
+		return billing;
+	}
+
+
+	public void setBilling(String billing) {
+		this.billing = billing;
+	}
+	
+	public int getPayment() {
+		return this.payment;
+	}
+	
+	public void setPayment(int payment) {
+		String value = Integer.toString(payment);
+		if(value.length() == 16) {
+			this.payment = payment;
+		}
+	}
+	
     public User() {
     }
 
@@ -97,4 +131,5 @@ public class User implements Serializable {
         return "User [id=" + id + ", name=" + name + ", password="
                 + password + ", roles=" + roles + "]";
     }
+
 }
