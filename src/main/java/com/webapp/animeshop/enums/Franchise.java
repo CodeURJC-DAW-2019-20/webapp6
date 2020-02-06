@@ -1,0 +1,15 @@
+package com.webapp.animeshop.enums;
+
+public enum Franchise {
+	NARUTO,
+	ONE_PIECE,
+	ATTACK_ON_TITAN,
+	MY_HERO_ACADEMIA,
+	BLEACH,
+	DRAGON_BALL,
+	FULLMETAL_ALCHEMIST,
+	BLOODBORNE,
+	BLACK_CLOVER,
+	DEMON_SLAYER,
+	FAIRY_TAIL
+}
