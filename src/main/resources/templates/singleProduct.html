@@ -5,17 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Aroma Shop - Product Details</title>
-	<link rel="icon" href="img/Fevicon.png" type="image/png">
-    <link rel="stylesheet" href="vendors/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="vendors/bootstrap/css/bootstrap.css">
-  <link rel="stylesheet" href="vendors/fontawesome/css/all.min.css">
-	<link rel="stylesheet" href="vendors/themify-icons/themify-icons.css">
-	<link rel="stylesheet" href="vendors/linericon/style.css">
-  <link rel="stylesheet" href="vendors/nice-select/nice-select.css">
-  <link rel="stylesheet" href="vendors/owl-carousel/owl.theme.default.min.css">
-  <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
+	<link rel="icon" href="../img/Fevicon.png" type="../image/png">
+    <link rel="stylesheet" href="../vendors/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../vendors/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="../vendors/fontawesome/css/all.min.css">
+	<link rel="stylesheet" href="../vendors/themify-icons/themify-icons.css">
+	<link rel="stylesheet" href="../vendors/linericon/style.css">
+  <link rel="stylesheet" href="../vendors/nice-select/nice-select.css">
+  <link rel="stylesheet" href="../vendors/owl-carousel/owl.theme.default.min.css">
+  <link rel="stylesheet" href="../vendors/owl-carousel/owl.carousel.min.css">
 
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 	<!--================ Start Header Menu Area =================-->
@@ -23,7 +23,7 @@
     <div class="main_menu">
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
-          <a class="navbar-brand logo_h" href="/"><img src="img/shop-logo.png" alt=""></a>
+          <a class="navbar-brand logo_h" href="/"><img src="../img/shop-logo.png" alt=""></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="icon-bar"></span>
@@ -37,7 +37,7 @@
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                   aria-expanded="false">Comprar</a>
                 <ul class="dropdown-menu">
-                  <li class="nav-item"><a class="nav-link" href="category">Categorías</a></li>
+                  <li class="nav-item"><a class="nav-link" href="../products">Categorías</a></li>
                   <li class="nav-item"><a class="nav-link" href="singleProduct">Detalles de producto</a></li>
                   <li class="nav-item"><a class="nav-link" href="checkout">Checkout</a></li>
                   <li class="nav-item"><a class="nav-link" href="confirmation">Confirmación</a></li>
@@ -56,8 +56,8 @@
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                   aria-expanded="false">Usuarios</a>
                 <ul class="dropdown-menu">
-									<li class="nav-item"><a class="nav-link" href="login">Iniciar sesión</a></li>
-                  <li class="nav-item"><a class="nav-link" href="register">Registrarse</a></li>									
+									<li class="nav-item"><a class="nav-link" href="../login">Iniciar sesión</a></li>
+                  <li class="nav-item"><a class="nav-link" href="../register">Registrarse</a></li>									
 				  <li class="nav-item"><a class="nav-link" href="trackingOrder">Seguimiento</a></li>
 				  <li class="nav-item"><a class="nav-link" href="userPage">Mi perfil</a></li>
                 </ul>
@@ -77,16 +77,17 @@
   </header>
 	<!--================ End Header Menu Area =================-->
   <!--================Single Product Area =================-->
+  {{#product}}
 	<div class="product_image_area">
 		<div class="container">
 			<div class="row s_product_inner">
 				<div class="col-lg-6">
 					<div class="owl-carousel owl-theme s_Product_carousel">
 						<div class="single-prd-item">
-							<img class="img-fluid" src="img/product/levi.jpg" alt="">
+							<img class="img-fluid" src="../img/product/levi.jpg" alt="">
 						</div>
 						<div class="single-prd-item">
-							<img class="img-fluid" src="img/product/levi2.jpg" alt="">
+							<img class="img-fluid" src="../img/product/levi2.jpg" alt="">
 						</div>
 						<!-- <div class="single-prd-item">
 							<img class="img-fluid" src="img/category/s-p1.jpg" alt="">
@@ -95,13 +96,13 @@
 				</div>
 				<div class="col-lg-5 offset-lg-1">
 					<div class="s_product_text">
-						<h3>Figura Funko Pop! Levi</h3>
-						<h2>14.49€</h2>
+						<h3>{{name}}</h3>
+						<h2>{{price}}€</h2>
 						<ul class="list">
-							<li><a class="active" href="#"><span>Categoría</span> : Funko Pop!</a></li>
+							<li><a class="active" href="#"><span>Categoría</span> : {{franchise}}</a></li>
 							<li><a href="#"><span>Disponibilidad</span> : En Stock</a></li>
 						</ul>
-						<p>Figura POP! de Levi Ackerman, personaje de Attack on Titan (Ataque a los Titanes), presentada por Funko.</p>
+						<p>{{description}}</p>
 						<div class="product_count">
               				<label for="qty">Cantidad:</label>
               				<button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;"
@@ -117,7 +118,7 @@
 							<button class="remove-single-product">Eliminar</button>
 						</div>
 					</div>
-				</div>
+				</div>	
 			</div>
 		</div>
 	</div>
@@ -145,9 +146,7 @@
 			</ul>
 			<div class="tab-content" id="myTabContent">
 				<div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab">
-					<p>Si no conoces las POP! de Funko te estás perdiendo una de las líneas de figuras más divertidas que existen en el mundillo del merchandising. Decenas de licencias diferentes, entre videojuegos, cine, series de televisión, manga y anime, etcétera, y con cientos de personajes diferentes, todas ellas con esa característica tan visible de esta línea: el estilo “cabezón” de los personajes que la hacen adorables y que no podrás para de coleccionarlas.
-							
-						En esta ocasión, Funko nos sorprende con esta genial figura dedicada al personaje de Levi Ackerman que nos llega directamente desde el manga y anime de Shingeki no Kyojin (Ataque a los Titanes).</p>
+					<p>{{description}}</p>
 				</div>
 				<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
 					<div class="table-responsive">
@@ -158,7 +157,7 @@
 										<h5>Ancho</h5>
 									</td>
 									<td>
-										<h5>4 cm</h5>
+										<h5>{{width}} cm</h5>
 									</td>
 								</tr>
 								<tr>
@@ -166,7 +165,7 @@
 										<h5>Alto</h5>
 									</td>
 									<td>
-										<h5>9 cm</h5>
+										<h5>{{height}} cm</h5>
 									</td>
 								</tr>
 								<tr>
@@ -174,7 +173,7 @@
 										<h5>Categoría</h5>
 									</td>
 									<td>
-										<h5>Funko Pop!</h5>
+										<h5>{{franchise}}</h5>
 									</td>
 								</tr>
 								<tr>
@@ -182,15 +181,7 @@
 										<h5>Peso</h5>
 									</td>
 									<td>
-										<h5>300 gr</h5>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<h5>Licencia</h5>
-									</td>
-									<td>
-										<h5>Shingeki no Kyojin (Ataque a los titanes)</h5>
+										<h5>{{weight}} gr</h5>
 									</td>
 								</tr>
 								<tr>
@@ -198,7 +189,7 @@
 										<h5>Fabricante</h5>
 									</td>
 									<td>
-										<h5>Funko Pop!</h5>
+										<h5>{{distributor}}</h5>
 									</td>
 								</tr>
 								<tr>
@@ -206,7 +197,7 @@
 										<h5>Referencia</h5>
 									</td>
 									<td>
-										<h5>TEMP11827</h5>
+										<h5>{{reference}}</h5>
 									</td>
 								</tr>
 							</tbody>
@@ -418,6 +409,7 @@
 			</div> -->
 		</div>
 	</section>
+	{{/product}}
 	<!--================End Product Description Area =================-->
 
 	<!--================ Start related Product area =================-->  
@@ -621,13 +613,13 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <!--================ End footer Area  =================-->
 
 
-  <script src="vendors/jquery/jquery-3.2.1.min.js"></script>
-  <script src="vendors/bootstrap/bootstrap.bundle.min.js"></script>
-  <script src="vendors/skrollr.min.js"></script>
-  <script src="vendors/owl-carousel/owl.carousel.min.js"></script>
-  <script src="vendors/nice-select/jquery.nice-select.min.js"></script>
-  <script src="vendors/jquery.ajaxchimp.min.js"></script>
-  <script src="vendors/mail-script.js"></script>
-  <script src="js/main.js"></script>
+  <script src="../vendors/jquery/jquery-3.2.1.min.js"></script>
+  <script src="../vendors/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="../vendors/skrollr.min.js"></script>
+  <script src="../vendors/owl-carousel/owl.carousel.min.js"></script>
+  <script src="../vendors/nice-select/jquery.nice-select.min.js"></script>
+  <script src="../vendors/jquery.ajaxchimp.min.js"></script>
+  <script src="../vendors/mail-script.js"></script>
+  <script src="../js/main.js"></script>
 </body>
 </html>

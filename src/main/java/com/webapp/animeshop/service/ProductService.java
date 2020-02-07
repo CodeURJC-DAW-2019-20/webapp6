@@ -12,6 +12,7 @@ import com.webapp.animeshop.repositories.ProductRepository;
 @Service
 public class ProductService {
 	
+	@Autowired
 	private ProductRepository productRepository;
 	
 	@Autowired

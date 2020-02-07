@@ -7,7 +7,6 @@ import org.springframework.stereotype.Controller;
 
 import com.webapp.animeshop.model.Product;
 import com.webapp.animeshop.model.User;
-import com.webapp.animeshop.repositories.ProductRepository;
 import com.webapp.animeshop.repositories.UserRepository;
 import com.webapp.animeshop.service.ProductService;
 
@@ -25,7 +24,6 @@ public class DatabaseInitializer {
 	) {
 	       this.userRepository = userRepository;
 	       this.productService = productService;
-
 	}
 
 	@PostConstruct
@@ -37,7 +35,11 @@ public class DatabaseInitializer {
 		this.userRepository.save(user);
 		this.userRepository.save(admin);
 		
-		Product product = new Product("Funko Pop! Levi Ackerman","Attack on Titans",14.50,"WOW",5,9,200,"Funko Pop!","TM0ZZH441XA");
+		Product product = new Product("Funko Pop! Levi Ackerman","Attack on Titans",14.49,"WOW",5,9,200,"Funko Pop!","TM0ZZH441XA");
+		Product product2 = new Product("One Piece - Charlotte Katakuri (Figuarts ZERO)","One Piece",69.99,"WOW",9,16,500,"Figuarts ZERO","TM0ZZH441XB");
+		Product product3 = new Product("Pack Naruto y Sasuke Relation (Figuarts ZERO Ex)","Naruto",141.25,"WOW",38,19,1200,"Figuarts ZERO","TM0ZZH441XC");
 		this.productService.addProduct(product);
+		this.productService.addProduct(product2);
+		this.productService.addProduct(product3);
 	}
 }
