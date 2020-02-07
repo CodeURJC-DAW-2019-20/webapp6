@@ -29,12 +29,14 @@ public class Product implements Serializable {
 	private int weight;
 	private String distributor;
 	private String reference;
+	private String image;
+	private String imagefull;
 	//private Image image;
 	
 	public Product() {};
 	
 	public Product(String name, String franchise, double price, String description,
-					int width, int height, int weight, String distributor, String reference) {
+					int width, int height, int weight, String distributor, String reference, String image, String imagefull) {
 		this.name = name;
 		this.franchise = franchise;
 		this.price = price;
@@ -44,6 +46,8 @@ public class Product implements Serializable {
 		this.weight = weight;
 		this.distributor = distributor;
 		this.reference = reference;
+		this.image = image;
+		this.imagefull = imagefull;
 	};
 	
 	public String getName() {
@@ -115,6 +119,14 @@ public class Product implements Serializable {
 	
 	public void setReference(String reference) {
 		this.reference = reference;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
 	}
 	
 }

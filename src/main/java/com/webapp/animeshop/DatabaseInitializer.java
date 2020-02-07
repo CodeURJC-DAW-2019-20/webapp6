@@ -35,9 +35,9 @@ public class DatabaseInitializer {
 		this.userRepository.save(user);
 		this.userRepository.save(admin);
 		
-		Product product = new Product("Funko Pop! Levi Ackerman","Attack on Titans",14.49,"WOW",5,9,200,"Funko Pop!","TM0ZZH441XA");
-		Product product2 = new Product("One Piece - Charlotte Katakuri (Figuarts ZERO)","One Piece",69.99,"WOW",9,16,500,"Figuarts ZERO","TM0ZZH441XB");
-		Product product3 = new Product("Pack Naruto y Sasuke Relation (Figuarts ZERO Ex)","Naruto",141.25,"WOW",38,19,1200,"Figuarts ZERO","TM0ZZH441XC");
+		Product product = new Product("Funko Pop! Levi Ackerman","Attack on Titans",14.49,"WOW",5,9,200,"Funko Pop!","TM0ZZH441XA", "img/product/levimin.png", "img/product/levi2.jpg");
+		Product product2 = new Product("One Piece - Charlotte Katakuri (Figuarts ZERO)","One Piece",69.99,"WOW",9,16,500,"Figuarts ZERO","TM0ZZH441XB", "img/product/katakuri.png", "img/product/katakurifull.jpg");
+		Product product3 = new Product("Pack Naruto y Sasuke Relation (Figuarts ZERO Ex)","Naruto",141.25,"WOW",38,19,1200,"Figuarts ZERO","TM0ZZH441XC", "img/product/narutosasuke.png", "img/product/narutosasukefull.jpg");
 		this.productService.addProduct(product);
 		this.productService.addProduct(product2);
 		this.productService.addProduct(product3);
