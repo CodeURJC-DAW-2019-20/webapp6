@@ -39,7 +39,7 @@ public class ProductController {
 							 @RequestParam String description, @RequestParam int width, @RequestParam int height,
 							 @RequestParam int weight, @RequestParam String distributor, @RequestParam String reference) {
 		
-		Product product = new Product(name,franchise,Double.parseDouble(price),description,width,height,weight,distributor,reference);
+		Product product = new Product(name,franchise,Double.parseDouble(price),description,width,height,weight,distributor,reference,"","");
 		this.productService.addProduct(product);
 		return this.showProducts(model);
 	}

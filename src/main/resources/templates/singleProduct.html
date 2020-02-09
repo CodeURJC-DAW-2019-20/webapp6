@@ -1,4 +1,5 @@
 {{>header}}
+<meta charset="UTF-8">
   <!--================Single Product Area =================-->
   {{#product}}
 	<div class="product_image_area">
@@ -7,10 +8,10 @@
 				<div class="col-lg-6">
 					<div class="owl-carousel owl-theme s_Product_carousel">
 						<div class="single-prd-item">
-							<img class="img-fluid" src="../{{imagefull}}" alt="">
+							<img class="img-fluid" src="{{imagefull}}" alt="">
 						</div>
 						<div class="single-prd-item">
-							<img class="img-fluid" src="../{{imagefull}}" alt="">
+							<img class="img-fluid" src="{{imagefull}}" alt="">
 						</div>
 						<!-- <div class="single-prd-item">
 							<img class="img-fluid" src="img/category/s-p1.jpg" alt="">
@@ -20,9 +21,9 @@
 				<div class="col-lg-5 offset-lg-1">
 					<div class="s_product_text">
 						<h3>{{name}}</h3>
-						<h2>{{price}}�</h2>
+						<h2>{{price}}&euro;</h2>
 						<ul class="list">
-							<li><a class="active" href="#"><span>Categor�a</span> : {{franchise}}</a></li>
+							<li><a class="active" href="#"><span>Categor&iacute;a</span> : {{franchise}}</a></li>
 							<li><a href="#"><span>Disponibilidad</span> : En Stock</a></li>
 						</ul>
 						<p>{{description}}</p>
@@ -33,7 +34,7 @@
 							<input type="text" name="qty" id="sst" size="2" maxlength="12" value="1" title="Quantity:" class="input-text qty">
 							<button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) & sst > 0 ) result.value--;return false;"
                					class="reduced items-count" type="button"><i class="ti-angle-right"></i></button>
-							<a class="button primary-btn" href="#">A�adir al carrito</a>               
+							<a class="button primary-btn" href="#">A&ntilde;adir al carrito</a>               
 						</div>
 						<div class="card_area d-flex align-items-center">
 							<a class="icon_btn" href="#"><i class="lnr lnr lnr-diamond"></i></a>
@@ -52,7 +53,7 @@
 		<div class="container">
 			<ul class="nav nav-tabs" id="myTab" role="tablist">
 				<li class="nav-item">
-					<a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Descripci�n</a>
+					<a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Descripci&oacute;n</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
@@ -64,7 +65,7 @@
 				</li>
 				<li class="nav-item">
 					<a class="nav-link active" id="review-tab" data-toggle="tab" href="#review" role="tab" aria-controls="review"
-					 aria-selected="false">Rese�as</a>
+					 aria-selected="false">Reseï¿½as</a>
 				</li> -->
 			</ul>
 			<div class="tab-content" id="myTabContent">
@@ -93,7 +94,7 @@
 								</tr>
 								<tr>
 									<td>
-										<h5>Categor�a</h5>
+										<h5>Categor&iacute;a</h5>
 									</td>
 									<td>
 										<h5>{{franchise}}</h5>
@@ -127,11 +128,11 @@
 						</table>
 					</div>
 				</div>
-				<div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+				<!--<div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
 					<div class="row">
 						<div class="col-lg-6">
 							<div class="comment_list">
-								<!-- <div class="review_item">
+								 <div class="review_item">
 									<div class="media">
 										<div class="d-flex">
 											<img src="img/product/review-1.png" alt="">
@@ -328,8 +329,8 @@
 							</div>
 						</div>
 					</div>
-				</div>
-			</div> -->
+				</div> -->
+			</div>
 		</div>
 	</section>
 	{{/product}}

@@ -1,5 +1,5 @@
 {{>header}}
-
+<meta charset="UTF-8">
 	<!-- ================ start banner area ================= 
 	<section class="blog-banner-area" id="category">
 		<div class="container h-100">
@@ -24,47 +24,47 @@
     <div class="container">
         <div class="returning_customer">
           <div class="check_title">
-              <h2>¿Eres nuevo? <a href="register.html">Regístrate</a></h2>
+              <h2>Â¿Eres nuevo? <a href="register.html">RegÃ­strate</a></h2>
           </div>
           <p>Si has comprado alguna vez con nosotros, por favor, introduce tus credenciales abajo. Si eres nuevo y no deseas crearte una cuenta,
-              por favor, rellene los datos de dirección y facturación.</p>
+              por favor, rellene los datos de direcciÃ³n y facturaciÃ³n.</p>
           <form class="row contact_form" action="#" method="post" id="loginCheck">
               <div class="col-md-6 form-group p_star">
                   <input type="text" class="form-control" placeholder="Usuario o Correo*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Username or Email*'" id="name" name="name" required>
                   <!-- <span class="placeholder" data-placeholder="Username or Email"></span> -->
               </div>
               <div class="col-md-6 form-group p_star">
-                  <input type="password" class="form-control" placeholder="Contraseña*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Password*'" id="password" name="password" requires>
+                  <input type="password" class="form-control" placeholder="ContraseÃ±a*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Password*'" id="password" name="password" requires>
                   <!-- <span class="placeholder" data-placeholder="Password"></span> -->
               </div>
               <div class="col-md-12 form-group">
-                  <button type="submit" value="submit" class="button button-login" form="loginCheck">Iniciar sesión</button>
+                  <button type="submit" value="submit" class="button button-login" form="loginCheck">Iniciar sesiÃ³n</button>
                   <div class="creat_account">
                       <input type="checkbox" id="f-option" name="selector">
                       <label for="f-option">Recordarme</label>
                   </div>
-                  <a class="lost_pass" href="contact.html">¿Olvidaste tu contraseña?</a>
+                  <a class="lost_pass" href="contact.html">Â¿Olvidaste tu contraseÃ±a?</a>
               </div>
           </form>
         </div>
         <div class="returning_customer">
           <div class="check_title">
-              <p><h2>¿Tienes un código?</h2></p>
+              <p><h2>Â¿Tienes un cÃ³digo?</h2></p>
           </div>
           <form class="row contact_form" action="#" method="post" id="cuponCheck">
               <div class="col-md-6 form-group p_star">
-                  <input type="text" class="form-control" placeholder="Código" required>
+                  <input type="text" class="form-control" placeholder="CÃ³digo" required>
                   <!-- <span class="placeholder" data-placeholder="Username or Email"></span> -->
               </div>
               <div class="col-md-12 form-group">
-                  <button type="submit" value="submit" class="button button-coupon" form="cuponCheck">Aplicar cupón</button>
+                  <button type="submit" value="submit" class="button button-coupon" form="cuponCheck">Aplicar cupÃ³n</button>
               </div>
           </form>
         </div>
         <p></p>
           <!--<div class="cupon_area">
               <div class="check_title">
-                  <h2>¿Tienes un código?</h2>
+                  <h2>Â¿Tienes un cÃ³digo?</h2>
               </div>
               <input type="text" placeholder="Enter coupon code">
               <a class="button button-coupon" href="#">Apply Coupon</a>
@@ -72,7 +72,7 @@
         <div class="billing_details">
             <div class="row">
                 <div class="col-lg-8">
-                    <h3>Detalles de la dirección</h3>
+                    <h3>Detalles de la direcciÃ³n</h3>
                     <form class="row contact_form" id="myForm" method="POST" onsubmit="window.location.href = 'confirmation.html';">
                         <div class="col-md-6 form-group p_star">
                             <input type="text" class="form-control" id="first" name="name" placeholder="Nombre" required>
@@ -86,17 +86,17 @@
                             <input type="text" class="form-control" id="company" name="company" placeholder="Empresa">
                         </div>
                         <div class="col-md-6 form-group p_star">
-                            <input type="text" class="form-control" id="number" name="number" placeholder="Teléfono" required>
+                            <input type="text" class="form-control" id="number" name="number" placeholder="TelÃ©fono" required>
                             <span class="placeholder" data-placeholder="Phone number"></span>
                         </div>
                         <div class="col-md-6 form-group p_star">
-                            <input type="text" class="form-control" id="email" name="compemailany" placeholder="Correo electrónico" required>
+                            <input type="text" class="form-control" id="email" name="compemailany" placeholder="Correo electrÃ³nico" required>
                             <span class="placeholder" data-placeholder="Email Address"></span>
                         </div>
                         <div class="col-md-12 form-group p_star">
                             <select class="country_select" id="options" required>
-                                <option value="" disabled selected>Elija una opción</option>
-                                <option id="pen" name="pen" value="pen">Península y Baleares</option>
+                                <option value="" disabled selected>Elija una opciÃ³n</option>
+                                <option id="pen" name="pen" value="pen">PenÃ­nsula y Baleares</option>
                                 <option id="can" name="can" value="can">Islas Canarias</option>
                             </select>
                         </div>
@@ -117,19 +117,19 @@
                             </select>
                         </div>
                         <div class="col-md-12 form-group">
-                            <input type="text" class="form-control" id="zip" name="zip" placeholder="Código postal" required>
+                            <input type="text" class="form-control" id="zip" name="zip" placeholder="CÃ³digo postal" required>
                         </div>
                         <!--
                         <div class="col-md-4 form-group">
                             <div class="creat_account">
-                                <button class="button button-paypal" type="submit" form="myForm">Comprobar dirección</button>
+                                <button class="button button-paypal" type="submit" form="myForm">Comprobar direcciÃ³n</button>
                             </div>
                         </div>-->
                         <div class="col-md-12 form-group mb-0">
                             <div class="creat_account">
-                                <h3>Detalles de facturación</h3>
+                                <h3>Detalles de facturaciÃ³n</h3>
                                 <input type="checkbox" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                                <label for="f-option3">Enviar a una dirección distinta</label>
+                                <label for="f-option3">Enviar a una direcciÃ³n distinta</label>
                                   <div class="collapse" id="collapseExample">
                                     <div class="col-md-6 form-group p_star">
                                       <input type="text" class="form-control" id="first" name="name" placeholder="Nombre">
@@ -143,17 +143,17 @@
                                       <input type="text" class="form-control" id="company" name="company" placeholder="Empresa">
                                   </div>
                                   <div class="col-md-6 form-group p_star">
-                                      <input type="text" class="form-control" id="number" name="number" placeholder="Teléfono">
+                                      <input type="text" class="form-control" id="number" name="number" placeholder="TelÃ©fono">
                                       <span class="placeholder" data-placeholder="Phone number"></span>
                                   </div>
                                   <div class="col-md-6 form-group p_star">
-                                      <input type="email" class="form-control" id="email" name="compemailany" placeholder="Correo electrónico">
+                                      <input type="email" class="form-control" id="email" name="compemailany" placeholder="Correo electrÃ³nico">
                                       <span class="placeholder" data-placeholder="Email Address"></span>
                                   </div>
                                   <div class="col-md-12 form-group p_star">
                                       <select class="country_select" id="options">
-                                          <option value="" disabled selected>Elija una opción</option>
-                                          <option id="pen" name="pen" value="pen">Península y Baleares</option>
+                                          <option value="" disabled selected>Elija una opciÃ³n</option>
+                                          <option id="pen" name="pen" value="pen">PenÃ­nsula y Baleares</option>
                                           <option id="can" name="can" value="can">Islas Canarias</option>
                                       </select>
                                   </div>
@@ -174,7 +174,7 @@
                                       </select>
                                   </div>
                                   <div class="col-md-12 form-group">
-                                      <input type="text" class="form-control" id="zip" name="zip" placeholder="Código postal">
+                                      <input type="text" class="form-control" id="zip" name="zip" placeholder="CÃ³digo postal">
                                   </div>
                                 </div>
                             </div>
@@ -187,15 +187,15 @@
                         <h2>Tu pedido</h2>
                         <ul class="list">
                             <li><a><h4>Productos <span>Total</span></h4></a></li>
-                            <li><a>Charlotte Katakuri<span class="middle">x 1</span> <span class="last">61.25€</span></a></li>
-                            <li><a>Naruto y Sasuke<span class="middle">x 1</span> <span class="last">141.25€</span></a></li>
-                            <li><a>Luigi & Polterpup<span class="middle">x 1</span> <span class="last">85.00€</span></a></li>
+                            <li><a>Charlotte Katakuri<span class="middle">x 1</span> <span class="last">61.25â‚¬</span></a></li>
+                            <li><a>Naruto y Sasuke<span class="middle">x 1</span> <span class="last">141.25â‚¬</span></a></li>
+                            <li><a>Luigi & Polterpup<span class="middle">x 1</span> <span class="last">85.00â‚¬</span></a></li>
                         </ul>
                         <ul class="list list_2">
                           <form>
-                            <li><a>Subtotal <span>287.50€</span></a></li>
-                            <li><a>Precio envío <span>2.90€</span></a></li>
-                            <li><a>Total <span>290.40€</span></a></li>
+                            <li><a>Subtotal <span>287.50â‚¬</span></a></li>
+                            <li><a>Precio envÃ­o <span>2.90â‚¬</span></a></li>
+                            <li><a>Total <span>290.40â‚¬</span></a></li>
                           </form>
                         </ul>
                         <div class="payment_item">
@@ -204,7 +204,7 @@
                                 <label for="f-option5">Contrarreembolso</label>
                                 <div class="check"></div>
                             </div>
-                            <p>Este método de pago conlleva un recargo adicional de 2.90€.</p>
+                            <p>Este mÃ©todo de pago conlleva un recargo adicional de 2.90â‚¬.</p>
                         </div>
                         <div class="payment_item active">
                             <div class="radion_btn">
@@ -213,13 +213,13 @@
                                 <img src="img/product/card.jpg" alt="">
                                 <div class="check"></div>
                             </div>
-                            <p>Puedes pagar con tu tarjeta de crédito si no tienes una cuenta
+                            <p>Puedes pagar con tu tarjeta de crÃ©dito si no tienes una cuenta
                                 de Paypal.</p>
                         </div>
                         <div class="creat_account">
                             <input type="checkbox" id="f-option4" name="selector" required>
-                            <label for="f-option4">He leído y acepto</label>
-                            <a href="https://themes.getbootstrap.com/terms/">los términos y condiciones*</a>
+                            <label for="f-option4">He leÃ­do y acepto</label>
+                            <a href="https://themes.getbootstrap.com/terms/">los tÃ©rminos y condiciones*</a>
                         </div>
                         <div class="text-center">
                           <button class="button button-paypal" type="submit" form="myForm">Proceder al pago</button>
