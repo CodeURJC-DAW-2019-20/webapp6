@@ -67,10 +67,10 @@ $(function() {
   });
 
   //------- mailchimp --------//  
-	function mailChimp() {
+/**	function mailChimp() {
 		$('#mc_embed_signup').find('form').ajaxChimp();
 	}
-  mailChimp();
+  mailChimp();*/
   
   //------- fixed navbar --------//  
   $(window).scroll(function(){

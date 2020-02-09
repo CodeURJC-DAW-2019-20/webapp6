@@ -1,83 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Aroma Shop - Login</title>
-	<link rel="icon" href="img/Fevicon.png" type="image/png">
-  	<link rel="stylesheet" href="vendors/bootstrap/css/bootstrap.min.css">
-  	<link rel="stylesheet" href="vendors/bootstrap/css/bootstrap.css">
-  	<link rel="stylesheet" href="vendors/fontawesome/css/all.min.css">
-  	<link rel="stylesheet" href="vendors/themify-icons/themify-icons.css">
-  	<link rel="stylesheet" href="vendors/linericon/style.css">
-  	<link rel="stylesheet" href="vendors/owl-carousel/owl.theme.default.min.css">
-  	<link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
-  	<link rel="stylesheet" href="vendors/nice-select/nice-select.css">
-  	<link rel="stylesheet" href="vendors/nouislider/nouislider.min.css">
-
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-	<!--================ Start Header Menu Area =================-->
-	<header class="header_area">
-    <div class="main_menu">
-      <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container">
-          <a class="navbar-brand logo_h" href="/"><img src="img/shop-logo.png" alt=""></a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
-            <ul class="nav navbar-nav menu_nav ml-auto mr-auto">
-              <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-              <li class="nav-item submenu dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                  aria-expanded="false">Comprar</a>
-                <ul class="dropdown-menu">
-                  <li class="nav-item"><a class="nav-link" href="products">Categorías</a></li>
-                  <li class="nav-item"><a class="nav-link" href="singleProduct">Detalles del producto</a></li>
-                  <li class="nav-item"><a class="nav-link" href="checkout">Checkout</a></li>
-                  <li class="nav-item"><a class="nav-link" href="confirmation">Confirmación</a></li>
-                  <li class="nav-item"><a class="nav-link" href="cart">Cesta</a></li>
-                </ul>
-							</li>
-              <li class="nav-item submenu dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                  aria-expanded="false">Blog</a>
-                <ul class="dropdown-menu">
-                  <li class="nav-item"><a class="nav-link" href="blog">Blog</a></li>
-                  <li class="nav-item"><a class="nav-link" href="singleBlog">Detalles del blog</a></li>
-                </ul>
-							</li>
-							<li class="nav-item active submenu dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                  aria-expanded="false">Usuarios</a>
-                <ul class="dropdown-menu">
-                  <li class="nav-item"><a class="nav-link" href="login">Iniciar sesión</a></li>
-                  <li class="nav-item"><a class="nav-link" href="register">Registrarse</a></li>
-				  <li class="nav-item"><a class="nav-link" href="trackingOrder">Seguimiento</a></li>
-				  <li class="nav-item"><a class="nav-link" href="userPage">Mi perfil</a></li>
-                </ul>
-              </li>
-              <li class="nav-item"><a class="nav-link" href="contact">Contacto</a></li>
-            </ul>
-
-            <ul class="nav-shop">
-              <li class="nav-item"><button><i class="ti-search"></i></button></li>
-              <li class="nav-item"><button onclick="location.href='cart'"><i class="ti-shopping-cart"></i><span class="nav-shop__circle">3</span></button> </li>
-              <li class="nav-item"><a class="button button-header" href="category">Comprar ahora</a></li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </div>
-  </header>
-	<!--================ End Header Menu Area =================-->
-  
+{{>header}}
   <!-- ================ start banner area ================= -->	
 	<section class="blog-banner-area" id="category">
 		<img src="img/banner/sao.png" style="float:left;width:100%;height:100%;object-fit:cover;opacity: 0.3;">
@@ -104,31 +25,45 @@
 				<div class="col-lg-6">
 					<div class="login_box_img">
 						<div class="hover">
-							<h4>¿Eres nuevo?</h4>
-							<p>Tenemos un montón de figuritas y accesorios exclusivos que podrían interesarte</p>
-							<a class="button button-account" href="register.html">Crear una cuenta</a>
+							<h4>�Eres nuevo?</h4>
+							<p>Tenemos un mont�n de figuritas y accesorios exclusivos que podr�an interesarte</p>
+							<a class="button button-account" href="/register">Crear una cuenta</a>
 						</div>
 					</div>
 				</div>
 				<div class="col-lg-6">
 					<div class="login_form_inner">
-						<h3>Inicia sesión para acceder</h3>
-						<form class="row login_form" action="#/" id="contactForm" >
+						<h3>Inicia sesi�n para acceder</h3>
+						<!--<form name="form" onsubmit="return validatePass()" action="/login" method="POST">
+				<div class="form-group">
+					<label for="usernameInput">Nombre de usuario</label>
+					<input type="text" class="form-control" id="usernameInput" aria-describedby="usernameHelp" name="username"
+					 placeholder="Introduzca su nombre de usuario" required>
+				</div>
+				<div class="form-group">
+					<label for="passwordInput">Contrase�a</label>
+					<input type="password" class="form-control" id="passwordInput" name="password" placeholder="Introduzca su contrase�a">
+				</div>
+				<button type="submit" class="btn btn-primary">Comenzar</button>
+				<input type="hidden" name="_csrf" value="{{token}}"/>
+				<a class="btn btn-primary" href="/register">Registrarse</a>
+			</form>-->
+						<form class="row login_form" action="/login" id="contactForm" method="POST" >
 							<div class="col-md-12 form-group">
 								<input type="text" class="form-control" id="name" name="name" placeholder="Usuario" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Usuario'">
 							</div>
 							<div class="col-md-12 form-group">
-								<input type="text" class="form-control" id="name" name="name" placeholder="Contraseña" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Contraseña'">
+								<input type="password" class="form-control" id="passwordInput" name="password" placeholder="Contrase�a" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Contrase�a'">
 							</div>
 							<div class="col-md-12 form-group">
 								<div class="creat_account">
 									<input type="checkbox" id="f-option2" name="selector">
-									<label for="f-option2">Mantener sesión</label>
+									<label for="f-option2">Mantener sesi�n</label>
 								</div>
 							</div>
 							<div class="col-md-12 form-group">
-								<button type="submit" value="submit" class="button button-login w-100">Iniciar sesión</button>
-								<a href="#">¿Olvidaste la contraseña?</a>
+								<button type="submit" value="submit" class="button button-login w-100">Iniciar sesi�n</button>
+								<input type="hidden" name="_csrf" value="{{token}}">
 							</div>
 						</form>
 					</div>
@@ -137,102 +72,4 @@
 		</div>
 	</section>
 	<!--================End Login Box Area =================-->
-
-
-
-  <!--================ Start footer Area  =================-->	
-  <footer class="footer">
-	<div class="footer-area">
-		<div class="container">
-			<div class="row section_gap">
-				<div class="col-lg-3 col-md-6 col-sm-6">
-					<div class="single-footer-widget tp_widgets">
-						<h4 class="footer_title large_title">Objetivo</h4>
-						<p>
-			Nuestro objetivo es proporcionar a los amantes de los comics, mangas y videojuegos 
-			las figuras de sus personajes favoritos.  
-		  </p>
-					</div>
-				</div>
-				<div class="offset-lg-1 col-lg-2 col-md-6 col-sm-6">
-					<div class="single-footer-widget tp_widgets">
-						<h4 class="footer_title">Atajos</h4>
-						<ul class="list">
-							<li><a href="#">Home</a></li>
-							<li><a href="#">Tienda</a></li>
-							<li><a href="#">Blog</a></li>
-							<li><a href="#">Productos</a></li>
-							<li><a href="#">Contacto</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-lg-2 col-md-6 col-sm-6">
-					<div class="single-footer-widget instafeed">
-						<h4 class="footer_title">Gallería</h4>
-						<ul class="list instafeed d-flex flex-wrap">
-							<li><img src="img/gallery/r1.jpg" alt=""></li>
-							<li><img src="img/gallery/r2.jpg" alt=""></li>
-							<li><img src="img/gallery/r3.jpg" alt=""></li>
-							<li><img src="img/gallery/r5.jpg" alt=""></li>
-							<li><img src="img/gallery/r7.jpg" alt=""></li>
-							<li><img src="img/gallery/r8.jpg" alt=""></li>
-						</ul>
-					</div>
-				</div>
-				<div class="offset-lg-1 col-lg-3 col-md-6 col-sm-6">
-					<div class="single-footer-widget tp_widgets">
-						<h4 class="footer_title">Contáctanos</h4>
-						<div class="ml-40">
-							<p class="sm-head">
-								<span class="fa fa-location-arrow"></span>
-								Sede
-							</p>
-							<p>Capsule Corp. , West City</p>
-
-							<p class="sm-head">
-								<span class="fa fa-phone"></span>
-								Número de teléfono
-							</p>
-							<p>
-								+34 600 00 00 00 <br>
-							</p>
-
-							<p class="sm-head">
-								<span class="fa fa-envelope"></span>
-								Email
-							</p>
-							<p>
-								free@infoexample.com <br>
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="footer-bottom">
-		<div class="container">
-			<div class="row d-flex">
-				<p class="col-lg-12 footer-text text-center">
-					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-			</div>
-		</div>
-	</div>
-</footer>
-<!--================ End footer Area  =================-->
-
-
-
-  <script src="vendors/jquery/jquery-3.2.1.min.js"></script>
-  <script src="vendors/bootstrap/bootstrap.bundle.min.js"></script>
-  <script src="vendors/skrollr.min.js"></script>
-  <script src="vendors/owl-carousel/owl.carousel.min.js"></script>
-  <script src="vendors/nice-select/jquery.nice-select.min.js"></script>
-  <script src="vendors/jquery.ajaxchimp.min.js"></script>
-  <script src="vendors/mail-script.js"></script>
-  <script src="js/main.js"></script>
-</body>
-</html>
+{{>footer}}
