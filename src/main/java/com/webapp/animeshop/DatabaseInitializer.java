@@ -5,10 +5,12 @@ import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
+import com.webapp.animeshop.model.Blog;
 import com.webapp.animeshop.model.Product;
 import com.webapp.animeshop.model.User;
 import com.webapp.animeshop.repositories.UserRepository;
 import com.webapp.animeshop.service.ProductService;
+import com.webapp.animeshop.service.BlogService;
 
 
 @Controller
@@ -16,14 +18,17 @@ public class DatabaseInitializer {
 
 	private UserRepository userRepository;
 	private ProductService productService;
+	private BlogService blogService;
 	
 	@Autowired
 	public DatabaseInitializer(
 	       UserRepository userRepository,
-	       ProductService productService
+	       ProductService productService,
+	       BlogService blogService
 	) {
 	       this.userRepository = userRepository;
 	       this.productService = productService;
+	       this.blogService = blogService;
 	}
 
 	@PostConstruct
@@ -41,5 +46,13 @@ public class DatabaseInitializer {
 		this.productService.addProduct(product);
 		this.productService.addProduct(product2);
 		this.productService.addProduct(product3);
+		
+		Blog blog = new Blog("Administrador", "Nuevo Funko Pop! de Levi Ackerman - Attack on Titans", "No pierdas la oportunidad de hacerte con esta nueva pieza por parte de Funko Pop! de uno de los personajes más icónicos de Attack on Titans.", "img/blog/levi-blog.png");
+		Blog blog2 = new Blog("Administrador", "Nueva figura Naruto Kyuubi mode por parte de Figuarts ZERO", "Y es que otra vez lo han vuelto a hacer.. Figuarts ZERO nos sorprende con esta magnifica figura de Naruto en modo Kyuubi para los más amantes de la serie.", "img/blog/naruto-blog.png");
+		Blog blog3 = new Blog("Administrador", "INCREÍBLE busto M.U.B Predator by Tsume", "Precio no apto para cardiacos. Eso sí, es una obra de arte de los piés a la cabeza.", "img/blog/predator-min.png");
+		this.blogService.addBlog(blog);
+		this.blogService.addBlog(blog2);
+		this.blogService.addBlog(blog3);
+		
 	}
 }
