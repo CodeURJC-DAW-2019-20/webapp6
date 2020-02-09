@@ -6,17 +6,17 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Anime Shop - Categorías</title>
 	<link rel="icon" href="img/Fevicon.png" type="image/png">
-  <link rel="stylesheet" href="vendors/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="vendors/bootstrap/css/bootstrap.css">
-  <link rel="stylesheet" href="vendors/fontawesome/css/all.min.css">
-	<link rel="stylesheet" href="vendors/themify-icons/themify-icons.css">
-	<link rel="stylesheet" href="vendors/linericon/style.css">
-  <link rel="stylesheet" href="vendors/owl-carousel/owl.theme.default.min.css">
-  <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
-  <link rel="stylesheet" href="vendors/nice-select/nice-select.css">
-  <link rel="stylesheet" href="vendors/nouislider/nouislider.min.css">
+  <link rel="stylesheet" href="/vendors/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/vendors/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="/vendors/fontawesome/css/all.min.css">
+	<link rel="stylesheet" href="/vendors/themify-icons/themify-icons.css">
+	<link rel="stylesheet" href="/vendors/linericon/style.css">
+  <link rel="stylesheet" href="/vendors/owl-carousel/owl.theme.default.min.css">
+  <link rel="stylesheet" href="/vendors/owl-carousel/owl.carousel.min.css">
+  <link rel="stylesheet" href="/vendors/nice-select/nice-select.css">
+  <link rel="stylesheet" href="/vendors/nouislider/nouislider.min.css">
 
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
   <!--================ Start Header Menu Area =================-->
@@ -24,7 +24,7 @@
     <div class="main_menu">
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
-          <a class="navbar-brand logo_h" href="/"><img src="img/shop-logo.png" alt=""></a>
+          <a class="navbar-brand logo_h" href="/"><img src="/img/shop-logo.png" alt=""></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="icon-bar"></span>
@@ -80,7 +80,7 @@
 
 	<!-- ================ start banner area ================= -->	
 	<section class="blog-banner-area" id="category">
-    <img src="img/banner/akatsuki.png" style="float:left;width:100%;height:100%;object-fit:cover;opacity: 0.3;">
+    <img src="/img/banner/akatsuki.png" style="float:left;width:100%;height:100%;object-fit:cover;opacity: 0.3;">
 			<div class="blog-banner">
 				<div class="text-center">
 					<h1>Comprar por categorías</h1>
@@ -177,6 +177,70 @@
                 <option value="1">Mostrar 48</option>
               </select>
             </div>
+            <div class="sorting mr-auto">
+              <button class="add-product" data-toggle="modal" data-target="#exampleModal">Añadir +</button>
+              <div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <h5 class="modal-title" id="exampleModalLabel">Nuevo producto</h5>
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				          <span aria-hidden="true">&times;</span>
+				        </button>
+				      </div>
+				      <div class="modal-body">
+				        <form id="newProduct" action="addProduct" method="post">
+				          <div class="form-group">
+				            <label class="col-form-label">Nombre:</label>
+				            <input type="text" class="form-control" name="name">
+				            <div class="form-row mb-4">
+				            	<div class="col">
+				            		<label class="col-form-label">Franquicia:</label>
+				            		<input type="text" class="form-control" name="franchise">
+				            	</div>
+				            	<div class="col">
+				            		<label class="col-form-label">Precio:</label>
+				            		<input type="text" class="form-control" name="price"><br>
+				            	</div>
+				            </div>
+				            <label class="col-form-label">Descripción:</label>
+				            <textarea class="form-control" name="description"></textarea>
+				            <div class="form-row mb-4">
+				            	<div class="col">
+				            		<label class="col-form-label">Anchura:</label>
+				            		<input type="number" class="form-control" name="width">
+				            	</div>
+				            	<div class="col">
+				            		<label class="col-form-label">Altura:</label>
+				            		<input type="number" class="form-control" name="height">
+				            	</div>
+				            	<div class="col">
+				            		<label class="col-form-label">Peso:</label>
+				            		<input type="number" class="form-control" name="weight">
+				            	</div>
+				            </div>
+				            <div class="form-row mb-4">
+				            	<div class="col">
+				            		<label class="col-form-label">Distribuidor:</label>
+				            		<input type="text" class="form-control" name="distributor">
+				            	</div>
+				            	<div class="col">
+				            		<label class="col-form-label">Referencia:</label>
+				            		<input type="text" class="form-control" name="reference">
+				            	</div>
+				            </div>
+				            <input type="hidden" name="_csrf" value="{{token}}" />
+				          </div>
+				        </form>
+				      </div>
+				      <div class="modal-footer">
+				        <button type="button" class="close-submit-product" data-dismiss="modal">Cerrar</button>
+				        <button type="submit" class="submit-product" form="newProduct">Enviar</button>
+				      </div>
+				    </div>
+				  </div>
+				</div>
+            </div>
             <div>
               <div class="input-group filter-bar-search">
                 <input type="text" placeholder="Buscar">
@@ -194,14 +258,18 @@
               <div class="col-md-6 col-lg-4" id="products">
                 <div class="card text-center card-product">
                   <div class="card-product__img">
-                    <img class="card-img" src="img/product/levimin.png" alt="">
+                    <img class="card-img" src="/img/product/levimin.png" alt="">
                     <ul class="card-product__imgOverlay">
                       <li><button onclick="location.href='/product/{{id}}'"><i class="ti-search"></i></button></li>
                       <li><button><i class="ti-shopping-cart"></i></button></li>
                     </ul>
+                    <form method="post" action="deleteProduct/{{id}}">
                     <ul class="card-product-remove__imgOverlay">
-                      <li><button><i class="ti-trash"></i></button></li>
+                      <li><button><i class="ti-trash"></i></button>
+                      <input type="hidden" name="_csrf" value="{{token}}" />
+                      </li>
                     </ul>
+                    </form>
                   </div>
                   <div class="card-body">
                     <p>{{franchise}}</p>
@@ -576,14 +644,14 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
 
 
-  <script src="vendors/jquery/jquery-3.2.1.min.js"></script>
-  <script src="vendors/bootstrap/bootstrap.bundle.min.js"></script>
-  <script src="vendors/skrollr.min.js"></script>
-  <script src="vendors/owl-carousel/owl.carousel.min.js"></script>
-  <script src="vendors/nice-select/jquery.nice-select.min.js"></script>
-  <script src="vendors/nouislider/nouislider.min.js"></script>
-  <script src="vendors/jquery.ajaxchimp.min.js"></script>
-  <script src="vendors/mail-script.js"></script>
-  <script src="js/main.js"></script>
+  <script src="/vendors/jquery/jquery-3.2.1.min.js"></script>
+  <script src="/vendors/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="/vendors/skrollr.min.js"></script>
+  <script src="/vendors/owl-carousel/owl.carousel.min.js"></script>
+  <script src="/vendors/nice-select/jquery.nice-select.min.js"></script>
+  <script src="/vendors/nouislider/nouislider.min.js"></script>
+  <script src="/vendors/jquery.ajaxchimp.min.js"></script>
+  <script src="/vendors/mail-script.js"></script>
+  <script src="/js/main.js"></script>
 </body>
 </html>

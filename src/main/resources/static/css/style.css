@@ -4908,5 +4908,107 @@ a {
 .remove-single-product:hover {
 	border: none;
 	border-radius: 4px;
-	background: #eb0000;
+	background: #e5e5e5;
+}
+
+.add-product {
+	border: none;
+	border-radius: 4px;
+	padding: 7.5px 15px;
+	background: #ffffff;
+	-webkit-transition: all 0.3s ease 0s;
+	-moz-transition: all 0.3s ease 0s;
+	-o-transition: all 0.3s ease 0s;
+	transition: all 0.3s ease 0s;
+	margin-right: 10px;
+	z-index: 1
+}
+
+.add-product:hover {
+	background: #fff;
+	box-shadow: 0px 5px 10px 0px rgba(153, 153, 153, 0.3)
+}
+
+.add-product:hover:after {
+	opacity: 1;
+	visibility: visible
+}
+
+.add-product{
+	color: #AAAAAA;
+}
+
+.add-product:hover {
+	border: none;
+	border-radius: 4px;
+	background: #384aeb;
+	color: #fff;
+}
+
+.submit-product {
+	border: none;
+	border-radius: 4px;
+	padding: 7.5px 15px;
+	background: #6371ef;
+	-webkit-transition: all 0.3s ease 0s;
+	-moz-transition: all 0.3s ease 0s;
+	-o-transition: all 0.3s ease 0s;
+	transition: all 0.3s ease 0s;
+	margin-right: 10px;
+	z-index: 1
+}
+
+.submit-product:hover {
+	background: #fff;
+	box-shadow: 0px 5px 10px 0px rgba(153, 153, 153, 0.3)
+}
+
+.submit-product:hover:after {
+	opacity: 1;
+	visibility: visible
+}
+
+.submit-product{
+	color: #fff;
+}
+
+.submit-product:hover {
+	border: none;
+	border-radius: 4px;
+	background: #384aeb;
+	color: #fff;
+}
+
+.close-submit-product {
+	border: none;
+	border-radius: 4px;
+	padding: 7.5px 15px;
+	background: #889199;
+	-webkit-transition: all 0.3s ease 0s;
+	-moz-transition: all 0.3s ease 0s;
+	-o-transition: all 0.3s ease 0s;
+	transition: all 0.3s ease 0s;
+	margin-right: 10px;
+	z-index: 1
+}
+
+.close-submit-product:hover {
+	background: #fff;
+	box-shadow: 0px 5px 10px 0px rgba(153, 153, 153, 0.3)
+}
+
+.close-submit-product:hover:after {
+	opacity: 1;
+	visibility: visible
+}
+
+.close-submit-product{
+	color: #fff;
+}
+
+.close-submit-product:hover {
+	border: none;
+	border-radius: 4px;
+	background: #51575e;
+	color: #fff;
 }
