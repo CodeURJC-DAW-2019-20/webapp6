@@ -29,58 +29,58 @@
 * Github Desktop
 
 ### UML diagram
-<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/animeshop/uml/UML-resized.png" width="400" height="400" />
+<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/resources/static/uml/UML-resized.png" width="400" height="400" />
 
 ### Graphics
 Benefit per category
 
 ### Screenshots :camera:
 * **Home**
-<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/animeshop/Screenshots/Inicio.PNG" width="" height="" />
+<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/resources/static/Screenshots/Inicio.PNG" width="" height="" />
 In this screen we can see the home of the page, which includes the recommendations based in your last purchases.
 
 * **Comprar - Categorías** 
-<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/animeshop/Screenshots/Comprar.Categor%C3%ADas.PNG" width="" height="" />
+<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/resources/static/Screenshots/Comprar.Categor%C3%ADas.PNG" width="" height="" />
 Description
 
 * **Detalles del producto** 
-<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/animeshop/Screenshots/Comprar.DetallesProducto.PNG" width="" height="" />
+<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/resources/static/Screenshots/Comprar.DetallesProducto.PNG" width="" height="" />
 Description
 
 * **Checkout** 
-<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/animeshop/Screenshots/Comprar.Checkout.PNG" width="" height="" />
+<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/resources/static/Screenshots/Comprar.Checkout.PNG" width="" height="" />
 Description
 
-* **Conformación** 
-<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/animeshop/Screenshots/Comprar.Confirmaci%C3%B3n.PNG" width="" height="" />
+* **Confirmación** 
+<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/resources/static/Screenshots/Comprar.Confirmación.PNG" width="" height="" />
 Description
 
 * **Cesta** 
-<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/animeshop/Screenshots/Comprar.Cesta.PNG" width="" height="" />
+<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/resources/static/Screenshots/Cesta.PNG" width="" height="" />
 Description
 
 * **Blog - Blog** 
-<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/animeshop/Screenshots/Blog.PNG" width="" height="" />
+<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/resources/static/Screenshots/Blog.PNG" width="" height="" />
 Description
 
 * **Blog - Blog details** 
-<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/animeshop/Screenshots/Blogextend.PNG" width="" height="" />
+<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/resources/static/Screenshots/Blogextend.PNG" width="" height="" />
 Description
 
 * **Usuarios - Iniciar Sesión** 
-<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/animeshop/Screenshots/Registro.PNG" width="" height="" />
+<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/resources/static/Screenshots/Registro.PNG" width="" height="" />
 Description
 
 * **Usuarios - Registrarse** 
-<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/animeshop/Screenshots/Login.PNG" width="" height="" />
+<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/resources/static/Screenshots/Login.PNG" width="" height="" />
 Description
 
 * **Usuarios - Seguimiento** 
-<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/animeshop/Screenshots/Seguimiento.PNG" width="" height="" />
+<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/resources/static/Screenshots/Seguimiento.PNG" width="" height="" />
 Description
 
 * **Usuarios - Mi perfil** 
-<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/animeshop/Screenshots/Mi%20Perfil.PNG" width="" height="" />
+<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/resources/static/Screenshots/Mi%20Perfil.PNG" width="" height="" />
 Description
 
 * **Contacto** 

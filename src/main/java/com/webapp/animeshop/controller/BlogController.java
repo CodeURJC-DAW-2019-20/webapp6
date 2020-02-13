@@ -9,15 +9,28 @@ import com.webapp.animeshop.service.BlogService;
 
 @Controller
 public class BlogController {
-
+	
 	@Autowired
 	private BlogService blogService;
 	
 	@RequestMapping("/")
 	public String showBlogs(Model model) {
-		model.addAttribute("blog", this.blogService.getBlogs());
+		model.addAttribute("blogs", this.blogService.getBlogs());
 		return "/index";
 	}
+	
+	@RequestMapping("/blogspage")
+	public String showBlogsPage(Model model) {
+		model.addAttribute("blogspage", this.blogService.getBlogs());
+		return "/blog";
+	}
+	
+	/*@RequestMapping("/blog/{id}")
+	public String showBlog(Model model, @PathVariable long id) {
+		Blog blog = blogService.getBlog(id);
+		model.addAttribute("blog", blog);
+		return "/singleBlog";
+	}*/
 	
 }
 

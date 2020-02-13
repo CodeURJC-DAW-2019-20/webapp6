@@ -82,34 +82,34 @@ public class User implements Serializable {
         this.roles = roles;
     }
     
-    public String getDelivery() {
+/*    public String getDelivery() {
 		return delivery;
 	}
 
 
-	public void setDelivery(String delivery) {
+/*	public void setDelivery(String delivery) {
 		this.delivery = delivery;
 	}
 	
-	public String getBilling() {
+/*	public String getBilling() {
 		return billing;
 	}
 
 
-	public void setBilling(String billing) {
+/*	public void setBilling(String billing) {
 		this.billing = billing;
 	}
 	
-	public int getPayment() {
+/*	public int getPayment() {
 		return this.payment;
 	}
 	
-	public void setPayment(int payment) {
+/**	public void setPayment(int payment) {
 		String value = Integer.toString(payment);
 		if(value.length() == 16) {
 			this.payment = payment;
 		}
-	}
+	}*/
 	
     public User() {
     }

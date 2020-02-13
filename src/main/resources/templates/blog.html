@@ -76,6 +76,7 @@
           <div class="row">
               <div class="col-lg-8">
                   <div class="blog_left_sidebar">
+                  {{#blogspage}}
                       <article class="row blog_item">
                           <div class="col-md-3">
                               <div class="blog_info text-right">
@@ -86,7 +87,7 @@
                                   </div>
                                   <ul class="blog_meta list">
                                       <li>
-                                          <a href="#">David Amor
+                                          <a href="#">{{author}}
                                               <i class="lnr lnr-user"></i>
                                           </a>
                                       </li>
@@ -113,104 +114,19 @@
                           </div>
                           <div class="col-md-9">
                               <div class="blog_post">
-                                  <img src="img/blog/main-blog/levi-banner-icon.png" alt="">
+                                  <img src="{{image}}" alt="">
                                   <div class="blog_details">
                                       <a href="single-blog.html">
-                                          <h2>Nuevo Funko Pop! de Levi Ackerman - Attack on Titans</h2>
+                                          <h2>{{name}}</h2>
                                       </a>
-                                      <p>Modelo figura 235 Levi Ackerman.</p>
+                                      <p>{{text}}</p>
                                       <a class="button button-blog" href="single-blog.html">Ver más</a>
                                   </div>
                               </div>
                           </div>
                       </article>
-                      <article class="row blog_item">
-                          <div class="col-md-3">
-                              <div class="blog_info text-right">
-                                  <div class="post_tag">
-                                      <a href="#">Noticas,</a>
-                                      <a class="active" href="#">Anime,</a>
-                                      <a href="#">En descuento,</a>
-                                      <a href="#">Nuestras figuras</a>
-                                  </div>
-                                  <ul class="blog_meta list">
-                                      <li>
-                                          <a href="#">Mark Wiens
-                                              <i class="lnr lnr-user"></i>
-                                          </a>
-                                      </li>
-                                      <li>
-                                          <a href="#">12 Dec, 2017
-                                              <i class="lnr lnr-calendar-full"></i>
-                                          </a>
-                                      </li>
-                                      <li>
-                                          <a href="#">1.2M Visitas
-                                              <i class="lnr lnr-eye"></i>
-                                          </a>
-                                      </li>
-                                  </ul>
-                              </div>
-                          </div>
-                          <div class="col-md-9">
-                              <div class="blog_post">
-                                  <img src="img/blog/main-blog/naruto-banner-icon.png" alt="">
-                                  <div class="blog_details">
-                                      <a href="single-blog.html">
-                                          <h2>Nueva figura Naruto Kyuubi Mode - Figuarts ZERO</h2>
-                                      </a>
-                                      <p>フィギュアーツZERO NARUTO.</p>
-                                      <a href="single-blog.html" class="button button-blog">Ver más</a>
-                                  </div>
-                              </div>
-                          </div>
-                      </article>
-                      <article class="row blog_item">
-                          <div class="col-md-3">
-                              <div class="blog_info text-right">
-                                  <div class="post_tag">
-                                      <a href="#">Noticas,</a>
-                                      <a class="active" href="#">Anime,</a>
-                                      <a href="#">En descuento,</a>
-                                      <a href="#">Nuestras figuras</a>
-                                  </div>
-                                  <ul class="blog_meta list">
-                                      <li>
-                                          <a href="#">Mark Wiens
-                                              <i class="lnr lnr-user"></i>
-                                          </a>
-                                      </li>
-                                      <li>
-                                          <a href="#">12 Dec, 2017
-                                              <i class="lnr lnr-calendar-full"></i>
-                                          </a>
-                                      </li>
-                                      <li>
-                                          <a href="#">1.2M Visitas
-                                              <i class="lnr lnr-eye"></i>
-                                          </a>
-                                      </li>
-                                      <!-- <li>
-                                          <a href="#">06 Comentarios
-                                              <i class="lnr lnr-bubble"></i>
-                                          </a>
-                                      </li> -->
-                                  </ul>
-                              </div>
-                          </div>
-                          <div class="col-md-9">
-                              <div class="blog_post">
-                                  <img src="/img/blog/main-blog/predator-banner-icon.png" alt="">
-                                  <div class="blog_details">
-                                      <a href="single-blog.html">
-                                          <h2>Busto M.U.B Predator by Tsume Art</h2>
-                                      </a>
-                                      <p>¿Listo para encontrarte cara a cara con el cazador de hombres más sediento de sangre?</p>
-                                      <a href="single-blog.html" class="button button-blog">Leer más</a>
-                                  </div>
-                              </div>
-                          </div>
-                      </article>
+                      {{/blogspage}}
+                      
                       <!--<article class="row blog_item">
                           <div class="col-md-3">
                               <div class="blog_info text-right">

@@ -34,7 +34,7 @@
 				<div class="col-lg-6">
 					<div class="login_form_inner">
 						<h3>Inicia sesión para acceder</h3>
-						<!--<form name="form" onsubmit="return validatePass()" action="/login" method="POST">
+						<!--<form name="form" action="/login" method="POST">
 				<div class="form-group">
 					<label for="usernameInput">Nombre de usuario</label>
 					<input type="text" class="form-control" id="usernameInput" aria-describedby="usernameHelp" name="username"
@@ -50,7 +50,7 @@
 			</form>-->
 						<form class="row login_form" action="/login" id="contactForm" method="POST" >
 							<div class="col-md-12 form-group">
-								<input type="text" class="form-control" id="name" name="name" placeholder="Usuario" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Usuario'">
+								<input type="text" class="form-control" id="usernameInput" name="name" placeholder="Usuario" required onfocus="this.placeholder = ''" onblur="this.placeholder = 'Usuario'">
 							</div>
 							<div class="col-md-12 form-group">
 								<input type="password" class="form-control" id="passwordInput" name="password" placeholder="Contrase�a" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Contrase�a'">
