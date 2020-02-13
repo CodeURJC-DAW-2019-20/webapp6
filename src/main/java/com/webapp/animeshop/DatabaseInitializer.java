@@ -47,9 +47,9 @@ public class DatabaseInitializer {
 		this.productService.addProduct(product2);
 		this.productService.addProduct(product3);
 		
-		Blog blog = new Blog("Administrador", "Nuevo Funko Pop! de Levi Ackerman - Attack on Titans", "No pierdas la oportunidad de hacerte con esta nueva pieza por parte de Funko Pop! de uno de los personajes más icónicos de Attack on Titans.", "img/blog/levi-blog.png");
-		Blog blog2 = new Blog("Administrador", "Nueva figura Naruto Kyuubi mode por parte de Figuarts ZERO", "Y es que otra vez lo han vuelto a hacer.. Figuarts ZERO nos sorprende con esta magnifica figura de Naruto en modo Kyuubi para los más amantes de la serie.", "img/blog/naruto-blog.png");
-		Blog blog3 = new Blog("Administrador", "INCREÍBLE busto M.U.B Predator by Tsume", "Precio no apto para cardiacos. Eso sí, es una obra de arte de los piés a la cabeza.", "img/blog/predator-min.png");
+		Blog blog = new Blog("Administrador", "Nuevo Funko Pop! de Levi Ackerman - Attack on Titans", "No pierdas la oportunidad de hacerte con esta nueva pieza por parte de Funko Pop! de uno de los personajes más icónicos de Attack on Titans.", "img/blog/main-blog/levi-banner-icon.png");
+		Blog blog2 = new Blog("Administrador", "Nueva figura Naruto Kyuubi mode por parte de Figuarts ZERO", "Y es que otra vez lo han vuelto a hacer.. Figuarts ZERO nos sorprende con esta magnifica figura de Naruto en modo Kyuubi para los más amantes de la serie.", "img/blog/main-blog/naruto-banner-icon.png");
+		Blog blog3 = new Blog("Administrador", "INCREÍBLE busto M.U.B Predator by Tsume", "Precio no apto para cardiacos. Eso sí, es una obra de arte de los piés a la cabeza.", "/img/blog/main-blog/predator-banner-icon.png");
 		this.blogService.addBlog(blog);
 		this.blogService.addBlog(blog2);
 		this.blogService.addBlog(blog3);
