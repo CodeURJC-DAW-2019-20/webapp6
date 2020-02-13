@@ -185,7 +185,7 @@
                       <li><button onclick="location.href='/product/{{id}}'"><i class="ti-search"></i></button></li>
                       <li><button><i class="ti-shopping-cart"></i></button></li>
                     </ul>
-                    <form method="post" action="deleteProduct/{{id}}">
+                    <form method="post" action="/deleteProduct/{{id}}">
                     <ul class="card-product-remove__imgOverlay">
                       <li><button><i class="ti-trash"></i></button>
                       <input type="hidden" name="_csrf" value="{{token}}" />
