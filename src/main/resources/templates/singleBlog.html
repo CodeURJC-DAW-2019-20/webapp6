@@ -110,21 +110,21 @@
 													</p>
 											</div>
 											<div class="col-lg-12">
-													<div class="quotes">
+													<!-- <div class="quotes">
 														#funko #anime #leviackerman #attackontitans #imprescindible #dadmevuestrosdollars
-													</div>
+													</div> -->
 													<div class="row">
 															<div class="col-6">
-																	<img class="img-fluid" src="img/product/levi.jpg" alt="">
+																	<img class="img-fluid" src="../img/product/levi.jpg" alt="">
 															</div>
 															<div class="col-6">
-																	<img class="img-fluid" src="img/product/levimin.png" alt="">
+																	<img class="img-fluid" src="../img/product/levimin.png" alt="">
 															</div>
-															<div class="col-lg-12 mt-4">
+															<!-- <div class="col-lg-12 mt-4">
 																	<p>
 																		#Descripción imágenes#
 																	</p>
-															</div>
+															</div> -->
 													</div>
 											</div>
 									</div>
@@ -337,16 +337,18 @@
 											</aside>
 											<aside class="single_sidebar_widget popular_post_widget">
 													<h3 class="widget_title">Posts populares</h3>
+													{{#popularblogs}}
 													<div class="media post_item">
-															<img src="img/blog/popular-post/post1.jpg" alt="post">
+															<img src="{{image}}" width="100" height="60" alt="post">
 															<div class="media-body">
-																	<a href="blog-details.html">
-																			<h3>Luffy se convierte en el Rey de los Piratas</h3>
+																	<a href="blog/{{id}}">
+																			<h3>{{name}}</h3>
 																	</a>
-																	<p>Hace 2 horas</p>
+																	<p>{{day}}/{{month}}/{{year}}</p>
 															</div>
 													</div>
-													<div class="media post_item">
+													{{/popularblogs}}
+													<!-- <div class="media post_item">
 															<img src="img/blog/popular-post/post2.jpg" alt="post">
 															<div class="media-body">
 																	<a href="blog-details.html">
@@ -359,7 +361,7 @@
 															<img src="img/blog/popular-post/post3.jpg" alt="post">
 															<div class="media-body">
 																	<a href="blog-details.html">
-																			<h3>Sanji encuentra el All Blue</h3>
+																			<h3> encuentra el All Blue</h3>
 																	</a>
 																	<p>Hace 3 horas</p>
 															</div>
@@ -372,7 +374,7 @@
 																	</a>
 																	<p>Hace 1 hora</p>
 															</div>
-													</div>
+													</div> -->
 													<div class="br"></div>
 											</aside>
 											<!-- <aside class="single_sidebar_widget ads_widget">

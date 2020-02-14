@@ -31,6 +31,7 @@ public class BlogController {
 	public String showBlog(Model model, @PathVariable long id) {
 		Blog blog = blogService.getBlog(id);
 		model.addAttribute("blog", blog);
+		model.addAttribute("popularblogs", this.blogService.getBlogs());
 		return "/singleBlog";
 	}
 	
