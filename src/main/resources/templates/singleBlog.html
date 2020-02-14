@@ -1,5 +1,4 @@
 {{>header}}
-<meta charset="UTF-8">
 	<!-- ================ start banner area ================= -->	
 	<section class="blog-banner-area" id="blog">
 		<div class="container h-100">
@@ -21,6 +20,7 @@
 
 
   <!--================Blog Area =================-->
+  {{#blog}}
 	<section class="blog_area single-post-area py-80px section-margin--small">
 			<div class="container">
 					<div class="row">
@@ -28,7 +28,7 @@
 									<div class="single-post row">
 											<div class="col-lg-12">
 													<div class="feature-img">
-															<img class="img-fluid" src="img/blog/levi-banner.png" alt="">
+															<img class="img-fluid" src="{{image}}" alt="">
 													</div>
 											</div>
 											<div class="col-lg-3  col-md-3">
@@ -40,26 +40,26 @@
 															</div>
 															<ul class="blog_meta list">
 																	<li>
-																			<a>David Amor
+																			<a>{{author}}
 																					<i class="lnr lnr-user"></i>
 																			</a>
 																	</li>
 																	<li>
-																			<a>02 Feb, 2020
+																			<a>{{day}}/{{month}}/{{year}}
 																					<i class="lnr lnr-calendar-full"></i>
 																			</a>
 																	</li>
-																	<li>
+																	<!--<li>
 																			<a>1.2M Visitas
 																					<i class="lnr lnr-eye"></i>
 																			</a>
-																	</li>
+																	</li>-->
 																
-																	<li>
+																	<!-- <li>
 																		<a>06 Comentarios
 																				<i class="lnr lnr-bubble"></i>
 																		</a>
-																	</li>
+																	</li>-->
 																	<li>
 																		<button class="remove-blog-entrie">Eliminar</button>
 																	</li>
@@ -89,12 +89,17 @@
 													</div>
 											</div>
 											<div class="col-lg-9 col-md-9 blog_details">
-													<h2>Nuevo Funko Pop! de Levi Ackerman - Attack on Titans</h2>
+													<h2>{{name}}</h2>
 													<p class="excert">
 															Modelo figura 235 Levi Ackerman.
 													</p>
 													<p>
-															¡Buenos días gente! Hoy empezamos la mañana con buenas noticias, y es que gracias a Funko Pop!
+<<<<<<< HEAD
+															{{text}}
+															<!--¡Buenos días gente! Hoy empezamos la mañana con buenas noticias, y es que gracias a Funko Pop!
+=======
+															¡Buenos días gente! Hoy empezamos la ma�ana con buenas noticias, y es que gracias a Funko Pop!
+>>>>>>> 1764f53a8d7f5f8fe51b79277fd7d0639d6be54e
 															ya que hoy acaba de lanzar una nueva figura, y esta vez para los amantes del anime Attack on Titans.
 															No hablamos ni más ni menos que de Levi Ackerman, adorado por todos los fans de la serie.
 													</p>
@@ -102,7 +107,7 @@
 															Hemos podido hacernos con una copia de ella por parte de Funko Pop! y tenemos que deciros que tiene
 															un detalle que rara vez apreciamos en este tipo de figuras, se ve increíble. Si eres fan de la serie
 															y del personaje, simplemente no te arrepentiras de comprarla que si no que será una de tus figuras favoritas.
-															Si quieres hacerte con ella puedes comprarla en la web, donde ya se encuentra disponible. ¡Date prisa!
+															Si quieres hacerte con ella puedes comprarla en la web, donde ya se encuentra disponible. ¡Date prisa!-->
 															
 													<p>		<a class="active" href="single-product.html">Link de comprar</a>
 													</p>
@@ -110,7 +115,7 @@
 											</div>
 											<div class="col-lg-12">
 													<div class="quotes">
-														#funko #anime #leviackerman #attackontitans #imprescindible #dadmevuestrosdollars
+														{{author}} #anime #leviackerman #attackontitans #imprescindible #dadmevuestrosdollars
 													</div>
 													<div class="row">
 															<div class="col-6">
@@ -367,7 +372,7 @@
 															<img src="img/blog/popular-post/post4.jpg" alt="post">
 															<div class="media-body">
 																	<a href="blog-details.html">
-																			<h3>Shingeki no Kyojin estrena un capítulo con una puntuación de 10/10</h3>
+																			<h3>Shingeki no Kyojin estrena un cap�tulo con una puntuación de 10/10</h3>
 																	</a>
 																	<p>Hace 1 hora</p>
 															</div>
@@ -415,7 +420,7 @@
 															</li>
 															<li>
 																	<a href="#" class="d-flex justify-content-between">
-																			<p>Películas</p>
+																			<p>Pel�culas</p>
 																			<p>09</p>
 																	</a>
 															</li>
@@ -494,5 +499,6 @@
 					</div>
 			</div>
 	</section>
+	{{/blog}}
 	<!--================Blog Area =================-->
 {{>footer}}

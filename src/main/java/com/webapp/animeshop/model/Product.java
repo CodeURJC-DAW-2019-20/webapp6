@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="products")
-public class Product implements Serializable {
+public class Product implements Serializable, Comparable<Product> {
 
 	/**
 	 * 
@@ -128,5 +128,14 @@ public class Product implements Serializable {
 	public void setImage(String image) {
 		this.image = image;
 	}
+
+	public int compareTo(Product o2) {
+		int compareQuantity = (int) ((Product) o2).getPrice();
+		return (int) (compareQuantity - this.price);
+	}
 	
+	public int compareTo2(Product o2) {
+		int compareQuantity = (int) ((Product) o2).getPrice();
+		return (int) (this.price - compareQuantity);
+	}
 }
