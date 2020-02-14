@@ -1,4 +1,5 @@
 {{>header}}
+<meta charset="UTF-8">
   <!--================Single Product Area =================-->
   {{#product}}
 	<div class="product_image_area">
@@ -38,10 +39,7 @@
 						<div class="card_area d-flex align-items-center">
 							<a class="icon_btn" href="#"><i class="lnr lnr lnr-diamond"></i></a>
 							<a class="icon_btn" href="#"><i class="lnr lnr lnr-heart"></i></a>
-							<form method="post" action="deleteProduct/{{id}}">
-								<button class="remove-single-product">Eliminar</button>
-								<input type="hidden" name="_csrf" value="{{token}}" />
-							</form>
+							<button class="remove-single-product">Eliminar</button>
 						</div>
 					</div>
 				</div>	
@@ -67,7 +65,7 @@
 				</li>
 				<li class="nav-item">
 					<a class="nav-link active" id="review-tab" data-toggle="tab" href="#review" role="tab" aria-controls="review"
-					 aria-selected="false">Rese�as</a>
+					 aria-selected="false">Reseï¿½as</a>
 				</li> -->
 			</ul>
 			<div class="tab-content" id="myTabContent">
