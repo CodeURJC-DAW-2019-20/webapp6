@@ -53,16 +53,19 @@ public class DatabaseInitializer {
 		this.productService.addProduct(new Product("Producto Nº11","Naruto",141.25,"WOW",38,19,1200,"Figuarts ZERO","TM0ZZH441XC", "/img/product/narutosasuke.png", "/img/product/narutosasukefull.jpg"));
 		this.productService.addProduct(new Product("Producto Nº12","Naruto",141.25,"WOW",38,19,1200,"Figuarts ZERO","TM0ZZH441XC", "/img/product/narutosasuke.png", "/img/product/narutosasukefull.jpg"));
 		
+<<<<<<< HEAD
 		Blog blog = new Blog("Administrador", "Nuevo Funko Pop! de Levi Ackerman - Attack on Titans", "No pierdas la oportunidad de hacerte con esta nueva pieza por parte de Funko Pop! de uno de los personajes más icónicos de Attack on Titans.", "../img/blog/main-blog/levi-banner-icon.png", "¡Buenos días gente! Hoy empezamos la mañana con buenas noticias, y es que gracias a Funko Pop!ya que hoy acaba de lanzar una nueva figura de Levi");
 		Blog blog2 = new Blog("Administrador", "Nueva figura Naruto Kyuubi mode por parte de Figuarts ZERO", "Y es que otra vez lo han vuelto a hacer.. Figuarts ZERO nos sorprende con esta magnifica figura de Naruto en modo Kyuubi para los más amantes de la serie.", "../img/blog/main-blog/naruto-banner-icon.png", "¡Buenos días gente! Hoy empezamos la mañana con buenas noticias, y es que gracias a Funko Pop!ya que hoy acaba de lanzar una nueva figura de Levi.");
 		Blog blog3 = new Blog("Administrador", "INCREÍBLE busto M.U.B Predator by Tsume", "Precio no apto para cardiacos. Eso sí, es una obra de arte de los piés a la cabeza.", "/img/blog/main-blog/predator-banner-icon.png", "¡Buenos días gente! Hoy empezamos la mañana con buenas noticias, y es que gracias a Funko Pop!ya que hoy acaba de lanzar una nueva figura de Levi");
 		this.blogService.addBlog(blog);
 		this.blogService.addBlog(blog2);
 		this.blogService.addBlog(blog3);
+=======
 		
-		//this.blogService.addBlog(new Blog("Administrador", "Nuevo Funko Pop! de Levi Ackerman - Attack on Titans", "No pierdas la oportunidad de hacerte con esta nueva pieza por parte de Funko Pop! de uno de los personajes más icónicos de Attack on Titans.", "img/blog/levi-blog.png"));
-		//this.blogService.addBlog(new Blog("Administrador", "Nueva figura Naruto Kyuubi mode por parte de Figuarts ZERO", "Y es que otra vez lo han vuelto a hacer.. Figuarts ZERO nos sorprende con esta magnifica figura de Naruto en modo Kyuubi para los más amantes de la serie.", "img/blog/naruto-blog.png"));
-		//this.blogService.addBlog(new Blog("Administrador", "INCREÍBLE busto M.U.B Predator by Tsume", "Precio no apto para cardiacos. Eso sí, es una obra de arte de los piés a la cabeza.", "img/blog/predator-min.png"));
+		this.blogService.addBlog(new Blog("Administrador", "Nuevo Funko Pop! de Levi Ackerman - Attack on Titans", "No pierdas la oportunidad de hacerte con esta nueva pieza por parte de Funko Pop! de uno de los personajes más icónicos de Attack on Titans.", "img/blog/levi-blog.png"));
+		this.blogService.addBlog(new Blog("Administrador", "Nueva figura Naruto Kyuubi mode por parte de Figuarts ZERO", "Y es que otra vez lo han vuelto a hacer.. Figuarts ZERO nos sorprende con esta magnifica figura de Naruto en modo Kyuubi para los más amantes de la serie.", "img/blog/naruto-blog.png"));
+		this.blogService.addBlog(new Blog("Administrador", "INCREÍBLE busto M.U.B Predator by Tsume", "Precio no apto para cardiacos. Eso sí, es una obra de arte de los piés a la cabeza.", "img/blog/predator-min.png"));
+>>>>>>> 1764f53a8d7f5f8fe51b79277fd7d0639d6be54e
 		
 	}
 }
