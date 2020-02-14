@@ -19,8 +19,8 @@ public class WebController {
         model.addAttribute("logged",logged);
         if(logged){
             model.addAttribute("admin",userComponent.getLoggedUser().getRoles().contains("ROLE_ADMIN"));
-            model.addAttribute("userName",userComponent.getLoggedUser().getName());
-            //model.addAttribute("logged");
+            model.addAttribute("name",userComponent.getLoggedUser().getName());
+            model.addAttribute("logged");
         }
     }
 

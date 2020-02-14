@@ -58,9 +58,14 @@
                   aria-expanded="false">Usuarios</a>
                 <ul class="dropdown-menu">
                   <li class="nav-item"><a class="nav-link" href="/login">Iniciar sesión</a></li>
-                  <li class="nav-item"><a class="nav-link" href="/register">Resgistrarse</a></li>
+                  {{#logged}}
+                  <form action="/logout" method="get">
+                    <li class="nav-item"><a class="nav-link" href="/">Cerrar sesión</a></li>
+                  </form>
+    		      {{/logged}}
+                  <li class="nav-item"><a class="nav-link" href="/register">Registrarse</a></li>
                   <li class="nav-item"><a class="nav-link" href="trackingOrder">Seguimiento</a></li>
-                  <li class="nav-item"><a class="nav-link" href="userPage">Mi perfil</a></li>
+                  <li class="nav-item"><a class="nav-link" href="/userPage">Mi perfil</a></li>
                 </ul>
               </li>
               <li class="nav-item"><a class="nav-link" href="contact">Contacto</a></li>

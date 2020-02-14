@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,7 +15,7 @@ import com.webapp.animeshop.model.User;
 import com.webapp.animeshop.user.UserComponent;
 import com.webapp.animeshop.user.UserService;
 
-@RestController
+@Controller
 public class LoginController {
 
     private static final Logger log = LoggerFactory
@@ -23,7 +24,7 @@ public class LoginController {
     @Autowired
     private UserComponent userComponent;
 
-    @RequestMapping("/api/logIn")
+    @RequestMapping("/logIn")
     public ResponseEntity<User> logIn() {
         if (!userComponent.isLoggedUser()) {
             log.info("Not user logged");
@@ -35,7 +36,7 @@ public class LoginController {
         }
     }
 
-    @RequestMapping("/api/logOut")
+    @RequestMapping("/logOut")
     public ResponseEntity<Boolean> logOut(HttpSession session) {
         if (!userComponent.isLoggedUser()) {
             log.info("No user logged");

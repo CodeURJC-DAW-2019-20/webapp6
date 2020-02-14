@@ -38,21 +38,12 @@
 							<div class="col-md-12 form-group">
 								<input type="text" class="form-control" id="name" name="name" placeholder="Usuario" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'">
 							</div>
-							<div class="col-md-12 form-group">
+							<!-- <div class="col-md-12 form-group">
 								<input type="text" class="form-control" id="email" name="email" placeholder="Correo electr�nico" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Correo electrónico'">
-              </div>
+              </div>-->
               <div class="col-md-12 form-group">
 								<input type="text" class="form-control" id="password" name="password" placeholder="Contrase�a" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Contraseña'">
               </div>
-              <div class="col-md-12 form-group">
-								<input type="text" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Repetir contrase�a" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Repetir contraseña'">
-							</div>
-							<div class="col-md-12 form-group">
-								<div class="creat_account">
-									<input type="checkbox" id="f-option2" name="selector">
-									<label for="f-option2">Mantener sesión</label>
-								</div>
-							</div>
 							<div class="col-md-12 form-group">
 								<button type="submit" value="submit" class="button button-register w-100" >Registrarse</button>
 								<input type="hidden" name="_csrf" value="{{token}}">
