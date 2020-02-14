@@ -35,5 +35,11 @@ public class BlogController {
 		return "/singleBlog";
 	}
 	
+	@RequestMapping("deleteBlog/{id}")
+	public String deleteBlog(Model model, @PathVariable long id) {
+		blogService.deleteBlog(id);
+		return this.showBlogs(model);
+	}
+	
 }
 
