@@ -121,7 +121,7 @@
                                           <h2>{{name}}</h2>
                                       </a>
                                       <p>{{text}}</p>
-                                      <a class="button button-blog" href="single-blog.html">Ver más</a>
+                                      <a class="button button-blog" href="blog/{{id}}">Ver más</a>
                                   </div>
                               </div>
                           </div>
@@ -294,16 +294,18 @@
                       </aside>
                       <aside class="single_sidebar_widget popular_post_widget">
                           <h3 class="widget_title">Posts populares</h3>
+                          {{#blogspage}}
                           <div class="media post_item">
-                              <img src="img/blog/popular-post/post1.jpg" alt="post">
+                              <img src="{{image}}" width="100" height="60" alt="post">
                               <div class="media-body">
-                                  <a href="single-blog.html">
-                                      <h3>Luffy se convierte en el Rey de los Piratas</h3>
+                                  <a href="blog/{{id}}">
+                                      <h3>{{name}}</h3>
                                   </a>
-                                  <p>Hace 2 horas</p>
+                                  <p>{{day}}/{{month}}/{{year}}</p>
                               </div>
                           </div>
-                          <div class="media post_item">
+                          {{/blogspage}}
+                          <!--<div class="media post_item">
                               <img src="img/blog/popular-post/post2.jpg" alt="post">
                               <div class="media-body">
                                   <a href="single-blog.html">
@@ -329,7 +331,7 @@
                                   </a>
                                   <p>Hace 1 hora</p>
                               </div>
-                          </div>
+                          </div> -->
                           <div class="br"></div>
                       </aside>
                       <aside class="single_sidebar_widget ads_widget">
