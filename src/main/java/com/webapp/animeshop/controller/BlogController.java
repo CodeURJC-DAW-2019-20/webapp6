@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.webapp.animeshop.model.Blog;
 import com.webapp.animeshop.service.BlogService;
@@ -38,6 +39,13 @@ public class BlogController {
 	@RequestMapping("deleteBlog/{id}")
 	public String deleteBlog(Model model, @PathVariable long id) {
 		blogService.deleteBlog(id);
+		return this.showBlogs(model);
+	}
+	
+	@RequestMapping("/addBlog")
+	public String addBlog(Model model, @RequestParam String author, @RequestParam String name, @RequestParam String text, @RequestParam String textfull) {
+		Blog blog = new Blog(author, name, text, textfull);
+		this.blogService.addBlog(blog);
 		return this.showBlogs(model);
 	}
 	

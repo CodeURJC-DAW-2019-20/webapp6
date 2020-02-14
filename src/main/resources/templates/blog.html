@@ -74,6 +74,43 @@
   <!--================Blog Area =================-->
   <section class="blog_area">
       <div class="container">
+      <button class="add-product" data-toggle="modal" data-target="#exampleModal">A&ntilde;adir +</button>
+              <div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <h5 class="modal-title" id="exampleModalLabel">Nuevo producto</h5>
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				          <span aria-hidden="true">&times;</span>
+				        </button>
+				      </div>
+				      <div class="modal-body">
+				        <form id="newBlog" action="addBlog" method="post">
+				          <div class="form-group">
+				            <label class="col-form-label">Título:</label>
+				            <input type="text" class="form-control" name="name">
+				            <div class="form-row mb-4">
+				            	<div class="col">
+				            		<label class="col-form-label">Autor:</label>
+				            		<input type="text" class="form-control" name="author">
+				            	</div>
+				            </div>
+				            <label class="col-form-label">Extracto:</label>
+				            <textarea class="form-control" name="text"></textarea>
+				            <label class="col-form-label">Texto completo:</label>
+				            <textarea class="form-control" name="textfull"></textarea>
+				            
+				            <input type="hidden" name="_csrf" value="{{token}}" />
+				          </div>
+				        </form>
+				      </div>
+				      <div class="modal-footer">
+				        <button type="button" class="close-submit-product" data-dismiss="modal">Cerrar</button>
+				        <button type="submit" class="submit-product" form="newBlog">Enviar</button>
+				      </div>
+				    </div>
+				  </div>
+				</div>
           <div class="row">
               <div class="col-lg-8">
                   <div class="blog_left_sidebar">

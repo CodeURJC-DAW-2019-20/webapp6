@@ -45,6 +45,21 @@ public class Blog implements Serializable{
 		this.year = cal.get(Calendar.YEAR);
 	}
 
+	public Blog(String author, String name, String text, String textfull) {
+		this.author = author;
+		this.name = name;
+		this.text = text;
+		this.image = "";
+		this.textfull = textfull;
+		
+		Date today = new Date();
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(today);
+		this.day = cal.get(Calendar.DAY_OF_MONTH);
+		this.month = cal.get(Calendar.MONTH);
+		this.year = cal.get(Calendar.YEAR);
+	}
+	
 	public String getAuthor() {
 		return author;
 	}
