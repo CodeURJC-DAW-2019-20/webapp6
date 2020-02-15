@@ -1,56 +1,52 @@
 {{>header}}
 <meta charset="UTF-8">
-	<!-- ================ start banner area ================= -->	
-	<section class="blog-banner-area" id="blog">
-		<div class="container h-100">
-			<div class="blog-banner">
-				<div class="text-center">
-					<h1>Detalles del post</h1>
-					<nav aria-label="breadcrumb" class="banner-breadcrumb">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active" aria-current="page">Detalles del post</li>
-            </ol>
-          </nav>
-				</div>
+<!-- ================ start banner area ================= -->
+<section class="blog-banner-area" id="blog">
+	<div class="container h-100">
+		<div class="blog-banner">
+			<div class="text-center">
+				<h1>Detalles del post</h1>
+				<nav aria-label="breadcrumb" class="banner-breadcrumb">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a href="#">Home</a></li>
+						<li class="breadcrumb-item active" aria-current="page">Detalles
+							del post</li>
+					</ol>
+				</nav>
 			</div>
-    </div>
-	</section>
-	<!-- ================ end banner area ================= -->
+		</div>
+	</div>
+</section>
+<!-- ================ end banner area ================= -->
 
 
 
-  <!--================Blog Area =================-->
-  {{#blog}}
-	<section class="blog_area single-post-area py-80px section-margin--small">
-			<div class="container">
-					<div class="row">
-							<div class="col-lg-8 posts-list">
-									<div class="single-post row">
-											<div class="col-lg-12">
-													<div class="feature-img">
-															<img class="img-fluid" src="{{image}}" alt="">
-													</div>
-											</div>
-											<div class="col-lg-3  col-md-3">
-													<div class="blog_info text-right">
-															<div class="post_tag">
-																	<a>Noticas,</a>
-																	<a class="active" href="category.html">Funko Pop!</a>
-																	<a href="#">Nueva figura</a>
-															</div>
-															<ul class="blog_meta list">
-																	<li>
-																			<a>{{author}}
-																					<i class="lnr lnr-user"></i>
-																			</a>
-																	</li>
-																	<li>
-																			<a>{{day}}/{{month}}/{{year}}
-																					<i class="lnr lnr-calendar-full"></i>
-																			</a>
-																	</li>
-																	<!-- <li>
+<!--================Blog Area =================-->
+{{#blog}}
+<section
+	class="blog_area single-post-area py-80px section-margin--small">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 posts-list">
+				<div class="single-post row">
+					<div class="col-lg-12">
+						<div class="feature-img">
+							<img class="img-fluid" src="{{image}}" alt="">
+						</div>
+					</div>
+					<div class="col-lg-3  col-md-3">
+						<div class="blog_info text-right">
+							<div class="post_tag">
+								<a>Noticas,</a> <a class="active" href="category.html">Funko
+									Pop!</a> <a href="#">Nueva figura</a>
+							</div>
+							<ul class="blog_meta list">
+								<li><a>{{author}} <i class="lnr lnr-user"></i>
+								</a></li>
+								<li><a>{{day}}/{{month}}/{{year}} <i
+										class="lnr lnr-calendar-full"></i>
+								</a></li>
+								<!-- <li>
 																			<a>1.2M Visitas
 																					<i class="lnr lnr-eye"></i>
 																			</a>
@@ -61,42 +57,31 @@
 																				<i class="lnr lnr-bubble"></i>
 																		</a>
 																	</li>-->
-																	<li>
-																		<form>
-                                      										<button class="remove-blog-entrie"  onclick="location.href='/deleteBlog/{{id}}'">Eliminar</button>
-                                      									</form>																	</li>
-															</ul>
-															<ul class="social-links">
-																	<li>
-																			<a href="#">
-																					<i class="fab fa-facebook-f"></i>
-																			</a>
-																	</li>
-																	<li>
-																			<a href="#">
-																				<i class="fab fa-twitter"></i>																				
-																			</a>
-																	</li>
-																	<li>
-																			<a href="#">
-																				<i class="fab fa-github"></i>																				
-																			</a>
-																	</li>
-																	<li>
-																			<a href="#">
-																				<i class="fab fa-behance"></i>																				
-																			</a>
-																	</li>
-															</ul>
-													</div>
-											</div>
-											<div class="col-lg-9 col-md-9 blog_details">
-													<h2>{{name}}</h2>
-													<p class="excert">
-															Modelo figura 235 Levi Ackerman.
-													</p>
-													<p>		{{text}}
-															<!-- ¡Buenos días gente! Hoy empezamos la mañana con buenas noticias, y es que gracias a Funko Pop!
+								<li>
+									<form>
+										<button class="remove-blog-entrie"
+											onclick="location.href='/deleteBlog/{{id}}'">Eliminar</button>
+									</form>
+								</li>
+							</ul>
+							<ul class="social-links">
+								<li><a href="#"> <i class="fab fa-facebook-f"></i>
+								</a></li>
+								<li><a href="#"> <i class="fab fa-twitter"></i>
+								</a></li>
+								<li><a href="#"> <i class="fab fa-github"></i>
+								</a></li>
+								<li><a href="#"> <i class="fab fa-behance"></i>
+								</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-lg-9 col-md-9 blog_details">
+						<h2>{{name}}</h2>
+						<p class="excert">Modelo figura 235 Levi Ackerman.</p>
+						<p>
+							{{text}}
+							<!-- ¡Buenos días gente! Hoy empezamos la mañana con buenas noticias, y es que gracias a Funko Pop!
 															ya que hoy acaba de lanzar una nueva figura, y esta vez para los amantes del anime Attack on Titans.
 															No hablamos ni más ni menos que de Levi Ackerman, adorado por todos los fans de la serie.
 													</p>
@@ -106,70 +91,71 @@
 															y del personaje, simplemente no te arrepentiras de comprarla que si no que será una de tus figuras favoritas.
 															Si quieres hacerte con ella puedes comprarla en la web, donde ya se encuentra disponible. ¡Date prisa!
 															
-													<p>-->	<a class="active" href="single-product.html">Link de comprar</a>
-													</p>
-													</p>
-											</div>
-											<div class="col-lg-12">
-													<!-- <div class="quotes">
+													<p>-->
+							<a class="active" href="https://localhost:8443/product/{{idproduct}}">Link de comprar</a>
+						</p>
+						</p>
+					</div>
+					<div class="col-lg-12">
+						<!-- <div class="quotes">
 														#funko #anime #leviackerman #attackontitans #imprescindible #dadmevuestrosdollars
 													</div> -->
-													<div class="row">
-															<div class="col-6">
-																	<img class="img-fluid" src="../img/product/levi.jpg" alt="">
-															</div>
-															<div class="col-6">
-																	<img class="img-fluid" src="../img/product/levimin.png" alt="">
-															</div>
-															<!-- <div class="col-lg-12 mt-4">
+						<div class="row">
+							<div class="col-6">
+								<img class="img-fluid" src="../img/product/levi.jpg" alt="">
+							</div>
+							<div class="col-6">
+								<img class="img-fluid" src="../img/product/levimin.png" alt="">
+							</div>
+							<!-- <div class="col-lg-12 mt-4">
 																	<p>
 																		#Descripción imágenes#
 																	</p>
 															</div>> -->
-													</div>
-											</div>
-									</div>
-									<div class="navigation-area">
-											<div class="row">
-													<div class="col-lg-6 col-md-6 col-12 nav-left flex-row d-flex justify-content-start align-items-center">
-															<div class="thumb">
-																	<a href="#">
-																			<img class="img-fluid" src="img/blog/prev.jpg" alt="">
-																	</a>
-															</div>
-															<div class="arrow">
-																	<a href="#">
-																			<span class="lnr text-white lnr-arrow-left"></span>
-																	</a>
-															</div>
-															<div class="detials">
-																	<p>Post anterior</p>
-																	<a href="#">
-																			<h4>Otra noticia</h4>
-																	</a>
-															</div>
-													</div>
-													<div class="col-lg-6 col-md-6 col-12 nav-right flex-row d-flex justify-content-end align-items-center">
-															<div class="detials">
-																	<p>Siguente Post</p>
-																	<a href="#">
-																			<h4>Otra noticia</h4>
-																	</a>
-															</div>
-															<div class="arrow">
-																	<a href="#">
-																			<span class="lnr text-white lnr-arrow-right"></span>
-																	</a>
-															</div>
-															<div class="thumb">
-																	<a href="#">
-																			<img class="img-fluid" src="img/blog/next.jpg" alt="">
-																	</a>
-															</div>
-													</div>
-											</div>
-									</div>
-									<!-- <div class="comments-area">
+						</div>
+					</div>
+				</div>
+				<div class="navigation-area">
+					<div class="row">
+						<div
+							class="col-lg-6 col-md-6 col-12 nav-left flex-row d-flex justify-content-start align-items-center">
+							<div class="thumb">
+								<a href="#"> <img class="img-fluid" src="img/blog/prev.jpg"
+									alt="">
+								</a>
+							</div>
+							<div class="arrow">
+								<a href="#"> <span class="lnr text-white lnr-arrow-left"></span>
+								</a>
+							</div>
+							<div class="detials">
+								<p>Post anterior</p>
+								<a href="#">
+									<h4>Otra noticia</h4>
+								</a>
+							</div>
+						</div>
+						<div
+							class="col-lg-6 col-md-6 col-12 nav-right flex-row d-flex justify-content-end align-items-center">
+							<div class="detials">
+								<p>Siguente Post</p>
+								<a href="#">
+									<h4>Otra noticia</h4>
+								</a>
+							</div>
+							<div class="arrow">
+								<a href="#"> <span class="lnr text-white lnr-arrow-right"></span>
+								</a>
+							</div>
+							<div class="thumb">
+								<a href="#"> <img class="img-fluid" src="img/blog/next.jpg"
+									alt="">
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- <div class="comments-area">
 											<h4>05 Comentarios</h4>
 											<div class="comment-list">
 													<div class="single-comment justify-content-between d-flex">
@@ -277,7 +263,7 @@
 													</div>
 											</div>
 									</div> -->
-									<!-- <div class="comment-form">
+				<!-- <div class="comment-form">
 											<h4>Deja un comentario</h4>
 											<form id="blog-comment">
 													<div class="form-group form-inline">
@@ -298,58 +284,53 @@
 													<button class="button button-postComment button--active" type="submit" form="blog-comment">Publicar comentario</button>
 											</form>
 									</div> -->
+			</div>
+			<div class="col-lg-4">
+				<div class="blog_right_sidebar">
+					<aside class="single_sidebar_widget search_widget">
+						<div class="input-group">
+							<input type="text" class="form-control"
+								placeholder="Search Posts"> <span
+								class="input-group-btn">
+								<button class="btn btn-default" type="button">
+									<i class="lnr lnr-magnifier"></i>
+								</button>
+							</span>
+						</div>
+						<!-- /input-group -->
+						<div class="br"></div>
+					</aside>
+					<!-- <aside class="single_sidebar_widget author_widget">
+						<img class="author_img rounded-circle" src="img/blog/author.png"
+							alt="">
+						<h4>Charlie Barber</h4>
+						<p>Redactor en Anime Shop</p>
+						<div class="social_icon">
+							<a href="#"> <i class="fab fa-facebook-f"></i>
+							</a> <a href="#"> <i class="fab fa-twitter"></i>
+							</a> <a href="#"> <i class="fab fa-github"></i>
+							</a> <a href="#"> <i class="fab fa-behance"></i>
+							</a>
+						</div>
+						<p>Redactor, estudiante de Ingeniería del Software y
+							entusiaste del anime, manga, collecionables y todo lo relacionado
+							con ello.</p>
+						<div class="br"></div>
+					</aside> -->
+					<aside class="single_sidebar_widget popular_post_widget">
+						<h3 class="widget_title">Posts populares</h3>
+						{{#popularblogs}}
+						<div class="media post_item">
+							<img src="{{image}}" width="100" height="60" alt="post">
+							<div class="media-body">
+								<a href="blog/{{id}}">
+									<h3>{{name}}</h3>
+								</a>
+								<p>{{day}}/{{month}}/{{year}}</p>
 							</div>
-							<div class="col-lg-4">
-									<div class="blog_right_sidebar">
-											<aside class="single_sidebar_widget search_widget">
-													<div class="input-group">
-															<input type="text" class="form-control" placeholder="Search Posts">
-															<span class="input-group-btn">
-																	<button class="btn btn-default" type="button">
-																			<i class="lnr lnr-magnifier"></i>
-																	</button>
-															</span>
-													</div>
-													<!-- /input-group -->
-													<div class="br"></div>
-											</aside>
-											<aside class="single_sidebar_widget author_widget">
-													<img class="author_img rounded-circle" src="img/blog/author.png" alt="">
-													<h4>Charlie Barber</h4>
-													<p>Redactor en Anime Shop</p>
-													<div class="social_icon">
-                              <a href="#">
-                                  <i class="fab fa-facebook-f"></i>
-                              </a>
-                              <a href="#">
-                                  <i class="fab fa-twitter"></i>
-                              </a>
-                              <a href="#">
-                                  <i class="fab fa-github"></i>
-                              </a>
-                              <a href="#">
-                                <i class="fab fa-behance"></i>
-                              </a>
-                          </div>
-													<p>Redactor, estudiante de Ingeniería del Software y entusiaste del anime, manga, collecionables
-														y todo lo relacionado con ello.
-													</p>
-													<div class="br"></div>
-											</aside>
-											<aside class="single_sidebar_widget popular_post_widget">
-													<h3 class="widget_title">Posts populares</h3>
-													{{#popularblogs}}
-													<div class="media post_item">
-															<img src="{{image}}" width="100" height="60" alt="post">
-															<div class="media-body">
-																	<a href="blog/{{id}}">
-																			<h3>{{name}}</h3>
-																	</a>
-																	<p>{{day}}/{{month}}/{{year}}</p>
-															</div>
-													</div>
-													{{/popularblogs}}
-													<!-- <div class="media post_item">
+						</div>
+						{{/popularblogs}}
+						<!-- <div class="media post_item">
 															<img src="img/blog/popular-post/post2.jpg" alt="post">
 															<div class="media-body">
 																	<a href="blog-details.html">
@@ -376,107 +357,81 @@
 																	<p>Hace 1 hora</p>
 															</div>
 													</div> -->
-													<div class="br"></div>
-											</aside>
-											<!-- <aside class="single_sidebar_widget ads_widget">
+						<div class="br"></div>
+					</aside>
+					<!-- <aside class="single_sidebar_widget ads_widget">
 													<a href="#">
 															<img class="img-fluid" src="img/blog/add.jpg" alt="">
 													</a>
 													<div class="br"></div>
 											</aside> -->
-											<aside class="single_sidebar_widget post_category_widget">
-													<h4 class="widget_title">Categorías</h4>
-													<ul class="list cat-list">
-															<li>
-																	<a href="#" class="d-flex justify-content-between">
-																			<p>Nuevos lanzamientos</p>
-																			<p>37</p>
-																	</a>
-															</li>
-															<li>
-																	<a href="#" class="d-flex justify-content-between">
-																			<p>En descuento</p>
-																			<p>24</p>
-																	</a>
-															</li>
-															<li>
-																	<a href="#" class="d-flex justify-content-between">
-																			<p>Anime</p>
-																			<p>59</p>
-																	</a>
-															</li>
-															<li>
-																	<a href="#" class="d-flex justify-content-between">
-																			<p>Manga</p>
-																			<p>29</p>
-																	</a>
-															</li>
-															<li>
-																	<a href="#" class="d-flex justify-content-between">
-																			<p>Videojuegos</p>
-																			<p>15</p>
-																	</a>
-															</li>
-															<li>
-																	<a href="#" class="d-flex justify-content-between">
-																			<p>Películas</p>
-																			<p>09</p>
-																	</a>
-															</li>
-															<li>
-																	<a href="#" class="d-flex justify-content-between">
-																			<p>Merchandising</p>
-																			<p>44</p>
-																	</a>
-															</li>
-													</ul>
-													<div class="br"></div>
-											</aside>
-											<aside class="single-sidebar-widget newsletter_widget">
-													<h4 class="widget_title">Boletín informativo</h4>
-													<p>
-														Suscríbete para estar al día de todas las novedades y noticias.
-													</p>
-													<div class="form-group d-flex flex-row">
-															<div class="input-group">
-																	<div class="input-group-prepend">
-																			<div class="input-group-text">
-																					<i class="fa fa-envelope" aria-hidden="true"></i>
-																			</div>
-																	</div>
-																	<input type="text" class="form-control" id="inlineFormInputGroup" placeholder="E-mail" onfocus="this.placeholder = ''"
-																			onblur="this.placeholder = 'Enter email'">
-															</div>
-															<a href="#" class="bbtns">Subcribirse</a>
-													</div>
-													<p class="text-bottom">Puedes cancelar tu suscripción cuando quieras.</p>
-													<div class="br"></div>
-											</aside>
-											<aside class="single-sidebar-widget tag_cloud_widget">
-													<h4 class="widget_title">Nube de Tags</h4>
-													<ul class="list">
-														<li>
-															<a href="#">Anime</a>
-														</li>
-														<li>
-															<a href="#">Manga</a>
-														</li>
-														<li>
-															<a href="#">Nuevos lanzamientos</a>
-														</li>
-														<li>
-															<a href="#">Merchandising</a>
-														</li>
-														<li>
-															<a href="#">Videojuegos</a>
-														</li>
-														<li>
-															<a href="#">Películas</a>
-														</li>
-														<li>
-															<a href="#">En descuento</a>
-														</li>
-														<!-- <li>
+					<aside class="single_sidebar_widget post_category_widget">
+						<h4 class="widget_title">Categorías</h4>
+						<ul class="list cat-list">
+							<li><a href="#" class="d-flex justify-content-between">
+									<p>Nuevos lanzamientos</p>
+									<p>37</p>
+							</a></li>
+							<li><a href="#" class="d-flex justify-content-between">
+									<p>En descuento</p>
+									<p>24</p>
+							</a></li>
+							<li><a href="#" class="d-flex justify-content-between">
+									<p>Anime</p>
+									<p>59</p>
+							</a></li>
+							<li><a href="#" class="d-flex justify-content-between">
+									<p>Manga</p>
+									<p>29</p>
+							</a></li>
+							<li><a href="#" class="d-flex justify-content-between">
+									<p>Videojuegos</p>
+									<p>15</p>
+							</a></li>
+							<li><a href="#" class="d-flex justify-content-between">
+									<p>Películas</p>
+									<p>09</p>
+							</a></li>
+							<li><a href="#" class="d-flex justify-content-between">
+									<p>Merchandising</p>
+									<p>44</p>
+							</a></li>
+						</ul>
+						<div class="br"></div>
+					</aside>
+					<aside class="single-sidebar-widget newsletter_widget">
+						<h4 class="widget_title">Boletín informativo</h4>
+						<p>Suscríbete para estar al día de todas las novedades y
+							noticias.</p>
+						<div class="form-group d-flex flex-row">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<div class="input-group-text">
+										<i class="fa fa-envelope" aria-hidden="true"></i>
+									</div>
+								</div>
+								<input type="text" class="form-control"
+									id="inlineFormInputGroup" placeholder="E-mail"
+									onfocus="this.placeholder = ''"
+									onblur="this.placeholder = 'Enter email'">
+							</div>
+							<a href="#" class="bbtns">Subcribirse</a>
+						</div>
+						<p class="text-bottom">Puedes cancelar tu suscripción cuando
+							quieras.</p>
+						<div class="br"></div>
+					</aside>
+					<aside class="single-sidebar-widget tag_cloud_widget">
+						<h4 class="widget_title">Nube de Tags</h4>
+						<ul class="list">
+							<li><a href="#">Anime</a></li>
+							<li><a href="#">Manga</a></li>
+							<li><a href="#">Nuevos lanzamientos</a></li>
+							<li><a href="#">Merchandising</a></li>
+							<li><a href="#">Videojuegos</a></li>
+							<li><a href="#">Películas</a></li>
+							<li><a href="#">En descuento</a></li>
+							<!-- <li>
 															<a href="#">Art</a>
 														</li>
 														<li>
@@ -491,13 +446,13 @@
 														<li>
 															<a href="#">Adventure</a>
 														</li> -->
-													</ul>
-											</aside>
-									</div>
-							</div>
-					</div>
+						</ul>
+					</aside>
+				</div>
 			</div>
-	</section>
-	{{/blog}}
-	<!--================Blog Area =================-->
+		</div>
+	</div>
+</section>
+{{/blog}}
+<!--================Blog Area =================-->
 {{>footer}}

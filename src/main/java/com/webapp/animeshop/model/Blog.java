@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -27,6 +28,10 @@ public class Blog implements Serializable{
 	private int day;
 	private int month;
 	private int year;
+	private long idproduct;
+	
+	@OneToOne
+	private Product product;
 	
 	public Blog() {};
 	
@@ -92,6 +97,17 @@ public class Blog implements Serializable{
 		this.image = image;
 	}
 	
+	public void setProduct(Product product) {
+		this.product = product;
+	}
+	
+	public Product getProduct() {
+		return this.product;
+	}
+	
+	public void setIdProduct() {
+		this.idproduct = this.getProduct().getId();
+	}
 	
 }
 

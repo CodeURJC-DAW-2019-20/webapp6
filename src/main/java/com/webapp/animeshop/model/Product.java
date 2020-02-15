@@ -129,4 +129,7 @@ public class Product implements Serializable {
 		this.image = image;
 	}
 	
+	public long getId() {
+		return this.id;
+	}
 }
