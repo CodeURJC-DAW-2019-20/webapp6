@@ -79,7 +79,7 @@
 				  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
 				    <div class="modal-content">
 				      <div class="modal-header">
-				        <h5 class="modal-title" id="exampleModalLabel">Nuevo producto</h5>
+				        <h5 class="modal-title" id="exampleModalLabel">Nueva entrada de blog</h5>
 				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 				          <span aria-hidden="true">&times;</span>
 				        </button>
@@ -99,7 +99,13 @@
 				            <textarea class="form-control" name="text"></textarea>
 				            <label class="col-form-label">Texto completo:</label>
 				            <textarea class="form-control" name="textfull"></textarea>
-				            
+				            <label class="col-form-label">ID:</label>
+				            <textarea class="form-control" name="idproduct"></textarea>
+				            <div>
+				            	{{#productsblog}}
+				            	<button class="add-product">{{name}}, ID: {{id}}</button>
+				            	{{/productsblog}}
+				            </div>
 				            <input type="hidden" name="_csrf" value="{{token}}" />
 				          </div>
 				        </form>

@@ -9,12 +9,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.webapp.animeshop.model.Blog;
 import com.webapp.animeshop.service.BlogService;
+import com.webapp.animeshop.service.ProductService;
 
 @Controller
 public class BlogController {
 	
 	@Autowired
 	private BlogService blogService;
+	
+	@Autowired
+	private ProductService productService;
 	
 	@RequestMapping("/")
 	public String showBlogs(Model model) {
@@ -25,6 +29,7 @@ public class BlogController {
 	@RequestMapping("/blogspage")
 	public String showBlogsPage(Model model) {
 		model.addAttribute("blogspage", this.blogService.getBlogs());
+		model.addAttribute("productsblog", this.productService.getProducts());
 		return "/blog";
 	}
 	
@@ -43,8 +48,9 @@ public class BlogController {
 	}
 	
 	@RequestMapping("/addBlog")
-	public String addBlog(Model model, @RequestParam String author, @RequestParam String name, @RequestParam String text, @RequestParam String textfull) {
-		Blog blog = new Blog(author, name, text, textfull);
+	public String addBlog(Model model, @RequestParam String author, @RequestParam String name, @RequestParam String text, @RequestParam String textfull, @RequestParam String idproduct) {
+		Blog blog = new Blog(author, name, text, textfull, idproduct);
+		blog.setProduct(productService.getProduct(Long.parseLong(idproduct)));
 		this.blogService.addBlog(blog);
 		return this.showBlogs(model);
 	}

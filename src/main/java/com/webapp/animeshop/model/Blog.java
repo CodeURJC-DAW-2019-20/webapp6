@@ -11,10 +11,14 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.webapp.animeshop.service.ProductService;
+
 @Entity
 @Table(name="blogentries")
 public class Blog implements Serializable{
-	
+		
 	private static final long serialVersionUID = 1L;
 	
 	@Id
@@ -35,7 +39,7 @@ public class Blog implements Serializable{
 	
 	public Blog() {};
 	
-	public Blog(String author, String name, String text, String image, String textfull) {
+	public Blog(String author, String name, String text, String image, String textfull, int queno) {
 		this.author = author;
 		this.name = name;
 		this.text = text;
@@ -63,6 +67,24 @@ public class Blog implements Serializable{
 		this.day = cal.get(Calendar.DAY_OF_MONTH);
 		this.month = cal.get(Calendar.MONTH);
 		this.year = cal.get(Calendar.YEAR);
+	}
+	
+	public Blog(String author, String name, String text, String textfull, String idproduct) {
+		this.author = author;
+		this.name = name;
+		this.text = text;
+		this.image = "";
+		this.textfull = textfull;
+		
+		Date today = new Date();
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(today);
+		this.day = cal.get(Calendar.DAY_OF_MONTH);
+		this.month = cal.get(Calendar.MONTH);
+		this.year = cal.get(Calendar.YEAR);
+		
+		this.idproduct =  Long.parseLong(idproduct);
+		
 	}
 	
 	public String getAuthor() {
@@ -99,6 +121,7 @@ public class Blog implements Serializable{
 	
 	public void setProduct(Product product) {
 		this.product = product;
+		//this.idproduct = this.product.getId();
 	}
 	
 	public Product getProduct() {

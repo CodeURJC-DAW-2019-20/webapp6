@@ -50,5 +50,6 @@ public class ProductController {
 		productService.deleteProduct(id);
 		return this.showProducts(model);
 	}
+	
 }
 
