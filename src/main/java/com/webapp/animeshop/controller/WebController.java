@@ -17,14 +17,14 @@ public class WebController {
     public void addUserToModel(Model model){
         boolean logged=userComponent.getLoggedUser()!=null;
         model.addAttribute("logged",logged);
+        System.out.println("XXXXXXXXXXXXXXXXXXX"+logged);
         if(logged){
             model.addAttribute("admin",userComponent.getLoggedUser().getRoles().contains("ROLE_ADMIN"));
-            model.addAttribute("userName",userComponent.getLoggedUser().getName());
-            model.addAttribute("logged");
+            model.addAttribute("user",userComponent.getLoggedUser().getName());
         }
     }
 
-	@GetMapping("/blog")
+	/**@GetMapping("/blog")
 	public String blog(Model model) {		
 		return "blog";
 	}
@@ -42,6 +42,6 @@ public class WebController {
 	@GetMapping("/singleProduct")
 	public String singleProduct(Model model) {		
 		return "singleProduct";
-	}
+	}*/
 	
 }

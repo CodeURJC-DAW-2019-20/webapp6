@@ -30,7 +30,7 @@ public class CustomErrorController implements ErrorController {
    		else
    			errorMessage = exception.getMessage();
    		model.addAttribute("errorM", errorMessage);
-   		return "/error";
+   		return "error";
    	}
 
    	@Override

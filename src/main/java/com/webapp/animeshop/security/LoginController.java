@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.webapp.animeshop.model.User;
 import com.webapp.animeshop.user.UserComponent;
-import com.webapp.animeshop.user.UserService;
 
 @RestController
 public class LoginController {
@@ -23,7 +22,7 @@ public class LoginController {
     @Autowired
     private UserComponent userComponent;
 
-    @RequestMapping("/logIn")
+    @RequestMapping("/api/logIn")
     public ResponseEntity<User> logIn() {
         if (!userComponent.isLoggedUser()) {
             log.info("Not user logged");
@@ -35,8 +34,9 @@ public class LoginController {
         }
     }
 
-    @RequestMapping("/logout")
+    @RequestMapping("/api/logOut")
     public ResponseEntity<Boolean> logOut(HttpSession session) {
+        log.info("asdasd {}", userComponent);
         if (!userComponent.isLoggedUser()) {
             log.info("No user logged");
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);

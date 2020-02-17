@@ -1,8 +1,11 @@
 package com.webapp.animeshop.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,7 +34,7 @@ public class WebControllerLogin extends WebController {
         model.addAttribute("hideLogin",true);
         return "login";
     }
-
+    
     @GetMapping("/loginerror")
     public String loginError(){
         return "loginError";

@@ -12,7 +12,7 @@ import com.webapp.animeshop.service.BlogService;
 import com.webapp.animeshop.service.ProductService;
 
 @Controller
-public class BlogController {
+public class BlogController extends WebController{
 	
 	@Autowired
 	private BlogService blogService;
