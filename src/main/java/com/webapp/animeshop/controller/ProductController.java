@@ -40,7 +40,9 @@ public class ProductController {
 	}
 	
 	@RequestMapping("/addProduct")
-	public String addProduct(Model model, Product product) throws IOException {
+	public String addProduct(Model model, Product product){
+		product.setImage("");
+		product.setImagefull("");
 		this.productService.addProduct(product);
 		return this.showProducts(model);
 	}

@@ -76,5 +76,41 @@ public class ProductService {
 			this.productRepository.delete(product);
 		}
 	}
+	
+	public List<Product> filterProducts(String franchise, String distributor, int width, int height, int min_price, int max_price){
+		List<Product> products = this.productRepository.findAll();
+		List<Product> aux = new ArrayList<Product>();
+		for (int i = 0; i < products.size(); i++) {
+			if((franchise.equals("Cualquiera")||products.get(i).getFranchise().equals(franchise))
+				&(distributor.equals("Cualquiera")||products.get(i).getDistributor().equals(distributor))
+				&((products.get(i).getPrice()>=min_price) & (products.get(i).getPrice()<=max_price))
+				&((products.get(i).getWidth()<width)&(products.get(i).getHeight()<height)))
+				
+				aux.add(products.get(i));
+		}
+		return aux;
+	}
+	
+	public List<Product> upperToLower(){
+		List<Product> products = this.productRepository.findAll();
+		products.sort((o1,o2) -> o1.compareTo(o2));
+		return products;
+	}
+	
+	public List<Product> lowerToUpper(){
+		List<Product> products = this.productRepository.findAll();
+		products.sort((o1,o2) -> o1.compareTo2(o2));
+		return products;
+	}
+	
+	public List<Product> search(String key){
+		List<Product> products = this.productRepository.findAll();
+		List<Product> aux = new ArrayList<Product>();
+		for(int i = 0; i < products.size(); i++) {
+			if(products.get(i).getName().toLowerCase().contains(key.toLowerCase()))
+				aux.add(products.get(i));
+		}
+		return aux;
+	}
 
 }

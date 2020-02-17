@@ -83,12 +83,12 @@ public class DatabaseInitializer {
 		
 		
 		
-		blog.setProduct(product);
+		blog.setProduct(this.productService.getProduct(3));
 		
 		
-		this.productService.addProduct(product);
-		this.productService.addProduct(product2);
-		this.productService.addProduct(product3);
+		this.productService.addProduct(this.productService.getProduct(5));
+		this.productService.addProduct(this.productService.getProduct(6));
+		this.productService.addProduct(this.productService.getProduct(7));
 		blog.setIdProduct();
 		
 		this.blogService.addBlog(blog);
