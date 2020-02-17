@@ -1,17 +1,24 @@
 package com.webapp.animeshop.model;
 
 import java.io.Serializable;
+import java.util.Date;
+import java.util.Calendar;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.webapp.animeshop.service.ProductService;
 
 @Entity
 @Table(name="blogentries")
 public class Blog implements Serializable{
-	
+		
 	private static final long serialVersionUID = 1L;
 	
 	@Id
@@ -21,16 +28,65 @@ public class Blog implements Serializable{
 	private String name;
 	private String text;
 	private String image;
-
+	private String textfull;
+	private int day;
+	private int month;
+	private int year;
+	private long idproduct;
+	
+	@OneToOne
+	private Product product;
+	
 	public Blog() {};
 	
-	public Blog(String author, String name, String text, String image) {
+	public Blog(String author, String name, String text, String image, String textfull, int queno) {
 		this.author = author;
 		this.name = name;
 		this.text = text;
 		this.image = image;
+		this.textfull = textfull;
+		
+		Date today = new Date();
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(today);
+		this.day = cal.get(Calendar.DAY_OF_MONTH);
+		this.month = cal.get(Calendar.MONTH);
+		this.year = cal.get(Calendar.YEAR);
 	}
 
+	public Blog(String author, String name, String text, String textfull) {
+		this.author = author;
+		this.name = name;
+		this.text = text;
+		this.image = "";
+		this.textfull = textfull;
+		
+		Date today = new Date();
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(today);
+		this.day = cal.get(Calendar.DAY_OF_MONTH);
+		this.month = cal.get(Calendar.MONTH);
+		this.year = cal.get(Calendar.YEAR);
+	}
+	
+	public Blog(String author, String name, String text, String textfull, String idproduct) {
+		this.author = author;
+		this.name = name;
+		this.text = text;
+		this.image = "";
+		this.textfull = textfull;
+		
+		Date today = new Date();
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(today);
+		this.day = cal.get(Calendar.DAY_OF_MONTH);
+		this.month = cal.get(Calendar.MONTH);
+		this.year = cal.get(Calendar.YEAR);
+		
+		this.idproduct =  Long.parseLong(idproduct);
+		
+	}
+	
 	public String getAuthor() {
 		return author;
 	}
@@ -63,6 +119,18 @@ public class Blog implements Serializable{
 		this.image = image;
 	}
 	
+	public void setProduct(Product product) {
+		this.product = product;
+		//this.idproduct = this.product.getId();
+	}
+	
+	public Product getProduct() {
+		return this.product;
+	}
+	
+	public void setIdProduct() {
+		this.idproduct = this.getProduct().getId();
+	}
 	
 }
 

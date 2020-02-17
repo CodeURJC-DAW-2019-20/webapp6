@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.webapp.animeshop.model.Product;
 import com.webapp.animeshop.repositories.ProductRepository;
@@ -27,7 +28,7 @@ public class ProductController {
 	
 	@RequestMapping("/products")
 	public String showProducts(Model model) {
-		model.addAttribute("products", this.productService.getProducts().subList(0, Math.min(productRepository.findAll().size(),10)));
+		model.addAttribute("products", this.productService.getProducts());
 		return "/category";
 	}
 	

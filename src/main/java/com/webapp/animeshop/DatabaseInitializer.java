@@ -76,10 +76,24 @@ public class DatabaseInitializer {
 		this.orderRepository.save(order);
 		this.orderRepository.findById(18).setProductList(productList);		
 		user.setOrderList(this.orderRepository.findAll());*/
+
+		Blog blog = new Blog("Administrador", "Nuevo Funko Pop! de Levi Ackerman - Attack on Titans", "No pierdas la oportunidad de hacerte con esta nueva pieza por parte de Funko Pop! de uno de los personajes más icónicos de Attack on Titans.", "../img/blog/main-blog/levi-banner-icon.png", "¡Buenos días gente! Hoy empezamos la mañana con buenas noticias, y es que gracias a Funko Pop! ya que hoy acaba de lanzar una nueva figura", 1);
+		Blog blog2 = new Blog("Administrador", "Nueva figura Naruto Kyuubi mode por parte de Figuarts ZERO", "Y es que otra vez lo han vuelto a hacer.. Figuarts ZERO nos sorprende con esta magnifica figura de Naruto en modo Kyuubi para los más amantes de la serie.", "../img/blog/main-blog/naruto-banner-icon.png", "¡Buenos días gente! Hoy empezamos la mañana con buenas noticias, y es que gracias a Funko Pop! ya que hoy acaba de lanzar una nueva figura", 1);
+		Blog blog3 = new Blog("Administrador", "INCREÍBLE busto M.U.B Predator by Tsume", "Precio no apto para cardiacos. Eso sí, es una obra de arte de los piés a la cabeza.", "/img/blog/main-blog/predator-banner-icon.png", "¡Buenos días gente! Hoy empezamos la mañana con buenas noticias, y es que gracias a Funko Pop! ya que hoy acaba de lanzar una nueva figura", 1);
 		
-		this.blogService.addBlog(new Blog("Administrador", "Nuevo Funko Pop! de Levi Ackerman - Attack on Titans", "No pierdas la oportunidad de hacerte con esta nueva pieza por parte de Funko Pop! de uno de los personajes más icónicos de Attack on Titans.", "img/blog/levi-blog.png"));
-		this.blogService.addBlog(new Blog("Administrador", "Nueva figura Naruto Kyuubi mode por parte de Figuarts ZERO", "Y es que otra vez lo han vuelto a hacer.. Figuarts ZERO nos sorprende con esta magnifica figura de Naruto en modo Kyuubi para los más amantes de la serie.", "img/blog/naruto-blog.png"));
-		this.blogService.addBlog(new Blog("Administrador", "INCREÍBLE busto M.U.B Predator by Tsume", "Precio no apto para cardiacos. Eso sí, es una obra de arte de los piés a la cabeza.", "img/blog/predator-min.png"));
+		
+		
+		blog.setProduct(product);
+		
+		
+		this.productService.addProduct(product);
+		this.productService.addProduct(product2);
+		this.productService.addProduct(product3);
+		blog.setIdProduct();
+		
+		this.blogService.addBlog(blog);
+		this.blogService.addBlog(blog2);
+		this.blogService.addBlog(blog3);
 		
 		this.orderRepository.save(new Order(new ArrayList<>(),user,0));
 		//ProductAmount productAmount = new ProductAmount(this.productService.getProduct(3),this.orderRepository.findById(18),2);

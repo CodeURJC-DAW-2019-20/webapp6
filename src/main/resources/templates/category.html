@@ -1,4 +1,5 @@
 {{>header}}
+	<meta charset="UTF-8">
 	<!-- ================ start banner area ================= -->	
 	<section class="blog-banner-area" id="category">
     <img src="/img/banner/akatsuki.png" style="float:left; width:100%; height:100% ;object-fit:cover;opacity: 0.3;">
@@ -17,81 +18,79 @@
 	<!-- ================ end banner area ================= -->
 
 
-	<!-- ================ category section start ================= -->		
+	<!-- ================ category section start ================= -->		  
   <section class="section-margin--small mb-5">
     <div class="container">
       <div class="row">
         <div class="col-xl-3 col-lg-4 col-md-5">
-        <form id="filter" action="/filterProduct" method="post">
           <div class="sidebar-categories">
             <div class="head">Explorar categor&iacute;as</div>
             <ul class="main-categories">
               <li class="common-filter">
+                <form action="#">
                   <ul>
-                  	<li class="filter-list"><input class="pixel-radio" type="radio" id="cualquiera" name="franchise" value="Cualquiera" required><label>Cualquiera<span> (100)</span></label></li>
-                    <li class="filter-list"><input class="pixel-radio" type="radio" id="one piece" name="franchise" value="One Piece"><label>One Piece<span> (100)</span></label></li>
-                    <li class="filter-list"><input class="pixel-radio" type="radio" id="oaruto" name="franchise" value="Naruto"><label>Naruto<span> (100)</span></label></li>
-                    <li class="filter-list"><input class="pixel-radio" type="radio" id="full metal" name="franchise" value="Full Metal"><label>Fullmetal Alchemist<span> (100)</span></label></li>
-                    <li class="filter-list"><input class="pixel-radio" type="radio" id="boku no hero" name="franchise" value="Boku No Hero"><label>Boku no Hero<span> (100)</span></label></li>
-                    <li class="filter-list"><input class="pixel-radio" type="radio" id="attack on titans" name="franchise" value="Attack on Titans"><label>Attack on Titans<span> (100)</span></label></li>
-                    <li class="filter-list"><input class="pixel-radio" type="radio" id="dragon ball" name="franchise" value="dragon ball"><label>Dragon Ball<span> (100)</span></label></li>
-                    <li class="filter-list"><input class="pixel-radio" type="radio" id="games" name="franchise" value="games"><label>Videojuegos<span> (100)</span></label></li>
+                    <li class="filter-list"><input class="pixel-radio" type="radio" id="one piece" name="anime"><label for="men">One Piece<span> (100)</span></label></li>
+                    <li class="filter-list"><input class="pixel-radio" type="radio" id="naruto" name="anime"><label for="women">Naruto<span> (100)</span></label></li>
+                    <li class="filter-list"><input class="pixel-radio" type="radio" id="full metal" name="anime"><label for="accessories">Fullmetal Alchemist<span> (100)</span></label></li>
+                    <li class="filter-list"><input class="pixel-radio" type="radio" id="boku no hero" name="anime"><label for="footwear">Boku no Hero<span> (100)</span></label></li>
+                    <li class="filter-list"><input class="pixel-radio" type="radio" id="shingeki no kyojin" name="anime"><label for="bayItem">Shingeki no Kyojin<span> (100)</span></label></li>
+                    <li class="filter-list"><input class="pixel-radio" type="radio" id="dragon ball" name="anime"><label for="electronics">Dragon Ball<span> (100)</span></label></li>
+                    <li class="filter-list"><input class="pixel-radio" type="radio" id="games" name="games"><label for="food">Videojuegos<span> (100)</span></label></li>
                   </ul>
+                </form>
               </li>
             </ul>
           </div>
           <div class="sidebar-filter">
             <div class="top-filter-head">Filtros de productos</div>
             <div class="common-filter">
-              <div class="head">Distribuidores</div>
+              <div class="head">Marcas</div>
+              <form action="#">
                 <ul>
-                <li class="filter-list"><input class="pixel-radio" type="radio" id="banpresto" name="distributor" value="Cualquiera" required><label>Cualquiera<span>(29)</span></label></li>
-                  <li class="filter-list"><input class="pixel-radio" type="radio" id="banpresto" name="distributor"><label>Banpresto<span>(29)</span></label></li>
-                  <li class="filter-list"><input class="pixel-radio" type="radio" id="bandai" name="distributor"><label>Bandai Namco<span>(29)</span></label></li>
-                  <li class="filter-list"><input class="pixel-radio" type="radio" id="kotobuiya" name="distributor"><label>Kotobuiya<span>(19)</span></label></li>
-                  <li class="filter-list"><input class="pixel-radio" type="radio" id="square enix" name="distributor"><label>Square Enix<span>(19)</span></label></li>
-                  <li class="filter-list"><input class="pixel-radio" type="radio" id="tsume art" name="distributor"><label>Tsume Art<span>(19)</span></label></li>
-                  <li class="filter-list"><input class="pixel-radio" type="radio" id="figuarts zero" name="distributor" value="Funko Pop!"><label>Funko Pop!<span>(19)</span></label></li>
-                  <li class="filter-list"><input class="pixel-radio" type="radio" id="figuarts zero" name="distributor" value="Figuarts ZERO"><label>Figuarts ZERO<span>(19)</span></label></li>
+                  <li class="filter-list"><input class="pixel-radio" type="radio" id="banpresto" name="brand"><label for="apple">Banpresto<span>(29)</span></label></li>
+                  <li class="filter-list"><input class="pixel-radio" type="radio" id="bandai" name="brand"><label for="asus">Bandai Namco<span>(29)</span></label></li>
+                  <li class="filter-list"><input class="pixel-radio" type="radio" id="kotobuiya" name="brand"><label for="gionee">Kotobuiya<span>(19)</span></label></li>
+                  <li class="filter-list"><input class="pixel-radio" type="radio" id="square enix" name="brand"><label for="micromax">Square Enix<span>(19)</span></label></li>
+                  <li class="filter-list"><input class="pixel-radio" type="radio" id="tsume art" name="brand"><label for="samsung">Tsume Art<span>(19)</span></label></li>
                 </ul>
+              </form>
             </div>
             <div class="common-filter">
               <div class="head">Tama&ntilde;o</div>
+              <form action="#">
                 <ul>
-                  <li class="filter-list w-50">Ancho<input class="form-control" type="number" id="width" name="width" value="100"></li>
-                  <li class="filter-list w-50">Alto<input class="form-control" type="number" id="height" name="height" value="100"></li>
+                  <li class="filter-list"><input class="pixel-radio" type="radio" id="small" name="height"><label for="black">Peque&ntilde;o<span>(29)</span></label></li>
+                  <li class="filter-list"><input class="pixel-radio" type="radio" id="medium" name="height"><label for="balckleather">Mediano<span>(29)</span></label></li>
+                  <li class="filter-list"><input class="pixel-radio" type="radio" id="big" name="height"><label for="blackred">Grande<span>(19)</span></label></li>
                 </ul>
+              </form>
             </div>
             <div class="common-filter">
-            	<div class="head">Precio</div>
-            		<ul>
-            			<li class="filter-list w-50">Min<input type="number" class="form-control" min="0" name="min_price" value="0"/></li>
-            			<li class="filter-list w-50">Max<input type="number" class="form-control" min="0" name="max_price" value="1000"/></li>
-            		</ul>
-			</div>
-            <div class="common-filter">
-            	<div class="head">Búsqueda</div>
-              		<ul>
-              			<li class="filter-list"><button type="submit" class="add-product" form="filter">Aplicar</button></li>
-              		</ul>
+              <div class="head">Precio</div>
+              <div class="price-range-area">
+                <div id="price-range"></div>
+                <div class="value-wrapper d-flex">
+                  <div class="price">Precio:</div>
+                  <span>&euro;</span>
+                  <div id="lower-value"></div>
+                  <div class="to">a</div>
+                  <span>&euro;</span>
+                  <div id="upper-value"></div>
+                </div>
+              </div>
             </div>
           </div>
-          <input type="hidden" name="_csrf" value="{{token}}" />
-          </form>
         </div>
         <div class="col-xl-9 col-lg-8 col-md-7">
           <!-- Start Filter Bar -->
           <div class="filter-bar d-flex flex-wrap align-items-center">
             <div class="sorting">
-            <form id="sort" action="/upperToLower" method="post">
-              <select onchange='if(this.value == 3) { this.form.submit(); }'>
+              <select>
                 <option id="1" value="1">Orden predeterminado</option>
                 <option id="2" value="2">M&aacute;s vendidos</option>
                 <option id="3" value="3">Precio mayor - menor</option>
                 <option id="4" value="4">Precio menor - mayor</option>
               </select>
-              <input type="hidden" name="_csrf" value="{{token}}" />
-            </form>
             </div>
             <div class="sorting mr-auto">
               <select>
@@ -115,15 +114,15 @@
 				        <form id="newProduct" action="addProduct" method="post" enctype="multipart/form-data">
 				          <div class="form-group">
 				            <label class="col-form-label">Nombre:</label>
-				            <input type="text" class="form-control" name="name" required>
+				            <input type="text" class="form-control" name="name">
 				            <div class="form-row mb-4">
 				            	<div class="col">
 				            		<label class="col-form-label">Franquicia:</label>
-				            		<input type="text" class="form-control" name="franchise" required>
+				            		<input type="text" class="form-control" name="franchise">
 				            	</div>
 				            	<div class="col">
 				            		<label class="col-form-label">Precio:</label>
-				            		<input type="text" class="form-control" name="price" required><br>
+				            		<input type="text" class="form-control" name="price"><br>
 				            	</div>
 				            	<div class="col">
 				            		<label class="col-form-label">Stock:</label>
@@ -131,25 +130,25 @@
 				            	</div>
 				            </div>
 				            <label class="col-form-label">Descripci&oacute;n:</label>
-				            <textarea class="form-control" name="description" required></textarea>
+				            <textarea class="form-control" name="description"></textarea>
 				            <div class="form-row mb-4">
 				            	<div class="col">
 				            		<label class="col-form-label">Anchura:</label>
-				            		<input type="number" class="form-control" name="width" required>
+				            		<input type="number" class="form-control" name="width">
 				            	</div>
 				            	<div class="col">
 				            		<label class="col-form-label">Altura:</label>
-				            		<input type="number" class="form-control" name="height" required>
+				            		<input type="number" class="form-control" name="height">
 				            	</div>
 				            	<div class="col">
 				            		<label class="col-form-label">Peso:</label>
-				            		<input type="number" class="form-control" name="weight" required>
+				            		<input type="number" class="form-control" name="weight">
 				            	</div>
 				            </div>
 				            <div class="form-row mb-4">
 				            	<div class="col">
 				            		<label class="col-form-label">Distribuidor:</label>
-				            		<input type="text" class="form-control" name="distributor" required>
+				            		<input type="text" class="form-control" name="distributor">
 				            	</div>
 				            	<div class="col">
 				            		<label class="col-form-label">Referencia:</label>
@@ -175,15 +174,12 @@
 				</div>
             </div>
             <div>
-            <form action="/search" method="post">
               <div class="input-group filter-bar-search">
-                <input type="text" placeholder="Buscar" name="key">
+                <input type="text" placeholder="Buscar">
                 <div class="input-group-append">
                   <button type="button"><i class="ti-search"></i></button>
                 </div>
-                <input type="hidden" name="_csrf" value="{{token}}" />
               </div>
-            </form>
             </div>
           </div>
           <!-- End Filter Bar -->
