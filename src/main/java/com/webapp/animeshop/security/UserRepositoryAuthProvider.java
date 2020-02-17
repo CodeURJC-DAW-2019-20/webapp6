@@ -44,7 +44,7 @@ public class UserRepositoryAuthProvider implements AuthenticationProvider{
 			throw new BadCredentialsException("User not found");
 		}
 
-		if (!new BCryptPasswordEncoder().matches(password, user.getPassword())) {
+		if (!new BCryptPasswordEncoder().matches(password, user.getPasswordHash())) {
 
 			System.out.println("WP");
 			throw new BadCredentialsException("Wrong password");

@@ -30,14 +30,13 @@ public class UserController {
 	private UserRepository userRepository;
 
 	@PostMapping("/register")
-	@ResponseStatus(HttpStatus.CREATED)
 	public String addNewUser(@RequestBody User user) {
 
-		User newUser = new User(user.getName(), user.getPassword(), "ROLE_USER");
+		User newUser = new User(user.getName(), user.getPasswordHash(), "ROLE_USER");
 		if (userRepository.findByName(user.getName()) == null) {
 			userService.save(newUser);
 			
-		}return "register"; //else
+		}return "/register"; //else
 			//return new ResponseEntity<>(HttpStatus.CONFLICT);
 	}
 

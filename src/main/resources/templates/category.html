@@ -112,7 +112,7 @@
 				        </button>
 				      </div>
 				      <div class="modal-body">
-				        <form id="newProduct" action="addProduct" method="post">
+				        <form id="newProduct" action="addProduct" method="post" enctype="multipart/form-data">
 				          <div class="form-group">
 				            <label class="col-form-label">Nombre:</label>
 				            <input type="text" class="form-control" name="name" required>
@@ -124,6 +124,10 @@
 				            	<div class="col">
 				            		<label class="col-form-label">Precio:</label>
 				            		<input type="text" class="form-control" name="price" required><br>
+				            	</div>
+				            	<div class="col">
+				            		<label class="col-form-label">Stock:</label>
+				            		<input type="text" class="form-control" name="stock" required><br>
 				            	</div>
 				            </div>
 				            <label class="col-form-label">Descripci&oacute;n:</label>
@@ -155,7 +159,7 @@
 				            <div class="form-row mb-4">
 				            	<div class="col">
 				            		<label class="col-form-label">Imagen:</label>
-				            		<input type="file" name="file">
+				            		<input type='file' name='imagenFile' accept=".jpg, .jpeg">
 				            	</div>
 				            </div>
 				            <input type="hidden" name="_csrf" value="{{token}}" />
@@ -193,7 +197,13 @@
                     <img class="card-img" src="{{image}}" alt="">
                     <ul class="card-product__imgOverlay">
                       <li><button onclick="location.href='/product/{{id}}'"><i class="ti-search"></i></button></li>
-                      <li><button><i class="ti-shopping-cart"></i></button></li>
+                      <li>
+                      	<form action="/addFromProduct/{{id}}" method="post">
+                      		<button><i class="ti-shopping-cart"></i></button>
+                      		<input type="hidden" name="qt" id="qt" value=1 />
+                      		<input type="hidden" name="_csrf" value="{{token}}" />
+                      	</form>
+                      </li>
                     </ul>
                     <form method="post" action="/deleteProduct/{{id}}">
                     <ul class="card-product-remove__imgOverlay">

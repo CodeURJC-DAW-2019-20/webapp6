@@ -4,10 +4,15 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
@@ -20,33 +25,52 @@ public class Order implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-	private ArrayList<Product> productList;
+	
+	@OneToMany(cascade = CascadeType.ALL,mappedBy="order")
+	private List<ProductAmount> productList;
+	
+	@ManyToOne
 	private User user;
-	private int total;//Precio total del pedido
+	private double total;//Precio total del pedido
+	private String status;
 	
 	
 	
-	public Order() {};
+	public Order() {
+		this.productList = new ArrayList<ProductAmount>();
+		this.user = null;
+		this.total = 0;
+	};
 	
-	public Order(ArrayList<Product> productList, User user,int total) {
-		this.productList = productList;
+	public Order(List<ProductAmount> productList, User user,int total) {
+		if(!productList.isEmpty())
+			this.productList = new ArrayList<ProductAmount>(productList);
+		else
+			this.productList = new ArrayList<ProductAmount>();
 		this.user = user;
 		this.total = total;
 	}
 	
-	public ArrayList<Product> getProductList(){
-		return this.productList;
+	public List<ProductAmount> getProductList(){
+		return productList;
 	}
 	
 	public User getUser() {
 		return this.user;
 	}
 	
-	public int getTotal() {
+	public double getTotal() {
 		return this.total;
 	}
+	
+	public void setTotal() {
+		double aux = 0;
+		for(int i=0;i<this.getProductList().size();i++) 
+			aux+=this.getProductList().get(i).getTotal();
+		this.total = Math.round(aux*1e2)/1e2;
+	}
 
-	public void setProductList(ArrayList<Product> productList) {
+	public void setProductList(List<ProductAmount> productList) {
 		this.productList = productList;
 	}
 
@@ -54,9 +78,4 @@ public class Order implements Serializable{
 		this.user = user;
 	}
 
-	public void setTotal(int total) {
-		this.total = total;
-	}
-	
-	
 }

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
@@ -12,6 +13,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -26,19 +28,21 @@ public class User implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(unique = true)
     private String name;
 
     //@JsonIgnore
     
-    private String password;
+    private String passwordHash;
     
     private String delivery;
     private String billing;
     
+    @OneToMany(mappedBy="user")
+    private List<Order> orderList;
+    
     private int payment;
     
-    @ElementCollection(fetch = FetchType.LAZY)
+    @ElementCollection(fetch = FetchType.EAGER)
     private List<String> roles;
 
 	public Long getId() {
@@ -64,14 +68,14 @@ public class User implements Serializable {
 
 
 
-	public String getPassword() {
-		return password;
+	public String getPasswordHash() {
+		return passwordHash;
 	}
 
 
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void setPassword(String passwordHash) {
+		this.passwordHash = passwordHash;
 	}
  
 	public List<String> getRoles() {
@@ -111,25 +115,35 @@ public class User implements Serializable {
 		}
 	}*/
 	
-    public User() {
+    public List<Order> getOrderList() {
+		return orderList;
+	}
+
+
+	public void setOrderList(List<Order> orderList) {
+		this.orderList = orderList;
+	}
+
+
+	public User() {
     }
 
 	public User(String name, String password, String... roles) {
 		this.name = name;
-		this.password = new BCryptPasswordEncoder().encode(password);
+		this.passwordHash = new BCryptPasswordEncoder().encode(password);
 		this.roles = new ArrayList<>(Arrays.asList(roles));
 	}
 
 	public User(String name, String password, List<String> roles) {
 		this.name = name;
-		this.password = new BCryptPasswordEncoder().encode(password);
+		this.passwordHash = password;
 		this.roles = roles;
 	}
 
 	@Override
     public String toString() {
         return "User [id=" + id + ", name=" + name + ", password="
-                + password + ", roles=" + roles + "]";
+                + passwordHash + ", roles=" + roles + "]";
     }
 
 }

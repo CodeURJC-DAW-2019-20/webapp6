@@ -1,15 +1,16 @@
 package com.webapp.animeshop.controller;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.webapp.animeshop.model.Product;
 import com.webapp.animeshop.repositories.ProductRepository;
@@ -38,23 +39,13 @@ public class ProductController {
 	}
 	
 	@RequestMapping("/addProduct")
-	public String addProduct(Model model, @RequestParam String name, @RequestParam String franchise, @RequestParam String price,
-							 @RequestParam String description, @RequestParam int width, @RequestParam int height,
-							 @RequestParam int weight, @RequestParam String distributor, @RequestParam String reference
-							 ) {
-		Product product = new Product(name,franchise,Double.parseDouble(price),description,width,height,weight,distributor,reference,"","");
+	public String addProduct(Model model, Product product) throws IOException {
 		this.productService.addProduct(product);
 		return this.showProducts(model);
 	}
 	
 	@RequestMapping("/deleteProduct/{id}")
 	public String deleteProduct(Model model, @PathVariable long id) {
-		productService.deleteProduct(id);
-		return this.showProducts(model);
-	}
-	
-	@RequestMapping("/product/deleteProduct/{id}")
-	public String deleteInProduct(Model model, @PathVariable long id) {
 		productService.deleteProduct(id);
 		return this.showProducts(model);
 	}
