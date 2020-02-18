@@ -80,16 +80,16 @@ public class ProductController extends WebController {
 		List<Product> auxList = productRepository.findByFranchise(franchise);
 		model.addAttribute("products", this.productService.getProducts());
 		
-		int cont = 3;
+		int cont = 5;
 		LinkedList<Product> list = new LinkedList<>();;
 		while(!auxList.isEmpty()&&cont>0) {
 			int rand = (int) (Math.random() * auxList.size());
 			list.add(auxList.remove(rand));
 			cont--;
-			//Only takes 3 products from the recommended franchise
+			//Only takes 5 products from the recommended franchise
 		}
 		model.addAttribute("list", list);
-		
+
 		return "/category";
 	}
 
