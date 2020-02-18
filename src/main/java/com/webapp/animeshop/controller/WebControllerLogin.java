@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.webapp.animeshop.model.Address;
 import com.webapp.animeshop.model.User;
 import com.webapp.animeshop.user.UserService;
 import com.webapp.animeshop.controller.WebController;
@@ -48,7 +49,7 @@ public class WebControllerLogin extends WebController {
 	@PostMapping("/newUser")
 	public String newUser(Model model, HttpServletRequest req, @RequestParam String name,
 			@RequestParam String password) {
-		userService.save(new User(name, password, "ROLE_USER"));
+		userService.save(new User(name, password, new Address(), "ROLE_USER"));
 		return "login";
 }
 	}

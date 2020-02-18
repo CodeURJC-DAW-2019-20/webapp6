@@ -57,7 +57,19 @@ public class OrderController{
         long oId = 19;
         this.orderService.deleteProductFromOrder(oId, id);
         return this.shoppingCart(model);
-    }/*
+    }
+    
+    @RequestMapping("/checkout")
+    public String checkout(Model model) {
+    	long id = 18;
+    	User user = this.userRepository.findById(1);
+    	Order order = this.orderRepository.findById(id);
+    	model.addAttribute("order", order);
+    	model.addAttribute("user",user);
+		return "/checkout";
+    }
+    
+    /*
 
     @PostMapping("/shoppingCart/checkout/{address}")
     public String checkout(@PathVariable("address") String address) {

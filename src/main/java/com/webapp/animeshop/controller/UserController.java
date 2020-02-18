@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.webapp.animeshop.model.Address;
 import com.webapp.animeshop.model.User;
 import com.webapp.animeshop.repositories.UserRepository;
 import com.webapp.animeshop.user.UserComponent;
@@ -36,7 +37,7 @@ public class UserController extends WebController {
 	@PostMapping("/register")
 	public String addNewUser(@RequestBody User user) {
 
-		User newUser = new User(user.getName(), user.getPasswordHash(), "ROLE_USER");
+		User newUser = new User(user.getName(), user.getPasswordHash(),new Address(), "ROLE_USER");
 		if (userRepository.findByName(user.getName()) == null) {
 			userService.save(newUser);
 			

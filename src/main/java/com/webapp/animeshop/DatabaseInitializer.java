@@ -8,6 +8,7 @@ import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
+import com.webapp.animeshop.model.Address;
 import com.webapp.animeshop.model.Blog;
 import com.webapp.animeshop.model.Order;
 import com.webapp.animeshop.model.Product;
@@ -48,10 +49,13 @@ public class DatabaseInitializer {
 	private void initDatabase() {
 		// Users
 		
-		User user = new User("user", "pass", "ROLE_USER");
-		User admin = new User("admin", "adminpass", "ROLE_USER", "ROLE_ADMIN");
+		Address address = new Address("David","Amor","URJC","654451912","d.amora@urjc.es","Calle de Uruguay, 6","7D","Fuenlabrada","Españita","28944");
+		User user = new User("user", "pass", address, "ROLE_USER");
+		user.setDelivery(address);
 		this.userRepository.save(user);
+		User admin = new User("admin", "adminpass",new Address(), "ROLE_USER", "ROLE_ADMIN");
 		this.userRepository.save(admin);
+
 		
 		this.productService.addProduct(new Product("Funko Pop! Levi Ackerman","Attack on Titans",14.49,"WOW",5,9,200,"Funko Pop!","TM0ZZH441XA",100, "/img/product/levimin.png", "/img/product/levi2.jpg"));
 		this.productService.addProduct(new Product("One Piece - Charlotte Katakuri (Figuarts ZERO)","One Piece",69.99,"WOW",9,16,500,"Figuarts ZERO","TM0ZZH441XB",100, "/img/product/katakuri.png", "/img/product/katakurifull.jpg"));
