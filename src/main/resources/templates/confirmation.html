@@ -21,6 +21,7 @@
   <!--================Order Details Area =================-->
   <section class="order_details section-margin--small">
     <div class="container">
+    {{#order}}
       <p class="text-center billing-alert">Gracias. Tu pedido ha sido recibido.</p>
       <div class="row mb-5">
         <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
@@ -29,68 +30,72 @@
             <table class="order-rable">
               <tr>
                 <td>Número del pedido</td>
-                <td>: 60235</td>
+                <td>: {{id}}</td>
               </tr>
               <tr>
                 <td>Fecha</td>
-                <td>: 28 Ene, 2020</td>
+                <td>: {{day}}/{{month}}/{{year}}</td>
               </tr>
               <tr>
                 <td>Total</td>
-                <td>: 2210 Euros</td>
+                <td>: {{total}}€</td>
               </tr>
               <tr>
                 <td>Método de pago</td>
-                <td>: ____</td>
+                <td>: Efectivo</td>
               </tr>
             </table>
           </div>
         </div>
         <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
+        {{#billing}}
           <div class="confirmation-card">
             <h3 class="billing-title">Dirección de facturación</h3>
             <table class="order-rable">
               <tr>
                 <td>Calle</td>
-                <td>: 56/8 panthapath</td>
+                <td>: {{street}}</td>
               </tr>
               <tr>
                 <td>Ciudad</td>
-                <td>: Dhaka</td>
+                <td>: {{city}}</td>
               </tr>
               <tr>
                 <td>País</td>
-                <td>: Bangladesh</td>
+                <td>: {{country}}</td>
               </tr>
               <tr>
                 <td>Código postal</td>
-                <td>: 1205</td>
+                <td>: {{zipcode}}</td>
               </tr>
             </table>
           </div>
+        {{/billing}}
         </div>
         <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
+        {{#user}}
           <div class="confirmation-card">
             <h3 class="billing-title">Dirección de envío</h3>
             <table class="order-rable">
               <tr>
                 <td>Calle</td>
-                <td>: 56/8 panthapath</td>
+                <td>: {{delivery.street}}</td>
               </tr>
               <tr>
                 <td>Ciudad</td>
-                <td>: Dhaka</td>
+                <td>: {{delivery.city}}</td>
               </tr>
               <tr>
                 <td>País</td>
-                <td>: Bangladesh</td>
+                <td>: {{delivery.country}}</td>
               </tr>
               <tr>
                 <td>Código postal</td>
-                <td>: 1205</td>
+                <td>: {{delivery.zipcode}}</td>
               </tr>
             </table>
           </div>
+        {{/user}}
         </div>
       </div>
       <div class="order_details_table">
@@ -105,39 +110,19 @@
               </tr>
             </thead>
             <tbody>
+              {{#productList}}
               <tr>
                 <td>
-                  <p>Pixelstore fresh Blackberry</p>
+                  <p>{{product.name}}</p>
                 </td>
                 <td>
-                  <h5>x 02</h5>
+                  <h5>x {{amount}}</h5>
                 </td>
                 <td>
-                  <p>$720.00</p>
+                  <p>{{total}}€</p>
                 </td>
               </tr>
-              <tr>
-                <td>
-                  <p>Pixelstore fresh Blackberry</p>
-                </td>
-                <td>
-                  <h5>x 02</h5>
-                </td>
-                <td>
-                  <p>$720.00</p>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <p>Pixelstore fresh Blackberry</p>
-                </td>
-                <td>
-                  <h5>x 02</h5>
-                </td>
-                <td>
-                  <p>$720.00</p>
-                </td>
-              </tr>
+              {{/productList}}
               <tr>
                 <td>
                   <h4>Subtotal</h4>
@@ -146,7 +131,8 @@
                   <h5></h5>
                 </td>
                 <td>
-                  <p>$2160.00</p>
+                  <input type="hidden" id="total" name="total" value={{total}}>
+                  <p>{{total}}€</p>
                 </td>
               </tr>
               <tr>
@@ -157,7 +143,8 @@
                   <h5></h5>
                 </td>
                 <td>
-                  <p>Precio: $50.00</p>
+                  <input type="hidden" id="tax" name="tax" value=2.90>
+                  <p>2.90€</p>
                 </td>
               </tr>
               <tr>
@@ -168,17 +155,15 @@
                   <h5></h5>
                 </td>
                 <td>
-                  <h4>$2210.00</h4>
+                  <h4 id="sum"></h4>
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
       </div>
+    {{/order}}
     </div>
   </section>
   <!--================End Order Details Area =================-->
-
-
-
 {{>footer}}

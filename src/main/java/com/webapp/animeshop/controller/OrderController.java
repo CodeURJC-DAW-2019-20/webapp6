@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.webapp.animeshop.model.Address;
 import com.webapp.animeshop.model.Order;
 import com.webapp.animeshop.model.Product;
 import com.webapp.animeshop.model.ProductAmount;
@@ -67,6 +68,22 @@ public class OrderController{
     	model.addAttribute("order", order);
     	model.addAttribute("user",user);
 		return "/checkout";
+    }
+    
+    @RequestMapping("/confirmation")
+    public String confirmation(Model model,Address address, @RequestParam String shippingname2, @RequestParam String lastname2,
+			 @RequestParam String company2, @RequestParam String number2, @RequestParam String email2, 
+			 @RequestParam String street2, @RequestParam String floor2, @RequestParam String city2,
+			 @RequestParam String country2, @RequestParam String zipcode2) {
+    	long id = 18;
+    	Address billing_address = new Address(shippingname2,lastname2,company2,number2,email2,street2,floor2,city2,country2,zipcode2);
+    	User user = this.userRepository.findById(1);
+    	Order order = this.orderRepository.findById(id);
+    	user.getOrderList().add(order);
+    	model.addAttribute("order", order);
+    	model.addAttribute("user",user);
+    	model.addAttribute("billing", billing_address);
+		return "/confirmation";
     }
     
     /*

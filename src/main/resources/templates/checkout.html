@@ -69,9 +69,9 @@
                 <div class="col-lg-8">
                 {{#user}}
                     <h3>Detalles de la dirección</h3>
-                    <form class="row contact_form" id="myForm" method="POST" onsubmit="window.location.href = 'confirmation.html';">
+                    <form class="row contact_form" id="myForm" method="POST" action="/confirmation">
                         <div class="col-md-6 form-group p_star">
-                            <input type="text" class="form-control" id="first" name="name" placeholder="Nombre" required value={{delivery.shippingname}}>
+                            <input type="text" class="form-control" id="first" name="shippingname" placeholder="Nombre" required value={{delivery.shippingname}}>
                             <span class="placeholder" data-placeholder="First name"></span>
                         </div>
                         <div class="col-md-6 form-group p_star">
@@ -86,7 +86,7 @@
                             <span class="placeholder" data-placeholder="Phone number"></span>
                         </div>
                         <div class="col-md-6 form-group p_star">
-                            <input type="text" class="form-control" id="email" name="compemailany" placeholder="Correo electrónico" required value={{delivery.email}}>
+                            <input type="text" class="form-control" id="email" name="email" placeholder="Correo electrónico" required value={{delivery.email}}>
                             <span class="placeholder" data-placeholder="Email Address"></span>
                         </div>
                         <!-- div class="col-md-12 form-group p_star">
@@ -97,7 +97,7 @@
                             </select>
                         </div>-->
                         <div class="col-md-12 form-group p_star">
-                            <input type="text" class="form-control" id="add1" name="add1" placeholder="Calle" required value={{delivery.street}}>
+                            <input type="text" class="form-control" id="add1" name="street" placeholder="Calle" required value="{{delivery.street}}">
                             <span class="placeholder" data-placeholder="Address line 01"></span>
                         </div>
                         <div class="col-md-6 form-group p_star">
@@ -113,8 +113,9 @@
                             <span class="placeholder" data-placeholder="Country"></span>
                         </div>
                         <div class="col-md-6 form-group">
-                            <input type="text" class="form-control" id="zip" name="zip" placeholder="Código postal" required value={{delivery.zipcode}}>
+                            <input type="text" class="form-control" id="zip" name="zipcode" placeholder="Código postal" required value={{delivery.zipcode}}>
                         </div>
+                        <input type="hidden" name="_csrf" value="{{token}}" />
                         <!--
                         <div class="col-md-4 form-group">
                             <div class="creat_account">
@@ -128,42 +129,42 @@
                                 <label for="f-option3">Enviar a una dirección distinta</label>
                                   <div class="collapse" id="collapseExample">
                                   <div class="col-md-6 form-group p_star">
-			                            <input type="text" class="form-control" id="first" name="name" placeholder="Nombre" required value={{delivery.shippingname}}>
+			                            <input type="text" class="form-control" id="first" name="shippingname2" placeholder="Nombre" required value={{delivery.shippingname}}>
 			                            <span class="placeholder" data-placeholder="First name"></span>
 			                        </div>
 			                        <div class="col-md-6 form-group p_star">
-			                            <input type="text" class="form-control" id="last" name="lastname" placeholder="Apellidos" required value={{delivery.lastname}}>
+			                            <input type="text" class="form-control" id="last" name="lastname2" placeholder="Apellidos" required value={{delivery.lastname}}>
 			                            <span class="placeholder" data-placeholder="Last name"></span>
 			                        </div>
 			                        <div class="col-md-6 form-group p_star">
-			                            <input type="text" class="form-control" id="company" name="company" placeholder="Empresa" value={{delivery.company}}>
+			                            <input type="text" class="form-control" id="company" name="company2" placeholder="Empresa" value={{delivery.company}}>
 			                        </div>
 			                        <div class="col-md-6 form-group p_star">
-			                            <input type="text" class="form-control" id="number" name="number" placeholder="Teléfono" required value={{delivery.number}}>
+			                            <input type="text" class="form-control" id="number" name="number2" placeholder="Teléfono" required value={{delivery.number}}>
 			                            <span class="placeholder" data-placeholder="Phone number"></span>
 			                        </div>
 			                        <div class="col-md-6 form-group p_star">
-			                            <input type="text" class="form-control" id="email" name="compemailany" placeholder="Correo electrónico" required value={{delivery.email}}>
+			                            <input type="text" class="form-control" id="email" name="email2" placeholder="Correo electrónico" required value={{delivery.email}}>
 			                            <span class="placeholder" data-placeholder="Email Address"></span>
 			                        </div>
                                   	<div class="col-md-12 form-group p_star">
-			                            <input type="text" class="form-control" id="add1" name="add1" placeholder="Calle" required value={{delivery.street}}>
+			                            <input type="text" class="form-control" id="add1" name="street2" placeholder="Calle" required value="{{delivery.street}}">
 			                            <span class="placeholder" data-placeholder="Address line 01"></span>
 			                        </div>
 			                        <div class="col-md-6 form-group p_star">
-			                            <input type="text" class="form-control" id="add2" name="floor" placeholder="Piso" required value={{delivery.floor}}>
+			                            <input type="text" class="form-control" id="add2" name="floor2" placeholder="Piso" required value={{delivery.floor}}>
 			                            <span class="placeholder" data-placeholder="Address line 02"></span>
 			                        </div>
 			                        <div class="col-md-6 form-group p_star">
-			                            <input type="text" class="form-control" id="city" name="city" placeholder="Ciudad" required value={{delivery.city}}>
+			                            <input type="text" class="form-control" id="city" name="city2" placeholder="Ciudad" required value={{delivery.city}}>
 			                            <span class="placeholder" data-placeholder="Town/City"></span>
 			                        </div>
 			                        <div class="col-md-6 form-group p_star">
-			                            <input type="text" class="form-control" id="country" name="country" placeholder="País" required value={{delivery.country}}>
+			                            <input type="text" class="form-control" id="country" name="country2" placeholder="País" required value={{delivery.country}}>
 			                            <span class="placeholder" data-placeholder="Country"></span>
 			                        </div>
 			                        <div class="col-md-6 form-group">
-			                            <input type="text" class="form-control" id="zip" name="zip" placeholder="Código postal" required value={{delivery.zipcode}}>
+			                            <input type="text" class="form-control" id="zip" name="zipcode2" placeholder="Código postal" required value={{delivery.zipcode}}>
 			                        </div>
                                 </div>
                             </div>

@@ -5023,3 +5023,14 @@ a.a {
 a.a:hover {
   overflow: visible;
 }
+
+td.a {
+  white-space: nowrap; 
+  width: 300px; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+td.a:hover {
+  overflow: visible;
+}

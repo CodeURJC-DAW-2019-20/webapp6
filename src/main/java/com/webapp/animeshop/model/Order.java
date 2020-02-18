@@ -2,6 +2,8 @@ package com.webapp.animeshop.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -9,12 +11,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
 
 @Entity
 @Table(name="orders")
@@ -32,14 +31,21 @@ public class Order implements Serializable{
 	@ManyToOne
 	private User user;
 	private double total;//Precio total del pedido
-	private String status;
 	
-	
+	private int day;
+	private int month;
+	private int year;
 	
 	public Order() {
 		this.productList = new ArrayList<ProductAmount>();
 		this.user = null;
 		this.total = 0;
+		Date today = new Date();
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(today);
+		this.day = cal.get(Calendar.DAY_OF_MONTH);
+		this.month = cal.get(Calendar.MONTH);
+		this.year = cal.get(Calendar.YEAR);
 	};
 	
 	public Order(List<ProductAmount> productList, User user,int total) {
@@ -49,6 +55,12 @@ public class Order implements Serializable{
 			this.productList = new ArrayList<ProductAmount>();
 		this.user = user;
 		this.total = total;
+		Date today = new Date();
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(today);
+		this.day = cal.get(Calendar.DAY_OF_MONTH);
+		this.month = cal.get(Calendar.MONTH);
+		this.year = cal.get(Calendar.YEAR);
 	}
 	
 	public List<ProductAmount> getProductList(){
@@ -76,6 +88,30 @@ public class Order implements Serializable{
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	public int getDay() {
+		return day;
+	}
+
+	public void setDay(int day) {
+		this.day = day;
+	}
+
+	public int getMonth() {
+		return month;
+	}
+
+	public void setMonth(int month) {
+		this.month = month;
+	}
+
+	public int getYear() {
+		return year;
+	}
+
+	public void setYear(int year) {
+		this.year = year;
 	}
 
 }

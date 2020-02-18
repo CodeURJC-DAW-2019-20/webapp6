@@ -40,12 +40,9 @@ public class User implements Serializable {
     
     @Embedded
     private Address delivery;
-    private String billing;
     
     @OneToMany(mappedBy="user")
     private List<Order> orderList;
-    
-    private int payment;
     
     @ElementCollection(fetch = FetchType.EAGER)
     private List<String> roles;
