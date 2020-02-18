@@ -56,10 +56,20 @@
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                   aria-expanded="false">Usuarios</a>
                 <ul class="dropdown-menu">
+                {{^logged}}
                   <li class="nav-item"><a class="nav-link" href="/login">Iniciar sesión</a></li>
-                  <li class="nav-item"><a class="nav-link" href="/register">Resgistrarse</a></li>
-                  <li class="nav-item"><a class="nav-link" href="trackingOrder">Seguimiento</a></li>
-                  <li class="nav-item"><a class="nav-link" href="userPage">Mi perfil</a></li>
+                  <li class="nav-item"><a class="nav-link" href="/register">Registrarse</a></li>
+                {{/logged}}
+                <div>
+                {{#logged}}
+                  <form action="/logout" method="post">
+                    <li class="nav-item"><a href="/"></a><button class="nav-link" href="/">Cerrar sesión</button></li>
+                    <input type="hidden" name="_csrf" value="{{token}}">
+                  </form>
+    		    {{/logged}}
+    		    </div>
+                  <li class="nav-item"><a class="nav-link" href="/trackingOrder">Seguimiento</a></li>
+                  <li class="nav-item"><a class="nav-link" href="/userPage">Mi perfil</a></li>
                 </ul>
               </li>
               <li class="nav-item"><a class="nav-link" href="contact">Contacto</a></li>

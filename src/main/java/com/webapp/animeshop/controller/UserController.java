@@ -15,11 +15,12 @@ import com.webapp.animeshop.model.User;
 import com.webapp.animeshop.repositories.UserRepository;
 import com.webapp.animeshop.user.UserComponent;
 import com.webapp.animeshop.user.UserService;
+import com.webapp.animeshop.user.UserComponent;
 
 
 @RestController
 @RequestMapping("/api")
-public class UserController {
+public class UserController extends WebController {
 
 	@Autowired
 	private UserService userService;
@@ -29,6 +30,9 @@ public class UserController {
 
 	@Autowired
 	private UserRepository userRepository;
+	
+	@Autowired
+	private UserComponent userComponent;
 
 	@PostMapping("/register")
 	public String addNewUser(@RequestBody User user) {
@@ -41,10 +45,10 @@ public class UserController {
 			//return new ResponseEntity<>(HttpStatus.CONFLICT);
 	}
 
-	public void addUserToModel(Model model) {
+	/*public void addUserToModel(Model model) {
 		boolean logged = userSession.getLoggedUser() != null;
 		model.addAttribute("logged", logged);
-	}
+	}*/
 	
 	@GetMapping("/currentuser")
 	public User getCurrentUser() {
