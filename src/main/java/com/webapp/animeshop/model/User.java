@@ -3,6 +3,7 @@ package com.webapp.animeshop.model;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 import javax.persistence.AttributeOverride;
@@ -42,7 +43,7 @@ public class User implements Serializable {
     private Address delivery;
     
     @OneToMany(mappedBy="user")
-    private List<Order> orderList;
+    private List<Order> orderList = new LinkedList<>();
     
     @ElementCollection(fetch = FetchType.EAGER)
     private List<String> roles;
