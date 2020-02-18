@@ -20,19 +20,23 @@ window.onload = function () {
 			shared: true,
 			content: toolTipContent
 		},
-		{{#products}}
+
 		data: [{
 			type: "stackedColumn",
 			showInLegend: false,
 			color: "#000080",
 			name: "Top ventas",
 			dataPoints: [
+				
+				{{#products}}
+				
 				{ y: {{stock}}, x: {{name}} }
+				
+				{{/products}}
 			]
 			}
 			
 		]
-		{{/products}}
 	});
 	chart.render();
 
@@ -40,17 +44,16 @@ window.onload = function () {
 		var str = "";
 		var total = 0;
 		var str2, str3;
-		{{#products}}
-		//for (var i = 0; i < e.entries.length; i++){
-			var  str1 = str1.push("{{image}}"); //"<span style= \"color:"+e.entries[i].dataSeries.color + "\"> "+e.entries[i].dataSeries.name+"</span>: $<strong>"+e.entries[i].dataPoint.y+"</strong>bn<br/>";
-			//total = e.entries[i].dataPoint.y + total;
+		for (var i = 0; i < e.entries.length; i++){
+			var  str1 = "<span style= \"color:"+e.entries[i].dataSeries.color + "\"> "+e.entries[i].dataSeries.name+"</span>: $<strong>"+e.entries[i].dataPoint.y+"</strong>bn<br/>";
+			total = e.entries[i].dataPoint.y + total;
 			str = str.concat(str1);
-		//}
-		str2 = "<span style = \"color:DodgerBlue;\"><strong>"+ str2.push("{{name}}")+"</strong></span><br/>";//(e.entries[0].dataPoint.x).getFullYear()+"</strong></span><br/>";
-		str3 = "<span style = \"color:Tomato\">Total:</span><strong> $"+str3.push("{{price}})"+"</strong>bn<br/>";
-		{{/products}}
+		}
+		str2 = "<span style = \"color:DodgerBlue;\"><strong>"+(e.entries[0].dataPoint.x).getFullYear()+"</strong></span><br/>";
+		total = Math.round(total * 100) / 100;
+		str3 = "<span style = \"color:Tomato\">Total:</span><strong> $"+total+"</strong>bn<br/>";
 		return (str2.concat(str)).concat(str3);
 	}
-
-	}
+}
+	
 </script>

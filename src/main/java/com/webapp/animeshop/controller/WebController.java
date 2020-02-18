@@ -27,19 +27,19 @@ public class WebController {
 	/**@GetMapping("/blog")
 	public String blog(Model model) {		
 		return "blog";
-	}
+	}*/
 	
-	@GetMapping("/category")
+	/*@GetMapping("/category")
 	public String category(Model model) {		
 		return "category";
-	}
+	}*/
 	
-	@GetMapping("/singleBlog")
+	/*@GetMapping("/singleBlog")
 	public String singleBlog(Model model) {		
 		return "singleBlog";
-	}
+	}*/
 	
-	@GetMapping("/singleProduct")
+	/*@GetMapping("/singleProduct")
 	public String singleProduct(Model model) {		
 		return "singleProduct";
 	}*/

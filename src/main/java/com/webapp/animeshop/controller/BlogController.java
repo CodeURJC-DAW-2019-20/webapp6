@@ -1,5 +1,8 @@
 package com.webapp.animeshop.controller;
 
+import java.awt.Point;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.webapp.animeshop.model.Blog;
+import com.webapp.animeshop.model.Product;
 import com.webapp.animeshop.service.BlogService;
 import com.webapp.animeshop.service.ProductService;
 
@@ -23,6 +27,16 @@ public class BlogController extends WebController{
 	@RequestMapping("/")
 	public String showBlogs(Model model) {
 		model.addAttribute("blogs", this.blogService.getBlogs());
+		
+		//Point[] data = new Point[3];
+		List<Product> products = productService.getProducts();
+		//data[0] = new Point(3,3);
+		//data[1] = new Point(5,3);
+		//data[2] = new Point(2,4);
+		
+		//model.addAttribute("data",data);
+		model.addAttribute("products", products);
+		
 		return "/index";
 	}
 	
