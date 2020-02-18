@@ -3,6 +3,7 @@ package com.webapp.animeshop.model;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -38,7 +39,7 @@ public class User implements Serializable {
     private String billing;
     
     @OneToMany(mappedBy="user")
-    private List<Order> orderList;
+    private List<Order> orderList = new LinkedList<>();
     
     private int payment;
     
