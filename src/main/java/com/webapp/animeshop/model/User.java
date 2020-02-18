@@ -5,15 +5,19 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.persistence.AttributeOverride;
+import javax.persistence.AttributeOverrides;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -34,7 +38,8 @@ public class User implements Serializable {
     
     private String passwordHash;
     
-    private String delivery;
+    @Embedded
+    private Address delivery;
     private String billing;
     
     @OneToMany(mappedBy="user")
@@ -49,30 +54,21 @@ public class User implements Serializable {
 		return id;
 	}
 
-
 	public void setId(Long id) {
 		this.id = id;
 	}
-
-
 
 	public String getName() {
 		return name;
 	}
 
-
-
 	public void setName(String name) {
 		this.name = name;
 	}
 
-
-
 	public String getPasswordHash() {
 		return passwordHash;
 	}
-
-
 
 	public void setPassword(String passwordHash) {
 		this.passwordHash = passwordHash;
@@ -85,15 +81,6 @@ public class User implements Serializable {
     public void setRoles(List<String> roles) {
         this.roles = roles;
     }
-    
-/*    public String getDelivery() {
-		return delivery;
-	}
-
-
-/*	public void setDelivery(String delivery) {
-		this.delivery = delivery;
-	}
 	
 /*	public String getBilling() {
 		return billing;
@@ -119,24 +106,33 @@ public class User implements Serializable {
 		return orderList;
 	}
 
-
 	public void setOrderList(List<Order> orderList) {
 		this.orderList = orderList;
 	}
 
+	public Address getDelivery() {
+		return delivery;
+	}
+
+
+	public void setDelivery(Address delivery) {
+		this.delivery = delivery;
+	}
 
 	public User() {
     }
 
-	public User(String name, String password, String... roles) {
+	public User(String name, String password,Address address, String... roles) {
 		this.name = name;
 		this.passwordHash = new BCryptPasswordEncoder().encode(password);
+		this.delivery = address;
 		this.roles = new ArrayList<>(Arrays.asList(roles));
 	}
 
-	public User(String name, String password, List<String> roles) {
+	public User(String name, String password,Address address, List<String> roles) {
 		this.name = name;
 		this.passwordHash = password;
+		this.delivery = address;
 		this.roles = roles;
 	}
 

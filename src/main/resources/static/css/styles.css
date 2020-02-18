@@ -5012,3 +5012,14 @@ a {
 	background: #51575e;
 	color: #fff;
 }
+
+a.a {
+  white-space: nowrap; 
+  width: 300px; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+a.a:hover {
+  overflow: visible;
+}
