@@ -2,6 +2,7 @@ package com.webapp.animeshop.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,8 +19,7 @@ import com.webapp.animeshop.user.UserService;
 import com.webapp.animeshop.user.UserComponent;
 
 
-@RestController
-@RequestMapping("/api")
+@Controller
 public class UserController extends WebController {
 
 	@Autowired
@@ -49,6 +49,17 @@ public class UserController extends WebController {
 		boolean logged = userSession.getLoggedUser() != null;
 		model.addAttribute("logged", logged);
 	}*/
+	
+	@RequestMapping("/user")
+	public String userPage(Model model) {
+		
+		System.out.println("wwww");
+		if(userComponent.isLoggedUser()) {
+		model.addAttribute("user", this.userComponent.getLoggedUser());
+		}
+		return "userPage";
+	}
+	
 	
 	@GetMapping("/currentuser")
 	public User getCurrentUser() {

@@ -53,7 +53,7 @@ public class DatabaseInitializer {
 		User user = new User("user", "pass", address, "ROLE_USER");
 		user.setDelivery(address);
 		this.userRepository.save(user);
-		User admin = new User("admin", "adminpass",new Address(), "ROLE_USER", "ROLE_ADMIN");
+		User admin = new User("admin", "adminpass", new Address(), "ROLE_USER", "ROLE_ADMIN");
 		this.userRepository.save(admin);
 
 		
