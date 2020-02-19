@@ -2,7 +2,7 @@
 <meta charset="UTF-8">
   <!-- ================ start banner area ================= -->	
   <section class="blog-banner-area" id="blog">
-    <img src="img/banner/tokyo ghoul.png" style="float:left;width:100%;height:100%;object-fit:cover;opacity: 0.3;">
+    <img src="/img/banner/tokyo ghoul.png" style="float:left;width:100%;height:100%;object-fit:cover;opacity: 0.3;">
     <div class="container h-100">
       <div class="blog-banner">
         <div class="text-center">
@@ -26,7 +26,7 @@
       <div class="row">
         <div class="col-sm-6 col-lg-4 mb-4 mb-lg-0">
             <div class="categories_post">
-                <img class="card-img rounded-0" src="img/blog/cat-post/cat-post-3.jpg" alt="post">
+                <img class="card-img rounded-0" src="/img/blog/cat-post/cat-post-3.jpg" alt="post">
                 <div class="categories_details">
                     <div class="categories_text">
                         <a href="single-blog.html">
@@ -40,7 +40,7 @@
         </div>
         <div class="col-sm-6 col-lg-4 mb-4 mb-lg-0">
           <div class="categories_post">
-            <img class="card-img rounded-0" src="img/blog/cat-post/cat-post-2.jpg" alt="post">
+            <img class="card-img rounded-0" src="/img/blog/cat-post/cat-post-2.jpg" alt="post">
             <div class="categories_details">
               <div class="categories_text">
                 <a href="single-blog.html">
@@ -54,7 +54,7 @@
         </div>
         <div class="col-sm-6 col-lg-4 mb-4 mb-lg-0">
             <div class="categories_post">
-                <img class="card-img rounded-0" src="img/blog/cat-post/cat-post-1.jpg" alt="post">
+                <img class="card-img rounded-0" src="/img/blog/cat-post/cat-post-1.jpg" alt="post">
                 <div class="categories_details">
                     <div class="categories_text">
                         <a href="single-blog.html">
@@ -128,17 +128,17 @@
                               <div class="blog_info text-right">
                                   <div class="post_tag">
                                       <a>Noticias,</a>
-                                      <a class="active" href="category.html">Funko Pop!</a>
-                                      <a href="#">Nueva figura</a>
+                                      <a class="active" href="/products"><!-- franquicia --></a>
+                                      <a>Nueva figura</a>
                                   </div>
                                   <ul class="blog_meta list">
                                       <li>
-                                          <a href="#">{{author}}
+                                          <a>{{author}}
                                               <i class="lnr lnr-user"></i>
                                           </a>
                                       </li>
                                       <li>
-                                          <a href="#">{{day}}/{{month}}/{{year}}
+                                          <a>{{day}}/{{month}}/{{year}}
                                               <i class="lnr lnr-calendar-full"></i>
                                           </a>
                                       </li>
@@ -154,8 +154,9 @@
                                       </li>-->
                                       {{#admin}}
                                       <li>
-                                      	<form>
-                                      		<button class="remove-blog-entrie"  onclick="location.href='/deleteBlog/{{id}}'">Eliminar</button>
+                                      	<form action="/deleteBlog/{{id}}" method="POST">
+                                      		<button class="remove-blog-entrie">Eliminar</button>
+                                      		<input type="hidden" name="_csrf" value="{{token}}" />
                                       	</form>
                                       </li>
                                       {{/admin}}
@@ -307,16 +308,19 @@
               <div class="col-lg-4">
                   <div class="blog_right_sidebar">
                       <aside class="single_sidebar_widget search_widget">
+                      <form action="/searchBlog" method="post">
                           <div class="input-group">
-                              <input type="text" class="form-control" placeholder="Buscar post">
+                              <input type="text" class="form-control" placeholder="Buscar post" name="key">
                               <span class="input-group-btn">
                                   <button class="btn btn-default" type="button">
                                       <i class="lnr lnr-magnifier"></i>
                                   </button>
                               </span>
+                              <input type="hidden" name="_csrf" value="{{token}}" />
                           </div>
                           <!-- /input-group -->
                           <div class="br"></div>
+                      </form>
                       </aside>
                       
                       <aside class="single_sidebar_widget popular_post_widget">

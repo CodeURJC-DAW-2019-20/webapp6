@@ -1,5 +1,7 @@
 package com.webapp.animeshop.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.webapp.animeshop.model.Blog;
+import com.webapp.animeshop.model.Product;
 import com.webapp.animeshop.service.BlogService;
 import com.webapp.animeshop.service.ProductService;
 
@@ -41,10 +44,10 @@ public class BlogController extends WebController{
 		return "/singleBlog";
 	}
 	
-	@RequestMapping("deleteBlog/{id}")
+	@RequestMapping("/deleteBlog/{id}")
 	public String deleteBlog(Model model, @PathVariable long id) {
 		blogService.deleteBlog(id);
-		return this.showBlogs(model);
+		return this.showBlogsPage(model);
 	}
 	
 	@RequestMapping("/addBlog")
@@ -53,6 +56,13 @@ public class BlogController extends WebController{
 		blog.setProduct(productService.getProduct(Long.parseLong(idproduct)));
 		this.blogService.addBlog(blog);
 		return this.showBlogs(model);
+	}
+	
+	@RequestMapping("/searchBlog")
+	public String search(Model model, @RequestParam String key) {
+		List<Blog> blogs = this.blogService.search(key);
+		model.addAttribute("blogspage", blogs);
+		return "/blog";
 	}
 	
 }

@@ -59,9 +59,9 @@
 																	</li>-->
 								{{#admin}}
 								<li>
-									<form>
-										<button class="remove-blog-entrie"
-											onclick="location.href='/deleteBlog/{{id}}'">Eliminar</button>
+									<form action="/deleteBlog/{{id}}" method="POST" >
+										<button class="remove-blog-entrie">Eliminar</button>
+										<input type="hidden" name="_csrf" value="{{token}}" />
 									</form>
 								</li>
 								{{/admin}}

@@ -6,7 +6,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.webapp.animeshop.model.Order;
 import com.webapp.animeshop.model.Product;
+import com.webapp.animeshop.model.ProductAmount;
+import com.webapp.animeshop.repositories.BlogRepository;
+import com.webapp.animeshop.repositories.OrderRepository;
+import com.webapp.animeshop.repositories.ProductAmountRepository;
 import com.webapp.animeshop.repositories.ProductRepository;
 
 @Service
@@ -14,6 +19,15 @@ public class ProductService {
 	
 	@Autowired
 	private ProductRepository productRepository;
+	
+	@Autowired
+	private OrderRepository orderRepository;
+	
+	@Autowired
+	private ProductAmountRepository pAmountRepository;
+	
+	@Autowired
+	private BlogRepository blogRepository;
 	
 	@Autowired
 	public ProductService(ProductRepository productRepository) {
@@ -72,6 +86,19 @@ public class ProductService {
 	
 	public void deleteProduct(long productId) {
 		Product product = this.productRepository.findById(productId);
+		List<Order> orders = this.orderRepository.findAll();
+		this.pAmountRepository.deleteProductAmount(productId);
+		this.blogRepository.deleteBlog(productId);
+		//preguntar a mica por: si borro un elemento y se ha realizado un pedido donde se ha comprado ese producto,
+		//¿como puedo acceder a ese elemento si ya no tengo la relaccion en la base de datos?
+		for(int i =0;i<orders.size();i++) {
+			for(int j=0;j<orders.get(i).getProductList().size();j++) {
+				if(orders.get(i).getProductList().get(i).getProduct().getName().equals(product.getName())) {	
+					orders.get(i).getProductList().remove(j);
+				}
+			}
+		}
+		this.orderRepository.saveAll(orders);
 		if (product != null) {
 			this.productRepository.delete(product);
 		}

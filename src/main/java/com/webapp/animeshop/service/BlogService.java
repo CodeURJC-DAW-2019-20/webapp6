@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.webapp.animeshop.model.Blog;
+import com.webapp.animeshop.model.Product;
 import com.webapp.animeshop.repositories.BlogRepository;
 
 @Service
@@ -49,6 +50,16 @@ public class BlogService {
 		if(blog != null) {
 			this.blogRepository.delete(blog);
 		}
+	}
+	
+	public List<Blog> search(String key){
+		List<Blog> blogs = this.blogRepository.findAll();
+		List<Blog> aux = new ArrayList<Blog>();
+		for(int i = 0; i < blogs.size(); i++) {
+			if(blogs.get(i).getName().toLowerCase().contains(key.toLowerCase()))
+				aux.add(blogs.get(i));
+		}
+		return aux;
 	}
 }
 
