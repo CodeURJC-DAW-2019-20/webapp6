@@ -23,11 +23,6 @@ public class WebController {
             model.addAttribute("user",userComponent.getLoggedUser().getName());
         }
     }
-
-	/**@GetMapping("/blog")
-	public String blog(Model model) {		
-		return "blog";
-	}*/
 	
 	/*@GetMapping("/category")
 	public String category(Model model) {		
@@ -43,5 +38,4 @@ public class WebController {
 	public String singleProduct(Model model) {		
 		return "singleProduct";
 	}*/
-	
 }

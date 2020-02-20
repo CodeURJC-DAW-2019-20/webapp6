@@ -100,6 +100,7 @@ public class DatabaseInitializer {
 		this.blogService.addBlog(blog3);
 		
 		this.orderRepository.save(new Order(new ArrayList<>(),user,0));
+		this.orderRepository.save(new Order(new ArrayList<>(),null,0));
 		//ProductAmount productAmount = new ProductAmount(this.productService.getProduct(3),this.orderRepository.findById(18),2);
 		//this.pAmountRepository.save(productAmount);
 		//Order order = new Order(this.productService.getProducts(),user,1000);

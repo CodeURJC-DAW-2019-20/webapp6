@@ -25,6 +25,8 @@ public class Order implements Serializable{
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
+	private String status;
+	
 	@OneToMany(cascade = CascadeType.ALL,mappedBy="order")
 	private List<ProductAmount> productList;
 	
@@ -38,6 +40,7 @@ public class Order implements Serializable{
 	
 	public Order() {
 		this.productList = new ArrayList<ProductAmount>();
+		this.status = null;
 		this.user = null;
 		this.total = 0;
 		Date today = new Date();
@@ -53,6 +56,7 @@ public class Order implements Serializable{
 			this.productList = new ArrayList<ProductAmount>(productList);
 		else
 			this.productList = new ArrayList<ProductAmount>();
+		this.status = null;
 		this.user = user;
 		this.total = total;
 		Date today = new Date();
@@ -80,6 +84,10 @@ public class Order implements Serializable{
 		for(int i=0;i<this.getProductList().size();i++) 
 			aux+=this.getProductList().get(i).getTotal();
 		this.total = Math.round(aux*1e2)/1e2;
+	}
+	
+	public void resetTotal() {
+		this.total = 0;
 	}
 
 	public void setProductList(List<ProductAmount> productList) {
@@ -113,5 +121,24 @@ public class Order implements Serializable{
 	public void setYear(int year) {
 		this.year = year;
 	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	
+	
+	
 
 }

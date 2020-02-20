@@ -69,5 +69,15 @@ public class ProductAmount implements Serializable{
 	public void setTotal(int amount, double price) {
 		this.total =  Math.round((amount*price)*1e2)/1e2;
 	}
+
+	public Order getOrder() {
+		return order;
+	}
+
+	public void setOrder(Order order) {
+		this.order = order;
+	}
+	
+	
 	
 }

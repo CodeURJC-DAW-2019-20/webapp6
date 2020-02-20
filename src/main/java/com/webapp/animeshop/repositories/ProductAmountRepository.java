@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import com.webapp.animeshop.model.Order;
 import com.webapp.animeshop.model.ProductAmount;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,6 +21,8 @@ public interface ProductAmountRepository extends JpaRepository<ProductAmount, Lo
 	@Modifying
 	@Query(value="DELETE FROM product_amount WHERE product_id =:id",nativeQuery = true)
 	void deleteProductAmount(@Param("id")long productId);
+	@Query(value="SELECT * FROM product_amount WHERE order_id =:id",nativeQuery = true)
+	List<ProductAmount> findByOrderId(@Param("id")long orderId);
 	/*@Query(value="SELECT * FROM 'products', 'product_amount' WHERE 'products.id' = 'product_amount.product_id'")
 	ProductAmount findByProductId();
 	

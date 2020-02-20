@@ -1,6 +1,7 @@
 package com.webapp.animeshop.controller;
 
 import java.awt.Point;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,9 +12,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.webapp.animeshop.model.Blog;
+import com.webapp.animeshop.model.Order;
 import com.webapp.animeshop.model.Product;
+import com.webapp.animeshop.model.ProductAmount;
+import com.webapp.animeshop.repositories.OrderRepository;
+import com.webapp.animeshop.repositories.ProductAmountRepository;
 import com.webapp.animeshop.service.BlogService;
 import com.webapp.animeshop.service.ProductService;
+import com.webapp.animeshop.user.UserComponent;
 
 @Controller
 public class BlogController extends WebController{
@@ -24,10 +30,19 @@ public class BlogController extends WebController{
 	@Autowired
 	private ProductService productService;
 	
+	@Autowired
+    private OrderRepository orderRepository;
+	
+	@Autowired
+	private UserComponent userSession;
+	
+	@Autowired
+	private ProductAmountRepository pAmountRepository;
+	
 	@RequestMapping("/")
 	public String showBlogs(Model model) {
 		model.addAttribute("blogs", this.blogService.getBlogs());
-		
+		boolean is = false;
 		//Point[] data = new Point[3];
 		List<Product> products = productService.getProducts();
 		//data[0] = new Point(3,3);
@@ -35,6 +50,53 @@ public class BlogController extends WebController{
 		//data[2] = new Point(2,4);
 		
 		//model.addAttribute("data",data);
+		if(userSession.isLoggedUser()) {
+			Order order = this.orderRepository.findNotRelated();
+			Order userOrder = new Order();
+			if(userSession.isLoggedUser())
+				userOrder = this.orderRepository.findByStatus(userSession.getLoggedUser().getId());
+			if(userOrder==null)
+				userOrder = new Order(new ArrayList<>(),userSession.getLoggedUser(),0);
+	    	List<ProductAmount> pAmountAux = this.pAmountRepository.findByOrderId(order.getId());
+	    	for(int p=0;p<pAmountAux.size();p++) {
+	    		//pAmountAux.get(p).setOrder(userOrder);
+	    		is = false;
+		    	if(!userOrder.getProductList().isEmpty()) {
+					for(int i=0;i<userOrder.getProductList().size();i++) {
+						if(userOrder.getProductList().get(i).getProduct().getName().equals(
+								order.getProductList().get(p).getProduct().getName())) {
+							userOrder.getProductList().get(i).setAmount(
+									userOrder.getProductList().get(i).getAmount()+order.getProductList().get(p).getAmount());
+							userOrder.getProductList().get(i).setTotal(
+									userOrder.getProductList().get(i).getAmount(), userOrder.getProductList().get(i).getProduct().getPrice());
+							userOrder.setTotal();
+							this.pAmountRepository.deleteProductAmount(pAmountAux.get(p).getId());
+							is = true;
+						}
+					}
+					if(is==false) {
+						pAmountAux.get(p).setOrder(userOrder);
+						userOrder.getProductList().add(order.getProductList().get(p));
+						this.pAmountRepository.deleteProductAmount(pAmountAux.get(p).getId());
+					}
+						
+		    	}
+		    	else {
+		    		pAmountAux.get(p).setOrder(userOrder);
+					userOrder.getProductList().add(order.getProductList().get(p));
+					this.orderRepository.save(userOrder);
+					this.pAmountRepository.deleteProductAmount(pAmountAux.get(p).getId());
+		    	}
+	    	}
+	    	this.orderRepository.delete(order);
+	    	order = new Order();
+			userOrder.setTotal();
+			userOrder.setUser(userSession.getLoggedUser());
+			this.orderRepository.save(userOrder);
+			order.setProductList(new ArrayList<ProductAmount>());
+			order.resetTotal();
+			this.orderRepository.save(order);
+		}
 		model.addAttribute("products", products);
 		
 		return "/index";
