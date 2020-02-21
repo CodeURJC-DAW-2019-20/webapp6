@@ -30,37 +30,15 @@
 						<ul class="main-categories">
 							<li class="common-filter">
 								<ul>
+									{{#total}}
+									<li class="filter-list"><input class="pixel-radio" type="radio" id="cualquiera" name="franchise"
+										value="Cualquiera" required><label>Cualquiera<span>({{total}})</span></label></li>
+									{{/total}}
+									{{#franchises.entrySet}}
 									<li class="filter-list"><input class="pixel-radio"
-										type="radio" id="cualquiera" name="franchise"
-										value="Cualquiera" required><label>Cualquiera<span>
-												(100)</span></label></li>
-									<li class="filter-list"><input class="pixel-radio"
-										type="radio" id="one piece" name="franchise" value="One Piece"><label>One
-											Piece<span> (100)</span>
+										type="radio" id="{{key}}" name="franchise" value="{{key}}"><label>{{key}}<span> ({{value}})</span>
 									</label></li>
-									<li class="filter-list"><input class="pixel-radio"
-										type="radio" id="oaruto" name="franchise" value="Naruto"><label>Naruto<span>
-												(100)</span></label></li>
-									<li class="filter-list"><input class="pixel-radio"
-										type="radio" id="full metal" name="franchise"
-										value="Full Metal"><label>Fullmetal Alchemist<span>
-												(100)</span></label></li>
-									<li class="filter-list"><input class="pixel-radio"
-										type="radio" id="boku no hero" name="franchise"
-										value="Boku No Hero"><label>Boku no Hero<span>
-												(100)</span></label></li>
-									<li class="filter-list"><input class="pixel-radio"
-										type="radio" id="attack on titans" name="franchise"
-										value="Attack on Titans"><label>Attack on
-											Titans<span> (100)</span>
-									</label></li>
-									<li class="filter-list"><input class="pixel-radio"
-										type="radio" id="dragon ball" name="franchise"
-										value="dragon ball"><label>Dragon Ball<span>
-												(100)</span></label></li>
-									<li class="filter-list"><input class="pixel-radio"
-										type="radio" id="games" name="franchise" value="games"><label>Videojuegos<span>
-												(100)</span></label></li>
+									{{/franchises.entrySet}}
 								</ul>
 							</li>
 						</ul>
@@ -70,31 +48,15 @@
 						<div class="common-filter">
 							<div class="head">Distribuidores</div>
 							<ul>
+								{{#total}}
 								<li class="filter-list"><input class="pixel-radio"
 									type="radio" id="banpresto" name="distributor"
-									value="Cualquiera" required><label>Cualquiera<span>(29)</span></label></li>
+									value="Cualquiera" required><label>Cualquiera<span>({{total}})</span></label></li>
+								{{/total}}
+								{{#distributors.entrySet}}
 								<li class="filter-list"><input class="pixel-radio"
-									type="radio" id="banpresto" name="distributor"><label>Banpresto<span>(29)</span></label></li>
-								<li class="filter-list"><input class="pixel-radio"
-									type="radio" id="bandai" name="distributor"><label>Bandai
-										Namco<span>(29)</span>
-								</label></li>
-								<li class="filter-list"><input class="pixel-radio"
-									type="radio" id="kotobuiya" name="distributor"><label>Kotobuiya<span>(19)</span></label></li>
-								<li class="filter-list"><input class="pixel-radio"
-									type="radio" id="square enix" name="distributor"><label>Square
-										Enix<span>(19)</span>
-								</label></li>
-								<li class="filter-list"><input class="pixel-radio"
-									type="radio" id="tsume art" name="distributor"><label>Tsume
-										Art<span>(19)</span>
-								</label></li>
-								<li class="filter-list"><input class="pixel-radio"
-									type="radio" id="figuarts zero" name="distributor"
-									value="Funko Pop!"><label>Funko Pop!<span>(19)</span></label></li>
-								<li class="filter-list"><input class="pixel-radio"
-									type="radio" id="figuarts zero" name="distributor"
-									value="Figuarts ZERO"><label>Figuarts ZERO<span>(19)</span></label></li>
+									type="radio" id="{{key}}" name="distributor" value="{{key}}"><label>{{key}}<span>({{value}})</span></label></li>
+								{{/distributors.entrySet}}
 							</ul>
 						</div>
 						<div class="common-filter">

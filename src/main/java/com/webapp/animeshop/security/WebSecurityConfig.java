@@ -26,6 +26,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests().antMatchers("/register").permitAll();
 		http.authorizeRequests().antMatchers("/newUser").permitAll();
 		http.authorizeRequests().antMatchers("/category").permitAll();
+		http.authorizeRequests().antMatchers("/cart").permitAll();
+		
 		
 		
 		http.authorizeRequests().antMatchers("/assets/**").permitAll();
@@ -35,6 +37,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests().antMatchers("/new/**").permitAll();
 		http.authorizeRequests().antMatchers("/userPage").hasAnyRole("USER","ADMIN");
 		http.authorizeRequests().antMatchers("/user").hasAnyRole("USER","ADMIN");
+		http.authorizeRequests().antMatchers("/confirmation").hasAnyRole("USER","ADMIN");
 		
 		// Login form
 		http.formLogin().loginPage("/login");

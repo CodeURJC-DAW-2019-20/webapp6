@@ -1,7 +1,5 @@
 package com.webapp.animeshop.controller;
 
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -13,8 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.bind.annotation.RestController;
 
 import com.webapp.animeshop.model.Order;
 import com.webapp.animeshop.model.Product;
@@ -88,6 +84,13 @@ public class ProductController extends WebController {
 			cont--;
 			//Only takes 5 products from the recommended franchise
 		}
+		
+		HashMap<String, Integer> nByFranchise = this.productService.nProductsByFranchise();
+		HashMap<String, Integer> nByDistributor = this.productService.nProductsByDistributor();
+		Integer total = this.productRepository.findProductAmount();
+		model.addAttribute("franchises",nByFranchise);
+		model.addAttribute("distributors",nByDistributor);
+		model.addAttribute("total", total);
 		model.addAttribute("list", list);
 
 		return "/category";
@@ -102,8 +105,8 @@ public class ProductController extends WebController {
 
 	@RequestMapping("/addProduct")
 	public String addProduct(Model model, Product product) {
-		product.setImage("");
-		product.setImagefull("");
+		product.setImage("/img/product/notavailable.png");
+		product.setImagefull("/img/product/notavailable2.png");
 		this.productService.addProduct(product);
 		return this.showProducts(model);
 	}
@@ -120,6 +123,12 @@ public class ProductController extends WebController {
 			@RequestParam int max_price) {
 		List<Product> products = this.productService.filterProducts(franchise, distributor, width, height, min_price,
 				max_price);
+		HashMap<String, Integer> nByFranchise = this.productService.nProductsByFranchise();
+		HashMap<String, Integer> nByDistributor = this.productService.nProductsByDistributor();
+		Integer total = this.productRepository.findProductAmount();
+		model.addAttribute("franchises",nByFranchise);
+		model.addAttribute("distributors",nByDistributor);
+		model.addAttribute("total", total);
 		model.addAttribute("products", products);
 		return "/category";
 	}
@@ -141,6 +150,12 @@ public class ProductController extends WebController {
 	@RequestMapping("/search")
 	public String search(Model model, @RequestParam String key) {
 		List<Product> products = this.productService.search(key);
+		HashMap<String, Integer> nByFranchise = this.productService.nProductsByFranchise();
+		HashMap<String, Integer> nByDistributor = this.productService.nProductsByDistributor();
+		Integer total = this.productRepository.findProductAmount();
+		model.addAttribute("franchises",nByFranchise);
+		model.addAttribute("distributors",nByDistributor);
+		model.addAttribute("total", total);
 		model.addAttribute("products", products);
 		return "/category";
 	}

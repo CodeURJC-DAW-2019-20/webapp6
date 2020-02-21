@@ -21,12 +21,8 @@ public interface ProductAmountRepository extends JpaRepository<ProductAmount, Lo
 	@Modifying
 	@Query(value="DELETE FROM product_amount WHERE product_id =:id",nativeQuery = true)
 	void deleteProductAmount(@Param("id")long productId);
+	
 	@Query(value="SELECT * FROM product_amount WHERE order_id =:id",nativeQuery = true)
 	List<ProductAmount> findByOrderId(@Param("id")long orderId);
-	/*@Query(value="SELECT * FROM 'products', 'product_amount' WHERE 'products.id' = 'product_amount.product_id'")
-	ProductAmount findByProductId();
-	
-	/*(SELECT pa FROM ProductAmount pa) UNION (SELECT p FROM Product p) WHERE p.id=pa.product.id"*/
-	/*@Query(value="SELECT pa, p FROM ProductAmount pa JOIN pa.product p")*/
 
 }

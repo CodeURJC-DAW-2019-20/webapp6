@@ -1,6 +1,7 @@
 package com.webapp.animeshop.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -138,6 +139,24 @@ public class ProductService {
 				aux.add(products.get(i));
 		}
 		return aux;
+	}
+	
+	public HashMap<String, Integer> nProductsByFranchise(){
+		HashMap<String, Integer> nByFranchise = new HashMap<>();
+		List<String> franchises = this.productRepository.findFranchises();
+		for(int i = 0;i<franchises.size();i++) {
+			nByFranchise.put(franchises.get(i),this.productRepository.findFranchiseNumber(franchises.get(i)));
+		}
+		return nByFranchise;
+	}
+	
+	public HashMap<String, Integer> nProductsByDistributor(){
+		HashMap<String, Integer> nByDistributor = new HashMap<>();
+		List<String> distributors = this.productRepository.findDistributors();
+		for(int i = 0;i<distributors.size();i++) {
+			nByDistributor.put(distributors.get(i),this.productRepository.findDistributorNumber(distributors.get(i)));
+		}
+		return nByDistributor;
 	}
 
 }
