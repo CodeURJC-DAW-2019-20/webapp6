@@ -2,6 +2,7 @@ package com.webapp.animeshop.service;
 
 import com.webapp.animeshop.model.Address;
 import com.webapp.animeshop.model.Order;
+import com.webapp.animeshop.model.OrderMetrics;
 import com.webapp.animeshop.model.Product;
 import com.webapp.animeshop.model.ProductAmount;
 import com.webapp.animeshop.model.User;
@@ -40,6 +41,9 @@ public class OrderService {
 	
 	@Autowired
     private JavaMailSender sender;
+	
+	//@Autowired
+	private OrderMetrics orderMetrics;
 	
 	public OrderService(OrderRepository orderRepository) {
 		this.orderRepository = orderRepository;
@@ -163,5 +167,12 @@ public class OrderService {
          
         sender.send(message);
     }
+	public void addMetrics(OrderMetrics orderMetrics) {
+		this.orderMetrics = orderMetrics;
+	}
+	
+	public OrderMetrics getOrderMetrics() {
+		return this.orderMetrics;
+	}
 	
 }

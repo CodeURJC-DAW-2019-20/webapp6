@@ -7,7 +7,12 @@ import org.springframework.web.bind.annotation.*;
 
 import com.webapp.animeshop.model.Address;
 import com.webapp.animeshop.model.Order;
+
+import com.webapp.animeshop.model.OrderMetrics;
+import com.webapp.animeshop.model.Product;
+import com.webapp.animeshop.model.ProductAmount;
 import com.webapp.animeshop.model.User;
+import com.webapp.animeshop.repositories.OrderMetricsRepository;
 import com.webapp.animeshop.repositories.OrderRepository;
 import com.webapp.animeshop.service.OrderService;
 import com.webapp.animeshop.user.UserComponent;
@@ -23,6 +28,9 @@ public class OrderController extends WebController{
 	
 	@Autowired
 	private UserComponent userSession;
+    
+    @Autowired
+    private OrderMetricsRepository orderMetricsRepository;
     
     @RequestMapping("/shoppingCart")
 	public String shoppingCart(Model model) {
@@ -83,6 +91,22 @@ public class OrderController extends WebController{
     	User user = userSession.getLoggedUser();
     	Order order = this.orderService.confirmOrder(address, billing_address);
     	this.orderService.sendEmail(user, order, billing_address);
+    	//Order order = this.orderRepository.findByStatus(user.getId());
+    	//order.setStatus("Completado");
+    	//this.orderRepository.save(order);
+    	//OrderMetrics orderMetrics = this.orderMetricsRepository.findAll().get(0);
+    	//orderMetrics.newOrder(order);
+    	//this.orderMetricsRepository.save(orderMetrics);
+    	OrderMetrics lastMetrics = this.orderMetricsRepository.findAll().get(this.orderMetricsRepository.findAll().size()-1);
+    	OrderMetrics orderMetrics = new OrderMetrics(lastMetrics);
+    	orderMetrics.newOrder(order);
+    	this.orderMetricsRepository.save(orderMetrics);
+    	
+    	//user.getOrderList().add(order);
+    	//this.userRepository.save(user);
+    	//Order newOrder = new Order();
+    	//newOrder.setUser(user);
+    	//this.orderRepository.save(newOrder);
     	model.addAttribute("order", order);
     	model.addAttribute("user",user);
     	model.addAttribute("billing", billing_address);

@@ -11,14 +11,17 @@ import org.springframework.stereotype.Controller;
 import com.webapp.animeshop.model.Address;
 import com.webapp.animeshop.model.Blog;
 import com.webapp.animeshop.model.Order;
+import com.webapp.animeshop.model.OrderMetrics;
 import com.webapp.animeshop.model.Product;
 import com.webapp.animeshop.model.ProductAmount;
 import com.webapp.animeshop.model.User;
 import com.webapp.animeshop.repositories.OrderRepository;
 import com.webapp.animeshop.repositories.ProductAmountRepository;
 import com.webapp.animeshop.repositories.UserRepository;
+import com.webapp.animeshop.repositories.OrderMetricsRepository;
 import com.webapp.animeshop.service.ProductService;
 import com.webapp.animeshop.service.BlogService;
+import com.webapp.animeshop.service.OrderService;
 
 
 @Controller
@@ -29,6 +32,8 @@ public class DatabaseInitializer {
 	private BlogService blogService;
 	private OrderRepository orderRepository;
 	private ProductAmountRepository pAmountRepository;
+	private OrderService orderService;
+	private OrderMetricsRepository pOrderMetricsRpository;
 	
 	@Autowired
 	public DatabaseInitializer(
@@ -36,13 +41,17 @@ public class DatabaseInitializer {
 	       ProductService productService,
 	       BlogService blogService,
 	       OrderRepository orderRepository,
-	       ProductAmountRepository pAmountRepository
+	       ProductAmountRepository pAmountRepository,
+	       OrderService pOrderService,
+	       OrderMetricsRepository pOrderMetricsRepository
 	) {
 	       this.userRepository = userRepository;
 	       this.productService = productService;
 	       this.blogService = blogService;
 	       this.orderRepository = orderRepository;
 	       this.pAmountRepository = pAmountRepository;
+	       this.orderService = pOrderService;
+	       this.pOrderMetricsRpository = pOrderMetricsRepository;
 	}
 
 	@PostConstruct
@@ -114,5 +123,8 @@ public class DatabaseInitializer {
 		//this.orderRepository.findById(18).setProductList(this.productService.getProducts());		
 		user.setOrderList(this.orderRepository.findAll());
 		
+		OrderMetrics orderMetrics = new OrderMetrics();
+		this.orderService.addMetrics(orderMetrics);
+		this.pOrderMetricsRpository.save(orderMetrics);
 	}
 }
