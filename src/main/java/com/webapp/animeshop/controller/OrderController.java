@@ -14,9 +14,11 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.webapp.animeshop.model.Address;
 import com.webapp.animeshop.model.Order;
+import com.webapp.animeshop.model.OrderMetrics;
 import com.webapp.animeshop.model.Product;
 import com.webapp.animeshop.model.ProductAmount;
 import com.webapp.animeshop.model.User;
+import com.webapp.animeshop.repositories.OrderMetricsRepository;
 import com.webapp.animeshop.repositories.OrderRepository;
 import com.webapp.animeshop.repositories.ProductRepository;
 import com.webapp.animeshop.repositories.UserRepository;
@@ -40,6 +42,9 @@ public class OrderController{
 
     @Autowired
     private ProductRepository productRepository;
+    
+    @Autowired
+    private OrderMetricsRepository orderMetricsRepository;
     
     @RequestMapping("/shoppingCart")
 	public String shoppingCart(Model model) {
@@ -97,6 +102,9 @@ public class OrderController{
     	Order order = this.orderRepository.findByStatus(user.getId());
     	order.setStatus("Completado");
     	this.orderRepository.save(order);
+    	OrderMetrics orderMetrics = this.orderMetricsRepository.findAll().get(0);
+    	orderMetrics.newOrder(order);
+    	this.orderMetricsRepository.save(orderMetrics);
     	user.getOrderList().add(order);
     	this.userRepository.save(user);
     	Order newOrder = new Order();

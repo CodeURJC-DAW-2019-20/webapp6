@@ -1,6 +1,7 @@
 package com.webapp.animeshop.service;
 
 import com.webapp.animeshop.model.Order;
+import com.webapp.animeshop.model.OrderMetrics;
 import com.webapp.animeshop.model.Product;
 import com.webapp.animeshop.model.ProductAmount;
 import com.webapp.animeshop.model.User;
@@ -25,6 +26,9 @@ public class OrderService {
 
 	@Autowired
 	private ProductAmountRepository pAmountRepository;
+	
+	//@Autowired
+	private OrderMetrics orderMetrics;
 	
 	public OrderService(OrderRepository orderRepository) {
 		this.orderRepository = orderRepository;
@@ -104,6 +108,14 @@ public class OrderService {
 		Product product = this.productRepository.findById(productId);
 		order.getProductList().remove(product);
 		this.addOrder(order);
+	}
+	
+	public void addMetrics(OrderMetrics orderMetrics) {
+		this.orderMetrics = orderMetrics;
+	}
+	
+	public OrderMetrics getOrderMetrics() {
+		return this.orderMetrics;
 	}
 	
 }
