@@ -1,39 +1,65 @@
-{{>header}}
-{{#user}}
+{{>header}} {{#user}}
 <meta charset="UTF-8">
-    <!--================ Hero banner start =================-->
-    <section class="hero-banner">
-      <div class="container">
-        <div class="row no-gutters align-items-center pt-60px">
-          <div class="col-5 d-none d-sm-block">
-            <div class="hero-banner__img">
-              <img class="img-fluid" src="img/user/login.jpg" alt="">
-            </div>
-          </div>
-          <div class="col-sm-7 col-lg-6 offset-lg-1 pl-4 pl-md-5 pl-lg-0">
-            <div class="hero-banner__content">
-              <h4>Nombre: {{name}}</h4>
-              <h5>Dirección de facturación:</h5>
-              <h6 style="margin-bottom: 30px;">{{delivery}}</h6>
-              <h5>Dirección de entrega:</h5>
-              <h6 style="margin-bottom: 30px;">{{delivery}}</h6>
-              <h5>Mis métodos de pago:</h5>
-              <h6 id="payment" style="margin-bottom: 30px;">VISA que termina en 7694</h6>
+<!--================ Hero banner start =================-->
+<section class="hero-banner">
+	<div class="container">
+		<div class="row no-gutters align-items-center pt-60px">
+			<div class="col-5 d-none d-sm-block">
+				<div class="hero-banner__img">
+					<img class="img-fluid" src="img/user/login.jpg" alt="">
+				</div>
+			</div>
+			<div class="col-sm-7 col-lg-6 offset-lg-1 pl-4 pl-md-5 pl-lg-0">
+				<div class="hero-banner__content">
+					<h4>Nombre: {{name}}</h4>
+					<h5>Dirección de facturación:</h5>
+					<h6 style="margin-bottom: 30px;">{{delivery}}</h6>
+					<h5>Dirección de entrega:</h5>
+					<h6 style="margin-bottom: 30px;">{{delivery}}</h6>
+					<h5>Mis métodos de pago:</h5>
+					<h6 id="payment" style="margin-bottom: 30px;">VISA que termina
+						en 7694</h6>
 
-              <div class="row">
-                <div class="column">
-                  <a class="button button-hero" href="#" style="margin-right: 30px;">Mis pedidos</a>
-                </div>
+					<div class="row" style="margin-bottom: 10px;">
+						<div class="column">
+							<a class="button button-hero" href="#"
+								style="margin-right: 30px;">Mis pedidos</a>
+						</div>
 
-                <div class="column">
-                  <a class="button button-hero" href="userEdit.html">Editar información</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    {{/user}}
-    <!--================ Hero banner start =================-->
- {{>footer}}
+						<div class="column">
+							<a class="button button-hero" href="userEdit.html">Editar
+								información</a>
+						</div>
+						<div id="divActivites" name="divActivites" style="border: thin"border-width:2px;>
+							<!-- <textarea id="inActivities" name="inActivities"
+								style="border: solid">
+    						</textarea>-->
+
+						</div>
+					</div>
+					{{#admin}}
+					<h6>Precio de los pedidos realizados.</h6>
+					<div class="row" style="border: 1px solid black;">
+						{{#metric}}
+						<div class="column" style="margin-right: 10px;">
+							<img src="img/blueMetrics.PNG" height="{{toPrint}}" width="40"
+								alt="Metrics">
+							<p>{{lastMoney}} €</p>
+						</div>
+						{{/metric}}
+						<div style="margin-right: 10px;">
+							<img src="img/blueMetrics.PNG" height="{{average}}" width="40"
+								alt="Metrics">
+							<p>
+								Media <br /> {{average}} €
+							</p>
+						</div>
+					</div>
+					{{/admin}}
+				</div>
+			</div>
+		</div>
+</section>
+{{/user}}
+<!--================ Hero banner start =================-->
+{{>footer}}

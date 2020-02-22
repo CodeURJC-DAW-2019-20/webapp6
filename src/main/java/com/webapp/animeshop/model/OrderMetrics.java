@@ -22,12 +22,16 @@ public class OrderMetrics {
 	private int totalOrders;
 	private double average;
 	private double totalMoney;
+	private double lastMoney;
+	private int toPrint;
+	private int averageToPrint;
 	//private List<Double> prices;
 	
 	public OrderMetrics() {
 		this.totalOrders = 0;
 		this.average = 0;
 		this.totalMoney = 0;
+		this.lastMoney = 0;
 		//this.prices = new ArrayList();
 	}
 	
@@ -35,6 +39,8 @@ public class OrderMetrics {
 		this.totalOrders++;
 		this.totalMoney += order.getTotal();
 		this.average = this.totalMoney / this.totalOrders;
+		this.lastMoney = order.getTotal();
+		this.toPrint = (int) this.lastMoney;
 	}
 
 	public int getTotalOrders() {
@@ -69,10 +75,35 @@ public class OrderMetrics {
 		this.prices = prices;
 	}*/
 	
+	public double getLastMoney() {
+		return lastMoney;
+	}
+
+	public void setLastMoney(double lastMoney) {
+		this.lastMoney = lastMoney;
+	}
+
+	public int getToPrint() {
+		return toPrint;
+	}
+
+	public void setToPrint(int toPrint) {
+		this.toPrint = toPrint;
+	}
+
+	public int getAverageToPrint() {
+		return averageToPrint;
+	}
+
+	public void setAverageToPrint(int averageToPrint) {
+		this.averageToPrint = averageToPrint;
+	}
+
 	public OrderMetrics(OrderMetrics orderMetrics) {
 		this.totalMoney = orderMetrics.totalMoney;
 		this.totalOrders = orderMetrics.totalOrders;
 		this.average = orderMetrics.average;
+		
 		//this.prices = orderMetrics.prices;
 	}
 

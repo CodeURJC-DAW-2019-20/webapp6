@@ -102,9 +102,14 @@ public class OrderController{
     	Order order = this.orderRepository.findByStatus(user.getId());
     	order.setStatus("Completado");
     	this.orderRepository.save(order);
-    	OrderMetrics orderMetrics = this.orderMetricsRepository.findAll().get(0);
+    	//OrderMetrics orderMetrics = this.orderMetricsRepository.findAll().get(0);
+    	//orderMetrics.newOrder(order);
+    	//this.orderMetricsRepository.save(orderMetrics);
+    	OrderMetrics lastMetrics = this.orderMetricsRepository.findAll().get(this.orderMetricsRepository.findAll().size()-1);
+    	OrderMetrics orderMetrics = new OrderMetrics(lastMetrics);
     	orderMetrics.newOrder(order);
     	this.orderMetricsRepository.save(orderMetrics);
+    	
     	user.getOrderList().add(order);
     	this.userRepository.save(user);
     	Order newOrder = new Order();
