@@ -38,7 +38,7 @@
                       <tbody>
                       {{#order}}
                       {{#productList}}
-                          <tr>
+                          <tr id="product{{product.id}}">
                               <td>
                                   <div class="media">
                                       <div class="d-flex">
@@ -65,64 +65,11 @@
                               <td>
                                   <h5 id="result">{{total}}€</h5>
                               </td>
+                              <!-- <td id="btn-product">
+                              		<button class="remove-blog-entrie" type="submit">Eliminar</button>
+                              </td>-->
                           </tr>
                        {{/productList}}
-                          <!-- <tr>
-                              <td>
-                                  <div class="media">
-                                      <div class="d-flex">
-                                          <img src="img/cart/sasuke x naruto.png" alt="">
-                                      </div>
-                                      <div class="media-body">
-                                          <p>Pack Naruto y Sasuke Relation (Figuarts ZERO Ex)</p>
-                                      </div>
-                                  </div>
-                              </td>
-                              <td>
-                                  <h5>141.25€</h5>
-                              </td>
-                              <td>
-                                  <div class="product_count">
-                                      <input type="text" name="qty" id="sst2" maxlength="12" value="1" title="Quantity:"
-                                          class="input-text qty">
-                                      <button onclick="var result = document.getElementById('sst2'); var sst2 = result.value; if( !isNaN( sst2 )) result.value++;return false;"
-                                          class="increase items-count" type="button"><i class="lnr lnr-chevron-up"></i></button>
-                                      <button onclick="var result = document.getElementById('sst2'); var sst2 = result.value; if( !isNaN( sst2 ) & sst2 > 0 ) result.value--;return false;"
-                                          class="reduced items-count" type="button"><i class="lnr lnr-chevron-down"></i></button>
-                                  </div>
-                              </td>
-                              <td>
-                                  <h5>141.25€</h5>
-                              </td>
-                          </tr>
-                          <tr>
-                              <td>
-                                  <div class="media">
-                                      <div class="d-flex">
-                                          <img src="img/cart/luigi's mansion 3.png" alt="">
-                                      </div>
-                                      <div class="media-body">
-                                          <p>Luigi's Mansion 3 - Figura Luigi & Polterpup Collector's Edition</p>
-                                      </div>
-                                  </div>
-                              </td>
-                              <td>
-                                  <h5>85.00€</h5>
-                              </td>
-                              <td>
-                                  <div class="product_count">
-                                      <input type="text" name="qty" id="sst3" maxlength="12" value="1" title="Quantity:"
-                                          class="input-text qty">
-                                      <button onclick="var result = document.getElementById('sst3'); var sst3 = result.value; if( !isNaN( sst3 )) result.value++;return false;"
-                                          class="increase items-count" type="button"><i class="lnr lnr-chevron-up"></i></button>
-                                      <button onclick="var result = document.getElementById('sst3'); var sst3 = result.value; if( !isNaN( sst3 ) & sst3 > 0 ) result.value--;return false;"
-                                          class="reduced items-count" type="button"><i class="lnr lnr-chevron-down"></i></button>
-                                  </div>
-                              </td>
-                              <td>
-                                  <h5>85.00€</h5>
-                              </td>
-                          </tr> -->
                           <tr class="bottom_button">
                               <td>
                                   <a class="button" href="#">Actualizar cesta</a>
@@ -168,8 +115,12 @@
                               </td>
                               <td>
                                   <div class="checkout_btn_inner d-flex align-items-center">
+                                  {{^empty}}
                                       <a class="gray_btn" href="/products">Seguir comprando</a>
-                                      <a class="primary-btn ml-2" href="/checkout">Finalizar</a>
+                                  {{/empty}}
+                                  {{#empty}}
+                                      <a class="primary-btn finish-btn" href="/checkout">Finalizar</a>
+                                  {{/empty}}
                                   </div>
                               </td>
                           </tr>

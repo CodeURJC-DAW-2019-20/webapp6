@@ -20,6 +20,7 @@
   <!--================Checkout Area =================-->
   <section class="checkout_area section-margin--small">
     <div class="container">
+    	{{^logged}}
         <div class="returning_customer">
           <div class="check_title">
               <h2>¿Eres nuevo? <a href="/register">Regístrate</a></h2>
@@ -42,6 +43,7 @@
               </div>
           </form>
         </div>
+        {{/logged}}
         <div class="returning_customer">
           <div class="check_title">
               <p><h2>¿Tienes un código?</h2></p>
@@ -71,7 +73,7 @@
                     <h3>Detalles de la dirección</h3>
                     <form class="row contact_form" id="myForm" method="POST" action="/confirmation">
                         <div class="col-md-6 form-group p_star">
-                            <input type="text" class="form-control" id="first" name="shippingname" placeholder="Nombre" required value={{delivery.shippingname}}>
+                            <input type="text" class="form-control" id="shippingname" name="shippingname" placeholder="Nombre" required value={{name}}>
                             <span class="placeholder" data-placeholder="First name"></span>
                         </div>
                         <div class="col-md-6 form-group p_star">
@@ -129,7 +131,7 @@
                                 <label for="f-option3">Enviar a una dirección distinta</label>
                                   <div class="collapse" id="collapseExample">
                                   <div class="col-md-6 form-group p_star">
-			                            <input type="text" class="form-control" id="first" name="shippingname2" placeholder="Nombre" required value={{delivery.shippingname}}>
+			                            <input type="text" class="form-control" id="first" name="shippingname2" placeholder="Nombre" required value={{name}}>
 			                            <span class="placeholder" data-placeholder="First name"></span>
 			                        </div>
 			                        <div class="col-md-6 form-group p_star">

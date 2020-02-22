@@ -188,4 +188,9 @@ public class Product implements Serializable, Comparable<Product> {
 		int compareQuantity = (int) ((Product) o2).getPrice();
 		return (int) (this.price - compareQuantity);
 	}
+	
+	@Override
+	public String toString() {
+		return this.name + " ";
+	}
 }

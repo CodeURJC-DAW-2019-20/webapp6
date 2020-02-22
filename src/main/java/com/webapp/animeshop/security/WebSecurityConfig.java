@@ -58,4 +58,5 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	        // Database authentication provider
 	        auth.authenticationProvider(authenticationProvider);
 	    }
+	    
 	}

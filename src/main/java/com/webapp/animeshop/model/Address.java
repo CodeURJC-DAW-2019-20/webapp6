@@ -117,6 +117,10 @@ public class Address{
 		this.zipcode = zipcode;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return "\nNombre: " + this.shippingname + " "+ " Appelidos: " + this.lastname + "\nNúmero: " + this.number
+				+ "\nDirección: " + this.street + ", " + this.floor + "\n" + this.country + ", " + this.city + ", " + this.zipcode + "\n";
+	}
 
 }

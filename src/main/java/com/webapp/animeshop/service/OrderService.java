@@ -1,5 +1,6 @@
 package com.webapp.animeshop.service;
 
+import com.webapp.animeshop.model.Address;
 import com.webapp.animeshop.model.Order;
 import com.webapp.animeshop.model.Product;
 import com.webapp.animeshop.model.ProductAmount;
@@ -7,12 +8,20 @@ import com.webapp.animeshop.model.User;
 
 import java.util.List;
 
+import javax.mail.internet.MimeMessage;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.webapp.animeshop.repositories.OrderRepository;
-import com.webapp.animeshop.repositories.ProductAmountRepository;
 import com.webapp.animeshop.repositories.ProductRepository;
+import com.webapp.animeshop.repositories.UserRepository;
+import com.webapp.animeshop.user.UserComponent;
 
 @Service
 public class OrderService {
@@ -22,9 +31,15 @@ public class OrderService {
 	
 	@Autowired
 	private ProductRepository productRepository;
-
+	
 	@Autowired
-	private ProductAmountRepository pAmountRepository;
+	private UserComponent userSession;
+	
+	@Autowired
+    private UserRepository userRepository;
+	
+	@Autowired
+    private JavaMailSender sender;
 	
 	public OrderService(OrderRepository orderRepository) {
 		this.orderRepository = orderRepository;
@@ -105,5 +120,48 @@ public class OrderService {
 		order.getProductList().remove(product);
 		this.addOrder(order);
 	}
+	
+	public Order confirmOrder(Address delivery_address, Address billing_address) {
+		User user = userSession.getLoggedUser();
+    	user.setDelivery(delivery_address);
+    	this.userRepository.save(user);
+    	Order order = this.orderRepository.findByStatus(user.getId());
+    	order.setStatus("Complete");
+    	this.orderRepository.save(order);
+    	user.getOrderList().add(order);
+    	this.userRepository.save(user);
+    	Order newOrder = new Order();
+    	newOrder.setUser(user);
+    	this.orderRepository.save(newOrder);
+    	return order;
+	}
+	
+	/*@RequestMapping("/simpleemail")
+    @ResponseBody
+    public String home(Order order, Address billing) {
+        try {
+        	User user = this.userSession.getLoggedUser();
+            sendEmail(user, order, billing);
+            return "Email Sent!";
+        }catch(Exception ex) {
+            return "Error in sending email: "+ex;
+        }
+    }*/
+    
+    public void sendEmail(User userInfo, Order orderInfo, Address billing) throws Exception{
+    	String info = "\nDirección de envío:" + userInfo.getDelivery().toString() + "\nDirección de facturación:" + 
+    				billing.toString() + orderInfo.toString();
+    	String email = userInfo.getDelivery().getEmail();
+    	
+        MimeMessage message = sender.createMimeMessage();
+        MimeMessageHelper helper = new MimeMessageHelper(message,true);
+        ClassPathResource file = new ClassPathResource("/static/img/shop-logo.png");
+        helper.addAttachment("/static/img/shop-logo.png", file);
+        helper.setTo(email);
+        helper.setText(info);
+        helper.setSubject("Factura de su pedido " + Long.toString(orderInfo.getId()));
+         
+        sender.send(message);
+    }
 	
 }

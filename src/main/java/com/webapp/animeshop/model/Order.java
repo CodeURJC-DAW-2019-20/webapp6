@@ -138,7 +138,20 @@ public class Order implements Serializable{
 		this.status = status;
 	}
 	
-	
+	@Override
+	public String toString() {
+		Date today = new Date();
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(today);
+		String order = "\nNúmero de pedido: " + Long.toString(this.getId()) + "\nFecha: " + 
+						Integer.toString(this.day) + "/" + Integer.toString(this.month) + "/" + Integer.toString(this.year) + 
+						" - "  + cal.get(Calendar.HOUR_OF_DAY) + ":" + cal.get(Calendar.MINUTE) + "'" + ":" + cal.get(Calendar.SECOND) + "''" 
+						+ "\n";
+		for(int i = 0;i<this.getProductList().size();i++) {
+			order+=this.getProductList().get(i).toString() + "\n";
+		}
+		return order + "Precio total: " + this.getTotal() + "€";
+	}
 	
 
 }
