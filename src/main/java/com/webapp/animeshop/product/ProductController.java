@@ -1,5 +1,7 @@
 package com.webapp.animeshop.product;
 
+import java.io.IOException;
+import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -10,7 +12,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
+import com.webapp.animeshop.image.ImageService;
 import com.webapp.animeshop.order.Order;
 import com.webapp.animeshop.user.User;
 import com.webapp.animeshop.user.UserComponent;
@@ -27,6 +31,9 @@ public class ProductController extends WebController {
 
 	@Autowired
 	private ProductRepository productRepository;
+	
+	@Autowired
+	private ImageService imageService;
 
 	private String showRecommendations() {
 		HashMap<String, Integer> mostOrdered = new HashMap<>();
@@ -100,10 +107,15 @@ public class ProductController extends WebController {
 	}
 
 	@RequestMapping("/addProduct")
-	public String addProduct(Model model, Product product) {
-		product.setImage("/img/product/notavailable.png");
-		product.setImagefull("/img/product/notavailable2.png");
+	public String addProduct(Model model, Product product, @RequestParam MultipartFile imageFile) throws IOException {
+		//product.setImage("/img/product/notavailable.png");
+		//product.setImagefull("/img/product/notavailable2.png");
+		product.setImages(true);
+		product.setImagesFull(product.hasImage());
+		product.setImage(imageService.toString());
+		product.setImagefull(product.getImage());
 		this.productService.addProduct(product);
+		imageService.saveImage("products", product.getId(), imageFile);
 		return this.showProducts(model);
 	}
 
