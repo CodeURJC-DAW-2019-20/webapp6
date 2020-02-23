@@ -3,8 +3,6 @@ package com.webapp.animeshop.user;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.SessionScope;
 
-import com.webapp.animeshop.model.User;
-
 @Component
 @SessionScope
 public class UserComponent {

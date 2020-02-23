@@ -8,20 +8,20 @@ import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import com.webapp.animeshop.model.Address;
-import com.webapp.animeshop.model.Blog;
-import com.webapp.animeshop.model.Order;
-import com.webapp.animeshop.model.OrderMetrics;
-import com.webapp.animeshop.model.Product;
-import com.webapp.animeshop.model.ProductAmount;
-import com.webapp.animeshop.model.User;
-import com.webapp.animeshop.repositories.OrderRepository;
-import com.webapp.animeshop.repositories.ProductAmountRepository;
-import com.webapp.animeshop.repositories.UserRepository;
-import com.webapp.animeshop.repositories.OrderMetricsRepository;
-import com.webapp.animeshop.service.ProductService;
-import com.webapp.animeshop.service.BlogService;
-import com.webapp.animeshop.service.OrderService;
+import com.webapp.animeshop.blog.Blog;
+import com.webapp.animeshop.blog.BlogService;
+import com.webapp.animeshop.order.Order;
+import com.webapp.animeshop.order.OrderMetrics;
+import com.webapp.animeshop.order.OrderMetricsRepository;
+import com.webapp.animeshop.order.OrderRepository;
+import com.webapp.animeshop.order.OrderService;
+import com.webapp.animeshop.product.Product;
+import com.webapp.animeshop.product.ProductAmount;
+import com.webapp.animeshop.product.ProductAmountRepository;
+import com.webapp.animeshop.product.ProductService;
+import com.webapp.animeshop.user.Address;
+import com.webapp.animeshop.user.User;
+import com.webapp.animeshop.user.UserRepository;
 
 
 @Controller
@@ -68,7 +68,7 @@ public class DatabaseInitializer {
 		
 		this.productService.addProduct(new Product("Funko Pop! Levi Ackerman","Attack on Titans",14.49,"WOW",5,9,200,"Funko Pop!","TM0ZZH441XA",100, "/img/product/levimin.png", "/img/product/levi2.jpg"));
 		this.productService.addProduct(new Product("Attack on Titans - Mikasa Ackerman","Attack on Titans",40.50,"WOW",50,30,1200,"Figuarts ZERO","TM0ZZH441XC",160, "/img/product/mikasa.png", "/img/product/mikasa2.jpg"));
-		this.productService.addProduct(new Product("Eren Jaeguer","Attack on Titans",50.25,"WOW",31,25,100,"Figuarts ZERO","TM0ZZH441XC",40, "/img/product/ErenJaeguerpng.png", "/img/product/ErenJaeguer2.jpg"));
+		this.productService.addProduct(new Product("Eren Jaeguer","Attack on Titans",50.25,"WOW",31,25,100,"Figuarts ZERO","TM0ZZH441XC",40, "/img/product/ErenJaeguer.png", "/img/product/ErenJaeguer2.jpg"));
 		this.productService.addProduct(new Product("Funko Pop! -Titan Armadura","Attack on Titans",20.00,"WOW",40,19,200,"Funko Pop!","TM0ZZH441XC",58, "/img/product/titanArmadura.png", "/img/product/titanArmadura2.jpg"));
 		this.productService.addProduct(new Product("Funko Pop! -Titan Colosal","Attack on Titans",17.99,"WOW",40,19,200,"Funko Pop!","TM0ZZH441XC",80, "/img/product/titanColosal.png", "/img/product/titanColosal2.jpg"));
 		
