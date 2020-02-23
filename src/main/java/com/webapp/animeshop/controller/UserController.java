@@ -18,11 +18,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.webapp.animeshop.model.Address;
 import com.webapp.animeshop.model.Order;
+import com.webapp.animeshop.model.OrderMetrics;
 import com.webapp.animeshop.model.User;
+import com.webapp.animeshop.repositories.OrderMetricsRepository;
 import com.webapp.animeshop.repositories.OrderRepository;
 import com.webapp.animeshop.repositories.UserRepository;
 import com.webapp.animeshop.user.UserComponent;
 import com.webapp.animeshop.user.UserService;
+
+import antlr.collections.List;
+
 import com.webapp.animeshop.user.UserComponent;
 
 
@@ -43,6 +48,9 @@ public class UserController extends WebController {
 	
 	@Autowired
 	private OrderRepository orderRepository;
+	
+	@Autowired
+	private OrderMetricsRepository orderMetricsRepository;
 
 	@PostMapping("/register")
 	public String addNewUser(Model model, HttpServletRequest req, @RequestParam String name,
@@ -72,8 +80,13 @@ public class UserController extends WebController {
 		
 		System.out.println("wwww");
 		if(userComponent.isLoggedUser()) {
-		model.addAttribute("user", this.userComponent.getLoggedUser());
+			model.addAttribute("user", this.userComponent.getLoggedUser());
 		}
+		ArrayList<OrderMetrics> list = (ArrayList<OrderMetrics>) this.orderMetricsRepository.findAll();
+		list.remove(0);
+		model.addAttribute("metric", list);
+		OrderMetrics lastMetrics = this.orderMetricsRepository.findAll().get(this.orderMetricsRepository.findAll().size()-1);
+		model.addAttribute("average", (int) lastMetrics.getAverage());
 		return "userPage";
 	}
 	
