@@ -71,7 +71,7 @@ public class User implements Serializable {
 	}
 
 	public void setPassword(String passwordHash) {
-		this.passwordHash = passwordHash;
+		this.passwordHash = new BCryptPasswordEncoder().encode(passwordHash);
 	}
  
 	public List<String> getRoles() {
@@ -131,7 +131,7 @@ public class User implements Serializable {
 
 	public User(String name, String password,Address address, List<String> roles) {
 		this.name = name;
-		this.passwordHash = password;
+		this.passwordHash = new BCryptPasswordEncoder().encode(password);
 		this.delivery = address;
 		this.roles = roles;
 	}

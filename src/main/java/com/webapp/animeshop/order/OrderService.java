@@ -159,6 +159,7 @@ public class OrderService {
          
         sender.send(message);
     }
+    
 	public void addMetrics(OrderMetrics orderMetrics) {
 		this.orderMetrics = orderMetrics;
 	}

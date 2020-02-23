@@ -36,12 +36,22 @@
 					<div class="login_form_inner register_form_inner">
 						<h3>Crear una cuenta</h3>
 						<form class="row login_form" action="/register" id="register_form" method="POST" >
+							{{^exists}}
 							<div class="col-md-12 form-group">
 								<input type="text" class="form-control" id="name" name="name" placeholder="Usuario" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'">
 							</div>
-              <div class="col-md-12 form-group">
+							{{/exists}}
+							{{#exists}}
+								<div class="col-md-12 form-group">
+								<input type="text" class="form-control is-invalid" id="name" name="name" placeholder="Usuario" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Este usuario ya existe'">
+							</div>
+        					{{/exists}}
+							<div class="col-md-12 form-group">
+								<input type="email" class="form-control" id="email" name="email" placeholder="Correo electrónico" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'">
+							</div>
+              				<div class="col-md-12 form-group">
 								<input type="text" class="form-control" id="password" name="password" placeholder="Contraseña" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Contraseña'">
-              </div>
+              				</div>
 							<div class="col-md-12 form-group">
 								<button type="submit" value="submit" class="button button-register w-100" >Registrarse</button>
 								<input type="hidden" name="_csrf" value="{{token}}">

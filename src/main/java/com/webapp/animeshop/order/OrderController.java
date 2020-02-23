@@ -5,8 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import com.webapp.animeshop.product.Product;
-import com.webapp.animeshop.product.ProductAmount;
 import com.webapp.animeshop.user.Address;
 import com.webapp.animeshop.user.User;
 import com.webapp.animeshop.user.UserComponent;
@@ -20,9 +18,6 @@ public class OrderController extends WebController{
 	
 	@Autowired
     private OrderRepository orderRepository;
-	
-	@Autowired
-    private UserRepository userRepository;
 	
 	@Autowired
 	private UserComponent userSession;

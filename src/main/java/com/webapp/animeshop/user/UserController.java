@@ -48,20 +48,18 @@ public class UserController extends WebController {
 
 	@PostMapping("/register")
 	public String addNewUser(Model model, HttpServletRequest req, @RequestParam String name,
-			@RequestParam String password) {
-
+			@RequestParam String email, @RequestParam String password) throws Exception {
 		User newUser = new User(name, password,new Address(), "ROLE_USER");
-		/*Order order = new Order();
-		Order newOrder = new Order(new ArrayList<>(),null,0);
-		if (userRepository.findByName(name) == null) {*/
-			userService.save(newUser);
-			/*order = this.orderRepository.findNotRelated();
-			order.setUser(newUser);
-			this.orderRepository.save(order);
-			this.orderRepository.save(newOrder);
-			
-		}*/return "/login"; //else
-			//return new ResponseEntity<>(HttpStatus.CONFLICT);
+		boolean exists = false;
+		if(this.userRepository.findByName(newUser.getName())!=null){
+			exists = true;
+			model.addAttribute("exists", exists);
+			return "/register";
+		}
+		newUser.getDelivery().setEmail(email);
+		userService.save(newUser);
+		userService.sendEmail(newUser);
+		return "/login";
 	}
 
 	/*public void addUserToModel(Model model) {
@@ -89,4 +87,30 @@ public class UserController extends WebController {
 	public User getCurrentUser() {
 		return userSession.getLoggedUser();
 	}
+	
+	@RequestMapping("/userEdit")
+	public String userEditPage(Model model) {
+		if(userComponent.isLoggedUser()) {
+			model.addAttribute("user", this.userComponent.getLoggedUser());
+		}
+		return "/userEdit";
+	}
+	
+	@RequestMapping("/newInfo")
+	public String userNewInfo(Model model,@RequestParam String shippingname, Address address, @RequestParam String password) {
+		/*if(userComponent.isLoggedUser()) {
+			model.addAttribute("user", this.userComponent.getLoggedUser());
+		}*/
+		User user = this.userComponent.getLoggedUser();
+		user.setDelivery(address);
+		user.getDelivery().setName(shippingname);
+		user.setPassword(password);
+		//User newUser = new User(user.getName(), password,address, "ROLE_USER");
+		//this.userRepository.deleteById(user.getId());
+		this.userRepository.save(user);
+		model.addAttribute("user", user);
+		return "/userPage";
+	}
+	
+	
 }
