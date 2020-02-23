@@ -73,7 +73,7 @@
                     <h3>Detalles de la dirección</h3>
                     <form class="row contact_form" id="myForm" method="POST" action="/confirmation">
                         <div class="col-md-6 form-group p_star">
-                            <input type="text" class="form-control" id="shippingname" name="shippingname" placeholder="Nombre" required value={{name}}>
+                            <input type="text" class="form-control" id="shippingname" name="shippingname" placeholder="Nombre" required value={{delivery.shippingname}}>
                             <span class="placeholder" data-placeholder="First name"></span>
                         </div>
                         <div class="col-md-6 form-group p_star">
@@ -130,8 +130,8 @@
                                 <input type="checkbox" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                                 <label for="f-option3">Enviar a una dirección distinta</label>
                                   <div class="collapse" id="collapseExample">
-                                  <div class="col-md-6 form-group p_star">
-			                            <input type="text" class="form-control" id="first" name="shippingname2" placeholder="Nombre" required value={{name}}>
+                                  	<div class="col-md-6 form-group p_star">
+			                            <input type="text" class="form-control" id="first" name="shippingname2" placeholder="Nombre" required value={{delivery.shippingname}}>
 			                            <span class="placeholder" data-placeholder="First name"></span>
 			                        </div>
 			                        <div class="col-md-6 form-group p_star">

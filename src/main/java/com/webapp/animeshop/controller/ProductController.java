@@ -133,7 +133,7 @@ public class ProductController extends WebController {
 	}
 
 	@RequestMapping("/sortBy")
-	public String upperToLower(Model model,@RequestParam String value) {
+	public String sortBy(Model model,@RequestParam String value) {
 		HashMap<String, Integer> nByFranchise = this.productService.nProductsByFranchise();
 		HashMap<String, Integer> nByDistributor = this.productService.nProductsByDistributor();
 		Integer total = this.productRepository.findProductAmount();

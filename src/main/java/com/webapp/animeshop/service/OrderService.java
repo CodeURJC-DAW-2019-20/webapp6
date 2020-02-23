@@ -131,9 +131,10 @@ public class OrderService {
 		this.addOrder(order);
 	}
 	
-	public Order confirmOrder(Address delivery_address, Address billing_address) {
+	public Order confirmOrder(Address delivery_address, Address billing_address, String name) {
 		User user = userSession.getLoggedUser();
     	user.setDelivery(delivery_address);
+    	user.getDelivery().setName(name);
     	this.userRepository.save(user);
     	Order order = this.orderRepository.findByStatus(user.getId());
     	order.setStatus("Complete");

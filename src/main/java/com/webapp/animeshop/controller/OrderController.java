@@ -9,11 +9,10 @@ import com.webapp.animeshop.model.Address;
 import com.webapp.animeshop.model.Order;
 
 import com.webapp.animeshop.model.OrderMetrics;
-import com.webapp.animeshop.model.Product;
-import com.webapp.animeshop.model.ProductAmount;
 import com.webapp.animeshop.model.User;
 import com.webapp.animeshop.repositories.OrderMetricsRepository;
 import com.webapp.animeshop.repositories.OrderRepository;
+import com.webapp.animeshop.repositories.UserRepository;
 import com.webapp.animeshop.service.OrderService;
 import com.webapp.animeshop.user.UserComponent;
 
@@ -25,6 +24,9 @@ public class OrderController extends WebController{
 	
 	@Autowired
     private OrderRepository orderRepository;
+	
+	@Autowired
+    private UserRepository userRepository;
 	
 	@Autowired
 	private UserComponent userSession;
@@ -94,30 +96,18 @@ public class OrderController extends WebController{
     }
     
     @RequestMapping("/confirmation")
-    public String confirmation(Model model,Address address, @RequestParam String shippingname2, @RequestParam String lastname2,
+    public String confirmation(Model model,@RequestParam String shippingname, Address address, @RequestParam String shippingname2, @RequestParam String lastname2,
 			 @RequestParam String company2, @RequestParam String number2, @RequestParam String email2, 
 			 @RequestParam String street2, @RequestParam String floor2, @RequestParam String city2,
 			 @RequestParam String country2, @RequestParam String zipcode2) throws Throwable {
     	Address billing_address = new Address(shippingname2,lastname2,company2,number2,email2,street2,floor2,city2,country2,zipcode2);
     	User user = userSession.getLoggedUser();
-    	Order order = this.orderService.confirmOrder(address, billing_address);
+    	Order order = this.orderService.confirmOrder(address, billing_address, shippingname);
     	this.orderService.sendEmail(user, order, billing_address);
-    	//Order order = this.orderRepository.findByStatus(user.getId());
-    	//order.setStatus("Completado");
-    	//this.orderRepository.save(order);
-    	//OrderMetrics orderMetrics = this.orderMetricsRepository.findAll().get(0);
-    	//orderMetrics.newOrder(order);
-    	//this.orderMetricsRepository.save(orderMetrics);
     	OrderMetrics lastMetrics = this.orderMetricsRepository.findAll().get(this.orderMetricsRepository.findAll().size()-1);
     	OrderMetrics orderMetrics = new OrderMetrics(lastMetrics);
     	orderMetrics.newOrder(order);
     	this.orderMetricsRepository.save(orderMetrics);
-    	
-    	//user.getOrderList().add(order);
-    	//this.userRepository.save(user);
-    	//Order newOrder = new Order();
-    	//newOrder.setUser(user);
-    	//this.orderRepository.save(newOrder);
     	model.addAttribute("order", order);
     	model.addAttribute("user",user);
     	model.addAttribute("billing", billing_address);
