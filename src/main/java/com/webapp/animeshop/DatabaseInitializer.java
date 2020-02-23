@@ -58,7 +58,7 @@ public class DatabaseInitializer {
 	private void initDatabase() {
 		// Users
 		
-		Address address = new Address("David","Amor","URJC","654451912","d.amora@urjc.es","Calle de Uruguay, 6","7D","Fuenlabrada","Españita","28944");
+		Address address = new Address("David","Amor","URJC","654451912","David.a.almendra@hotmail.com","Calle de Uruguay, 6","7D","Fuenlabrada","Españita","28944");
 		User user = new User("user", "pass", address, "ROLE_USER");
 		user.setDelivery(address);
 		this.userRepository.save(user);
@@ -82,7 +82,7 @@ public class DatabaseInitializer {
 		this.productService.addProduct(new Product("Namikaze (Figuarts ZERO Ex)","Naruto",141.25,"WOW",38,27,750,"Figuarts ZERO","TM0ZZH441XC",80, "/img/product/namikaze.png", "/img/product/namikaze2.jpg"));
 		this.productService.addProduct(new Product("Naruto (Figuarts ZERO)","Naruto",59.99,"WOW",50,30,800,"Figuarts ZERO","TM0ZZH441XC",65, "/img/product/naruto.png", "/img/product/naruto2.jpg"));
 		this.productService.addProduct(new Product("Naruto sentado (Figuarts ZERO)","Naruto",75.5,"WOW",25,20,500,"Figuarts ZERO","TM0ZZH441XC",90, "/img/product/narutoSentado.png", "/img/product/narutoSentado2.jpg"));
-		this.productService.addProduct(new Product("Pack Naruto y Sasuke Relation (Figuarts ZERO Ex)","Naruto",120.10,"WOW",38,19,1200,"Figuarts ZERO","TM0ZZH441XC",100, "/img/product/narutosasuke.png", "/img/product/narutosasukefull.jpg"));
+		this.productService.addProduct(new Product("Pack Naruto y Sasuke Relation (Figuarts ZERO Ex)","Naruto",141.25,"WOW",38,19,1200,"Figuarts ZERO","TM0ZZH441XC",100, "/img/product/narutosasuke.png", "/img/product/narutosasukefull.jpg"));
 		
 		/*List<ProductAmount> productList = new ArrayList<ProductAmount>();
 		
