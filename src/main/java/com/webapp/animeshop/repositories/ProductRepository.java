@@ -33,5 +33,11 @@ public interface ProductRepository extends JpaRepository<Product, Long>{
 	
 	@Query(value="SELECT COUNT(id) FROM products",nativeQuery = true)
 	Integer findProductAmount();
+	
+	@Query(value="SELECT * FROM products ORDER BY price DESC",nativeQuery = true)
+	List<Product> findByPriceDesc();
+	
+	@Query(value="SELECT * FROM products ORDER BY price ASC",nativeQuery = true)
+	List<Product> findByPriceAsc();
 
 }

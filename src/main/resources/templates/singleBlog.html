@@ -36,10 +36,16 @@
 					</div>
 					<div class="col-lg-3  col-md-3">
 						<div class="blog_info text-right">
+							{{#product}}
 							<div class="post_tag">
-								<a>Noticas,</a> <a class="active" href="category.html">Funko
-									Pop!</a> <a href="#">Nueva figura</a>
+								<a>Noticas,</a> <input type="submit" class="active" form="franchiseForm" id="submit-blog" value="{{franchise}}">
+								<a href="#">Nueva figura</a>
 							</div>
+							<form id="franchiseForm" action="/products/{{product.franchise}}" method="POST">
+								<input type="hidden" name="franchise" value="{{product.franchise}}">
+								<input type="hidden" name="_csrf" value="{{token}}" />
+							</form>
+							{{/product}}
 							<ul class="blog_meta list">
 								<li><a>{{author}} <i class="lnr lnr-user"></i>
 								</a></li>

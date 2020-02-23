@@ -31,10 +31,14 @@ public class OrderController extends WebController{
 		boolean empty = false;
 		if(user!=null) {
 			order = this.orderRepository.findByStatus(user.getId());
+			order.setTotal();
+			this.orderRepository.save(order);
 			model.addAttribute("order",order);
 		}
 		else {
 			order = this.orderRepository.findNotRelated();
+			order.setTotal();
+			this.orderRepository.save(order);
 			model.addAttribute("order",order);
 		}
 		if(order.getProductList().isEmpty())
@@ -58,8 +62,13 @@ public class OrderController extends WebController{
 
     @PostMapping("/removeCartProduct/{id}")
     public String removeProductFromCart(Model model, @PathVariable("id") long id) {
-        long oId = 19;
-        this.orderService.deleteProductFromOrder(oId, id);
+    	User user = userSession.getLoggedUser();
+    	Order order;
+    	if(user!=null)
+    		order = this.orderRepository.findByStatus(user.getId());
+    	else
+    		order = this.orderRepository.findNotRelated();
+        this.orderService.deleteProductFromOrder(order.getId(), id);
         return this.shoppingCart(model);
     }
     
@@ -69,6 +78,8 @@ public class OrderController extends WebController{
     	Order order = this.orderRepository.findNotRelated();
     	if(user!=null)
     		order = this.orderRepository.findByStatus(user.getId());
+    	order.setTotal();
+		this.orderRepository.save(order);
     	model.addAttribute("order", order);
     	model.addAttribute("user",user);
 		return "/checkout";

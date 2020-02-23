@@ -94,12 +94,12 @@
 				<!-- Start Filter Bar -->
 				<div class="filter-bar d-flex flex-wrap align-items-center">
 					<div class="sorting">
-						<form id="sort" action="/upperToLower" method="post">
-							<select onchange='if(this.value == 3) { this.form.submit(); }'>
-								<option id="1" value="1">Orden predeterminado</option>
-								<option id="2" value="2">M&aacute;s vendidos</option>
-								<option id="3" value="3">Precio mayor - menor</option>
-								<option id="4" value="4">Precio menor - mayor</option>
+						<form id="sort" action="/sortBy" method="post">
+							<select onchange="this.form.submit()" name="value">
+								<option value="Default">Orden predeterminado</option>
+								<option value="2">M&aacute;s vendidos</option>
+								<option value="Desc">Precio mayor - menor</option>
+								<option value="Asc">Precio menor - mayor</option>
 							</select> <input type="hidden" name="_csrf" value="{{token}}" />
 						</form>
 					</div>
@@ -226,7 +226,7 @@
 											</button></li>
 										<li>
 											<form action="/addFromProduct/{{id}}" method="post">
-												<button>
+												<button id="add">
 													<i class="ti-shopping-cart"></i>
 												</button>
 												<input type="hidden" name="qt" id="qt" value=1 /> <input

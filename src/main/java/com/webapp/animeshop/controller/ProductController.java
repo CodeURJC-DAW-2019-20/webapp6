@@ -132,23 +132,44 @@ public class ProductController extends WebController {
 		return "/category";
 	}
 
-	@RequestMapping("/upperToLower")
-	public String upperToLower(Model model) {
-		List<Product> products = this.productService.upperToLower();
-		model.addAttribute("products", products);
-		return "/category";
-	}
-
-	@RequestMapping("/lowerToUpper")
-	public String lowerToUpper(Model model) {
-		List<Product> products = this.productService.lowerToUpper();
-		model.addAttribute("products", products);
+	@RequestMapping("/sortBy")
+	public String upperToLower(Model model,@RequestParam String value) {
+		HashMap<String, Integer> nByFranchise = this.productService.nProductsByFranchise();
+		HashMap<String, Integer> nByDistributor = this.productService.nProductsByDistributor();
+		Integer total = this.productRepository.findProductAmount();
+		model.addAttribute("franchises",nByFranchise);
+		model.addAttribute("distributors",nByDistributor);
+		model.addAttribute("total", total);
+		switch(value) {
+			case "Desc":
+				model.addAttribute("products", this.productRepository.findByPriceDesc());
+				break;
+			case "Asc":
+				model.addAttribute("products", this.productRepository.findByPriceAsc());
+				break;
+			default:
+				model.addAttribute("products", this.productRepository.findAll());
+				break;
+		}
 		return "/category";
 	}
 
 	@RequestMapping("/search")
 	public String search(Model model, @RequestParam String key) {
 		List<Product> products = this.productService.search(key);
+		HashMap<String, Integer> nByFranchise = this.productService.nProductsByFranchise();
+		HashMap<String, Integer> nByDistributor = this.productService.nProductsByDistributor();
+		Integer total = this.productRepository.findProductAmount();
+		model.addAttribute("franchises",nByFranchise);
+		model.addAttribute("distributors",nByDistributor);
+		model.addAttribute("total", total);
+		model.addAttribute("products", products);
+		return "/category";
+	}
+	
+	@RequestMapping("/products/{franchise}")
+	public String searchFranchise(Model model, @RequestParam String franchise) {
+		List<Product> products = this.productRepository.findByFranchise(franchise);
 		HashMap<String, Integer> nByFranchise = this.productService.nProductsByFranchise();
 		HashMap<String, Integer> nByDistributor = this.productService.nProductsByDistributor();
 		Integer total = this.productRepository.findProductAmount();

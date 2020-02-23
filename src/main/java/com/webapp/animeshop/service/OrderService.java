@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.webapp.animeshop.repositories.OrderRepository;
+import com.webapp.animeshop.repositories.ProductAmountRepository;
 import com.webapp.animeshop.repositories.ProductRepository;
 import com.webapp.animeshop.repositories.UserRepository;
 import com.webapp.animeshop.user.UserComponent;
@@ -31,6 +32,9 @@ public class OrderService {
 	
 	@Autowired
 	private ProductRepository productRepository;
+	
+	@Autowired
+	private ProductAmountRepository pAmountRepository;
 	
 	@Autowired
 	private UserComponent userSession;
@@ -116,8 +120,10 @@ public class OrderService {
 	
 	public void deleteProductFromOrder(long orderId, long productId) {
 		Order order = this.orderRepository.findById(orderId);
-		Product product = this.productRepository.findById(productId);
+		ProductAmount product = this.pAmountRepository.findById(productId);
 		order.getProductList().remove(product);
+		order.setTotal();
+		this.pAmountRepository.delete(product);
 		this.addOrder(order);
 	}
 	
@@ -135,18 +141,6 @@ public class OrderService {
     	this.orderRepository.save(newOrder);
     	return order;
 	}
-	
-	/*@RequestMapping("/simpleemail")
-    @ResponseBody
-    public String home(Order order, Address billing) {
-        try {
-        	User user = this.userSession.getLoggedUser();
-            sendEmail(user, order, billing);
-            return "Email Sent!";
-        }catch(Exception ex) {
-            return "Error in sending email: "+ex;
-        }
-    }*/
     
     public void sendEmail(User userInfo, Order orderInfo, Address billing) throws Exception{
     	String info = "\nDirección de envío:" + userInfo.getDelivery().toString() + "\nDirección de facturación:" + 

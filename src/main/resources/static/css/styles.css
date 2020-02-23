@@ -5038,3 +5038,9 @@ td.a:hover {
 .finish-btn{
 	margin-left: 100px
 }
+input#submit-blog{
+  background:none;
+  border:none;
+  font-size:1em;
+  color:blue;
+}

@@ -113,6 +113,7 @@ public class BlogController extends WebController{
 	public String showBlog(Model model, @PathVariable long id) {
 		Blog blog = blogService.getBlog(id);
 		model.addAttribute("blog", blog);
+		model.addAttribute("product", blog.getProduct());
 		model.addAttribute("popularblogs", this.blogService.getBlogs());
 		return "/singleBlog";
 	}

@@ -63,14 +63,14 @@ public class DatabaseInitializer {
 		this.productService.addProduct(new Product("Funko Pop! -Titan Armadura","Attack on Titans",20.00,"WOW",40,19,200,"Funko Pop!","TM0ZZH441XC",58, "/img/product/titanArmadura.png", "/img/product/titanArmadura2.jpg"));
 		this.productService.addProduct(new Product("Funko Pop! -Titan Colosal","Attack on Titans",17.99,"WOW",40,19,200,"Funko Pop!","TM0ZZH441XC",80, "/img/product/titanColosal.png", "/img/product/titanColosal2.jpg"));
 		
-		this.productService.addProduct(new Product("Charlotte Katakuri(Figuarts ZERO)","One Piece",49.99,"WOW",15,20,400,"Figuarts ZERO","TM0ZZH441XB",90, "/img/product/katakuri.png", "/img/product/katakurifull.jpg"));
+		this.productService.addProduct(new Product("Charlotte Katakuri(Figuarts ZERO)","One Piece",69.99,"WOW",15,20,400,"Figuarts ZERO","TM0ZZH441XB",90, "/img/product/katakuri.png", "/img/product/katakurifull.jpg"));
 		this.productService.addProduct(new Product("Funko Pop! - Chopper","One Piece",56.75,"WOW",17,30,650,"Funko Pop!","TM0ZZH441XB",75, "/img/product/chopper.png", "/img/product/chopper2.jpg"));
 		this.productService.addProduct(new Product("Jinbei (Figuarts ZERO)","One Piece",80.20,"WOW",25,40,500,"Figuarts ZERO","TM0ZZH441XB",60, "/img/product/Jinbei.png", "/img/product/Jinbei2.jpg"));
 		this.productService.addProduct(new Product("Luffy (Figuarts ZERO)","One Piece",35.50,"WOW",30,25,750,"Figuarts ZERO","TM0ZZH441XB",87, "/img/product/Luffy.png", "/img/product/Luffy2.jpg"));
 		this.productService.addProduct(new Product("Zoro (Figuarts ZERO)","One Piece",70.00,"WOW",30,30,835,"Figuarts ZERO","TM0ZZH441XB",120, "/img/product/Zoro.png", "/img/product/Zoro2.jpg"));
 		
 		this.productService.addProduct(new Product("Funko Pop! - Kakashi","Naruto",80.57,"WOW",40,25,200,"Funko Pop!","TM0ZZH441XC",70, "/img/product/kakashi.png", "/img/product/kakashi2.jpg"));
-		this.productService.addProduct(new Product("Namikaze (Figuarts ZERO Ex)","Naruto",120.70,"WOW",38,27,750,"Figuarts ZERO","TM0ZZH441XC",80, "/img/product/namikaze.png", "/img/product/namikaze2.jpg"));
+		this.productService.addProduct(new Product("Namikaze (Figuarts ZERO Ex)","Naruto",141.25,"WOW",38,27,750,"Figuarts ZERO","TM0ZZH441XC",80, "/img/product/namikaze.png", "/img/product/namikaze2.jpg"));
 		this.productService.addProduct(new Product("Naruto (Figuarts ZERO)","Naruto",59.99,"WOW",50,30,800,"Figuarts ZERO","TM0ZZH441XC",65, "/img/product/naruto.png", "/img/product/naruto2.jpg"));
 		this.productService.addProduct(new Product("Naruto sentado (Figuarts ZERO)","Naruto",75.5,"WOW",25,20,500,"Figuarts ZERO","TM0ZZH441XC",90, "/img/product/narutoSentado.png", "/img/product/narutoSentado2.jpg"));
 		this.productService.addProduct(new Product("Pack Naruto y Sasuke Relation (Figuarts ZERO Ex)","Naruto",120.10,"WOW",38,19,1200,"Figuarts ZERO","TM0ZZH441XC",100, "/img/product/narutosasuke.png", "/img/product/narutosasukefull.jpg"));
@@ -93,6 +93,7 @@ public class DatabaseInitializer {
 		
 		
 		blog.setProduct(this.productService.getProduct(3));
+		blog2.setProduct(this.productService.getProduct(14));
 		
 		
 		this.productService.addProduct(this.productService.getProduct(5));
