@@ -14,9 +14,9 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
-import com.webapp.animeshop.model.User;
-import com.webapp.animeshop.repositories.UserRepository;
+import com.webapp.animeshop.user.User;
 import com.webapp.animeshop.user.UserComponent;
+import com.webapp.animeshop.user.UserRepository;
 
 
 @Component
