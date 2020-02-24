@@ -46,6 +46,7 @@ public class OrderController extends WebController{
 			empty = true;
 		model.addAttribute("empty", !empty);
 		model.addAttribute("user", user);
+		model.addAttribute("cartSize",orderService.getCartSize());
 		return "/cart";
 	}
     
@@ -95,6 +96,7 @@ public class OrderController extends WebController{
 		this.orderRepository.save(order);
     	model.addAttribute("order", order);
     	model.addAttribute("user",user);
+    	model.addAttribute("cartSize",orderService.getCartSize());
 		return "/checkout";
     }
     
@@ -114,15 +116,8 @@ public class OrderController extends WebController{
     	model.addAttribute("order", order);
     	model.addAttribute("user",user);
     	model.addAttribute("billing", billing_address);
-		return "/confirmation";
-    }
-    
-
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String cartSize(Model model) {
-    	
     	model.addAttribute("cartSize",orderService.getCartSize());
-    	return "index"; 
+		return "/confirmation";
     }
     
     /*

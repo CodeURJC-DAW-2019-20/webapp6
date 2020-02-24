@@ -121,12 +121,14 @@ public class ProductController extends WebController {
 		product.setImagefull(product.getImage());
 		this.productService.addProduct(product);
 		imageService.saveImage("product", product.getId(), imageFile);
+		model.addAttribute("cartSize",orderService.getCartSize());
 		return this.showProducts(model);
 	}
 
 	@RequestMapping("/deleteProduct/{id}")
 	public String deleteProduct(Model model, @PathVariable long id) {
 		productService.deleteProduct(id);
+		model.addAttribute("cartSize",orderService.getCartSize());
 		return this.showProducts(model);
 	}
 
@@ -143,6 +145,7 @@ public class ProductController extends WebController {
 		model.addAttribute("distributors",nByDistributor);
 		model.addAttribute("total", total);
 		model.addAttribute("products", products);
+		model.addAttribute("cartSize",orderService.getCartSize());
 		return "/category";
 	}
 
@@ -154,6 +157,7 @@ public class ProductController extends WebController {
 		model.addAttribute("franchises",nByFranchise);
 		model.addAttribute("distributors",nByDistributor);
 		model.addAttribute("total", total);
+		model.addAttribute("cartSize",orderService.getCartSize());
 		switch(value) {
 			case "Desc":
 				model.addAttribute("products", this.productRepository.findByPriceDesc());
@@ -178,6 +182,7 @@ public class ProductController extends WebController {
 		model.addAttribute("distributors",nByDistributor);
 		model.addAttribute("total", total);
 		model.addAttribute("products", products);
+		model.addAttribute("cartSize",orderService.getCartSize());
 		return "/category";
 	}
 	
@@ -191,6 +196,7 @@ public class ProductController extends WebController {
 		model.addAttribute("distributors",nByDistributor);
 		model.addAttribute("total", total);
 		model.addAttribute("products", products);
+		model.addAttribute("cartSize",orderService.getCartSize());
 		return "/category";
 	}
 

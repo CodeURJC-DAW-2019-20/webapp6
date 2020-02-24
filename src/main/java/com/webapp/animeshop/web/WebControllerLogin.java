@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.webapp.animeshop.order.OrderService;
 import com.webapp.animeshop.user.Address;
 import com.webapp.animeshop.user.User;
 import com.webapp.animeshop.user.UserService;
@@ -21,6 +22,8 @@ import com.webapp.animeshop.web.WebController;
 @Controller
 public class WebControllerLogin extends WebController {
 
+	@Autowired
+	private OrderService orderService;
 	
 	@Autowired
 	private UserService userService;
@@ -33,6 +36,7 @@ public class WebControllerLogin extends WebController {
     @GetMapping("/login")
     public String login(Model model){
         model.addAttribute("hideLogin",true);
+        model.addAttribute("cartSize",orderService.getCartSize());
         return "login";
     }
     
