@@ -134,6 +134,7 @@ public class BlogController extends WebController{
 	@RequestMapping("/addBlog")
 	public String addBlog(Model model, @RequestParam String author, @RequestParam String name, @RequestParam String text, @RequestParam String textfull, @RequestParam String idproduct) {
 		Blog blog = new Blog(author, name, text, textfull, idproduct);
+		blog.setImage("/img/product/newblog.png");
 		blog.setProduct(productService.getProduct(Long.parseLong(idproduct)));
 		this.blogService.addBlog(blog);
 		return this.showBlogs(model);
