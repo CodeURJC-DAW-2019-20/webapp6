@@ -38,7 +38,7 @@
 ![github-large](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/bin/src/main/resources/templates/Screenshots/DiagramaNavFinal1.PNG)
 
 ### Classes Diagram
-![github-large](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/resources/templates/Screenshots/Classes_diagram.png)
+![github-large](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/bin/src/main/resources/templates/Screenshots/ClassesDiagram.png)
 
 | Name        | Most significant Commit 1  | Most significant Commit 2  | Most significant Commit 3  | Most significant Commit 4  | Most significant Commit 5  |
 | :-------------: |:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|
