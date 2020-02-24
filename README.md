@@ -31,6 +31,9 @@
 ### UML diagram
 <img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/resources/static/uml/UML-resized.png" width="400" height="400" />
 
+### Entities Diagram
+![github-large](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/bin/src/main/resources/templates/Screenshots/DiagramaEntidades.PNG)
+
 ### Navigation Diagram
 ![github-large](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/bin/src/main/resources/templates/Screenshots/DiagramaNavFinal1.PNG)
 
@@ -93,6 +96,15 @@ Use this screen if you want to edit some of your profile information.
 * **Admin Profile(Graph)** 
 <img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/resources/static/Screenshots/Admin profile.PNG"/>
 The admin can use this screen to see information about the website.
+
+## Development Environment
+
+### Developing in Spring Boot
+
+It's recomended to use an IDE with maven and with Spring compatibility. The IDE used in this project is STS(Spring Tool Suite 4).
+To run the application the port that we use is 8443, so the URL will be:
+https://localhost:8443
+A MySQL database is needed so you have to create a database in a client with MySQL and Apache (We use XAMPP, more info at: https://www.apachefriends.org/es/index.html)
 
 
 
