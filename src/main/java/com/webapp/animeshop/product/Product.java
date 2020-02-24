@@ -40,13 +40,15 @@ public class Product implements Serializable, Comparable<Product> {
 	private int actual_Stock;
 	private String image;
 	private String imagefull;
+	private boolean images;
+	private boolean imagesFull;
 	//private Image image;
 	
 	public Product() {};
 	
 	public Product(String name, String franchise, double price, String description,
 					int width, int height, int weight, String distributor, String reference,
-					int stock, String image, String imagefull) {
+					int stock/*, String image, String imagefull*/) {
 		this.name = name;
 		this.franchise = franchise;
 		this.price = price;
@@ -58,8 +60,8 @@ public class Product implements Serializable, Comparable<Product> {
 		this.reference = reference;
 		this.stock = stock;
 		this.actual_Stock = this.stock;
-		this.image = image;
-		this.imagefull = imagefull;
+		//this.image = image;
+		//this.imagefull = imagefull;
 	};
 	
 	
@@ -177,6 +179,22 @@ public class Product implements Serializable, Comparable<Product> {
 
 	public void setImagefull(String imagefull) {
 		this.imagefull = imagefull;
+	}
+	
+	public boolean hasImage() {
+		return images;
+	}
+	
+	public void setImages(boolean images) {
+		this.images = images;
+	}
+	
+	public boolean getImagesFull() {
+		return imagesFull;
+	}
+	
+	public void setImagesFull(boolean imagesFull) {
+		this.imagesFull = imagesFull;
 	}
 
 	public int compareTo(Product o2) {
