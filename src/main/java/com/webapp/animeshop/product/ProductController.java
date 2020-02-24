@@ -115,7 +115,7 @@ public class ProductController extends WebController {
 		product.setImage(imageService.toString());
 		product.setImagefull(product.getImage());
 		this.productService.addProduct(product);
-		imageService.saveImage("products", product.getId(), imageFile);
+		imageService.saveImage("product", product.getId(), imageFile);
 		return this.showProducts(model);
 	}
 
