@@ -46,6 +46,7 @@ public class OrderController extends WebController{
 			empty = true;
 		model.addAttribute("empty", !empty);
 		model.addAttribute("user", user);
+		model.addAttribute("cartSize",orderService.getCartSize());
 		return "/cart";
 	}
     
@@ -73,6 +74,18 @@ public class OrderController extends WebController{
         return this.shoppingCart(model);
     }
     
+    @PostMapping(value="/updateProduct/{id}")
+    public String updateProduct(Model model, @PathVariable("id") long id, @RequestParam("qty") int qt) {
+    	User user = userSession.getLoggedUser();
+    	Order order;
+    	if(user!=null)
+    		order = this.orderRepository.findByStatus(user.getId());
+    	else
+    		order = this.orderRepository.findNotRelated();
+		this.orderService.updateProduct(order.getId(), id, qt);
+		return this.shoppingCart(model);
+    }
+    
     @RequestMapping("/checkout")
     public String checkout(Model model) {
     	User user = userSession.getLoggedUser();
@@ -83,6 +96,7 @@ public class OrderController extends WebController{
 		this.orderRepository.save(order);
     	model.addAttribute("order", order);
     	model.addAttribute("user",user);
+    	model.addAttribute("cartSize",orderService.getCartSize());
 		return "/checkout";
     }
     
@@ -102,15 +116,8 @@ public class OrderController extends WebController{
     	model.addAttribute("order", order);
     	model.addAttribute("user",user);
     	model.addAttribute("billing", billing_address);
-		return "/confirmation";
-    }
-    
-
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String cartSize(Model model) {
-    	
     	model.addAttribute("cartSize",orderService.getCartSize());
-    	return "index"; 
+		return "/confirmation";
     }
     
     /*

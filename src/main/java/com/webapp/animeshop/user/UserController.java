@@ -10,19 +10,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
 
-import com.webapp.animeshop.order.Order;
 import com.webapp.animeshop.order.OrderMetrics;
 import com.webapp.animeshop.order.OrderMetricsRepository;
-import com.webapp.animeshop.order.OrderRepository;
+import com.webapp.animeshop.order.OrderService;
 import com.webapp.animeshop.web.WebController;
-
-import antlr.collections.List;
 
 
 @Controller
@@ -41,7 +35,7 @@ public class UserController extends WebController {
 	private UserComponent userComponent;
 	
 	@Autowired
-	private OrderRepository orderRepository;
+	private OrderService orderService;
 	
 	@Autowired
 	private OrderMetricsRepository orderMetricsRepository;
@@ -59,6 +53,7 @@ public class UserController extends WebController {
 		newUser.getDelivery().setEmail(email);
 		userService.save(newUser);
 		userService.sendEmail(newUser);
+		model.addAttribute("cartSize",orderService.getCartSize());
 		return "/login";
 	}
 
@@ -79,7 +74,8 @@ public class UserController extends WebController {
 		model.addAttribute("metric", list);
 		OrderMetrics lastMetrics = this.orderMetricsRepository.findAll().get(this.orderMetricsRepository.findAll().size()-1);
 		model.addAttribute("average", (int) lastMetrics.getAverage());
-		return "userPage";
+		model.addAttribute("cartSize",orderService.getCartSize());
+		return "/userPage";
 	}
 	
 	
@@ -93,6 +89,7 @@ public class UserController extends WebController {
 		if(userComponent.isLoggedUser()) {
 			model.addAttribute("user", this.userComponent.getLoggedUser());
 		}
+		model.addAttribute("cartSize",orderService.getCartSize());
 		return "/userEdit";
 	}
 	
@@ -109,6 +106,7 @@ public class UserController extends WebController {
 		//this.userRepository.deleteById(user.getId());
 		this.userRepository.save(user);
 		model.addAttribute("user", user);
+		model.addAttribute("cartSize",orderService.getCartSize());
 		return "/userPage";
 	}
 	

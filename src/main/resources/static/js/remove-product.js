@@ -61,3 +61,14 @@ function updateProduct(product) {
         console.log("Updated product: " + JSON.stringify(product))
     })
 }
+
+/*function updateQty(){
+	  $("button").click(function(){
+		var result = $(this).attr("id")
+		var sst = "sst"+result
+		var result2 = document.getElementById(sst);
+		var sst2 = result2.value
+		if( !isNaN( sst2 )) 
+			result2.value++;
+	  });
+}*/
