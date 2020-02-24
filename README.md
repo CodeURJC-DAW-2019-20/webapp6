@@ -39,56 +39,60 @@ Benefit per category
 
 ### Screenshots :camera:
 * **Home**
-<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/resources/static/Screenshots/Inicio.PNG" width="" height="" />
+<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/resources/static/Screenshots/Home.PNG"/>
 In this screen we can see the home of the page, which includes the recommendations based in your last purchases.
 
-* **Comprar - Categorías** 
-<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/resources/static/Screenshots/Comprar.Categor%C3%ADas.PNG" width="" height="" />
-Description
+* **Products** 
+<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/resources/static/Screenshots/products.PNG"/>
+Here we can choose what products we want to buy.
 
-* **Detalles del producto** 
-<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/resources/static/Screenshots/Comprar.DetallesProducto.PNG" width="" height="" />
-Description
+* **Product Details** 
+<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/resources/static/Screenshots/singleProduct.PNG"/>
+When we choose a product, here we can see the details.
+
+* **Cart** 
+<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/resources/static/Screenshots/shopping cart.PNG"/>
+Here you can see all the products that have been added to the cart and are waiting to be purchased.
 
 * **Checkout** 
-<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/resources/static/Screenshots/Comprar.Checkout.PNG" width="" height="" />
-Description
+<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/resources/static/Screenshots/checkout.PNG"/>
+If you are not logged you have to do it before finishing the checkout.
 
-* **Confirmación** 
-<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/resources/static/Screenshots/Comprar.Confirmación.PNG" width="" height="" />
-Description
+* **Checkout when logged** 
+<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/resources/static/Screenshots/logged checkout.PNG"/>
+If logged you can fill all the information and see the details of the order.
 
-* **Cesta** 
-<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/resources/static/Screenshots/Cesta.PNG" width="" height="" />
-Description
+* **Confirmation** 
+<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/resources/static/Screenshots/confirmation.PNG"/>
+Detailed description of the order.
 
-* **Blog - Blog** 
-<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/resources/static/Screenshots/Blog.PNG" width="" height="" />
-Description
+* **Blog** 
+<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/resources/static/Screenshots/Blog.PNG"/>
+When a new products come to the shop there will be a post about it here.
 
-* **Blog - Blog details** 
-<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/resources/static/Screenshots/Blogextend.PNG" width="" height="" />
-Description
+* **Blog details** 
+<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/resources/static/Screenshots/Blogextend.PNG"/>
+Detailed information about the new product.
 
-* **Usuarios - Iniciar Sesión** 
-<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/resources/static/Screenshots/Registro.PNG" width="" height="" />
-Description
+* **Login** 
+<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/resources/static/Screenshots/Login.PNG"/>
+If you have an account, use this page to log in.
 
-* **Usuarios - Registrarse** 
-<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/resources/static/Screenshots/Login.PNG" width="" height="" />
-Description
+* **Register** 
+<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/resources/static/Screenshots/register.PNG"/>
+If you don't have an account here you can register.
 
-* **Usuarios - Seguimiento** 
-<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/resources/static/Screenshots/Seguimiento.PNG" width="" height="" />
-Description
+* **My Profile**
+<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/resources/static/Screenshots/My profile.PNG"/>
+All the information about your account.
 
-* **Usuarios - Mi perfil** 
-<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/resources/static/Screenshots/Mi%20Perfil.PNG" width="" height="" />
-Description
+* **Edit Profile** 
+<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/resources/static/Screenshots/My profile edit.PNG"/>
+Use this screen if you want to edit some of your profile information.
 
-* **Contacto** 
-<img src="" width="" height="" />
-Description
+* **Admin Profile(Graph)** 
+<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/resources/static/Screenshots/Admin profile.PNG"/>
+The admin can use this screen to see information about the website.
 
 
 
