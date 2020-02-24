@@ -73,6 +73,18 @@ public class OrderController extends WebController{
         return this.shoppingCart(model);
     }
     
+    @PostMapping(value="/updateProduct/{id}")
+    public String updateProduct(Model model, @PathVariable("id") long id, @RequestParam("qty") int qt) {
+    	User user = userSession.getLoggedUser();
+    	Order order;
+    	if(user!=null)
+    		order = this.orderRepository.findByStatus(user.getId());
+    	else
+    		order = this.orderRepository.findNotRelated();
+		this.orderService.updateProduct(order.getId(), id, qt);
+		return this.shoppingCart(model);
+    }
+    
     @RequestMapping("/checkout")
     public String checkout(Model model) {
     	User user = userSession.getLoggedUser();

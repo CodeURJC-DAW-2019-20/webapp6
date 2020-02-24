@@ -128,6 +128,20 @@ public class OrderService {
 		this.addOrder(order);
 	}
 	
+	public void updateProduct(long orderId, long productId, int qt) {
+		ProductAmount product = this.pAmountRepository.findById(productId);
+		if(qt==0)
+			this.pAmountRepository.delete(product);
+		else {
+			product.setAmount(qt);
+			product.setTotal(qt, product.getProduct().getPrice());
+			this.pAmountRepository.save(product);
+		}
+		Order order = this.orderRepository.findById(orderId);
+		order.setTotal();
+		this.orderRepository.save(order);
+	}
+	
 	public Order confirmOrder(Address delivery_address, Address billing_address, String name) {
 		User user = userSession.getLoggedUser();
     	user.setDelivery(delivery_address);
