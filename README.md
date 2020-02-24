@@ -37,6 +37,9 @@
 ### Navigation Diagram
 ![github-large](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/bin/src/main/resources/templates/Screenshots/DiagramaNavFinal1.PNG)
 
+### Classes Diagram
+![github-large](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/bin/src/main/resources/templates/Screenshots/Classes Diagram.PNG)
+
 | Name        | Most significant Commit 1  | Most significant Commit 2  | Most significant Commit 3  | Most significant Commit 4  | Most significant Commit 5  |
 | :-------------: |:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|
 | David Amor Antolín | https://git.io/JvErG | https://git.io/JvErZ | https://git.io/JvErn | https://git.io/JvErc | https://git.io/JvErC |
