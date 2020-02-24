@@ -31,6 +31,9 @@
 ### UML diagram
 <img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/resources/static/uml/UML-resized.png" width="400" height="400" />
 
+### Navigation Diagram
+![github-large](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/bin/src/main/resources/templates/Screenshots/DiagramaNavFinal1.PNG)
+
 ### Graphics
 Benefit per category
 
