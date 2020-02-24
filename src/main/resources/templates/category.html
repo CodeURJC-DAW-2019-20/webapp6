@@ -97,19 +97,18 @@
 						<form id="sort" action="/sortBy" method="post">
 							<select onchange="this.form.submit()" name="value">
 								<option value="Default">Orden predeterminado</option>
-								<option value="2">M&aacute;s vendidos</option>
 								<option value="Desc">Precio mayor - menor</option>
 								<option value="Asc">Precio menor - mayor</option>
 							</select> <input type="hidden" name="_csrf" value="{{token}}" />
 						</form>
 					</div>
-					<div class="sorting mr-auto">
+					<!-- <div class="sorting mr-auto">
 						<select>
 							<option value="1">Mostrar 12</option>
 							<option value="1">Mostrar 24</option>
 							<option value="1">Mostrar 48</option>
 						</select>
-					</div>
+					</div> -->
 					<div class="sorting mr-auto">
 						{{#admin}}
 						<button class="add-product" data-toggle="modal"

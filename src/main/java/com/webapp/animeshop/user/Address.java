@@ -119,7 +119,7 @@ public class Address{
 	
 	@Override
 	public String toString() {
-		return "\nNombre: " + this.shippingname + " "+ " Appelidos: " + this.lastname + "\nNúmero: " + this.number
+		return "\nNombre: " + this.shippingname + " "+ " Apellidos: " + this.lastname + "\nNúmero: " + this.number
 				+ "\nDirección: " + this.street + ", " + this.floor + "\n" + this.country + ", " + this.city + ", " + this.zipcode + "\n";
 	}
 

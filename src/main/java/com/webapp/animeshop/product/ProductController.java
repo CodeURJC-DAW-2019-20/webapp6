@@ -113,14 +113,14 @@ public class ProductController extends WebController {
 
 	@RequestMapping("/addProduct")
 	public String addProduct(Model model, Product product, @RequestParam MultipartFile imageFile) throws IOException {
-		//product.setImage("/img/product/notavailable.png");
-		//product.setImagefull("/img/product/notavailable2.png");
-		product.setImages(true);
-		product.setImagesFull(product.hasImage());
-		product.setImage(imageService.toString());
-		product.setImagefull(product.getImage());
+		product.setImage("/img/product/notavailable.png");
+		product.setImagefull("/img/product/notavailable2.png");
+//		product.setImages(true);
+//		product.setImagesFull(product.hasImage());
+//		product.setImage(imageService.toString());
+//		product.setImagefull(product.getImage());
 		this.productService.addProduct(product);
-		imageService.saveImage("product", product.getId(), imageFile);
+//		imageService.saveImage("product", product.getId(), imageFile);
 		model.addAttribute("cartSize",orderService.getCartSize());
 		return this.showProducts(model);
 	}

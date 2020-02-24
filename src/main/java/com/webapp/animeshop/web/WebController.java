@@ -17,7 +17,7 @@ public class WebController {
     public void addUserToModel(Model model){
         boolean logged=userComponent.getLoggedUser()!=null;
         model.addAttribute("logged",logged);
-        System.out.println("XXXXXXXXXXXXXXXXXXX"+logged);
+//        System.out.println("XXXXXXXXXXXXXXXXXXX"+logged);
         if(logged){
             model.addAttribute("admin",userComponent.getLoggedUser().getRoles().contains("ROLE_ADMIN"));
             model.addAttribute("user",userComponent.getLoggedUser().getName());

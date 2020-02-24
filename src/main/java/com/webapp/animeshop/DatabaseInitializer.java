@@ -70,7 +70,7 @@ public class DatabaseInitializer {
 		this.userRepository.save(admin);
 
 		
-		/*this.productService.addProduct(new Product("Funko Pop! Levi Ackerman","Attack on Titans",14.49,"WOW",5,9,200,"Funko Pop!","TM0ZZH441XA001",100, "/img/product/levimin.png", "/img/product/levi2.jpg"));
+		this.productService.addProduct(new Product("Funko Pop! Levi Ackerman","Attack on Titans",14.49,"WOW",5,9,200,"Funko Pop!","TM0ZZH441XA001",100, "/img/product/levimin.png", "/img/product/levi2.jpg"));
 		this.productService.addProduct(new Product("Attack on Titans - Mikasa Ackerman","Attack on Titans",40.50,"WOW",50,30,1200,"Figuarts ZERO","TM0ZZH441XC002",160, "/img/product/mikasa.png", "/img/product/mikasa2.jpg"));
 		this.productService.addProduct(new Product("Eren Jaeguer","Attack on Titans",50.25,"WOW",31,25,100,"Figuarts ZERO","TM0ZZH441XC003",40, "/img/product/ErenJaeguer.png", "/img/product/ErenJaeguer2.jpg"));
 		this.productService.addProduct(new Product("Funko Pop! -Titan Armadura","Attack on Titans",20.00,"WOW",40,19,200,"Funko Pop!","TM0ZZH441XC004",58, "/img/product/titanArmadura.png", "/img/product/titanArmadura2.jpg"));
@@ -90,68 +90,68 @@ public class DatabaseInitializer {
 		
 		this.productService.addProduct(new Product("M.U.B Busto Predator","Predator",2899.95,"WOW",45,105,30000,"Tsume","TM0ZZH441XC016",10, "/img/product/predator.png", "/img/product/predator2.png"));
 		this.productService.addProduct(new Product("Kyuubi - Uzumaki Naruto x Minato - Kizuna Relation","Naruto",242.07,"WOW",24,27,1101,"Figuarts ZERO","TM0ZZH441XC017",35, "/img/product/naruto-kyuubi2.png", "/img/product/naruto-kyuubi.png"));
-		*/
-		Product prod1 = new Product("Funko Pop! Levi Ackerman","Attack on Titans",14.49,"WOW",5,9,200,"Funko Pop!","TM0ZZH441XA",100);
 		
-		prod1.setImage("/img/product/levimin.png");
-		prod1.setImagefull("/img/product/levimin.png");
-		this.productRepository.save(prod1);
-		
-		Product prod2 = new Product("Funko Pop! Levi Ackerman","Attack on Titans",14.49,"WOW",5,9,200,"Funko Pop!","TM0ZZH441XA",100/*, "/img/product/levimin.png", "/img/product/levi2.jpg"*/);
-		prod2.setImage("/img/product/narutosasuke.png");
-		prod2.setImagefull("/img/product/narutosasuke.png");
-		this.productRepository.save(prod2);
-		
-		Product prod3 = new Product("Attack on Titans - Mikasa Ackerman","Attack on Titans",40.50,"WOW",50,30,1200,"Figuarts ZERO","TM0ZZH441XC",160/*, "/img/product/mikasa.png", "/img/product/mikasa2.jpg"*/);
-		prod3.setImage("/img/product/mikasa.png");
-		prod3.setImagefull("/img/product/mikasa.png");
-		this.productRepository.save(prod3);
-		
-		Product prod4 = new Product("Eren Jaeguer","Attack on Titans",50.25,"WOW",31,25,100,"Figuarts ZERO","TM0ZZH441XC",40/*, "/img/product/ErenJaeguer.png", "/img/product/ErenJaeguer2.jpg"*/);
-		prod4.setImage("/img/product/ErenJaeguer.png");
-		prod4.setImagefull("/img/product/ErenJaeguer.png");
-		this.productRepository.save(prod4);
-		
-		Product prod5 = new Product("Funko Pop! -Titan Armadura","Attack on Titans",20.00,"WOW",40,19,200,"Funko Pop!","TM0ZZH441XC",58/*, "/img/product/titanArmadura.png", "/img/product/titanArmadura2.jpg"*/);
-		prod5.setImage("/img/product/levimin.png");
-		prod5.setImagefull("/img/product/levimin.png");
-		this.productRepository.save(prod5);
-		
-		Product prod6 = new Product("Funko Pop! -Titan Colosal","Attack on Titans",17.99,"WOW",40,19,200,"Funko Pop!","TM0ZZH441XC",80/*, "/img/product/titanColosal.png", "/img/product/titanColosal2.jpg"*/);
-		prod6.setImage("/img/product/levimin.png");
-		prod6.setImagefull("/img/product/levimin.png");
-		this.productRepository.save(prod6);
-		
-		
-		Product prod7 = new Product("Charlotte Katakuri(Figuarts ZERO)","One Piece",69.99,"WOW",15,20,400,"Figuarts ZERO","TM0ZZH441XB",90/*, "/img/product/katakuri.png", "/img/product/katakurifull.jpg"*/);
-		prod7.setImage("/img/product/levimin.png");
-		prod7.setImagefull("/img/product/levimin.png");
-		this.productRepository.save(prod7);
-		
-		Product prod8 = new Product("Funko Pop! - Chopper","One Piece",56.75,"WOW",17,30,650,"Funko Pop!","TM0ZZH441XB",75/*, "/img/product/chopper.png", "/img/product/chopper2.jpg"*/);
-		prod8.setImage("/img/product/levimin.png");
-		prod8.setImagefull("/img/product/levimin.png");
-		this.productRepository.save(prod8);
-		
-		Product prod9 = new Product( "Jinbei (Figuarts ZERO)","One Piece",80.20,"WOW",25,40,500,"Figuarts ZERO","TM0ZZH441XB",60/*, "/img/product/Jinbei.png", "/img/product/Jinbei2.jpg"*/);
-		prod9.setImage("/img/product/levimin.png");
-		prod9.setImagefull("/img/product/levimin.png");
-		this.productRepository.save(prod9);
-		
-		Product prod10 = new Product( "Luffy (Figuarts ZERO)","One Piece",35.50,"WOW",30,25,750,"Figuarts ZERO","TM0ZZH441XB",87/*, "/img/product/Luffy.png", "/img/product/Luffy2.jpg"*/);
-		prod10.setImage("/img/product/levimin.png");
-		prod10.setImagefull("/img/product/levimin.png");
-		this.productRepository.save(prod10);
-		
-		Product prod11 = new Product("Zoro (Figuarts ZERO)","One Piece",70.00,"WOW",30,30,835,"Figuarts ZERO","TM0ZZH441XB",120/*, "/img/product/Zoro.png", "/img/product/Zoro2.jpg"*/);
-		prod11.setImage("/img/product/levimin.png");
-		prod11.setImagefull("/img/product/levimin.png");
-		this.productRepository.save(prod11);
-		
-		Product prod12 = new Product("Funko Pop! - Kakashi","Naruto",80.57,"WOW",40,25,200,"Funko Pop!","TM0ZZH441XC",70/*, "/img/product/kakashi.png", "/img/product/kakashi2.jpg"*/);
-		prod12.setImage("/img/product/levimin.png");
-		prod12.setImagefull("/img/product/levimin.png");
-		this.productRepository.save(prod12);
+//		Product prod1 = new Product("Funko Pop! Levi Ackerman","Attack on Titans",14.49,"WOW",5,9,200,"Funko Pop!","TM0ZZH441XA",100);
+//		
+//		prod1.setImage("/img/product/levimin.png");
+//		prod1.setImagefull("/img/product/levimin.png");
+//		this.productRepository.save(prod1);
+//		
+//		Product prod2 = new Product("Funko Pop! Levi Ackerman","Attack on Titans",14.49,"WOW",5,9,200,"Funko Pop!","TM0ZZH441XA",100/*, "/img/product/levimin.png", "/img/product/levi2.jpg"*/);
+//		prod2.setImage("/img/product/narutosasuke.png");
+//		prod2.setImagefull("/img/product/narutosasuke.png");
+//		this.productRepository.save(prod2);
+//		
+//		Product prod3 = new Product("Attack on Titans - Mikasa Ackerman","Attack on Titans",40.50,"WOW",50,30,1200,"Figuarts ZERO","TM0ZZH441XC",160/*, "/img/product/mikasa.png", "/img/product/mikasa2.jpg"*/);
+//		prod3.setImage("/img/product/mikasa.png");
+//		prod3.setImagefull("/img/product/mikasa.png");
+//		this.productRepository.save(prod3);
+//		
+//		Product prod4 = new Product("Eren Jaeguer","Attack on Titans",50.25,"WOW",31,25,100,"Figuarts ZERO","TM0ZZH441XC",40/*, "/img/product/ErenJaeguer.png", "/img/product/ErenJaeguer2.jpg"*/);
+//		prod4.setImage("/img/product/ErenJaeguer.png");
+//		prod4.setImagefull("/img/product/ErenJaeguer.png");
+//		this.productRepository.save(prod4);
+//		
+//		Product prod5 = new Product("Funko Pop! -Titan Armadura","Attack on Titans",20.00,"WOW",40,19,200,"Funko Pop!","TM0ZZH441XC",58/*, "/img/product/titanArmadura.png", "/img/product/titanArmadura2.jpg"*/);
+//		prod5.setImage("/img/product/levimin.png");
+//		prod5.setImagefull("/img/product/levimin.png");
+//		this.productRepository.save(prod5);
+//		
+//		Product prod6 = new Product("Funko Pop! -Titan Colosal","Attack on Titans",17.99,"WOW",40,19,200,"Funko Pop!","TM0ZZH441XC",80/*, "/img/product/titanColosal.png", "/img/product/titanColosal2.jpg"*/);
+//		prod6.setImage("/img/product/levimin.png");
+//		prod6.setImagefull("/img/product/levimin.png");
+//		this.productRepository.save(prod6);
+//		
+//		
+//		Product prod7 = new Product("Charlotte Katakuri(Figuarts ZERO)","One Piece",69.99,"WOW",15,20,400,"Figuarts ZERO","TM0ZZH441XB",90/*, "/img/product/katakuri.png", "/img/product/katakurifull.jpg"*/);
+//		prod7.setImage("/img/product/levimin.png");
+//		prod7.setImagefull("/img/product/levimin.png");
+//		this.productRepository.save(prod7);
+//		
+//		Product prod8 = new Product("Funko Pop! - Chopper","One Piece",56.75,"WOW",17,30,650,"Funko Pop!","TM0ZZH441XB",75/*, "/img/product/chopper.png", "/img/product/chopper2.jpg"*/);
+//		prod8.setImage("/img/product/levimin.png");
+//		prod8.setImagefull("/img/product/levimin.png");
+//		this.productRepository.save(prod8);
+//		
+//		Product prod9 = new Product( "Jinbei (Figuarts ZERO)","One Piece",80.20,"WOW",25,40,500,"Figuarts ZERO","TM0ZZH441XB",60/*, "/img/product/Jinbei.png", "/img/product/Jinbei2.jpg"*/);
+//		prod9.setImage("/img/product/levimin.png");
+//		prod9.setImagefull("/img/product/levimin.png");
+//		this.productRepository.save(prod9);
+//		
+//		Product prod10 = new Product( "Luffy (Figuarts ZERO)","One Piece",35.50,"WOW",30,25,750,"Figuarts ZERO","TM0ZZH441XB",87/*, "/img/product/Luffy.png", "/img/product/Luffy2.jpg"*/);
+//		prod10.setImage("/img/product/levimin.png");
+//		prod10.setImagefull("/img/product/levimin.png");
+//		this.productRepository.save(prod10);
+//		
+//		Product prod11 = new Product("Zoro (Figuarts ZERO)","One Piece",70.00,"WOW",30,30,835,"Figuarts ZERO","TM0ZZH441XB",120/*, "/img/product/Zoro.png", "/img/product/Zoro2.jpg"*/);
+//		prod11.setImage("/img/product/levimin.png");
+//		prod11.setImagefull("/img/product/levimin.png");
+//		this.productRepository.save(prod11);
+//		
+//		Product prod12 = new Product("Funko Pop! - Kakashi","Naruto",80.57,"WOW",40,25,200,"Funko Pop!","TM0ZZH441XC",70/*, "/img/product/kakashi.png", "/img/product/kakashi2.jpg"*/);
+//		prod12.setImage("/img/product/levimin.png");
+//		prod12.setImagefull("/img/product/levimin.png");
+//		this.productRepository.save(prod12);
 		
 		//this.productService.addProduct(new Product("Namikaze (Figuarts ZERO Ex)","Naruto",141.25,"WOW",38,27,750,"Figuarts ZERO","TM0ZZH441XC",80, "/img/product/namikaze.png", "/img/product/namikaze2.jpg"));
 		//this.productService.addProduct(new Product("Naruto (Figuarts ZERO)","Naruto",59.99,"WOW",50,30,800,"Figuarts ZERO","TM0ZZH441XC",65, "/img/product/naruto.png", "/img/product/naruto2.jpg"));
