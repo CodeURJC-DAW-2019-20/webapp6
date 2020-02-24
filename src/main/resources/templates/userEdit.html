@@ -64,7 +64,7 @@
 	                        <div class="col-md-6 form-group">
 	                        	<h5>Nueva contraseña</h5>
 	                            <input type="password" id="password-edit" class="form-control" id="password" name="password" placeholder="Nueva contraseña" required>
-	                            <input type="checkbox" onclick="showPass()">Mostrar contraseña
+	                            <span data-toggle="#password-edit" class="fa fa-fw fa-eye field-icon toggle-password" onclick="showPass()"></span>
 	                        </div>
 	                        <input type="hidden" name="_csrf" value="{{token}}" />
                             <!-- <h5>Contraseña:</h5>

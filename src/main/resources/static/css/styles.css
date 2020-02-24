@@ -4945,6 +4945,7 @@ a {
 	color: #fff;
 }
 
+
 .submit-product {
 	border: none;
 	border-radius: 4px;
@@ -5049,4 +5050,12 @@ input#submit-blog{
 	width:200px;
 	padding:20px;
 	height: 150px;
+}
+
+.field-icon {
+  float: right;
+  margin-left: -25px;
+  margin-top: -25px;
+  position: relative;
+  z-index: 2;
 }

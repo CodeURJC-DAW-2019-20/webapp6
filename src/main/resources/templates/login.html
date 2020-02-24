@@ -40,7 +40,8 @@
 								<input type="text" class="form-control" id="usernameInput" name="name" placeholder="Usuario" required onfocus="this.placeholder = ''" onblur="this.placeholder = 'Usuario'">
 							</div>
 							<div class="col-md-12 form-group">
-								<input type="password" class="form-control" id="passwordInput" name="password" placeholder="Contraseña" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Contraseña'">
+								<input type="password" class="form-control" id="password-edit" name="password" placeholder="Contraseña" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Contraseña'">
+								<span data-toggle="#password-edit" class="fa fa-fw fa-eye field-icon toggle-password" onclick="showPass()"></span>
 							</div>
 							<div class="col-md-12 form-group">
 								<button type="submit" value="submit" class="button button-login w-100">Iniciar sesión</button>
