@@ -16,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.webapp.animeshop.image.ImageService;
 import com.webapp.animeshop.order.Order;
+import com.webapp.animeshop.order.OrderService;
 import com.webapp.animeshop.user.User;
 import com.webapp.animeshop.user.UserComponent;
 import com.webapp.animeshop.web.WebController;
@@ -28,6 +29,9 @@ public class ProductController extends WebController {
 
 	@Autowired
 	private UserComponent userSession;
+	
+	@Autowired
+	private OrderService orderService;
 
 	@Autowired
 	private ProductRepository productRepository;
@@ -95,7 +99,7 @@ public class ProductController extends WebController {
 		model.addAttribute("distributors",nByDistributor);
 		model.addAttribute("total", total);
 		model.addAttribute("list", list);
-
+		model.addAttribute("cartSize",orderService.getCartSize());
 		return "/category";
 	}
 
@@ -103,6 +107,7 @@ public class ProductController extends WebController {
 	public String showProduct(Model model, @PathVariable long id) {
 		Product product = productService.getProduct(id);
 		model.addAttribute("product", product);
+		model.addAttribute("cartSize",orderService.getCartSize());
 		return "/singleProduct";
 	}
 

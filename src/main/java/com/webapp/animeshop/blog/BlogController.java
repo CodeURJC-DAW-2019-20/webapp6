@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.webapp.animeshop.order.Order;
 import com.webapp.animeshop.order.OrderRepository;
+import com.webapp.animeshop.order.OrderService;
 import com.webapp.animeshop.product.Product;
 import com.webapp.animeshop.product.ProductAmount;
 import com.webapp.animeshop.product.ProductAmountRepository;
@@ -29,6 +30,9 @@ public class BlogController extends WebController{
 	
 	@Autowired
 	private ProductService productService;
+
+	@Autowired
+	private OrderService orderService;
 	
 	@Autowired
     private OrderRepository orderRepository;
@@ -106,6 +110,7 @@ public class BlogController extends WebController{
 	public String showBlogsPage(Model model) {
 		model.addAttribute("blogspage", this.blogService.getBlogs());
 		model.addAttribute("productsblog", this.productService.getProducts());
+		model.addAttribute("cartSize",orderService.getCartSize());
 		return "/blog";
 	}
 	
@@ -116,6 +121,7 @@ public class BlogController extends WebController{
 		model.addAttribute("product", blog.getProduct());
 		model.addAttribute("popularblogs", this.blogService.getBlogs());
 		model.addAttribute("productsblog", this.productService.getProducts());
+		model.addAttribute("cartSize",orderService.getCartSize());
 		return "/singleBlog";
 	}
 	

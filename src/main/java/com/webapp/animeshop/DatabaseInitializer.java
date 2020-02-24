@@ -91,8 +91,8 @@ public class DatabaseInitializer {
 		this.productService.addProduct(new Product("M.U.B Busto Predator","Predator",2899.95,"WOW",45,105,30000,"Tsume","TM0ZZH441XC016",10, "/img/product/predator.png", "/img/product/predator2.png"));
 		this.productService.addProduct(new Product("Kyuubi - Uzumaki Naruto x Minato - Kizuna Relation","Naruto",242.07,"WOW",24,27,1101,"Figuarts ZERO","TM0ZZH441XC017",35, "/img/product/naruto-kyuubi2.png", "/img/product/naruto-kyuubi.png"));
 		*/
-		
 		Product prod1 = new Product("Funko Pop! Levi Ackerman","Attack on Titans",14.49,"WOW",5,9,200,"Funko Pop!","TM0ZZH441XA",100);
+		
 		prod1.setImage("/img/product/levimin.png");
 		prod1.setImagefull("/img/product/levimin.png");
 		this.productRepository.save(prod1);
