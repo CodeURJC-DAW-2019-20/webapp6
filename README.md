@@ -32,7 +32,7 @@
 <img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/resources/static/uml/UML-resized.png" width="400" height="400" />
 
 ### Entities Diagram
-![github-large](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/bin/src/main/resources/templates/Screenshots/DiagramaEntidades.PNG)
+![github-large](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/bin/src/main/resources/templates/Screenshots/DiagramaEntidades.png)
 
 ### Navigation Diagram
 ![github-large](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/bin/src/main/resources/templates/Screenshots/DiagramaNavFinal1.PNG)
@@ -40,22 +40,21 @@
 | Name        | Most significant Commit 1  | Most significant Commit 2  | Most significant Commit 3  | Most significant Commit 4  | Most significant Commit 5  |
 | :-------------: |:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|
 | David Amor Antolín |  |  |  |  |  |
-| Carlos Francisco Corraliza |  |  |  |  |  |
+| Carlos Francisco Corraliza | https://github.com/CodeURJC-DAW-2019-20/webapp6/commit/6434e149afd1911e2fd73e5e353f15564dbb840d | https://github.com/CodeURJC-DAW-2019-20/webapp6/commit/b2699a491e2d96fc5e9e5f7c0e549cfbb96139bd | https://github.com/CodeURJC-DAW-2019-20/webapp6/commit/0ded055b646e3ff34ca262284649b58b4ae53d95 | https://github.com/CodeURJC-DAW-2019-20/webapp6/commit/49e20acffb5b6e26b524a784604f10014714cf89 | https://github.com/CodeURJC-DAW-2019-20/webapp6/commit/6ceb10e995df9ed962f1fd37297820aa19e2c899 |
 | Ramón Barrabes Parra | https://github.com/CodeURJC-DAW-2019-20/webapp6/commit/16f92556f7e4282024d9b3176e4eca1e8a697a11 | https://github.com/CodeURJC-DAW-2019-20/webapp6/commit/4c2141f2d98c898107b3eefb5b9686d8e917af5c | https://github.com/CodeURJC-DAW-2019-20/webapp6/commit/ad637bd4be3b3fa3ec2d0866ef74fa4fe2bb772b | https://github.com/CodeURJC-DAW-2019-20/webapp6/commit/5ceab35aca43a5a00ac5f26bcae5e98be7e68f2d | https://github.com/CodeURJC-DAW-2019-20/webapp6/commit/b67855cd45aa865be293d421c004d04cb592bffb |
-| Enrique Márquez Jiménez |  https://github.com/CodeURJC-DAW-2019-20/webapp6/commit/5d81ed0d9c197fb8e02cb26e8506b5dd2ba3215c| https://github.com/CodeURJC-DAW-2019-20/webapp6/commit/a0a1df8231d7396cea84b6de5b6dec851d6f0b01 |  https://github.com/CodeURJC-DAW-2019-20/webapp6/commit/1099f44ffd2bbd97bd7721af046d7048e6aab5f3| https://github.com/CodeURJC-DAW-2019-20/webapp6/commit/9affac925dcbe6ab9046cea810ae7c86a964b4a3 | https://github.com/CodeURJC-DAW-2019-20/webapp6/commit/40d1a087fc97ffd991acd12d13f3444af0c8653c |
+| Enrique Márquez Jiménez |  |  |  |  |  |
 | Carlos González Valtierra |  |  |  |  |  |
 
 | Name        | File 1   | File 2   | File 3   | File 4   | File 5   |
 | :-------------: |:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|
 | David Amor Antolín |  |  |  |  |  |
-| Carlos Francisco Corraliza |  |  |  |  |  |
+| Carlos Francisco Corraliza | [OrderMetrics](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/6434e149afd1911e2fd73e5e353f15564dbb840d/src/main/java/com/webapp/animeshop/model/OrderMetrics.java) | [Blog](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/54c5c89ff7f27406f582b6f672401a7c9e1403bc/src/main/java/com/webapp/animeshop/model/Blog.java) | [BlogController](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/54c5c89ff7f27406f582b6f672401a7c9e1403bc/src/main/java/com/webapp/animeshop/controller/BlogController.java) | [UserController](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/6434e149afd1911e2fd73e5e353f15564dbb840d/src/main/java/com/webapp/animeshop/controller/UserController.java) | [OrderController](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/6ccaa242e930418083ff5283adefd47a75e77b3a/src/main/java/com/webapp/animeshop/controller/OrderController.java) |
 | Ramón Barrabes Parra | [WebController](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/java/com/webapp/animeshop/web/WebController.java) | [WebSecurityConfig](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/java/com/webapp/animeshop/security/WebSecurityConfig.java) | [CustomErrorController](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/java/com/webapp/animeshop/error/CustomErrorController.java) | [DatabaseInitializer](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/java/com/webapp/animeshop/DatabaseInitializer.java) | [LoginController](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/java/com/webapp/animeshop/security/LoginController.java) |
-| Enrique Márquez Jiménez | [DatabaseInitializer](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/java/com/webapp/animeshop/DatabaseInitializer.java) | [OrderController](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/java/com/webapp/animeshop/order/OrderController.java) | [OrderService](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/java/com/webapp/animeshop/order/OrderService.java) | [ProductController](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/java/com/webapp/animeshop/product/ProductController.java) | [Order](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/java/com/webapp/animeshop/order/Order.java) |
+| Enrique Márquez Jiménez |  |  |  |  |  |
 | Carlos González Valtierra |  |  |  |  |  |
 
 ### Graphics
-Benefit per category
-
+Money spent per order and average
 ### Screenshots :camera:
 * **Home**
 <img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/resources/static/Screenshots/Home.PNG"/>
