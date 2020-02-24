@@ -38,15 +38,15 @@
 ![github-large](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/bin/src/main/resources/templates/Screenshots/DiagramaNavFinal1.PNG)
 
 | Name        | Most significant Commit 1  | Most significant Commit 2  | Most significant Commit 3  | Most significant Commit 4  | Most significant Commit 5  |
-| :-------------: |:-------------:| :-----:|
-| David Amor Antolín |  |  |  |  |
+| :-------------: |:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|
+| David Amor Antolín |  |  |  |  |  |
 | Carlos Francisco Corraliza |  |  |  |  |  |
 | Ramón Barrabes Parra | https://github.com/CodeURJC-DAW-2019-20/webapp6/commit/16f92556f7e4282024d9b3176e4eca1e8a697a11 | https://github.com/CodeURJC-DAW-2019-20/webapp6/commit/4c2141f2d98c898107b3eefb5b9686d8e917af5c | https://github.com/CodeURJC-DAW-2019-20/webapp6/commit/ad637bd4be3b3fa3ec2d0866ef74fa4fe2bb772b | https://github.com/CodeURJC-DAW-2019-20/webapp6/commit/5ceab35aca43a5a00ac5f26bcae5e98be7e68f2d | https://github.com/CodeURJC-DAW-2019-20/webapp6/commit/b67855cd45aa865be293d421c004d04cb592bffb |
-| Enrique Márquez Jiménez |  |  |  |  |
-| Carlos González Valtierra |  |  |  |  |  
+| Enrique Márquez Jiménez |  |  |  |  |  |
+| Carlos González Valtierra |  |  |  |  |  |
 
 | Name        | File 1   | File 2   | File 3   | File 4   | File 5   |
-| :-------------: |:-------------:| :-----:|
+| :-------------: |:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|
 | David Amor Antolín |  |  |  |  |  |
 | Carlos Francisco Corraliza |  |  |  |  |  |
 | Ramón Barrabes Parra | [WebController](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/java/com/webapp/animeshop/web/WebController.java) | [WebSecurityConfig](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/java/com/webapp/animeshop/security/WebSecurityConfig.java) | [CustomErrorController](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/java/com/webapp/animeshop/error/CustomErrorController.java) | [DatabaseInitializer](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/java/com/webapp/animeshop/DatabaseInitializer.java) | [LoginController](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/java/com/webapp/animeshop/security/LoginController.java) |
