@@ -168,4 +168,18 @@ public class OrderService {
 		return this.orderMetrics;
 	}
 	
+	public int getCartSize() {
+		User user = userSession.getLoggedUser();
+    	Order order;
+    	if(user!=null)
+    		order = this.orderRepository.findByStatus(user.getId());
+    	else
+    		order = this.orderRepository.findNotRelated();
+    	int nProducts = 0;
+    	for(int i=0;i<order.getProductList().size();i++) {
+    		nProducts+=order.getProductList().get(i).getAmount();
+    	}
+    	return nProducts;
+	}
+	
 }

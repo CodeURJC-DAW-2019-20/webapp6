@@ -105,6 +105,14 @@ public class OrderController extends WebController{
 		return "/confirmation";
     }
     
+
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String cartSize(Model model) {
+    	
+    	model.addAttribute("cartSize",orderService.getCartSize());
+    	return "index"; 
+    }
+    
     /*
 
     @PostMapping("/shoppingCart/checkout/{address}")
