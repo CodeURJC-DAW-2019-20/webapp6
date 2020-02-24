@@ -176,6 +176,9 @@ public class OrderService {
     	else
     		order = this.orderRepository.findNotRelated();
     	int nProducts = 0;
+    	if(order==null) {
+    		return 0;
+    	}
     	for(int i=0;i<order.getProductList().size();i++) {
     		nProducts+=order.getProductList().get(i).getAmount();
     	}
