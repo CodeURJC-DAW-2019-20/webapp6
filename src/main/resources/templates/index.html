@@ -16,7 +16,18 @@
 					<div class="hero-banner__content">
 						<h4>No te lo pierdas</h4>
 						<h1>Tu lugar sagrado para el coleccionismo</h1>
-						<a class="button button-hero" href="/products">Buscar</a>
+						<!-- Search form -->
+						<form class="form-inline" action="/search" method="POST">
+							<div class="input-group filter-bar-search">
+								<input type="text" placeholder="Buscar" name="key">
+								<div class="input-group-append">
+									<button type="button" onclick = 'this.form.submit();'>
+										<i class="ti-search"></i>
+									</button>
+								</div>
+								<input type="hidden" name="_csrf" value="{{token}}" />
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>

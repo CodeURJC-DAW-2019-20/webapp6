@@ -9,6 +9,8 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.webapp.animeshop.order.Order;
+
 @Repository
 public interface BlogRepository extends JpaRepository<Blog, Long> {
 
@@ -19,4 +21,6 @@ public interface BlogRepository extends JpaRepository<Blog, Long> {
 	@Modifying
 	@Query(value="DELETE FROM blogentries WHERE product_id =:id",nativeQuery = true)
 	void deleteBlog(@Param("id")long productId);
+	@Query(value="SELECT * FROM blogentries WHERE product_id =:id",nativeQuery = true)
+	Blog findByProductFranchise(@Param("id")long pId);
 }

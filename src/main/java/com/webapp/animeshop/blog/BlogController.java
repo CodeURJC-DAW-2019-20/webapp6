@@ -16,6 +16,7 @@ import com.webapp.animeshop.order.OrderRepository;
 import com.webapp.animeshop.product.Product;
 import com.webapp.animeshop.product.ProductAmount;
 import com.webapp.animeshop.product.ProductAmountRepository;
+import com.webapp.animeshop.product.ProductRepository;
 import com.webapp.animeshop.product.ProductService;
 import com.webapp.animeshop.user.UserComponent;
 import com.webapp.animeshop.web.WebController;
@@ -114,6 +115,7 @@ public class BlogController extends WebController{
 		model.addAttribute("blog", blog);
 		model.addAttribute("product", blog.getProduct());
 		model.addAttribute("popularblogs", this.blogService.getBlogs());
+		model.addAttribute("productsblog", this.productService.getProducts());
 		return "/singleBlog";
 	}
 	
@@ -136,6 +138,18 @@ public class BlogController extends WebController{
 		List<Blog> blogs = this.blogService.search(key);
 		model.addAttribute("blogspage", blogs);
 		return "/blog";
+	}
+	
+	@RequestMapping("/randomBlog")
+	public String random(Model model) {
+		List<Blog> blogs = this.blogService.getBlogs();
+		Integer rand = (int) (Math.random() * blogs.size());
+		Blog blog = blogs.get(rand);
+		model.addAttribute("blog", blog);
+		model.addAttribute("product", blog.getProduct());
+		model.addAttribute("popularblogs", this.blogService.getBlogs());
+		model.addAttribute("productsblog", this.productService.getProducts());
+		return "/singleBlog";
 	}
 	
 }

@@ -25,10 +25,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests().antMatchers("/logout").permitAll();
 		http.authorizeRequests().antMatchers("/register").permitAll();
 		http.authorizeRequests().antMatchers("/newUser").permitAll();
-		http.authorizeRequests().antMatchers("/category").permitAll();
-		http.authorizeRequests().antMatchers("/cart").permitAll();
-		
-		
+		http.authorizeRequests().antMatchers("/products").permitAll();
+		http.authorizeRequests().antMatchers("/product/**").permitAll();
+		http.authorizeRequests().antMatchers("/shoppingCart").permitAll();
+		http.authorizeRequests().antMatchers("/blogspage").permitAll();
+		http.authorizeRequests().antMatchers("/blog/**").permitAll();
+		http.authorizeRequests().antMatchers("/randomBlog").permitAll();
+
 		
 		http.authorizeRequests().antMatchers("/assets/**").permitAll();
 
@@ -36,8 +39,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		
 		http.authorizeRequests().antMatchers("/new/**").permitAll();
 		http.authorizeRequests().antMatchers("/userPage").hasAnyRole("USER","ADMIN");
-		http.authorizeRequests().antMatchers("/user").hasAnyRole("USER","ADMIN");
+		http.authorizeRequests().antMatchers("/userEdit").hasAnyRole("USER","ADMIN");
 		http.authorizeRequests().antMatchers("/confirmation").hasAnyRole("USER","ADMIN");
+		http.authorizeRequests().antMatchers("/deleteProduct/**").hasAnyRole("ADMIN");
+		http.authorizeRequests().antMatchers("/addProduct").hasAnyRole("ADMIN");
+		http.authorizeRequests().antMatchers("/deleteBlog/**").hasAnyRole("ADMIN");
+		http.authorizeRequests().antMatchers("/addBlog").hasAnyRole("ADMIN");
 		
 		// Login form
 		http.formLogin().loginPage("/login");

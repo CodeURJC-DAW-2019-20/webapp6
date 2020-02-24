@@ -38,3 +38,26 @@ function sum(){
 
 	   document.getElementById("sum").innerHTML = sum;
 	}
+
+function loadProducts(callback) {
+    $.ajax({
+        url: 'http://localhost:8080/product'
+    }).done(function (product) {
+        console.log('Products loaded: ' + JSON.stringify(product));
+        callback(product);
+    })
+}
+
+function updateProduct(product) {
+    $.ajax({
+        method: 'PUT',
+        url: ('http://localhost:8080/api/product/'+product.id),
+        data: JSON.stringify(product),
+        processData: false,
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }).done(function (product) {
+        console.log("Updated product: " + JSON.stringify(product))
+    })
+}

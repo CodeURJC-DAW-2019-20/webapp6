@@ -64,10 +64,10 @@
 							<ul>
 								<li class="filter-list w-50">Ancho<input
 									class="form-control" type="number" id="width" name="width"
-									value="100"></li>
+									value="150"></li>
 								<li class="filter-list w-50">Alto<input
 									class="form-control" type="number" id="height" name="height"
-									value="100"></li>
+									value="150"></li>
 							</ul>
 						</div>
 						<div class="common-filter">
@@ -76,7 +76,7 @@
 								<li class="filter-list w-50">Min<input type="number"
 									class="form-control" min="0" name="min_price" value="0" /></li>
 								<li class="filter-list w-50">Max<input type="number"
-									class="form-control" min="0" name="max_price" value="1000" /></li>
+									class="form-control" min="0" name="max_price" value="5000" /></li>
 							</ul>
 						</div>
 						<div class="common-filter">
@@ -417,9 +417,9 @@
 			<section class="section-margin calc-60px">
 				<div class="container">
 					<div class="section-intro pb-60px">
-						<p>Popular Item in the market</p>
+						<p>Figuras populares de la tienda</p>
 						<h2>
-							Top <span class="section-intro__style">Products</span>
+							Figuras <span class="section-intro__style">recomendadas</span>
 						</h2>
 					</div>
 					<div class="owl-carousel owl-theme" id="bestSellerCarousel">
@@ -437,7 +437,7 @@
 								</ul>
 							</div>
 							<div class="card-body">
-								<p>Accessories</p>
+								<p>{{franchise}}</p>
 								<h4 class="card-product__title">
 									<a href="/product/{{id}}">{{name}}</a>
 								</h4>

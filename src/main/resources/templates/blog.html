@@ -1,5 +1,6 @@
 {{>header}}
 <meta charset="UTF-8">
+
   <!-- ================ start banner area ================= -->	
   <section class="blog-banner-area" id="blog">
     <img src="/img/banner/tokyo ghoul.png" style="float:left;width:100%;height:100%;object-fit:cover;opacity: 0.3;">
@@ -100,14 +101,22 @@
 				            <label class="col-form-label">Extracto:</label>
 				            <textarea class="form-control" name="text"></textarea>
 				            <label class="col-form-label">Texto completo:</label>
-				            <textarea class="form-control" name="textfull"></textarea>
+				            <textarea class="form-control" name="textfull"></textarea><br>
 				            <label class="col-form-label">ID:</label>
-				            <textarea class="form-control" name="idproduct"></textarea>
+				            <!-- <textarea class="form-control" name="idproduct"></textarea>-->
 				            <div>
+					            <select name="idproduct" id="idproduct" onfocus='this.size=5;' onblur='this.size=1;' onchange='this.size=1; this.blur();'>
+					            	{{#productsblog}}
+									<option value={{id}}>{{name}}</option>
+									{{/productsblog}}
+								</select> 
+							</div>
+							<input type="hidden" name="_csrf" value="{{token}}" />
+				            <!--<div>
 				            	{{#productsblog}}
 				            	<p class="add-product">{{name}}, ID: {{id}}</p>
 				            	{{/productsblog}}
-				            </div>
+				            </div> -->
 				            <input type="hidden" name="_csrf" value="{{token}}" />
 				          </div>
 				        </form>

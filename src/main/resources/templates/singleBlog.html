@@ -1,26 +1,4 @@
 {{>header}}
-<meta charset="UTF-8">
-<!-- ================ start banner area ================= -->
-<section class="blog-banner-area" id="blog">
-	<div class="container h-100">
-		<div class="blog-banner">
-			<div class="text-center">
-				<h1>Detalles del post</h1>
-				<nav aria-label="breadcrumb" class="banner-breadcrumb">
-					<ol class="breadcrumb">
-						<li class="breadcrumb-item"><a href="#">Home</a></li>
-						<li class="breadcrumb-item active" aria-current="page">Detalles
-							del post</li>
-					</ol>
-				</nav>
-			</div>
-		</div>
-	</div>
-</section>
-<!-- ================ end banner area ================= -->
-
-
-
 <!--================Blog Area =================-->
 {{#blog}}
 <section
@@ -39,7 +17,7 @@
 							{{#product}}
 							<div class="post_tag">
 								<a>Noticas,</a> <input type="submit" class="active" form="franchiseForm" id="submit-blog" value="{{franchise}}">
-								<a href="#">Nueva figura</a>
+								<a>Nueva figura</a>
 							</div>
 							<form id="franchiseForm" action="/products/{{product.franchise}}" method="POST">
 								<input type="hidden" name="franchise" value="{{product.franchise}}">
@@ -86,7 +64,9 @@
 					</div>
 					<div class="col-lg-9 col-md-9 blog_details">
 						<h2>{{name}}</h2>
-						<p class="excert">Modelo figura 235 Levi Ackerman.</p>
+						{{#product}}
+						<p class="excert">{{description}}</p>
+						{{/product}}
 						<p>
 							{{textfull}}
 							<!-- ¡Buenos días gente! Hoy empezamos la mañana con buenas noticias, y es que gracias a Funko Pop!
@@ -99,11 +79,11 @@
 															y del personaje, simplemente no te arrepentiras de comprarla que si no que será una de tus figuras favoritas.
 															Si quieres hacerte con ella puedes comprarla en la web, donde ya se encuentra disponible. ¡Date prisa!
 															
+							
 													<p>-->
-							<a class="active"
-								href="https://localhost:8443/product/{{idproduct}}">Link de
-								comprar</a>
-						</p>
+							{{#product}}
+							<br><a class="active" href="/product/{{id}}">Link de compra</a>
+							{{/product}}
 						</p>
 					</div>
 					<div class="col-lg-12">
@@ -129,27 +109,15 @@
 					<div class="row">
 						<div
 							class="col-lg-6 col-md-6 col-12 nav-left flex-row d-flex justify-content-start align-items-center">
-							<div class="thumb">
-								<a href="#"> <img class="img-fluid" src="img/blog/prev.jpg"
-									alt="">
-								</a>
-							</div>
 							<div class="arrow">
 								<a href="#"> <span class="lnr text-white lnr-arrow-left"></span>
 								</a>
 							</div>
-							<div class="detials">
-								<p>Post anterior</p>
-								<a href="#">
-									<h4>Otra noticia</h4>
-								</a>
-							</div>
 						</div>
-						<div
-							class="col-lg-6 col-md-6 col-12 nav-right flex-row d-flex justify-content-end align-items-center">
+						<div class="col-lg-6 col-md-6 col-12 nav-right flex-row d-flex justify-content-end align-items-center" style="text-align:center;">
 							<div class="detials">
-								<p>Siguente Post</p>
-								<a href="#">
+								<p>Post aleatorio</p>
+								<a href="/randomBlog">
 									<h4>Otra noticia</h4>
 								</a>
 							</div>
@@ -158,7 +126,7 @@
 								</a>
 							</div>
 							<div class="thumb">
-								<a href="#"> <img class="img-fluid" src="img/blog/next.jpg"
+								<a href="#"> <img class="img-fluid" src="/img/blog/next.jpg"
 									alt="">
 								</a>
 							</div>
@@ -298,17 +266,19 @@
 			<div class="col-lg-4">
 				<div class="blog_right_sidebar">
 					<aside class="single_sidebar_widget search_widget">
-						<div class="input-group">
-							<input type="text" class="form-control"
-								placeholder="Search Posts"> <span
-								class="input-group-btn">
-								<button class="btn btn-default" type="button">
-									<i class="lnr lnr-magnifier"></i>
-								</button>
-							</span>
-						</div>
-						<!-- /input-group -->
-						<div class="br"></div>
+						<form action="/searchBlog" method="post">
+                          <div class="input-group">
+                              <input type="text" class="form-control" placeholder="Buscar post" name="key">
+                              <span class="input-group-btn">
+                                  <button class="btn btn-default" type="button">
+                                      <i class="lnr lnr-magnifier"></i>
+                                  </button>
+                              </span>
+                              <input type="hidden" name="_csrf" value="{{token}}" />
+                          </div>
+                          <!-- /input-group -->
+                          <div class="br"></div>
+                      </form>
 					</aside>
 					<!-- <aside class="single_sidebar_widget author_widget">
 						<img class="author_img rounded-circle" src="img/blog/author.png"
@@ -333,7 +303,7 @@
 						<div class="media post_item">
 							<img src="{{image}}" width="100" height="60" alt="post">
 							<div class="media-body">
-								<a href="blog/{{id}}">
+								<a href="/blog/{{id}}">
 									<h3>{{name}}</h3>
 								</a>
 								<p>{{day}}/{{month}}/{{year}}</p>
@@ -375,62 +345,6 @@
 													</a>
 													<div class="br"></div>
 											</aside> -->
-					<aside class="single_sidebar_widget post_category_widget">
-						<h4 class="widget_title">Categorías</h4>
-						<ul class="list cat-list">
-							<li><a href="#" class="d-flex justify-content-between">
-									<p>Nuevos lanzamientos</p>
-									<p>37</p>
-							</a></li>
-							<li><a href="#" class="d-flex justify-content-between">
-									<p>En descuento</p>
-									<p>24</p>
-							</a></li>
-							<li><a href="#" class="d-flex justify-content-between">
-									<p>Anime</p>
-									<p>59</p>
-							</a></li>
-							<li><a href="#" class="d-flex justify-content-between">
-									<p>Manga</p>
-									<p>29</p>
-							</a></li>
-							<li><a href="#" class="d-flex justify-content-between">
-									<p>Videojuegos</p>
-									<p>15</p>
-							</a></li>
-							<li><a href="#" class="d-flex justify-content-between">
-									<p>Películas</p>
-									<p>09</p>
-							</a></li>
-							<li><a href="#" class="d-flex justify-content-between">
-									<p>Merchandising</p>
-									<p>44</p>
-							</a></li>
-						</ul>
-						<div class="br"></div>
-					</aside>
-					<aside class="single-sidebar-widget newsletter_widget">
-						<h4 class="widget_title">Boletín informativo</h4>
-						<p>Suscríbete para estar al día de todas las novedades y
-							noticias.</p>
-						<div class="form-group d-flex flex-row">
-							<div class="input-group">
-								<div class="input-group-prepend">
-									<div class="input-group-text">
-										<i class="fa fa-envelope" aria-hidden="true"></i>
-									</div>
-								</div>
-								<input type="text" class="form-control"
-									id="inlineFormInputGroup" placeholder="E-mail"
-									onfocus="this.placeholder = ''"
-									onblur="this.placeholder = 'Enter email'">
-							</div>
-							<a href="#" class="bbtns">Subcribirse</a>
-						</div>
-						<p class="text-bottom">Puedes cancelar tu suscripción cuando
-							quieras.</p>
-						<div class="br"></div>
-					</aside>
 					<aside class="single-sidebar-widget tag_cloud_widget">
 						<h4 class="widget_title">Nube de Tags</h4>
 						<ul class="list">

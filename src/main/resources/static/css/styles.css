@@ -5044,3 +5044,9 @@ input#submit-blog{
   font-size:1em;
   color:blue;
 }
+
+.wrapper{
+	width:200px;
+	padding:20px;
+	height: 150px;
+}
