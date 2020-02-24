@@ -50,6 +50,10 @@ Here we can choose what products we want to buy.
 <img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/resources/static/Screenshots/singleProduct.PNG"/>
 When we choose a product, here we can see the details.
 
+* **Cart** 
+<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/resources/static/Screenshots/shopping cart.PNG"/>
+Here you can see all the products that have been added to the cart and are waiting to be purchased.
+
 * **Checkout** 
 <img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/resources/static/Screenshots/checkout.PNG"/>
 If you are not logged you have to do it before finishing the checkout.
@@ -62,16 +66,12 @@ If logged you can fill all the information and see the details of the order.
 <img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/resources/static/Screenshots/confirmation.PNG"/>
 Detailed description of the order.
 
-* **Cart** 
-<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/resources/static/Screenshots/shopping cart.PNG"/>
-Here you can see all the products that have been added to the cart and are waiting to be purchased.
-
 * **Blog** 
 <img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/resources/static/Screenshots/Blog.PNG"/>
 When a new products come to the shop there will be a post about it here.
 
 * **Blog details** 
-<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/resources/static/Screenshots/blogextend.PNG"/>
+<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/resources/static/Screenshots/Blogextend.PNG"/>
 Detailed information about the new product.
 
 * **Login** 
