@@ -31,12 +31,30 @@
 ### UML diagram
 <img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/resources/static/uml/UML-resized.png" width="400" height="400" />
 
+### Entities Diagram
+![github-large](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/bin/src/main/resources/templates/Screenshots/DiagramaEntidades.png)
+
 ### Navigation Diagram
 ![github-large](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/bin/src/main/resources/templates/Screenshots/DiagramaNavFinal1.PNG)
 
-### Graphics
-Benefit per category
+| Name        | Most significant Commit 1  | Most significant Commit 2  | Most significant Commit 3  | Most significant Commit 4  | Most significant Commit 5  |
+| :-------------: |:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|
+| David Amor Antolín |  |  |  |  |  |
+| Carlos Francisco Corraliza | https://github.com/CodeURJC-DAW-2019-20/webapp6/commit/6434e149afd1911e2fd73e5e353f15564dbb840d | https://github.com/CodeURJC-DAW-2019-20/webapp6/commit/b2699a491e2d96fc5e9e5f7c0e549cfbb96139bd | https://github.com/CodeURJC-DAW-2019-20/webapp6/commit/0ded055b646e3ff34ca262284649b58b4ae53d95 | https://github.com/CodeURJC-DAW-2019-20/webapp6/commit/49e20acffb5b6e26b524a784604f10014714cf89 | https://github.com/CodeURJC-DAW-2019-20/webapp6/commit/6ceb10e995df9ed962f1fd37297820aa19e2c899 |
+| Ramón Barrabes Parra | https://github.com/CodeURJC-DAW-2019-20/webapp6/commit/16f92556f7e4282024d9b3176e4eca1e8a697a11 | https://github.com/CodeURJC-DAW-2019-20/webapp6/commit/4c2141f2d98c898107b3eefb5b9686d8e917af5c | https://github.com/CodeURJC-DAW-2019-20/webapp6/commit/ad637bd4be3b3fa3ec2d0866ef74fa4fe2bb772b | https://github.com/CodeURJC-DAW-2019-20/webapp6/commit/5ceab35aca43a5a00ac5f26bcae5e98be7e68f2d | https://github.com/CodeURJC-DAW-2019-20/webapp6/commit/b67855cd45aa865be293d421c004d04cb592bffb |
+| Enrique Márquez Jiménez |  |  |  |  |  |
+| Carlos González Valtierra |  |  |  |  |  |
 
+| Name        | File 1   | File 2   | File 3   | File 4   | File 5   |
+| :-------------: |:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|
+| David Amor Antolín |  |  |  |  |  |
+| Carlos Francisco Corraliza | [OrderMetrics](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/6434e149afd1911e2fd73e5e353f15564dbb840d/src/main/java/com/webapp/animeshop/model/OrderMetrics.java) | [Blog](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/54c5c89ff7f27406f582b6f672401a7c9e1403bc/src/main/java/com/webapp/animeshop/model/Blog.java) | [BlogController](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/54c5c89ff7f27406f582b6f672401a7c9e1403bc/src/main/java/com/webapp/animeshop/controller/BlogController.java) | [UserController](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/6434e149afd1911e2fd73e5e353f15564dbb840d/src/main/java/com/webapp/animeshop/controller/UserController.java) | [OrderController](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/6ccaa242e930418083ff5283adefd47a75e77b3a/src/main/java/com/webapp/animeshop/controller/OrderController.java) |
+| Ramón Barrabes Parra | [WebController](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/java/com/webapp/animeshop/web/WebController.java) | [WebSecurityConfig](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/java/com/webapp/animeshop/security/WebSecurityConfig.java) | [CustomErrorController](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/java/com/webapp/animeshop/error/CustomErrorController.java) | [DatabaseInitializer](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/java/com/webapp/animeshop/DatabaseInitializer.java) | [LoginController](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/java/com/webapp/animeshop/security/LoginController.java) |
+| Enrique Márquez Jiménez |  |  |  |  |  |
+| Carlos González Valtierra |  |  |  |  |  |
+
+### Graphics
+Money spent per order and average
 ### Screenshots :camera:
 * **Home**
 <img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/resources/static/Screenshots/Home.PNG"/>
@@ -93,6 +111,15 @@ Use this screen if you want to edit some of your profile information.
 * **Admin Profile(Graph)** 
 <img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/resources/static/Screenshots/Admin profile.PNG"/>
 The admin can use this screen to see information about the website.
+
+## Development Environment
+
+### Developing in Spring Boot
+
+It's recomended to use an IDE with maven and with Spring compatibility. The IDE used in this project is STS(Spring Tool Suite 4).
+To run the application the port that we use is 8443, so the URL will be:
+https://localhost:8443
+A MySQL database is needed so you have to create a database in a client with MySQL and Apache (We use XAMPP, more info at: https://www.apachefriends.org/es/index.html)
 
 
 
