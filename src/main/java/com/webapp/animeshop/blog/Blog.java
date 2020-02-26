@@ -13,6 +13,8 @@ import javax.persistence.Table;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.fasterxml.jackson.annotation.JsonView;
+import com.fasterxml.jackson.databind.introspect.TypeResolutionContext.Basic;
 import com.webapp.animeshop.product.Product;
 import com.webapp.animeshop.product.ProductService;
 
@@ -22,19 +24,27 @@ public class Blog implements Serializable{
 		
 	private static final long serialVersionUID = 1L;
 	
+	@JsonView(Basic.class)
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
+	@JsonView(Basic.class)
 	private String author;
+	@JsonView(Basic.class)
 	private String name;
+	@JsonView(Basic.class)
 	private String text;
+	@JsonView(Basic.class)
 	private String image;
+	
+	
 	private String textfull;
 	private int day;
 	private int month;
 	private int year;
 	private long idproduct;
 	
+	@JsonView(Product.class)
 	@OneToOne
 	private Product product;
 	

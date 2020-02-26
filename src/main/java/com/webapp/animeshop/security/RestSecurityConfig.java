@@ -25,11 +25,15 @@ public class RestSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/logOut").permitAll();
 		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/register").permitAll();
 		http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/newUser").permitAll();
+		http.authorizeRequests().antMatchers(HttpMethod.GET,  "/api/allUsers").permitAll();
+		http.authorizeRequests().antMatchers(HttpMethod.GET,  "/api/currentuser").permitAll();
+		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/product/").permitAll();
+		
 		
 		// URLs that need authentication to access to it
-		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/product/").permitAll();
-		http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/product/**").hasRole("ADMIN");
-		http.authorizeRequests().antMatchers(HttpMethod.PUT, "/api/product/{id}").hasRole("ADMIN");
+		http.authorizeRequests().antMatchers(HttpMethod.PUT, "/api/newInfo/").hasRole("USER");
+		//http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/product/**").hasRole("ADMIN");
+		//http.authorizeRequests().antMatchers(HttpMethod.PUT, "/api/product/{id}").hasRole("ADMIN");
 		//http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/product/{id}").hasRole("ADMIN");	
 		http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/product/{id}").permitAll();	
 		
