@@ -1,5 +1,7 @@
 package com.webapp.animeshop.user;
 
+import java.util.List;
+
 import javax.mail.internet.MimeMessage;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,10 @@ public class UserService {
 
 	public void save(User user) {
 		userRepository.save(user);
+	}
+	
+	public List<User> findAll(){
+		return userRepository.findAll();
 	}
 	
 	public void sendEmail(User userInfo) throws Exception{

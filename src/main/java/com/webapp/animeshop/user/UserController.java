@@ -1,6 +1,7 @@
 package com.webapp.animeshop.user;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -24,9 +25,6 @@ public class UserController extends WebController {
 
 	@Autowired
 	private UserService userService;
-
-	@Autowired
-	private UserComponent userSession;
 
 	@Autowired
 	private UserRepository userRepository;
@@ -81,7 +79,12 @@ public class UserController extends WebController {
 	
 	@GetMapping("/currentuser")
 	public User getCurrentUser() {
-		return userSession.getLoggedUser();
+		return userComponent.getLoggedUser();
+	}
+	
+	@GetMapping("/allUsers")
+	public List<User> getAllUsers() {
+		return  userService.findAll();
 	}
 	
 	@RequestMapping("/userEdit")

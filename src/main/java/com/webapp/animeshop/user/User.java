@@ -23,6 +23,8 @@ import javax.persistence.Table;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import com.fasterxml.jackson.annotation.JsonView;
+import com.fasterxml.jackson.databind.introspect.TypeResolutionContext.Basic;
 import com.webapp.animeshop.order.Order;
 
 @Entity
@@ -31,22 +33,28 @@ public class User implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
+	@JsonView(Basic.class)
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+	@JsonView(Basic.class)
     private String name;
 
     //@JsonIgnore
     
+	@JsonView(Basic.class)
     private String passwordHash;
     
+	@JsonView(Address.class)
     @Embedded
     private Address delivery;
     
+	@JsonView(Order.class)
     @OneToMany(mappedBy="user")
     private List<Order> orderList = new LinkedList<>();
     
+	@JsonView(Basic.class)
     @ElementCollection(fetch = FetchType.EAGER)
     private List<String> roles;
 
