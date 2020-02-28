@@ -103,7 +103,7 @@
                           </tr>-->
                           <tr>
                               <td>
-                                  <a class="button" href="#">Actualizar cesta</a>
+                                  <a class="button" href="/shoppingCart">Actualizar cesta</a>
                               </td>
                               <td>
 
@@ -129,10 +129,10 @@
                               <td>
                                   <div class="checkout_btn_inner d-flex align-items-center">
                                   {{^empty}}
-                                      <a class="gray_btn" href="/products">Seguir comprando</a>
+                                      <a id="empty-cart" class="gray_btn" href="/products">Seguir comprando</a>
                                   {{/empty}}
                                   {{#empty}}
-                                      <a class="primary-btn finish-btn" href="/checkout">Finalizar</a>
+                                      <a id="not-empty-cart"class="primary-btn finish-btn" href="/checkout">Finalizar</a>
                                   {{/empty}}
                                   </div>
                               </td>

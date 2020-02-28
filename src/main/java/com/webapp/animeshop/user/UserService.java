@@ -22,7 +22,7 @@ public class UserService {
 	}
 	
 	public void sendEmail(User userInfo) throws Exception{
-    	String email = "Acabas de registrarte como: " + "\nUsuario --> " + userInfo.getName() + 
+    	String email = "Acabas de registrarte como: " + "\nUsuario: " + userInfo.getName() + 
     					 "\n" + "\nTodos tus facturas serán enviadas al siguiente correo electrónico: " + userInfo.getDelivery().getEmail() + 
     					"\n" + "\nCualquier duda que tengas no dudes en contactarnos a través de nuestro correo electrónico.";
     	

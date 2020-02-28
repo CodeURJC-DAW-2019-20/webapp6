@@ -11,6 +11,9 @@ sum2()
 	    })
     $("#" + pid).remove();
 	sum2()
+	if($('#not-empty-cart').length && $("#product" + pid).length == 0){
+		window.location = "https://localhost:8443/shoppingCart";
+	}
   });
 });
 

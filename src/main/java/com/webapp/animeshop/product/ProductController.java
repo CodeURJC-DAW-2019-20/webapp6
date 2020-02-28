@@ -53,6 +53,9 @@ public class ProductController extends WebController {
 		} else {
 			orderList = (List<Order>) user.getOrderList();
 			if(orderList.isEmpty()) {
+				List<Product> productList = productRepository.findAll();
+				Integer rand = (int) (Math.random() * productList.size());
+				maxFranchise = productList.get(rand).getFranchise();
 				return maxFranchise;
 			}
 			for (Order order : orderList) {
