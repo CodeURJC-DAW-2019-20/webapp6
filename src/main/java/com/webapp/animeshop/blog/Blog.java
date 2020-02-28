@@ -37,7 +37,7 @@ public class Blog implements Serializable{
 	@JsonView(Basic.class)
 	private String image;
 	
-	
+	@JsonView(Basic.class)
 	private String textfull;
 	private int day;
 	private int month;

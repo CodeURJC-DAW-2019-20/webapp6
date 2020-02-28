@@ -22,6 +22,8 @@ public class RestSecurityConfig extends WebSecurityConfigurerAdapter {
 	    
 		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/logIn").authenticated();
 		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/index").permitAll();
+		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/").permitAll();
+		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/showBlog/{id}").permitAll();
 		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/logOut").permitAll();
 		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/register").permitAll();
 		http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/newUser").permitAll();
@@ -32,9 +34,11 @@ public class RestSecurityConfig extends WebSecurityConfigurerAdapter {
 		
 		// URLs that need authentication to access to it
 		http.authorizeRequests().antMatchers(HttpMethod.PUT, "/api/newInfo/").hasRole("USER");
+		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/deleteBlog/{id}").hasRole("ADMIN");
 		//http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/product/**").hasRole("ADMIN");
 		//http.authorizeRequests().antMatchers(HttpMethod.PUT, "/api/product/{id}").hasRole("ADMIN");
-		//http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/product/{id}").hasRole("ADMIN");	
+		//http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/product/{id}").hasRole("ADMIN");
+		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/addBlog").hasRole("ADMIN");	
 		http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/product/{id}").permitAll();	
 		
 		// Other URLs can be accessed without authentication

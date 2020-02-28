@@ -2,18 +2,31 @@ package com.webapp.animeshop.user;
 
 import javax.persistence.Embeddable;
 
+import com.fasterxml.jackson.annotation.JsonView;
+import com.fasterxml.jackson.databind.introspect.TypeResolutionContext.Basic;
+
 @Embeddable
 public class Address{
 	
+	@JsonView(Basic.class)
 	private String shippingname;
+	@JsonView(Basic.class)
 	private String lastname;
+	@JsonView(Basic.class)
 	private String company;
+	@JsonView(Basic.class)
 	private String number;
+	@JsonView(Basic.class)
 	private String email;
+	@JsonView(Basic.class)
 	private String street;
+	@JsonView(Basic.class)
 	private String floor;
+	@JsonView(Basic.class)
 	private String city;
+	@JsonView(Basic.class)
 	private String country;
+	@JsonView(Basic.class)
 	private String zipcode;
 	
 	public Address() {
