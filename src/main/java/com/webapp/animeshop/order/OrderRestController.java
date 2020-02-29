@@ -15,7 +15,7 @@ import com.webapp.animeshop.product.ProductAmount;
 import com.webapp.animeshop.product.ProductAmountRepository;
 
 @RestController
-@RequestMapping("/api/product")
+@RequestMapping("/api/order")
 public class OrderRestController {
 	
 	@Autowired

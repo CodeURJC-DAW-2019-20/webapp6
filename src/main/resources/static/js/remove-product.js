@@ -4,14 +4,14 @@ sum2()
 	var id = $(this).attr("id")
 	pid = "product" + id
 	$.ajax({
-		  url: ("https://localhost:8443/api/product/"+id),
+		  url: ("https://localhost:8443/api/order/"+id),
 		  method: 'DELETE',
 		}).done(function (item) {
 	        console.log("Deleted product " + id)
 	    })
     $("#" + pid).remove();
 	sum2()
-	if($('#not-empty-cart').length && $("#product" + pid).length == 0){
+	if($('#not-empty-cart').length && $('#product').length == 0){
 		window.location = "https://localhost:8443/shoppingCart";
 	}
   });

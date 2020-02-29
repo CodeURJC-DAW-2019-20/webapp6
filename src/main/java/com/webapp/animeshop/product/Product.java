@@ -15,6 +15,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonView;
+import com.fasterxml.jackson.databind.introspect.TypeResolutionContext.Basic;
+
 @Entity
 @Table(name="products")
 public class Product implements Serializable, Comparable<Product> {
@@ -24,21 +27,35 @@ public class Product implements Serializable, Comparable<Product> {
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	@JsonView(Basic.class)
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
+	@JsonView(Basic.class)
 	private String name;
+	@JsonView(Basic.class)
 	private String franchise;
+	@JsonView(Basic.class)
 	private double price;
+	@JsonView(Basic.class)
 	private String description;
+	@JsonView(Basic.class)
 	private int width;
+	@JsonView(Basic.class)
 	private int height;
+	@JsonView(Basic.class)
 	private int weight;
+	@JsonView(Basic.class)
 	private String distributor;
+	@JsonView(Basic.class)
 	private String reference;
+	@JsonView(Basic.class)
 	private int stock;
+	@JsonView(Basic.class)
 	private int actual_Stock;
+	@JsonView(Basic.class)
 	private String image;
+	@JsonView(Basic.class)
 	private String imagefull;
 //	private boolean images;
 //	private boolean imagesFull;
