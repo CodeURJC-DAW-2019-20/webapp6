@@ -31,12 +31,16 @@ public class RestSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests().antMatchers(HttpMethod.GET,  "/api/currentuser").permitAll();
 		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/products/**").permitAll();
 		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/products/{id}/").permitAll();
+		http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/order/**").permitAll();
+		http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/order/**").permitAll();
 		
 		
 		// URLs that need authentication to access to it
 		http.authorizeRequests().antMatchers(HttpMethod.PUT, "/api/newInfo/").hasRole("USER");
-		http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/**").hasRole("ADMIN");
-		http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/**").hasRole("ADMIN");
+		http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/products/**").hasRole("ADMIN");
+		http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/products/**").hasRole("ADMIN");
+		http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/deleteBlog/**").hasRole("ADMIN");
+		http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/addBlog/**").hasRole("ADMIN");
 		
 		// Other URLs can be accessed without authentication
 		http.authorizeRequests().anyRequest().permitAll();

@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.webapp.animeshop.product.ProductAmount;
 import com.webapp.animeshop.product.ProductAmountRepository;
+import com.webapp.animeshop.product.ProductRepository;
+import com.webapp.animeshop.user.User;
+import com.webapp.animeshop.user.UserComponent;
 
 @RestController
 @RequestMapping("/api/order")
@@ -21,9 +25,22 @@ public class OrderRestController {
 	@Autowired
 	private ProductAmountRepository pAmountRepository;
 	
-	@RequestMapping(method = RequestMethod.GET)
-	public List<ProductAmount> findProducts() {
-		return pAmountRepository.findAll();
+	@Autowired
+	private OrderRepository orderRepository;
+	
+	@Autowired
+    private OrderService orderService;
+	@Autowired
+	private ProductRepository productRepository;
+	
+	@GetMapping()
+	public List<Order> getOrders() {
+		return orderRepository.findAll();
+	}
+	
+	@GetMapping("/{id}")
+	public Order getOrder(@PathVariable long id) {
+		return orderRepository.findById(id);
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
@@ -31,12 +48,30 @@ public class OrderRestController {
 		pAmountRepository.deleteById(id);
 	}
 	
+	@RequestMapping(value = "/{id}", method = RequestMethod.POST)
+	public ResponseEntity<Order> addProduct(@PathVariable long id, @RequestBody ProductAmount pAmount/*, @PathVariable int qt*/) {
+		if(this.orderRepository.findById(id)==null)
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    	Order order = this.orderRepository.findById(id);
+    	if(productRepository.findById(pAmount.getProduct().getId())==null)
+    		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    	this.orderService.addProductToOrder(order.getId(), pAmount.getProduct().getId(), pAmount.getAmount());
+		//pAmount.setTotal(pAmount.getAmount(), pAmount.getProduct().getPrice());
+		//pAmountRepository.saveAndFlush(pAmount);
+		return new ResponseEntity<>(order, HttpStatus.OK);
+	}
+	
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-	public ResponseEntity<ProductAmount>updateItem(@PathVariable long id,@RequestBody ProductAmount pAmount, @PathVariable int qt) {
-		pAmount.setAmount(qt);
-		pAmount.setTotal(qt, pAmount.getProduct().getPrice());
-		ProductAmount productAmount = pAmountRepository.saveAndFlush(pAmount);
-		return new ResponseEntity<>(productAmount,HttpStatus.CREATED);
+	public ResponseEntity<Order> updateProduct(@PathVariable long id, @RequestBody ProductAmount pAmount/*, @PathVariable int qt*/) {
+		if(this.orderRepository.findById(id)==null)
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    	Order order = this.orderRepository.findById(id);
+    	if(pAmountRepository.findById(pAmount.getId())==null)
+    		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    	this.orderService.updateProduct(order.getId(), pAmount.getId(), pAmount.getAmount());
+		//pAmount.setTotal(pAmount.getAmount(), pAmount.getProduct().getPrice());
+		//pAmountRepository.saveAndFlush(pAmount);
+		return new ResponseEntity<>(order, HttpStatus.OK);
 	}
 
 }

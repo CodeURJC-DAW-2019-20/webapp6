@@ -16,6 +16,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonView;
+import com.fasterxml.jackson.databind.introspect.TypeResolutionContext.Basic;
 import com.webapp.animeshop.product.ProductAmount;
 import com.webapp.animeshop.user.User;
 
@@ -25,22 +27,29 @@ public class Order implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
+	@JsonView(Basic.class)
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
+	@JsonView(Basic.class)
 	private String status;
 	
+	@JsonView(Basic.class)
 	@OneToMany(cascade = CascadeType.ALL,mappedBy="order")
 	private List<ProductAmount> productList;
 	
 	@JsonIgnore
 	@ManyToOne
 	private User user;
+	@JsonView(Basic.class)
 	private double total;//Precio total del pedido
 	
+	@JsonView(Basic.class)
 	private int day;
+	@JsonView(Basic.class)
 	private int month;
+	@JsonView(Basic.class)
 	private int year;
 	
 	public Order() {
