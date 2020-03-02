@@ -29,7 +29,7 @@ public class RestSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/newUser").permitAll();
 		http.authorizeRequests().antMatchers(HttpMethod.GET,  "/api/allUsers").permitAll();
 		http.authorizeRequests().antMatchers(HttpMethod.GET,  "/api/currentuser").permitAll();
-		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/products/").permitAll();
+		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/products/**").permitAll();
 		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/products/{id}/").permitAll();
 		
 		

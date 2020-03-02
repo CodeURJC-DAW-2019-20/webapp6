@@ -20,6 +20,9 @@ public class ProductRestController {
 	@Autowired
 	private ProductRepository productRepository;
 	
+	@Autowired
+	private ProductService productService;
+	
 	@GetMapping()
 	public List<Product> showProducts() {
 		return productRepository.findAll();
@@ -46,6 +49,28 @@ public class ProductRestController {
 		}
 		else
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+	}
+	
+	@GetMapping("/sortBy/{key}")
+	public ResponseEntity<List<Product>> sortByProducts(@PathVariable String key) {
+		switch(key) {
+		case "desc":
+			return new ResponseEntity<>(this.productRepository.findByPriceDesc(),HttpStatus.OK);
+		case "asc":
+			return new ResponseEntity<>(this.productRepository.findByPriceAsc(),HttpStatus.OK);
+		default:
+			return new ResponseEntity<>(productRepository.findAll(),HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	@GetMapping("/franchises/{franchise}")
+	public List<Product> franchisesProducts(@PathVariable String franchise) {
+		return productRepository.findByFranchise(franchise);
+	}
+	
+	@GetMapping("/search/{key}")
+	public List<Product> searchProduct(@PathVariable String key) {
+		return this.productService.search(key);
 	}
 
 }
