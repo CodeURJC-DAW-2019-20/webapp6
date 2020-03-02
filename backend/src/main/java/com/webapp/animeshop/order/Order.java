@@ -15,6 +15,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.webapp.animeshop.product.ProductAmount;
 import com.webapp.animeshop.user.User;
 
@@ -33,6 +34,7 @@ public class Order implements Serializable{
 	@OneToMany(cascade = CascadeType.ALL,mappedBy="order")
 	private List<ProductAmount> productList;
 	
+	@JsonIgnore
 	@ManyToOne
 	private User user;
 	private double total;//Precio total del pedido

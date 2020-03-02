@@ -11,6 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.webapp.animeshop.order.Order;
 
 @Entity
@@ -28,6 +29,7 @@ public class ProductAmount implements Serializable{
 	private int amount;
 	private double total;
 	
+	@JsonIgnore
 	@ManyToOne
 	private Order order;
 	
