@@ -113,6 +113,7 @@ public class OrderController extends WebController{
     	OrderMetrics orderMetrics = new OrderMetrics(lastMetrics);
     	orderMetrics.newOrder(order);
     	this.orderMetricsRepository.save(orderMetrics);
+    	this.orderService.buildOrders();
     	model.addAttribute("order", order);
     	model.addAttribute("user",user);
     	model.addAttribute("billing", billing_address);

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -51,8 +52,8 @@ public class ProductRestController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
 	
-	@GetMapping("/sortBy/{key}")
-	public ResponseEntity<List<Product>> sortByProducts(@PathVariable String key) {
+	@GetMapping("/sortBy")
+	public ResponseEntity<List<Product>> sortByProducts(@RequestParam String key) {
 		switch(key) {
 		case "desc":
 			return new ResponseEntity<>(this.productRepository.findByPriceDesc(),HttpStatus.OK);
@@ -63,13 +64,13 @@ public class ProductRestController {
 		}
 	}
 	
-	@GetMapping("/franchises/{franchise}")
-	public List<Product> franchisesProducts(@PathVariable String franchise) {
+	@GetMapping("/franchises")
+	public List<Product> franchisesProducts(@RequestParam String franchise) {
 		return productRepository.findByFranchise(franchise);
 	}
 	
-	@GetMapping("/search/{key}")
-	public List<Product> searchProduct(@PathVariable String key) {
+	@GetMapping("/search")
+	public List<Product> searchProduct(@RequestParam String key) {
 		return this.productService.search(key);
 	}
 

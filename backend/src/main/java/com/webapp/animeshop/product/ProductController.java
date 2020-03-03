@@ -115,7 +115,7 @@ public class ProductController extends WebController {
 	}
 
 	@RequestMapping("/addProduct")
-	public String addProduct(Model model, Product product, @RequestParam MultipartFile imageFile) throws IOException {
+	public String addProduct(Model model, Product product/*, @RequestParam MultipartFile imageFile*/) throws IOException {
 		product.setImage("/img/product/notavailable.png");
 		product.setImagefull("/img/product/notavailable2.png");
 //		product.setImages(true);

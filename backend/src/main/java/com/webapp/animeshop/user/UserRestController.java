@@ -42,7 +42,7 @@ public class UserRestController {
 		return userComponent.getLoggedUser();
 	}
 	
-	@GetMapping("/allUsers")
+	@GetMapping("/users")
 	public List<User> getAllUsers(){
 		return userService.findAll();
 	}

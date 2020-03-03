@@ -20,6 +20,7 @@ import com.webapp.animeshop.product.ProductService;
 import com.webapp.animeshop.user.Address;
 import com.webapp.animeshop.user.User;
 import com.webapp.animeshop.user.UserComponent;
+import com.webapp.animeshop.user.UserRepository;
 
 @RestController
 @RequestMapping("/api/order")
@@ -46,6 +47,9 @@ public class OrderRestController {
 	@Autowired
 	private OrderMetricsRepository orderMetricsRepository;
 	
+	@Autowired
+	private UserRepository userRepository;
+	
 	@GetMapping()
 	public List<Order> getOrders() {
 		return orderRepository.findAll();
@@ -61,14 +65,20 @@ public class OrderRestController {
 		pAmountRepository.deleteById(id);
 	}
 	
-	@RequestMapping(value = "/{id}", method = RequestMethod.POST)
-	public ResponseEntity<Order> addProduct(@PathVariable long id, @RequestBody ProductAmount pAmount/*, @PathVariable int qt*/) {
+	@RequestMapping(method = RequestMethod.POST)
+	public ResponseEntity<Order> addProduct(@RequestBody ProductAmount pAmount/*, @PathVariable int qt*/) {
 		User user = userComponent.getLoggedUser();
-		if(this.orderRepository.findById(id)==null)
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-    	Order order = this.orderRepository.findById(id);
-    	order.setUser(user);
-    	this.orderRepository.saveAndFlush(order);
+		user = userRepository.findByName(user.getName());
+//		if(this.orderRepository.findById(id)==null)
+//			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		this.orderService.buildOrders();
+		Order order;
+		if(user==null)
+			order = this.orderRepository.findNotRelated();
+		else
+			order = user.getOrderList().get(user.getOrderList().size()-1);
+//    	order.setUser(user);
+//    	this.orderRepository.saveAndFlush(order);
     	if(productRepository.findById(pAmount.getProduct().getId())==null)
     		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     	this.orderService.addProductToOrder(order.getId(), pAmount.getProduct().getId(), pAmount.getAmount());
@@ -100,6 +110,7 @@ public class OrderRestController {
     	OrderMetrics orderMetrics = new OrderMetrics(lastMetrics);
     	orderMetrics.newOrder(order);
     	this.orderMetricsRepository.save(orderMetrics);
+    	this.orderService.buildOrders();
     	return new ResponseEntity<>(user, HttpStatus.OK);
 	}
 

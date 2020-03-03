@@ -89,11 +89,12 @@ public class ProductService {
 		//preguntar a mica por: si borro un elemento y se ha realizado un pedido donde se ha comprado ese producto,
 		//¿como puedo acceder a ese elemento si ya no tengo la relaccion en la base de datos?
 		for(int i =0;i<orders.size();i++) {
-			for(int j=0;j<orders.get(i).getProductList().size();j++) {
-				if(orders.get(i).getProductList().get(i).getProduct().getName().equals(product.getName())) {	
-					orders.get(i).getProductList().remove(j);
+			if(!orders.get(i).getProductList().isEmpty())
+				for(int j=0;j<orders.get(i).getProductList().size();j++) {
+					if(orders.get(i).getProductList().get(j).getProduct().getName().equals(product.getName())) {	
+						orders.get(i).getProductList().remove(j);
+					}
 				}
-			}
 		}
 		this.orderRepository.saveAll(orders);
 		if (product != null) {
