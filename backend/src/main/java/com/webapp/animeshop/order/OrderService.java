@@ -71,6 +71,9 @@ public class OrderService {
 	}
 	
 	public Order addOrder(Order order) {
+		User user = this.userSession.getLoggedUser();
+		user.getOrderList().set(user.getOrderList().size() - 1, order);
+		userRepository.save(user);
 		return this.orderRepository.save(order);
 	}
 	
@@ -146,15 +149,13 @@ public class OrderService {
 		User user = userSession.getLoggedUser();
     	user.setDelivery(delivery_address);
     	user.getDelivery().setName(name);
-    	this.userRepository.save(user);
     	Order order = this.orderRepository.findByStatus(user.getId());
     	order.setStatus("Complete");
-    	this.orderRepository.save(order);
-    	user.getOrderList().add(order);
+    	user.getOrderList().set(user.getOrderList().size() - 1, order);
     	this.userRepository.save(user);
-    	Order newOrder = new Order();
-    	newOrder.setUser(user);
-    	this.orderRepository.save(newOrder);
+    	this.orderRepository.save(order);
+    	//user.getOrderList().add(order);
+    	//this.userRepository.save(user);
     	return order;
 	}
     
