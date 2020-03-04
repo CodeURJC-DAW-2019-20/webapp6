@@ -148,12 +148,39 @@ public class OrderRestController {
 		return new ResponseEntity<>(order, HttpStatus.OK);
 	}
 	
+	@RequestMapping(method = RequestMethod.PUT)
+	//public ResponseEntity<User> confirmation(@RequestBody List<Address> json) throws Exception{
+	public ResponseEntity<User> confirmation(@PathVariable String shippingname, @PathVariable String lastname,
+			@PathVariable String company, @PathVariable String number, @PathVariable String email, 
+			@PathVariable String street, @PathVariable String floor, @PathVariable String city,
+			@PathVariable String country, @PathVariable String zipcode, @PathVariable String shippingname2, @PathVariable String lastname2,
+			@PathVariable String company2, @PathVariable String number2, @PathVariable String email2, 
+			@PathVariable String street2, @PathVariable String floor2, @PathVariable String city2,
+			@PathVariable String country2, @PathVariable String zipcode2) throws Exception{
+    	User user = userComponent.getLoggedUser();
+    	Address billing_address = new Address(shippingname, lastname, company, number, email, street, floor, city, country, zipcode);
+    	Address delivery = new Address(shippingname2, lastname2, company2, number2, email2, street2, floor2, city2, country2, zipcode2);
+    	if(billing_address == null || delivery == null) {
+    		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    	}
+    	Order order = this.orderService.confirmOrder(delivery, billing_address, delivery.getName());
+    	//this.orderService.sendEmail(user, order, billing_address);
+    	OrderMetrics lastMetrics = this.orderMetricsRepository.findAll().get(this.orderMetricsRepository.findAll().size()-1);
+    	OrderMetrics orderMetrics = new OrderMetrics(lastMetrics);
+    	orderMetrics.newOrder(order);
+    	this.orderMetricsRepository.save(orderMetrics);
+    	this.orderService.buildOrders();
+    	return new ResponseEntity<>(user, HttpStatus.OK);
+	}
+	
 	@RequestMapping(value = "/confirmation", method = RequestMethod.POST)
 	public ResponseEntity<User> confirmation() throws Exception{
-    	Address billing_address = new Address();
     	User user = userComponent.getLoggedUser();
-    	Order order = this.orderService.confirmOrder(billing_address, billing_address, "pepe");
-    	//this.orderService.sendEmail(user, order, billing_address);
+    	if(user.getDelivery() == null) {
+    		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    	}
+    	Order order = this.orderService.confirmOrder(user.getDelivery(), user.getDelivery(), user.getName());
+    	this.orderService.sendEmail(user, order, user.getDelivery());
     	OrderMetrics lastMetrics = this.orderMetricsRepository.findAll().get(this.orderMetricsRepository.findAll().size()-1);
     	OrderMetrics orderMetrics = new OrderMetrics(lastMetrics);
     	orderMetrics.newOrder(order);
