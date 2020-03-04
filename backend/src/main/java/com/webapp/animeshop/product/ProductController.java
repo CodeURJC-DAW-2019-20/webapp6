@@ -67,7 +67,7 @@ public class ProductController extends WebController {
 		model.addAttribute("total", total);
 		model.addAttribute("list", list);
 		model.addAttribute("cartSize",orderService.getCartSize());
-		return "/category";
+		return "category";
 	}
 
 	@RequestMapping("/product/{id}")
@@ -75,7 +75,7 @@ public class ProductController extends WebController {
 		Product product = productService.getProduct(id);
 		model.addAttribute("product", product);
 		model.addAttribute("cartSize",orderService.getCartSize());
-		return "/singleProduct";
+		return "singleProduct";
 	}
 
 	@RequestMapping("/addProduct")
@@ -113,7 +113,7 @@ public class ProductController extends WebController {
 		model.addAttribute("total", total);
 		model.addAttribute("products", products);
 		model.addAttribute("cartSize",orderService.getCartSize());
-		return "/category";
+		return "category";
 	}
 
 	@RequestMapping("/sortBy")
@@ -136,7 +136,7 @@ public class ProductController extends WebController {
 				model.addAttribute("products", this.productRepository.findAll());
 				break;
 		}
-		return "/category";
+		return "category";
 	}
 
 	@RequestMapping("/search")
@@ -150,7 +150,7 @@ public class ProductController extends WebController {
 		model.addAttribute("total", total);
 		model.addAttribute("products", products);
 		model.addAttribute("cartSize",orderService.getCartSize());
-		return "/category";
+		return "category";
 	}
 	
 	@RequestMapping("/products/{franchise}")
@@ -164,7 +164,7 @@ public class ProductController extends WebController {
 		model.addAttribute("total", total);
 		model.addAttribute("products", products);
 		model.addAttribute("cartSize",orderService.getCartSize());
-		return "/category";
+		return "category";
 	}
 
 }

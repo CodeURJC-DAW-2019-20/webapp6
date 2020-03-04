@@ -46,13 +46,13 @@ public class UserController extends WebController {
 		if(this.userRepository.findByName(newUser.getName())!=null){
 			exists = true;
 			model.addAttribute("exists", exists);
-			return "/register";
+			return "register";
 		}
 		newUser.getDelivery().setEmail(email);
 		userService.save(newUser);
 		userService.sendEmail(newUser);
 		model.addAttribute("cartSize",orderService.getCartSize());
-		return "/login";
+		return "login";
 	}
 
 	/*public void addUserToModel(Model model) {
@@ -73,7 +73,7 @@ public class UserController extends WebController {
 		OrderMetrics lastMetrics = this.orderMetricsRepository.findAll().get(this.orderMetricsRepository.findAll().size()-1);
 		model.addAttribute("average", (int) lastMetrics.getAverage());
 		model.addAttribute("cartSize",orderService.getCartSize());
-		return "/userPage";
+		return "userPage";
 	}
 	
 	
@@ -93,7 +93,7 @@ public class UserController extends WebController {
 			model.addAttribute("user", this.userComponent.getLoggedUser());
 		}
 		model.addAttribute("cartSize",orderService.getCartSize());
-		return "/userEdit";
+		return "userEdit";
 	}
 	
 	@RequestMapping("/newInfo")
@@ -110,7 +110,7 @@ public class UserController extends WebController {
 		this.userRepository.save(user);
 		model.addAttribute("user", user);
 		model.addAttribute("cartSize",orderService.getCartSize());
-		return "/userPage";
+		return "userPage";
 	}
 	
 	

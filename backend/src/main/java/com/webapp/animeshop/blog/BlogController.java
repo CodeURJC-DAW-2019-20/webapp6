@@ -56,7 +56,7 @@ public class BlogController extends WebController{
 		this.orderService.buildOrders();
 		model.addAttribute("products", products);
 		model.addAttribute("cartSize",orderService.getCartSize());
-		return "/index";
+		return "index";
 	}
 	
 	@RequestMapping("/blogspage")
@@ -64,7 +64,7 @@ public class BlogController extends WebController{
 		model.addAttribute("blogspage", this.blogService.getBlogs());
 		model.addAttribute("productsblog", this.productService.getProducts());
 		model.addAttribute("cartSize",orderService.getCartSize());
-		return "/blog";
+		return "blog";
 	}
 	
 	@RequestMapping("/blog/{id}")
@@ -75,7 +75,7 @@ public class BlogController extends WebController{
 		model.addAttribute("popularblogs", this.blogService.getBlogs());
 		model.addAttribute("productsblog", this.productService.getProducts());
 		model.addAttribute("cartSize",orderService.getCartSize());
-		return "/singleBlog";
+		return "singleBlog";
 	}
 	
 	@RequestMapping("/deleteBlog/{id}")
@@ -98,7 +98,7 @@ public class BlogController extends WebController{
 		List<Blog> blogs = this.blogService.search(key);
 		model.addAttribute("blogspage", blogs);
 		model.addAttribute("cartSize",orderService.getCartSize());
-		return "/blog";
+		return "blog";
 	}
 	
 	@RequestMapping("/randomBlog")
@@ -111,7 +111,7 @@ public class BlogController extends WebController{
 		model.addAttribute("popularblogs", this.blogService.getBlogs());
 		model.addAttribute("productsblog", this.productService.getProducts());
 		model.addAttribute("cartSize",orderService.getCartSize());
-		return "/singleBlog";
+		return "singleBlog";
 	}
 	
 }

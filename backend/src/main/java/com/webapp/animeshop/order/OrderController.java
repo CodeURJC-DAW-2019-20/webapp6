@@ -47,7 +47,7 @@ public class OrderController extends WebController{
 		model.addAttribute("empty", !empty);
 		model.addAttribute("user", user);
 		model.addAttribute("cartSize",orderService.getCartSize());
-		return "/cart";
+		return "cart";
 	}
     
     @PostMapping(value="/addFromProduct/{id}")
@@ -97,7 +97,7 @@ public class OrderController extends WebController{
     	model.addAttribute("order", order);
     	model.addAttribute("user",user);
     	model.addAttribute("cartSize",orderService.getCartSize());
-		return "/checkout";
+		return "checkout";
     }
     
     @RequestMapping("/confirmation")
@@ -118,7 +118,7 @@ public class OrderController extends WebController{
     	model.addAttribute("user",user);
     	model.addAttribute("billing", billing_address);
     	model.addAttribute("cartSize",orderService.getCartSize());
-		return "/confirmation";
+		return "confirmation";
     }
     
     /*
