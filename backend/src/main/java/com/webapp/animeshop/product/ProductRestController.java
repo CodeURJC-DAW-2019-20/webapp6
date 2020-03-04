@@ -1,5 +1,7 @@
 package com.webapp.animeshop.product;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -73,5 +76,18 @@ public class ProductRestController {
 	public List<Product> searchProduct(@RequestParam String key) {
 		return this.productService.search(key);
 	}
-
+	
+	@GetMapping("/recommendations")
+	public List<Product> showRec(){
+		String franchise = this.productService.showRecommendations();
+		List<Product> auxList = this.productRepository.findByFranchise(franchise);
+		int cont = 5;
+		LinkedList<Product> list = new LinkedList<>();
+		while(!auxList.isEmpty() && cont > 0) {
+			int rand = (int) (Math.random() * auxList.size());
+			list.add(auxList.remove(rand));
+			cont--;
+		}
+		return list;
+	}
 }

@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 import com.webapp.animeshop.blog.BlogRepository;
 import com.webapp.animeshop.order.Order;
 import com.webapp.animeshop.order.OrderRepository;
+import com.webapp.animeshop.user.User;
+import com.webapp.animeshop.user.UserComponent;
 
 @Service
 public class ProductService {
@@ -25,6 +27,9 @@ public class ProductService {
 	
 	@Autowired
 	private BlogRepository blogRepository;
+	
+	@Autowired
+	private UserComponent userSession;
 	
 	@Autowired
 	public ProductService(ProductRepository productRepository) {
@@ -154,6 +159,47 @@ public class ProductService {
 			nByDistributor.put(distributors.get(i),this.productRepository.findDistributorNumber(distributors.get(i)));
 		}
 		return nByDistributor;
+	}
+	
+	public String showRecommendations() {
+		HashMap<String, Integer> mostOrdered = new HashMap<>();
+		Integer max = 0;
+		String maxFranchise = "";
+		User user = userSession.getLoggedUser();
+		List<Order> orderList;
+		if (user == null) {
+			List<Product> productList = productRepository.findAll();
+			Integer rand = (int) (Math.random() * productList.size());
+			maxFranchise = productList.get(rand).getFranchise();
+			//maxFranchise = "Naruto";
+		} else {
+			orderList = (List<Order>) user.getOrderList();
+			if(orderList.get(orderList.size() - 1).getProductList().isEmpty()) {
+				List<Product> productList = productRepository.findAll();
+				Integer rand = (int) (Math.random() * productList.size());
+				maxFranchise = productList.get(rand).getFranchise();
+				return maxFranchise;
+			}
+			for (Order order : orderList) {
+				List<ProductAmount> productList = order.getProductList();
+				for (ProductAmount po : productList) {
+					String franchise = po.getProduct().getFranchise();
+					Integer aux = mostOrdered.get(franchise);
+					if (aux == null) {
+						mostOrdered.put(franchise, po.getAmount());
+					} else {
+						mostOrdered.put(franchise, aux + po.getAmount());
+					}
+					if (mostOrdered.get(franchise) > max) {
+						max = mostOrdered.get(franchise);
+						maxFranchise = franchise;
+					}
+				}
+			}
+		}
+		return maxFranchise;
+
+		// maxFranchise is the most purchased franchise
 	}
 
 }

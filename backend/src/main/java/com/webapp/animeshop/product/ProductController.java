@@ -40,43 +40,7 @@ public class ProductController extends WebController {
 	private ImageService imageService;
 
 	private String showRecommendations() {
-		HashMap<String, Integer> mostOrdered = new HashMap<>();
-		Integer max = 0;
-		String maxFranchise = "";
-		User user = userSession.getLoggedUser();
-		List<Order> orderList;
-		if (user == null) {
-			List<Product> productList = productRepository.findAll();
-			Integer rand = (int) (Math.random() * productList.size());
-			maxFranchise = productList.get(rand).getFranchise();
-			//maxFranchise = "Naruto";
-		} else {
-			orderList = (List<Order>) user.getOrderList();
-			if(orderList.isEmpty()) {
-				List<Product> productList = productRepository.findAll();
-				Integer rand = (int) (Math.random() * productList.size());
-				maxFranchise = productList.get(rand).getFranchise();
-				return maxFranchise;
-			}
-			for (Order order : orderList) {
-				List<ProductAmount> productList = order.getProductList();
-				for (ProductAmount po : productList) {
-					String franchise = po.getProduct().getFranchise();
-					Integer aux = mostOrdered.get(franchise);
-					if (aux == null) {
-						mostOrdered.put(franchise, po.getAmount());
-					} else {
-						mostOrdered.put(franchise, aux + po.getAmount());
-					}
-					if (mostOrdered.get(franchise) > max) {
-						max = mostOrdered.get(franchise);
-						maxFranchise = franchise;
-					}
-				}
-			}
-		}
-		return maxFranchise;
-
+		return this.productService.showRecommendations();
 		// maxFranchise is the most purchased franchise
 	}
 
