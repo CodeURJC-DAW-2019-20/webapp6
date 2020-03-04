@@ -39,7 +39,10 @@ public class UserRestController {
 	
 	@GetMapping("/currentuser")
 	public User getCurrentUser() {
-		return userComponent.getLoggedUser();
+		User user = userComponent.getLoggedUser();
+		if(user!=null)
+			user = userRepository.findByName(user.getName());
+		return user;
 	}
 	
 	@GetMapping("/users")

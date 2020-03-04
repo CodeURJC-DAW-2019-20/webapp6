@@ -61,37 +61,85 @@ public class OrderRestController {
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-	public void deleteItem(@PathVariable long id) {
+	public void deleteProduct(@PathVariable long id) {
 		pAmountRepository.deleteById(id);
 	}
 	
-	@RequestMapping(method = RequestMethod.POST)
-	public ResponseEntity<Order> addProduct(@RequestBody ProductAmount pAmount/*, @PathVariable int qt*/) {
+	@RequestMapping(value = "/{id}/{pid}", method = RequestMethod.DELETE)
+	public ResponseEntity<Order> deleteProduct_Aux(@PathVariable long id, @PathVariable long pid) {
 		User user = userComponent.getLoggedUser();
-		user = userRepository.findByName(user.getName());
-//		if(this.orderRepository.findById(id)==null)
-//			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		if(user!=null)
+			user = userRepository.findByName(user.getName());
+		if(this.orderRepository.findById(id)==null)
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		if((this.orderRepository.findById(id).getUser()==null && user!=null) || (this.orderRepository.findById(id)!=null && user==null && this.orderRepository.findById(id).getUser()!=null))
+			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+		//this.orderService.buildOrders();
+		Order order;
+		if(user==null)
+			order = this.orderRepository.findNotRelated();
+		else
+			order = this.orderRepository.findById(id);
+		if(user!=null && order.getUser().getId()!=user.getId())
+			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+		if(order.getStatus()!=null)
+			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+		ProductAmount pAmount = this.pAmountRepository.findById(pid);
+    	if(pAmountRepository.findById(pid)==null)
+    		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    	if(pAmountRepository.findById(pAmount.getId()).getOrder().getId()!=order.getId())
+    		return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+    	pAmountRepository.deleteById(pid);
+    	order.setTotal();
+    	this.orderRepository.save(order);
+		return new ResponseEntity<>(order, HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/{id}",method = RequestMethod.POST)
+	public ResponseEntity<Order> addProduct(@PathVariable long id, @RequestBody ProductAmount pAmount/*, @PathVariable int qt*/) {
+		User user = userComponent.getLoggedUser();
+		if(user!=null)
+			user = userRepository.findByName(user.getName());
+		if(this.orderRepository.findById(id)==null)
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		if((this.orderRepository.findById(id).getUser()==null && user!=null) || (this.orderRepository.findById(id)!=null && user==null && this.orderRepository.findById(id).getUser()!=null))
+			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
 		this.orderService.buildOrders();
 		Order order;
 		if(user==null)
 			order = this.orderRepository.findNotRelated();
 		else
-			order = user.getOrderList().get(user.getOrderList().size()-1);
-//    	order.setUser(user);
-//    	this.orderRepository.saveAndFlush(order);
+			order = this.orderRepository.findById(id);
+		if(user!=null && order.getUser().getId()!=user.getId())
+			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+		if(order.getStatus()!=null)
+			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
     	if(productRepository.findById(pAmount.getProduct().getId())==null)
     		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     	this.orderService.addProductToOrder(order.getId(), pAmount.getProduct().getId(), pAmount.getAmount());
-		//pAmount.setTotal(pAmount.getAmount(), pAmount.getProduct().getPrice());
-		//pAmountRepository.saveAndFlush(pAmount);
 		return new ResponseEntity<>(order, HttpStatus.OK);
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
 	public ResponseEntity<Order> updateProduct(@PathVariable long id, @RequestBody ProductAmount pAmount/*, @PathVariable int qt*/) {
+		User user = userComponent.getLoggedUser();
+		if(user!=null)
+			user = userRepository.findByName(user.getName());
 		if(this.orderRepository.findById(id)==null)
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-    	Order order = this.orderRepository.findById(id);
+		if((this.orderRepository.findById(id).getUser()==null && user!=null) || (this.orderRepository.findById(id)!=null && user==null && this.orderRepository.findById(id).getUser()!=null))
+			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+		Order order;
+		if(user==null)
+			order = this.orderRepository.findNotRelated();
+		else
+			order = this.orderRepository.findById(id);
+		if(user!=null && order.getUser().getId()!=user.getId())
+			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+		if(order.getStatus()!=null)
+			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+		if(pAmountRepository.findById(pAmount.getId()).getOrder().getId()!=order.getId())
+    		return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
     	if(pAmountRepository.findById(pAmount.getId())==null)
     		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     	this.orderService.updateProduct(order.getId(), pAmount.getId(), pAmount.getAmount());
