@@ -67,14 +67,14 @@ public class OrderRestController {
 	}
 	
 	@RequestMapping(value = "/{id}/{pid}", method = RequestMethod.DELETE)
-	public ResponseEntity<Order> deleteProduct_Aux(@PathVariable long id, @PathVariable long pid) {
+	public ResponseEntity<?> deleteProduct_Aux(@PathVariable long id, @PathVariable long pid) {
 		User user = userComponent.getLoggedUser();
 		if(user!=null)
 			user = userRepository.findByName(user.getName());
 		if(this.orderRepository.findById(id)==null)
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			return new ResponseEntity<>("This order does not exist", HttpStatus.NOT_FOUND);
 		if((this.orderRepository.findById(id).getUser()==null && user!=null) || (this.orderRepository.findById(id)!=null && user==null && this.orderRepository.findById(id).getUser()!=null))
-			return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+			return new ResponseEntity<>("This order ID does not correspond to actual user", HttpStatus.FORBIDDEN);
 		//this.orderService.buildOrders();
 		Order order;
 		if(user==null)
@@ -82,14 +82,14 @@ public class OrderRestController {
 		else
 			order = this.orderRepository.findById(id);
 		if(user!=null && order.getUser().getId()!=user.getId())
-			return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+			return new ResponseEntity<>("This user does not contains this order", HttpStatus.FORBIDDEN);
 		if(order.getStatus()!=null)
-			return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+			return new ResponseEntity<>("This order is already completed", HttpStatus.FORBIDDEN);
 		ProductAmount pAmount = this.pAmountRepository.findById(pid);
     	if(pAmountRepository.findById(pid)==null)
-    		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    		return new ResponseEntity<>("This product does not exist in any order", HttpStatus.NOT_FOUND);
     	if(pAmountRepository.findById(pAmount.getId()).getOrder().getId()!=order.getId())
-    		return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+    		return new ResponseEntity<>("This order does ont contains this product", HttpStatus.FORBIDDEN);
     	pAmountRepository.deleteById(pid);
     	order.setTotal();
     	this.orderRepository.save(order);
