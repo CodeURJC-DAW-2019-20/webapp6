@@ -1,5 +1,6 @@
 package com.webapp.animeshop.order;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -73,7 +74,7 @@ public class OrderRestController {
 		if(this.orderRepository.findById(id)==null)
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		if((this.orderRepository.findById(id).getUser()==null && user!=null) || (this.orderRepository.findById(id)!=null && user==null && this.orderRepository.findById(id).getUser()!=null))
-			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+			return new ResponseEntity<>(HttpStatus.FORBIDDEN);
 		//this.orderService.buildOrders();
 		Order order;
 		if(user==null)
@@ -81,14 +82,14 @@ public class OrderRestController {
 		else
 			order = this.orderRepository.findById(id);
 		if(user!=null && order.getUser().getId()!=user.getId())
-			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+			return new ResponseEntity<>(HttpStatus.FORBIDDEN);
 		if(order.getStatus()!=null)
-			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+			return new ResponseEntity<>(HttpStatus.FORBIDDEN);
 		ProductAmount pAmount = this.pAmountRepository.findById(pid);
     	if(pAmountRepository.findById(pid)==null)
     		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     	if(pAmountRepository.findById(pAmount.getId()).getOrder().getId()!=order.getId())
-    		return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+    		return new ResponseEntity<>(HttpStatus.FORBIDDEN);
     	pAmountRepository.deleteById(pid);
     	order.setTotal();
     	this.orderRepository.save(order);
@@ -103,7 +104,7 @@ public class OrderRestController {
 		if(this.orderRepository.findById(id)==null)
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		if((this.orderRepository.findById(id).getUser()==null && user!=null) || (this.orderRepository.findById(id)!=null && user==null && this.orderRepository.findById(id).getUser()!=null))
-			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+			return new ResponseEntity<>(HttpStatus.FORBIDDEN);
 		this.orderService.buildOrders();
 		Order order;
 		if(user==null)
@@ -111,9 +112,9 @@ public class OrderRestController {
 		else
 			order = this.orderRepository.findById(id);
 		if(user!=null && order.getUser().getId()!=user.getId())
-			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+			return new ResponseEntity<>(HttpStatus.FORBIDDEN);
 		if(order.getStatus()!=null)
-			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+			return new ResponseEntity<>(HttpStatus.FORBIDDEN);
     	if(productRepository.findById(pAmount.getProduct().getId())==null)
     		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     	this.orderService.addProductToOrder(order.getId(), pAmount.getProduct().getId(), pAmount.getAmount());
@@ -128,18 +129,18 @@ public class OrderRestController {
 		if(this.orderRepository.findById(id)==null)
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		if((this.orderRepository.findById(id).getUser()==null && user!=null) || (this.orderRepository.findById(id)!=null && user==null && this.orderRepository.findById(id).getUser()!=null))
-			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+			return new ResponseEntity<>(HttpStatus.FORBIDDEN);
 		Order order;
 		if(user==null)
 			order = this.orderRepository.findNotRelated();
 		else
 			order = this.orderRepository.findById(id);
 		if(user!=null && order.getUser().getId()!=user.getId())
-			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+			return new ResponseEntity<>(HttpStatus.FORBIDDEN);
 		if(order.getStatus()!=null)
-			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+			return new ResponseEntity<>(HttpStatus.FORBIDDEN);
 		if(pAmountRepository.findById(pAmount.getId()).getOrder().getId()!=order.getId())
-    		return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+    		return new ResponseEntity<>(HttpStatus.FORBIDDEN);
     	if(pAmountRepository.findById(pAmount.getId())==null)
     		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     	this.orderService.updateProduct(order.getId(), pAmount.getId(), pAmount.getAmount());
@@ -148,32 +149,61 @@ public class OrderRestController {
 		return new ResponseEntity<>(order, HttpStatus.OK);
 	}
 	
-	@RequestMapping(method = RequestMethod.PUT)
-	//public ResponseEntity<User> confirmation(@RequestBody List<Address> json) throws Exception{
-	public ResponseEntity<User> confirmation(@PathVariable String shippingname, @PathVariable String lastname,
-			@PathVariable String company, @PathVariable String number, @PathVariable String email, 
-			@PathVariable String street, @PathVariable String floor, @PathVariable String city,
-			@PathVariable String country, @PathVariable String zipcode, @PathVariable String shippingname2, @PathVariable String lastname2,
-			@PathVariable String company2, @PathVariable String number2, @PathVariable String email2, 
-			@PathVariable String street2, @PathVariable String floor2, @PathVariable String city2,
-			@PathVariable String country2, @PathVariable String zipcode2) throws Exception{
+	@RequestMapping(value = "/{id}/confirmation", method = RequestMethod.PUT)
+	public ResponseEntity<List<Object>> confirmation(@RequestBody (required = false) List <Address> dirs, @PathVariable long id) throws Exception{
     	User user = userComponent.getLoggedUser();
-    	Address billing_address = new Address(shippingname, lastname, company, number, email, street, floor, city, country, zipcode);
-    	Address delivery = new Address(shippingname2, lastname2, company2, number2, email2, street2, floor2, city2, country2, zipcode2);
-    	if(billing_address == null || delivery == null) {
+    	Address billing_address = new Address();
+    	Address delivery_address = new Address();
+    	Order orderaux;
+    	List<Object> response = new ArrayList<>();
+    	
+    	if(user!=null)
+			user = userRepository.findByName(user.getName());
+    	
+    	if(this.orderRepository.findById(id)==null)
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    	
+    	if((this.orderRepository.findById(id).getUser()==null && user!=null) || (this.orderRepository.findById(id)!=null && user==null && this.orderRepository.findById(id).getUser()!=null))
+			return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+    	
+    	if(user == null)
+    		return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+    	
+    	orderaux = orderRepository.findById(id);
+    	if(user!=null && orderaux.getUser().getId()!=user.getId())
+			return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+    	
+    	if(orderaux.getStatus()!=null)
+			return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+    	
+    	if(orderaux.getProductList().isEmpty())
+    		return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+    	
+    	if(dirs == null) {
+    		billing_address = user.getDelivery();
+    		delivery_address = user.getDelivery();
+    	} else {
+    		billing_address = new Address(dirs.get(1));
+    		delivery_address = new Address(dirs.get(0));
+    	}
+    	if(billing_address == null || delivery_address == null) {
     		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     	}
-    	Order order = this.orderService.confirmOrder(delivery, billing_address, delivery.getName());
-    	//this.orderService.sendEmail(user, order, billing_address);
+    	//Order order1 = orderRepository.findById(id);
+    	Order order = this.orderService.confirmOrder(delivery_address, billing_address, delivery_address.getName());
+    	this.orderService.sendEmail(user, order, billing_address);
     	OrderMetrics lastMetrics = this.orderMetricsRepository.findAll().get(this.orderMetricsRepository.findAll().size()-1);
     	OrderMetrics orderMetrics = new OrderMetrics(lastMetrics);
     	orderMetrics.newOrder(order);
     	this.orderMetricsRepository.save(orderMetrics);
     	this.orderService.buildOrders();
-    	return new ResponseEntity<>(user, HttpStatus.OK);
+    	response.add(order);
+    	response.add(delivery_address);
+    	response.add(billing_address);
+    	return new ResponseEntity<>(response, HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/confirmation", method = RequestMethod.POST)
+	/*@RequestMapping(value = "/confirmation", method = RequestMethod.POST)
 	public ResponseEntity<User> confirmation() throws Exception{
     	User user = userComponent.getLoggedUser();
     	if(user.getDelivery() == null) {
@@ -187,6 +217,6 @@ public class OrderRestController {
     	this.orderMetricsRepository.save(orderMetrics);
     	this.orderService.buildOrders();
     	return new ResponseEntity<>(user, HttpStatus.OK);
-	}
+	}*/
 
 }
