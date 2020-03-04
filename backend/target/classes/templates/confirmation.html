@@ -1,0 +1,169 @@
+{{>header}}
+<meta charset="UTF-8">
+	<!-- ================ start banner area ================= 	
+	<section class="blog-banner-area" id="category">
+		<div class="container h-100">
+			<div class="blog-banner">
+				<div class="text-center">
+					<h1>Order Confirmation</h1>
+					<nav aria-label="breadcrumb" class="banner-breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Shop Category</li>
+            </ol>
+          </nav>
+				</div>
+			</div>
+    </div>
+	</section>
+	 ================ end banner area ================= -->
+  
+  <!--================Order Details Area =================-->
+  <section class="order_details section-margin--small">
+    <div class="container">
+    {{#order}}
+      <p class="text-center billing-alert">Gracias. Tu pedido ha sido recibido.</p>
+      <div class="row mb-5">
+        <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
+          <div class="confirmation-card">
+            <h3 class="billing-title">Información del pedido</h3>
+            <table class="order-rable">
+              <tr>
+                <td>Número del pedido</td>
+                <td>: {{id}}</td>
+              </tr>
+              <tr>
+                <td>Fecha</td>
+                <td>: {{day}}/{{month}}/{{year}}</td>
+              </tr>
+              <tr>
+                <td>Total</td>
+                <td>: {{total}}€</td>
+              </tr>
+              <tr>
+                <td>Método de pago</td>
+                <td>: Efectivo</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
+        {{#billing}}
+          <div class="confirmation-card">
+            <h3 class="billing-title">Dirección de facturación</h3>
+            <table class="order-rable">
+              <tr>
+                <td>Calle</td>
+                <td>: {{street}}</td>
+              </tr>
+              <tr>
+                <td>Ciudad</td>
+                <td>: {{city}}</td>
+              </tr>
+              <tr>
+                <td>País</td>
+                <td>: {{country}}</td>
+              </tr>
+              <tr>
+                <td>Código postal</td>
+                <td>: {{zipcode}}</td>
+              </tr>
+            </table>
+          </div>
+        {{/billing}}
+        </div>
+        <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
+        {{#user}}
+          <div class="confirmation-card">
+            <h3 class="billing-title">Dirección de envío</h3>
+            <table class="order-rable">
+              <tr>
+                <td>Calle</td>
+                <td>: {{delivery.street}}</td>
+              </tr>
+              <tr>
+                <td>Ciudad</td>
+                <td>: {{delivery.city}}</td>
+              </tr>
+              <tr>
+                <td>País</td>
+                <td>: {{delivery.country}}</td>
+              </tr>
+              <tr>
+                <td>Código postal</td>
+                <td>: {{delivery.zipcode}}</td>
+              </tr>
+            </table>
+          </div>
+        {{/user}}
+        </div>
+      </div>
+      <div class="order_details_table">
+        <h2>Detalles del pedido</h2>
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Producto</th>
+                <th scope="col">Cantidad</th>
+                <th scope="col">Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#productList}}
+              <tr>
+                <td>
+                  <p>{{product.name}}</p>
+                </td>
+                <td>
+                  <h5>x {{amount}}</h5>
+                </td>
+                <td>
+                  <p>{{total}}€</p>
+                </td>
+              </tr>
+              {{/productList}}
+              <tr>
+                <td>
+                  <h4>Subtotal</h4>
+                </td>
+                <td>
+                  <h5></h5>
+                </td>
+                <td>
+                  <input type="hidden" id="totalCheck" name="totalCheck" value={{total}}>
+                  <p>{{total}}€</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h4>Envío</h4>
+                </td>
+                <td>
+                  <h5></h5>
+                </td>
+                <td>
+                  <input type="hidden" id="tax" name="tax" value=2.90>
+                  <p>2.90€</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h4>Total</h4>
+                </td>
+                <td>
+                  <h5></h5>
+                </td>
+                <td>
+                  <h4 id="sum"></h4>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    {{/order}}
+    </div>
+  </section>
+  <!--================End Order Details Area =================-->
+{{>footer}}

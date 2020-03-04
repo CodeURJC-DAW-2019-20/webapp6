@@ -1,0 +1,87 @@
+{{>header}}
+<meta charset="UTF-8">
+        <!--================ Hero banner start =================-->
+        <section class="hero-banner">
+        {{#user}}
+            <div class="container">
+                <div class="row no-gutters align-items-center pt-60px">
+                    <div class="col-5 d-none d-sm-block">
+                        <div class="hero-banner__img">
+                            <img class="img-fluid" src="img/user/login.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="col-sm-7 col-lg-6 offset-lg-1 pl-4 pl-md-5 pl-lg-0">
+                        <div class="hero-banner__content">
+                        <form id="new-info" action="/newInfo" method="post">
+                            <div class="col-md-6 form-group p_star">
+                            	<h5>Nombre</h5>
+                            	<input type="text" class="form-control" id="shippingname" name="shippingname" placeholder="Nombre" required value={{delivery.shippingname}}>
+                            	<span class="placeholder" data-placeholder="Name"></span>
+                        	</div>
+                            <div class="col-md-6 form-group p_star">
+                            	<h5>Apellidos</h5>
+                            	<input type="text" class="form-control" id="lastname" name="lastname" placeholder="Apellidos" required value={{delivery.lastname}}>
+                            	<span class="placeholder" data-placeholder="Lastname"></span>
+                        	</div>
+                        	<div class="col-md-6 form-group p_star">
+                        		<h5>Empresa</h5>
+                            	<input type="text" class="form-control" id="company" name="company" placeholder="Empresa" value={{delivery.company}}>
+                        	</div>
+                        	<div class="col-md-6 form-group p_star">
+                        		<h5>Número</h5>
+                            	<input type="text" class="form-control" id="number" name="number" placeholder="Teléfono" required value={{delivery.number}}>
+                            	<span class="placeholder" data-placeholder="Phone number"></span>
+                        	</div>
+                        	<div class="col-md-12 form-group p_star">
+                        		<h5>Correo electrónico</h5>
+                            	<input type="email" class="form-control" id="email" name="email" placeholder="Correo electrónico" required value={{delivery.email}}>
+                            	<span class="placeholder" data-placeholder="Email Address"></span>
+                        	</div>
+                        	<div class="col-md-12 form-group p_star">
+                        		<h5>Calle</h5>
+	                            <input type="text" class="form-control" id="add1" name="street" placeholder="Calle" required value="{{delivery.street}}">
+	                            <span class="placeholder" data-placeholder="Address line 01"></span>
+	                        </div>
+	                        <div class="col-md-6 form-group p_star">
+	                        	<h5>Piso</h5>
+	                            <input type="text" class="form-control" id="add2" name="floor" placeholder="Piso" required value={{delivery.floor}}>
+	                            <span class="placeholder" data-placeholder="Address line 02"></span>
+	                        </div>
+	                        <div class="col-md-6 form-group p_star">
+	                        	<h5>Ciudad</h5>
+	                            <input type="text" class="form-control" id="city" name="city" placeholder="Ciudad" required value={{delivery.city}}>
+	                            <span class="placeholder" data-placeholder="Town/City"></span>
+	                        </div>
+	                        <div class="col-md-6 form-group p_star">
+	                        	<h5>País</h5>
+	                            <input type="text" class="form-control" id="country" name="country" placeholder="País" required value={{delivery.country}}>
+	                            <span class="placeholder" data-placeholder="Country"></span>
+	                        </div>
+	                        <div class="col-md-6 form-group">
+	                        	<h5>Código postal</h5>
+	                            <input type="text" class="form-control" id="zip" name="zipcode" placeholder="Código postal" required value={{delivery.zipcode}}>
+	                        </div><br>
+	                        <div class="col-md-6 form-group">
+	                        	<h5>Nueva contraseña</h5>
+	                            <input type="password" id="password-edit" class="form-control" id="password" name="password" placeholder="Nueva contraseña" required>
+	                            <span data-toggle="#password-edit" class="fa fa-fw fa-eye field-icon toggle-password" onclick="showPass()"></span>
+	                        </div>
+	                        <input type="hidden" name="_csrf" value="{{token}}" />
+                            <!-- <h5>Contraseña:</h5>
+                            <input type="password" id="newpass" size="50" name="contraseña" style="margin-bottom: 30px;"
+                                placeholder="Nueva contraseña">
+                            <input type="password" id="newpass" size="50" name="contraseña" style="margin-bottom: 30px;"
+                                placeholder="Repita la nueva contraseña">-->
+
+                            <div class="row">
+                                <button type="submit" class="button button-hero" form="new-info">Actualizar</button>
+                            </div>
+                        </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {{/user}}
+        </section>
+        <!--================ Hero banner start =================-->
+{{>footer}}

@@ -1,0 +1,513 @@
+{{>header}}
+<!-- ================ start banner area ================= -->
+<section class="blog-banner-area" id="category">
+	<img src="/img/banner/akatsuki.png"
+		style="float: left; width: 100%; height: 100%; object-fit: cover; opacity: 0.3;">
+	<div class="blog-banner">
+		<div class="text-center">
+			<h1>Comprar por categor&iacute;as</h1>
+			<nav aria-label="breadcrumb" class="banner-breadcrumb">
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a>Inicio</a></li>
+					<li class="breadcrumb-item active" aria-current="page">Comprar
+						por categor&iacute;as</li>
+				</ol>
+			</nav>
+		</div>
+	</div>
+</section>
+<!-- ================ end banner area ================= -->
+
+
+<!-- ================ category section start ================= -->
+<section class="section-margin--small mb-5">
+	<div class="container">
+		<div class="row">
+			<div class="col-xl-3 col-lg-4 col-md-5">
+				<form id="filter" action="/filterProduct" method="post">
+					<div class="sidebar-categories">
+						<div class="head">Explorar categor&iacute;as</div>
+						<ul class="main-categories">
+							<li class="common-filter">
+								<ul>
+									{{#total}}
+									<li class="filter-list"><input class="pixel-radio" type="radio" id="cualquiera" name="franchise"
+										value="Cualquiera" required><label>Cualquiera<span>({{total}})</span></label></li>
+									{{/total}}
+									{{#franchises.entrySet}}
+									<li class="filter-list"><input class="pixel-radio"
+										type="radio" id="{{key}}" name="franchise" value="{{key}}"><label>{{key}}<span> ({{value}})</span>
+									</label></li>
+									{{/franchises.entrySet}}
+								</ul>
+							</li>
+						</ul>
+					</div>
+					<div class="sidebar-filter">
+						<div class="top-filter-head">Filtros de productos</div>
+						<div class="common-filter">
+							<div class="head">Distribuidores</div>
+							<ul>
+								{{#total}}
+								<li class="filter-list"><input class="pixel-radio"
+									type="radio" id="banpresto" name="distributor"
+									value="Cualquiera" required><label>Cualquiera<span>({{total}})</span></label></li>
+								{{/total}}
+								{{#distributors.entrySet}}
+								<li class="filter-list"><input class="pixel-radio"
+									type="radio" id="{{key}}" name="distributor" value="{{key}}"><label>{{key}}<span>({{value}})</span></label></li>
+								{{/distributors.entrySet}}
+							</ul>
+						</div>
+						<div class="common-filter">
+							<div class="head">Tama&ntilde;o</div>
+							<ul>
+								<li class="filter-list w-50">Ancho<input
+									class="form-control" type="number" id="width" name="width"
+									value="150"></li>
+								<li class="filter-list w-50">Alto<input
+									class="form-control" type="number" id="height" name="height"
+									value="150"></li>
+							</ul>
+						</div>
+						<div class="common-filter">
+							<div class="head">Precio</div>
+							<ul>
+								<li class="filter-list w-50">Min<input type="number"
+									class="form-control" min="0" name="min_price" value="0" /></li>
+								<li class="filter-list w-50">Max<input type="number"
+									class="form-control" min="0" name="max_price" value="5000" /></li>
+							</ul>
+						</div>
+						<div class="common-filter">
+							<div class="head">Búsqueda</div>
+							<ul>
+								<li class="filter-list"><button type="submit"
+										class="add-product" form="filter">Aplicar</button></li>
+							</ul>
+						</div>
+					</div>
+					<input type="hidden" name="_csrf" value="{{token}}" />
+				</form>
+			</div>
+			<div class="col-xl-9 col-lg-8 col-md-7">
+				<!-- Start Filter Bar -->
+				<div class="filter-bar d-flex flex-wrap align-items-center">
+					<div class="sorting">
+						<form id="sort" action="/sortBy" method="post">
+							<select onchange="this.form.submit()" name="value">
+								<option value="Default">Orden predeterminado</option>
+								<option value="Desc">Precio mayor - menor</option>
+								<option value="Asc">Precio menor - mayor</option>
+							</select> <input type="hidden" name="_csrf" value="{{token}}" />
+						</form>
+					</div>
+					<!-- <div class="sorting mr-auto">
+						<select>
+							<option value="1">Mostrar 12</option>
+							<option value="1">Mostrar 24</option>
+							<option value="1">Mostrar 48</option>
+						</select>
+					</div> -->
+					<div class="sorting mr-auto">
+						{{#admin}}
+						<button class="add-product" data-toggle="modal"
+							data-target="#exampleModal">A&ntilde;adir +</button>
+						{{/admin}}
+						<div class="modal fade bd-example-modal-lg" id="exampleModal"
+							tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+							aria-hidden="true">
+							<div class="modal-dialog modal-dialog-centered modal-lg"
+								role="document">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h5 class="modal-title" id="exampleModalLabel">Nuevo
+											producto</h5>
+										<button type="button" class="close" data-dismiss="modal"
+											aria-label="Close">
+											<span aria-hidden="true">&times;</span>
+										</button>
+									</div>
+									<div class="modal-body">
+										<form id="newProduct" action="addProduct" method="post"
+											enctype="multipart/form-data">
+											<div class="form-group">
+												<label class="col-form-label">Nombre:</label> <input
+													type="text" class="form-control" name="name" required>
+												<div class="form-row mb-4">
+													<div class="col">
+														<label class="col-form-label">Franquicia:</label> <input
+															type="text" class="form-control" name="franchise"
+															required>
+													</div>
+													<div class="col">
+														<label class="col-form-label">Precio:</label> <input
+															type="text" class="form-control" name="price" required><br>
+													</div>
+													<div class="col">
+														<label class="col-form-label">Stock:</label> <input
+															type="text" class="form-control" name="stock" required><br>
+													</div>
+												</div>
+												<label class="col-form-label">Descripci&oacute;n:</label>
+												<textarea class="form-control" name="description" required></textarea>
+												<div class="form-row mb-4">
+													<div class="col">
+														<label class="col-form-label">Anchura:</label> <input
+															type="number" class="form-control" name="width" required>
+													</div>
+													<div class="col">
+														<label class="col-form-label">Altura:</label> <input
+															type="number" class="form-control" name="height" required>
+													</div>
+													<div class="col">
+														<label class="col-form-label">Peso:</label> <input
+															type="number" class="form-control" name="weight" required>
+													</div>
+												</div>
+												<div class="form-row mb-4">
+													<div class="col">
+														<label class="col-form-label">Distribuidor:</label> <input
+															type="text" class="form-control" name="distributor"
+															required>
+													</div>
+													<div class="col">
+														<label class="col-form-label">Referencia:</label> <input
+															type="text" class="form-control" name="reference"
+															required>
+													</div>
+												</div>
+												<!-- <div class="form-row mb-4">
+									            	<div class="col">
+									            		<label class="col-form-label">Imagen:</label>
+									            		<input type="file" name='imageFile' value="" accept=".jpg, jpeg">
+									            	</div>
+									            </div>-->
+												<input type="hidden" name="_csrf" value="{{token}}" />
+											</div>
+										</form>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="close-submit-product"
+											data-dismiss="modal">Cerrar</button>
+										<button type="submit" class="submit-product" form="newProduct">Enviar</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div>
+						<form action="/search" method="post">
+							<div class="input-group filter-bar-search">
+								<input type="text" placeholder="Buscar" name="key">
+								<div class="input-group-append">
+									<button type="button">
+										<i class="ti-search"></i>
+									</button>
+								</div>
+								<input type="hidden" name="_csrf" value="{{token}}" />
+							</div>
+						</form>
+					</div>
+				</div>
+				<!-- End Filter Bar -->
+				<!-- Start Best Seller -->
+				<section class="lattest-product-area pb-40 category-list">
+					<div class="row">
+						{{#products}}
+						<div class="col-md-6 col-lg-4" id="products">
+							<div class="card text-center card-product">
+								<div class="card-product__img">
+									<img class="card-img" src="{{image}}" alt="">
+									<ul class="card-product__imgOverlay">
+										<li><button onclick="location.href='/product/{{id}}'">
+												<i class="ti-search"></i>
+											</button></li>
+										<li>
+											<form action="/addFromProduct/{{id}}" method="post">
+												<button id="add">
+													<i class="ti-shopping-cart"></i>
+												</button>
+												<input type="hidden" name="qt" id="qt" value=1 /> <input
+													type="hidden" name="_csrf" value="{{token}}" />
+											</form>
+										</li>
+									</ul>
+									{{#admin}}
+									<form method="post" action="/deleteProduct/{{id}}">
+										<ul class="card-product-remove__imgOverlay">
+											<li><button>
+													<i class="ti-trash"></i>
+												</button> <input type="hidden" name="_csrf" value="{{token}}" /></li>
+										</ul>
+									</form>
+									{{/admin}}
+								</div>
+								<div class="card-body">
+									<p>{{franchise}}</p>
+									<h4 class="card-product__title">
+										<a href="/product/{{id}}">{{name}}</a>
+									</h4>
+									<p class="card-product__price">{{price}}&euro;</p>
+								</div>
+							</div>
+						</div>
+						{{/products}}
+						<!-- <div class="col-md-6 col-lg-4">
+                <div class="card text-center card-product">
+                  <div class="card-product__img">
+                    <img class="card-img" src="img/product/product2.png" alt="">
+                    <ul class="card-product__imgOverlay">
+                      <li><button><i class="ti-search"></i></button></li>
+                      <li><button><i class="ti-shopping-cart"></i></button></li>
+                    </ul>
+                  </div>
+                  <div class="card-body">
+                    <p>Beauty</p>
+                    <h4 class="card-product__title"><a href="#">Women Freshwash</a></h4>
+                    <p class="card-product__price">$150.00</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-4">
+                <div class="card text-center card-product">
+                  <div class="card-product__img">
+                    <img class="card-img" src="img/product/product3.png" alt="">
+                    <ul class="card-product__imgOverlay">
+                      <li><button><i class="ti-search"></i></button></li>
+                      <li><button><i class="ti-shopping-cart"></i></button></li>
+                    </ul>
+                  </div>
+                  <div class="card-body">
+                    <p>Decor</p>
+                    <h4 class="card-product__title"><a href="#">Room Flash Light</a></h4>
+                    <p class="card-product__price">$150.00</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-4">
+                <div class="card text-center card-product">
+                  <div class="card-product__img">
+                    <img class="card-img" src="img/product/product4.png" alt="">
+                    <ul class="card-product__imgOverlay">
+                      <li><button><i class="ti-search"></i></button></li>
+                      <li><button><i class="ti-shopping-cart"></i></button></li>
+                    </ul>
+                  </div>
+                  <div class="card-body">
+                    <p>Decor</p>
+                    <h4 class="card-product__title"><a href="#">Room Flash Light</a></h4>
+                    <p class="card-product__price">$150.00</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-4">
+                <div class="card text-center card-product">
+                  <div class="card-product__img">
+                    <img class="card-img" src="img/product/product5.png" alt="">
+                    <ul class="card-product__imgOverlay">
+                      <li><button><i class="ti-search"></i></button></li>
+                      <li><button><i class="ti-shopping-cart"></i></button></li>
+                    </ul>
+                  </div>
+                  <div class="card-body">
+                    <p>Accessories</p>
+                    <h4 class="card-product__title"><a href="#">Man Office Bag</a></h4>
+                    <p class="card-product__price">$150.00</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-4">
+                <div class="card text-center card-product">
+                  <div class="card-product__img">
+                    <img class="card-img" src="img/product/product6.png" alt="">
+                    <ul class="card-product__imgOverlay">
+                      <li><button><i class="ti-search"></i></button></li>
+                      <li><button><i class="ti-shopping-cart"></i></button></li>
+                    </ul>
+                  </div>
+                  <div class="card-body">
+                    <p>Kids Toy</p>
+                    <h4 class="card-product__title"><a href="#">Charging Car</a></h4>
+                    <p class="card-product__price">$150.00</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-4">
+                <div class="card text-center card-product">
+                  <div class="card-product__img">
+                    <img class="card-img" src="img/product/product7.png" alt="">
+                    <ul class="card-product__imgOverlay">
+                      <li><button><i class="ti-search"></i></button></li>
+                      <li><button><i class="ti-shopping-cart"></i></button></li>
+                    </ul>
+                  </div>
+                  <div class="card-body">
+                    <p>Accessories</p>
+                    <h4 class="card-product__title"><a href="#">Blutooth Speaker</a></h4>
+                    <p class="card-product__price">$150.00</p>
+                  </div> 
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-4">
+                <div class="card text-center card-product">
+                  <div class="card-product__img">
+                    <img class="card-img" src="img/product/product8.png" alt="">
+                    <ul class="card-product__imgOverlay">
+                      <li><button><i class="ti-search"></i></button></li>
+                      <li><button><i class="ti-shopping-cart"></i></button></li>
+                    </ul>
+                  </div>
+                  <div class="card-body">
+                    <p>Kids Toy</p>
+                    <h4 class="card-product__title"><a href="#">Charging Car</a></h4>
+                    <p class="card-product__price">$150.00</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-4">
+                <div class="card text-center card-product">
+                  <div class="card-product__img">
+                    <img class="card-img" src="img/product/product1.png" alt="">
+                    <ul class="card-product__imgOverlay">
+                      <li><button><i class="ti-search"></i></button></li>
+                      <li><button><i class="ti-shopping-cart"></i></button></li>
+                    </ul>
+                  </div>
+                  <div class="card-body">
+                    <p>Accessories</p>
+                    <h4 class="card-product__title"><a href="#">Quartz Belt Watch</a></h4>
+                    <p class="card-product__price">$150.00</p>
+                  </div>
+                </div>
+              </div> -->
+					</div>
+				</section>
+				<!-- End Best Seller -->
+			</div>
+		</div>
+	</div>
+</section>
+<!-- ================ category section end ================= -->
+
+<!-- ================ top product area start ================= -->
+<section class="related-product-area">
+	<div class="container">
+		<!-- <div class="section-intro pb-60px">
+			<p>Popular Item in the market</p>
+			<h2>
+				Top <span class="section-intro__style">Product</span>
+			</h2>
+		</div>
+		<div class="row mt-30">
+			<div class="col-sm-6 col-xl-3 mb-4 mb-xl-0">
+				{{#list}}
+				<div class="single-search-product-wrapper">
+					<div class="single-search-product d-flex">
+						<a href="#"><img src="{{image}}" alt=""></a>
+						<div class="desc">
+							<a href="#" class="title">{{name}}<</a>
+							<div class="price">${{price}}</div>
+						</div>
+					</div>
+				</div>
+				{{/list}}
+			</div> -->
+			<section class="section-margin calc-60px">
+				<div class="container">
+					<div class="section-intro pb-60px">
+						<p>Figuras populares de la tienda</p>
+						<h2>
+							Figuras <span class="section-intro__style">recomendadas</span>
+						</h2>
+					</div>
+					<div class="owl-carousel owl-theme" id="bestSellerCarousel">
+						{{#list}}
+						<div class="card text-center card-product">
+							<div class="card-product__img">
+								<img class="img-fluid" src="{{image}}" alt="">
+								<ul class="card-product__imgOverlay">
+									<li><button onclick="location.href='/product/{{id}}'">
+											<i class="ti-search"></i>
+										</button></li>
+									<li><button>
+											<i class="ti-shopping-cart"></i>
+										</button></li>
+								</ul>
+							</div>
+							<div class="card-body">
+								<p>{{franchise}}</p>
+								<h4 class="card-product__title">
+									<a href="/product/{{id}}">{{name}}</a>
+								</h4>
+								<p class="card-product__price">{{price}}€</p>
+							</div>
+						</div>
+						{{/list}}
+					</div>
+				</div>
+			</section>
+
+			<!--  <div class="col-sm-6 col-xl-3 mb-4 mb-xl-0">
+          <div class="single-search-product-wrapper">
+            <div class="single-search-product d-flex">
+              <a href="#"><img src="img/product/product-sm-7.png" alt=""></a>
+              <div class="desc">
+                  <a href="#" class="title">Gray Coffee Cup</a>
+                  <div class="price">$170.00</div>
+              </div>
+            </div>
+            <div class="single-search-product d-flex">
+              <a href="#"><img src="img/product/product-sm-8.png" alt=""></a>
+              <div class="desc">
+                <a href="#" class="title">Gray Coffee Cup</a>
+                <div class="price">$170.00</div>
+              </div>
+            </div>
+            <div class="single-search-product d-flex">
+              <a href="#"><img src="img/product/product-sm-9.png" alt=""></a>
+              <div class="desc">
+                <a href="#" class="title">Gray Coffee Cup</a>
+                <div class="price">$170.00</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        -->
+
+		</div>
+	</div>
+</section>
+<!-- ================ top product area end ================= -->
+
+<!-- ================ Subscribe section start ================= -->
+<!-- <section class="subscribe-position">
+	<div class="container">
+		<div class="subscribe text-center">
+			<h3 class="subscribe__title">Ent&eacute;rate de cualquier
+				novedad</h3>
+			<p>Recibe noticias, boletines y ofertas exclusivas.</p>
+			<div id="mc_embed_signup">
+				<form target="_blank"
+					action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
+					method="get" class="subscribe-form form-inline mt-5 pt-1">
+					<div class="form-group ml-sm-auto">
+						<input class="form-control mb-1" type="email" name="EMAIL"
+							placeholder="E-mail" onfocus="this.placeholder = ''"
+							onblur="this.placeholder = 'Your Email Address '">
+						<div class="info"></div>
+					</div>
+					<button class="button button-subscribe mr-auto mb-1" type="submit">Subscribirme</button>
+					<div style="position: absolute; left: -5000px;">
+						<input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1"
+							value="" type="text">
+					</div>
+
+				</form>
+			</div>
+
+		</div>
+	</div>
+</section> -->
+<!-- ================ Subscribe section end ================= -->
+{{>footer}}

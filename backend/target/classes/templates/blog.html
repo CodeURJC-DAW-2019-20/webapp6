@@ -1,0 +1,500 @@
+{{>header}}
+<meta charset="UTF-8">
+
+  <!-- ================ start banner area ================= -->	
+  <section class="blog-banner-area" id="blog">
+    <img src="/img/banner/tokyo ghoul.png" style="float:left;width:100%;height:100%;object-fit:cover;opacity: 0.3;">
+    <div class="container h-100">
+      <div class="blog-banner">
+        <div class="text-center">
+          <h1>Nuestro Blog</h1>
+          <nav aria-label="breadcrumb" class="banner-breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Blog</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ================ end banner area ================= -->
+
+
+  <!--================Blog Categorie Area =================-->
+  <!-- <section class="blog_categorie_area">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6 col-lg-4 mb-4 mb-lg-0">
+            <div class="categories_post">
+                <img class="card-img rounded-0" src="/img/blog/cat-post/cat-post-3.jpg" alt="post">
+                <div class="categories_details">
+                    <div class="categories_text">
+                        <a href="single-blog.html">
+                            <h5>Nuestras figuras</h5>
+                        </a>
+                        <div class="border_line"></div>
+                        <p>Colecciona con nosotros</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-4 mb-4 mb-lg-0">
+          <div class="categories_post">
+            <img class="card-img rounded-0" src="/img/blog/cat-post/cat-post-2.jpg" alt="post">
+            <div class="categories_details">
+              <div class="categories_text">
+                <a href="single-blog.html">
+                    <h5>En descuento</h5>
+                </a>
+                <div class="border_line"></div>
+                <p>Ahora a un precio irresistible</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-4 mb-4 mb-lg-0">
+            <div class="categories_post">
+                <img class="card-img rounded-0" src="/img/blog/cat-post/cat-post-1.jpg" alt="post">
+                <div class="categories_details">
+                    <div class="categories_text">
+                        <a href="single-blog.html">
+                            <h5>Noticias</h5>
+                        </a>
+                        <div class="border_line"></div>
+                        <p>Enterate de toda la actualidad</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>-->
+  <!--================Blog Categorie Area =================-->
+
+  <!--================Blog Area =================-->
+  <section class="blog_area">
+      <div class="container" style="padding-top: 30px;">
+      {{#admin}}
+      <button class="add-product" data-toggle="modal" data-target="#exampleModal">A&ntilde;adir +</button>
+      {{/admin}}
+              <div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <h5 class="modal-title" id="exampleModalLabel">Nueva entrada de blog</h5>
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				          <span aria-hidden="true">&times;</span>
+				        </button>
+				      </div>
+				      <div class="modal-body">
+				        <form id="newBlog" action="addBlog" method="post">
+				          <div class="form-group">
+				            <label class="col-form-label">Título:</label>
+				            <input type="text" class="form-control" name="name">
+				            <div class="form-row mb-4">
+				            	<div class="col">
+				            		<label class="col-form-label">Autor:</label>
+				            		<input type="text" class="form-control" name="author">
+				            	</div>
+				            </div>
+				            <label class="col-form-label">Extracto:</label>
+				            <textarea class="form-control" name="text"></textarea>
+				            <label class="col-form-label">Texto completo:</label>
+				            <textarea class="form-control" name="textfull"></textarea><br>
+				            <label class="col-form-label">ID:</label>
+				            <!-- <textarea class="form-control" name="idproduct"></textarea>-->
+				            <div>
+					            <select name="idproduct" id="idproduct" onfocus='this.size=5;' onblur='this.size=1;' onchange='this.size=1; this.blur();'>
+					            	{{#productsblog}}
+									<option value={{id}}>{{name}}</option>
+									{{/productsblog}}
+								</select> 
+							</div>
+							<input type="hidden" name="_csrf" value="{{token}}" />
+				            <!--<div>
+				            	{{#productsblog}}
+				            	<p class="add-product">{{name}}, ID: {{id}}</p>
+				            	{{/productsblog}}
+				            </div> -->
+				            <input type="hidden" name="_csrf" value="{{token}}" />
+				          </div>
+				        </form>
+				      </div>
+				      <div class="modal-footer">
+				        <button type="button" class="close-submit-product" data-dismiss="modal">Cerrar</button>
+				        <button type="submit" class="submit-product" form="newBlog">Enviar</button>
+				      </div>
+				    </div>
+				  </div>
+				</div>
+          <div class="row">
+              <div class="col-lg-8">
+                  <div class="blog_left_sidebar">
+                  {{#blogspage}}
+                      <article class="row blog_item">
+                          <div class="col-md-3">
+                              <div class="blog_info text-right">
+                                  <div class="post_tag">
+                                      <a>Noticias,</a>
+                                      <a class="active" href="/products"><!-- franquicia --></a>
+                                      <a>Nueva figura</a>
+                                  </div>
+                                  <ul class="blog_meta list">
+                                      <li>
+                                          <a>{{author}}
+                                              <i class="lnr lnr-user"></i>
+                                          </a>
+                                      </li>
+                                      <li>
+                                          <a>{{day}}/{{month}}/{{year}}
+                                              <i class="lnr lnr-calendar-full"></i>
+                                          </a>
+                                      </li>
+                                      <!-- <li>
+                                          <a href="#">1.2M Visitas
+                                              <i class="lnr lnr-eye"></i>
+                                          </a>
+                                      </li>
+                                      <li>
+                                          <a href="#">06 Comentarios
+                                              <i class="lnr lnr-bubble"></i>
+                                          </a>
+                                      </li>-->
+                                      {{#admin}}
+                                      <li>
+                                      	<form action="/deleteBlog/{{id}}" method="POST">
+                                      		<button class="remove-blog-entrie">Eliminar</button>
+                                      		<input type="hidden" name="_csrf" value="{{token}}" />
+                                      	</form>
+                                      </li>
+                                      {{/admin}}
+                                  </ul>
+                              </div>
+                          </div>
+                          <div class="col-md-9">
+                              <div class="blog_post">
+                                  <img src="{{image}}" alt="">
+                                  <div class="blog_details">
+                                      <a href="/blog/{{id}}">
+                                          <h2>{{name}}</h2>
+                                      </a>
+                                      <p>{{text}}</p>
+                                      <a class="button button-blog" href="blog/{{id}}">Ver más</a>
+                                  </div>
+                              </div>
+                          </div>
+                      </article>
+                      {{/blogspage}}
+                      
+                      <!--<article class="row blog_item">
+                          <div class="col-md-3">
+                              <div class="blog_info text-right">
+                                  <div class="post_tag">
+                                      <a href="#">Noticas,</a>
+                                      <a class="active" href="#">Manga,</a>
+                                      <a href="#">En descuento,</a>
+                                      <a href="#">Nuestras figuras</a>
+                                  </div>
+                                  <ul class="blog_meta list">
+                                      <li>
+                                          <a href="#">Mark Wiens
+                                              <i class="lnr lnr-user"></i>
+                                          </a>
+                                      </li>
+                                      <li>
+                                          <a href="#">12 Dec, 2017
+                                              <i class="lnr lnr-calendar-full"></i>
+                                          </a>
+                                      </li>
+                                      <li>
+                                          <a href="#">1.2M Visitas
+                                              <i class="lnr lnr-eye"></i>
+                                          </a>
+                                      </li>
+                                      <li>
+                                          <a href="#">06 Comentarios
+                                              <i class="lnr lnr-bubble"></i>
+                                          </a>
+                                      </li>
+                                  </ul>
+                              </div>
+                          </div>
+                          <div class="col-md-9">
+                              <div class="blog_post">
+                                  <img src="img/blog/main-blog/m-blog-4.jpg" alt="">
+                                  <div class="blog_details">
+                                      <a href="single-blog.html">
+                                          <h2>Noticia</h2>
+                                      </a>
+                                      <p>Noticia.</p>
+                                      <a href="single-blog.html" class="button button-blog">Ver mÃ¡s</a>
+                                  </div>
+                              </div>
+                          </div>
+                      </article>
+                      <article class="row blog_item">
+                          <div class="col-md-3">
+                              <div class="blog_info text-right">
+                                  <div class="post_tag">
+                                      <a href="#">Noticias,</a>
+                                      <a class="active" href="#">Manga,</a>
+                                      <a href="#">En descuento,</a>
+                                      <a href="#">Nuestras figuras</a>
+                                  </div>
+                                  <ul class="blog_meta list">
+                                      <li>
+                                          <a href="#">Mark Wiens
+                                              <i class="lnr lnr-user"></i>
+                                          </a>
+                                      </li>
+                                      <li>
+                                          <a href="#">12 Dec, 2017
+                                              <i class="lnr lnr-calendar-full"></i>
+                                          </a>
+                                      </li>
+                                      <li>
+                                          <a href="#">1.2M Visitas
+                                              <i class="lnr lnr-eye"></i>
+                                          </a>
+                                      </li>
+                                      <li>
+                                          <a href="#">06 Comentarios
+                                              <i class="lnr lnr-bubble"></i>
+                                          </a>
+                                      </li>
+                                  </ul>
+                              </div>
+                          </div>
+                          <div class="col-md-9">
+                              <div class="blog_post">
+                                  <img src="img/blog/main-blog/m-blog-5.jpg" alt="">
+                                  <div class="blog_details">
+                                      <a href="single-blog.html">
+                                          <h2>Notica</h2>
+                                      </a>
+                                      <p>Noticia</p>
+                                      <a href="single-blog.html" class="button button-blog">Ver mÃ¡s</a>
+                                  </div>
+                              </div>
+                          </div>
+                      </article>-->
+                      <!-- <nav class="blog-pagination justify-content-center d-flex">
+                          <ul class="pagination">
+                              <li class="page-item">
+                                  <a href="#" class="page-link" aria-label="Previous">
+                                      <span aria-hidden="true">
+                                          <span class="lnr lnr-chevron-left"></span>
+                                      </span>
+                                  </a>
+                              </li>
+                              <li class="page-item">
+                                  <a href="#" class="page-link">01</a>
+                              </li>
+                              <li class="page-item active">
+                                  <a href="#" class="page-link">02</a>
+                              </li>
+                              <li class="page-item">
+                                  <a href="#" class="page-link">03</a>
+                              </li>
+                              <li class="page-item">
+                                  <a href="#" class="page-link">04</a>
+                              </li>
+                              <li class="page-item">
+                                  <a href="#" class="page-link">09</a>
+                              </li>
+                              <li class="page-item">
+                                  <a href="#" class="page-link" aria-label="Next">
+                                      <span aria-hidden="true">
+                                          <span class="lnr lnr-chevron-right"></span>
+                                      </span>
+                                  </a>
+                              </li>
+                          </ul>
+                      </nav> -->
+                  </div>
+              </div>
+              <div class="col-lg-4">
+                  <div class="blog_right_sidebar">
+                      <aside class="single_sidebar_widget search_widget">
+                      <form action="/searchBlog" method="post">
+                          <div class="input-group">
+                              <input type="text" class="form-control" placeholder="Buscar post" name="key">
+                              <span class="input-group-btn">
+                                  <button class="btn btn-default" type="button">
+                                      <i class="lnr lnr-magnifier"></i>
+                                  </button>
+                              </span>
+                              <input type="hidden" name="_csrf" value="{{token}}" />
+                          </div>
+                          <!-- /input-group -->
+                          <div class="br"></div>
+                      </form>
+                      </aside>
+                      
+                      <aside class="single_sidebar_widget popular_post_widget">
+                          <h3 class="widget_title">Posts populares</h3>
+                          {{#blogspage}}
+                          <div class="media post_item">
+                              <img src="{{image}}" width="100" height="60" alt="post">
+                              <div class="media-body">
+                                  <a href="blog/{{id}}">
+                                      <h3>{{name}}</h3>
+                                  </a>
+                                  <p>{{day}}/{{month}}/{{year}}</p>
+                              </div>
+                          </div>
+                          {{/blogspage}}
+                          <!--<div class="media post_item">
+                              <img src="img/blog/popular-post/post2.jpg" alt="post">
+                              <div class="media-body">
+                                  <a href="single-blog.html">
+                                      <h3>Zoro se convierte en el espadachÃ­n mas fuerte</h3>
+                                  </a>
+                                  <p>Hace 2 horas</p>
+                              </div>
+                          </div>
+                          <div class="media post_item">
+                              <img src="img/blog/popular-post/post3.jpg" alt="post">
+                              <div class="media-body">
+                                  <a href="single-blog.html">
+                                      <h3>Sanji encuentra el All Blue</h3>
+                                  </a>
+                                  <p>Hace 3 horas</p>
+                              </div>
+                          </div>
+                          <div class="media post_item">
+                              <img src="img/blog/popular-post/post4.jpg" alt="post">
+                              <div class="media-body">
+                                  <a href="single-blog.html">
+                                      <h3>Shingeki no Kyojin estrena un capÃ­tulo con una puntuaciÃ³n de 10/10</h3>
+                                  </a>
+                                  <p>Hace 1 hora</p>
+                              </div>
+                          </div> -->
+                          <div class="br"></div>
+                      </aside>
+                     <!-- <aside class="single_sidebar_widget ads_widget">
+                          <a href="#">
+                              <img class="img-fluid" src="img/blog/add.jpg" alt="">
+                          </a>
+                          <div class="br"></div>
+                      </aside>
+                      <aside class="single_sidebar_widget post_category_widget">
+                          <h4 class="widget_title">CategorÃ­as</h4>
+                          <ul class="list cat-list">
+                              <li>
+                                  <a href="#" class="d-flex justify-content-between">
+                                      <p>Nuevos lanzamientos</p>
+                                      <p>37</p>
+                                  </a>
+                              </li>
+                              <li>
+                                  <a href="#" class="d-flex justify-content-between">
+                                      <p>En descuento</p>
+                                      <p>24</p>
+                                  </a>
+                              </li>
+                              <li>
+                                  <a href="#" class="d-flex justify-content-between">
+                                      <p>Anime</p>
+                                      <p>59</p>
+                                  </a>
+                              </li>
+                              <li>
+                                  <a href="#" class="d-flex justify-content-between">
+                                      <p>Manga</p>
+                                      <p>29</p>
+                                  </a>
+                              </li>
+                              <li>
+                                  <a href="#" class="d-flex justify-content-between">
+                                      <p>Videojuegos</p>
+                                      <p>15</p>
+                                  </a>
+                              </li>
+                              <li>
+                                  <a href="#" class="d-flex justify-content-between">
+                                      <p>PelÃ­culas</p>
+                                      <p>09</p>
+                                  </a>
+                              </li>
+                              <li>
+                                  <a href="#" class="d-flex justify-content-between">
+                                      <p>Merchandising</p>
+                                      <p>44</p>
+                                  </a>
+                              </li>
+                          </ul>
+                          <div class="br"></div>
+                      </aside>-->
+                      <!-- <aside class="single-sidebar-widget newsletter_widget">
+                          <h4 class="widget_title">BoletÃ­n informativo</h4>
+                          <p>
+                              SuscrÃ­bete para estar al dÃ­a de todas las novedades y noticias.
+                          </p>
+                          <div class="form-group d-flex flex-row">
+                              <div class="input-group">
+                                  <div class="input-group-prepend">
+                                      <div class="input-group-text">
+                                          <i class="fa fa-envelope" aria-hidden="true"></i>
+                                      </div>
+                                  </div>
+                                  <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="E-mail" onfocus="this.placeholder = ''"
+                                      onblur="this.placeholder = 'Enter email'">
+                              </div>
+                              <a href="#" class="bbtns">Suscribirse</a>
+                          </div>
+                          <p class="text-bottom">Puedes cancelar tu suscripciÃ³n cuando quieras.</p>
+                          <div class="br"></div>
+                      </aside> -->
+                      <!-- <aside class="single-sidebar-widget tag_cloud_widget">
+                          <h4 class="widget_title">Nube de tags</h4>
+                          <ul class="list">
+                              <li>
+                                  <a href="#">Anime</a>
+                              </li>
+                              <li>
+                                  <a href="#">Manga</a>
+                              </li>
+                              <li>
+                                  <a href="#">Nuevos lanzamientos</a>
+                              </li>
+                              <li>
+                                  <a href="#">Merchandising</a>
+                              </li>
+                              <li>
+                                  <a href="#">Videojuegos</a>
+                              </li>
+                              <li>
+                                  <a href="#">PelÃ­culas</a>
+                              </li>
+                              <li>
+                                  <a href="#">En descuento</a>
+                              </li>
+                              <!-- <li>
+                                  <a href="#">Art</a>
+                              </li>
+                              <li>
+                                  <a href="#">Adventure</a>
+                              </li>
+                              <li>
+                                  <a href="#">Food</a>
+                              </li>
+                              <li>
+                                  <a href="#">Lifestyle</a>
+                              </li>
+                              <li>
+                                  <a href="#">Adventure</a>
+                              </li> 
+                          </ul>
+                      </aside> -->
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+  <!--================Blog Area =================-->
+  
+
+{{>footer}}

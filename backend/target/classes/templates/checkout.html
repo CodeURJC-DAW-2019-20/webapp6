@@ -1,0 +1,226 @@
+{{>header}}
+	<!-- ================ start banner area ================= 
+	<section class="blog-banner-area" id="category">
+		<div class="container h-100">
+			<div class="blog-banner">
+				<div class="text-center">
+					<h1>Proceso de compra</h1>
+					<nav aria-label="breadcrumb" class="banner-breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Proceso de compra</li>
+            </ol>
+          </nav>
+				</div>
+			</div>
+    </div>
+	</section>
+	================ end banner area ================= -->
+  
+  <!--================Checkout Area =================-->
+  <section class="checkout_area section-margin--small">
+    <div class="container">
+    	{{^logged}}
+        <div class="returning_customer">
+          <div class="check_title">
+              <h2>¿Eres nuevo? <a href="/register">Regístrate</a></h2>
+          </div>
+          <p>Si has comprado alguna vez con nosotros, por favor, introduce tus credenciales abajo. Si eres nuevo y no deseas crearte una cuenta,
+              por favor, rellene los datos de dirección y facturación.</p>
+          <form class="row contact_form" action="/login" method="POST" id="loginCheck">
+              <div class="col-md-6 form-group p_star">
+                  <input type="text" class="form-control" placeholder="Usuario*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Username or Email*'" id="usernameInput" name="name" required>
+                  <!-- <span class="placeholder" data-placeholder="Username or Email"></span> -->
+              </div>
+              <div class="col-md-6 form-group p_star">
+                  <input type="password" class="form-control" placeholder="Contraseña*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Password*'" id="passwordInput" name="password" required>
+                  <!-- <span class="placeholder" data-placeholder="Password"></span> -->
+              </div>
+              <div class="col-md-12 form-group">
+                  <button type="submit" value="submit" class="button button-login" form="loginCheck">Iniciar sesión</button>
+                  <input type="hidden" name="_csrf" value="{{token}}">
+                  <a class="lost_pass" href="/contact">¿Olvidaste tu contraseña?</a>
+              </div>
+          </form>
+        </div>
+        {{/logged}}
+        <!-- <div class="returning_customer">
+          <div class="check_title">
+              <p><h2>¿Tienes un código?</h2></p>
+          </div>
+          <form class="row contact_form" action="#" method="post" id="cuponCheck">
+              <div class="col-md-6 form-group p_star">
+                  <input type="text" class="form-control" placeholder="Código" required>
+                  <span class="placeholder" data-placeholder="Username or Email"></span>
+              </div>
+              <div class="col-md-12 form-group">
+                  <button type="submit" value="submit" class="button button-coupon" form="cuponCheck">Aplicar cupón</button>
+              </div>
+          </form>
+        </div>
+        -->
+        <p></p>
+          <!--<div class="cupon_area">
+              <div class="check_title">
+                  <h2>¿Tienes un código?</h2>
+              </div>
+              <input type="text" placeholder="Enter coupon code">
+              <a class="button button-coupon" href="#">Apply Coupon</a>
+          </div>-->
+        <div class="billing_details">
+            <div class="row">
+                <div class="col-lg-8">
+                {{#user}}
+                    <h3>Detalles de la dirección</h3>
+                    <form class="row contact_form" id="myForm" method="POST" action="/confirmation">
+                        <div class="col-md-6 form-group p_star">
+                            <input type="text" class="form-control" id="shippingname" name="shippingname" placeholder="Nombre" required value={{delivery.shippingname}}>
+                            <span class="placeholder" data-placeholder="First name"></span>
+                        </div>
+                        <div class="col-md-6 form-group p_star">
+                            <input type="text" class="form-control" id="last" name="lastname" placeholder="Apellidos" required value={{delivery.lastname}}>
+                            <span class="placeholder" data-placeholder="Last name"></span>
+                        </div>
+                        <div class="col-md-6 form-group p_star">
+                            <input type="text" class="form-control" id="company" name="company" placeholder="Empresa" value={{delivery.company}}>
+                        </div>
+                        <div class="col-md-6 form-group p_star">
+                            <input type="text" class="form-control" id="number" name="number" placeholder="Teléfono" required value={{delivery.number}}>
+                            <span class="placeholder" data-placeholder="Phone number"></span>
+                        </div>
+                        <div class="col-md-6 form-group p_star">
+                            <input type="text" class="form-control" id="email" name="email" placeholder="Correo electrónico" required value={{delivery.email}}>
+                            <span class="placeholder" data-placeholder="Email Address"></span>
+                        </div>
+                        <!-- div class="col-md-12 form-group p_star">
+                            <select class="country_select" id="options" required>
+                                <option value="" disabled selected>Elija una opción</option>
+                                <option id="pen" name="pen" value="pen">Península y Baleares</option>
+                                <option id="can" name="can" value="can">Islas Canarias</option>
+                            </select>
+                        </div>-->
+                        <div class="col-md-12 form-group p_star">
+                            <input type="text" class="form-control" id="add1" name="street" placeholder="Calle" required value="{{delivery.street}}">
+                            <span class="placeholder" data-placeholder="Address line 01"></span>
+                        </div>
+                        <div class="col-md-6 form-group p_star">
+                            <input type="text" class="form-control" id="add2" name="floor" placeholder="Piso" required value={{delivery.floor}}>
+                            <span class="placeholder" data-placeholder="Address line 02"></span>
+                        </div>
+                        <div class="col-md-6 form-group p_star">
+                            <input type="text" class="form-control" id="city" name="city" placeholder="Ciudad" required value={{delivery.city}}>
+                            <span class="placeholder" data-placeholder="Town/City"></span>
+                        </div>
+                        <div class="col-md-6 form-group p_star">
+                            <input type="text" class="form-control" id="country" name="country" placeholder="País" required value={{delivery.country}}>
+                            <span class="placeholder" data-placeholder="Country"></span>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <input type="text" class="form-control" id="zip" name="zipcode" placeholder="Código postal" required value={{delivery.zipcode}}>
+                        </div>
+                        <input type="hidden" name="_csrf" value="{{token}}" />
+                        <!--
+                        <div class="col-md-4 form-group">
+                            <div class="creat_account">
+                                <button class="button button-paypal" type="submit" form="myForm">Comprobar dirección</button>
+                            </div>
+                        </div>-->
+                        <div class="col-md-12 form-group mb-0">
+                            <div class="creat_account">
+                                <h3>Detalles de facturación</h3>
+                                <input type="checkbox" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                <label for="f-option3">Enviar a una dirección distinta</label>
+                                  <div class="collapse" id="collapseExample">
+                                  	<div class="col-md-6 form-group p_star">
+			                            <input type="text" class="form-control" id="first" name="shippingname2" placeholder="Nombre" required value={{delivery.shippingname}}>
+			                            <span class="placeholder" data-placeholder="First name"></span>
+			                        </div>
+			                        <div class="col-md-6 form-group p_star">
+			                            <input type="text" class="form-control" id="last" name="lastname2" placeholder="Apellidos" required value={{delivery.lastname}}>
+			                            <span class="placeholder" data-placeholder="Last name"></span>
+			                        </div>
+			                        <div class="col-md-6 form-group p_star">
+			                            <input type="text" class="form-control" id="company" name="company2" placeholder="Empresa" value={{delivery.company}}>
+			                        </div>
+			                        <div class="col-md-6 form-group p_star">
+			                            <input type="text" class="form-control" id="number" name="number2" placeholder="Teléfono" required value={{delivery.number}}>
+			                            <span class="placeholder" data-placeholder="Phone number"></span>
+			                        </div>
+			                        <div class="col-md-6 form-group p_star">
+			                            <input type="text" class="form-control" id="email" name="email2" placeholder="Correo electrónico" required value={{delivery.email}}>
+			                            <span class="placeholder" data-placeholder="Email Address"></span>
+			                        </div>
+                                  	<div class="col-md-12 form-group p_star">
+			                            <input type="text" class="form-control" id="add1" name="street2" placeholder="Calle" required value="{{delivery.street}}">
+			                            <span class="placeholder" data-placeholder="Address line 01"></span>
+			                        </div>
+			                        <div class="col-md-6 form-group p_star">
+			                            <input type="text" class="form-control" id="add2" name="floor2" placeholder="Piso" required value={{delivery.floor}}>
+			                            <span class="placeholder" data-placeholder="Address line 02"></span>
+			                        </div>
+			                        <div class="col-md-6 form-group p_star">
+			                            <input type="text" class="form-control" id="city" name="city2" placeholder="Ciudad" required value={{delivery.city}}>
+			                            <span class="placeholder" data-placeholder="Town/City"></span>
+			                        </div>
+			                        <div class="col-md-6 form-group p_star">
+			                            <input type="text" class="form-control" id="country" name="country2" placeholder="País" required value={{delivery.country}}>
+			                            <span class="placeholder" data-placeholder="Country"></span>
+			                        </div>
+			                        <div class="col-md-6 form-group">
+			                            <input type="text" class="form-control" id="zip" name="zipcode2" placeholder="Código postal" required value={{delivery.zipcode}}>
+			                        </div>
+                                </div>
+                            </div>
+                            <textarea class="form-control" name="message" id="message" rows="1" placeholder="Notas"></textarea>
+                        </div>
+                    </form>
+                {{/user}}
+                </div>
+                <div class="col-lg-4">
+                    <div class="order_box">
+                    {{#order}}
+                        <h2>Tu pedido</h2>
+                        <ul class="list">
+                            <li><a><h4>Productos <span>Total</span></h4></a></li>
+                            {{#productList}}
+                            <li>
+                            	<a class="a" href="/product/{{product.id}}">{{product.name}}</a><span class="middle">{{product.price}} x {{amount}}</span> 
+                            	<span class="last" style="float:right;">{{total}}€</span>
+                            </li>
+                            {{/productList}}
+                        </ul><br>
+                        <ul class="list list_2">
+                          <form>
+                          	<input type="hidden" id="tax" name="tax" value=2.90>
+                            <li><a>Subtotal <span>{{total}}€</span></a></li>
+                            <input type="hidden" id="totalCheck" name="totalCheck" value={{total}}>
+                            <li><a>Precio envío <span>2.90€</span></a></li>
+                            <input type="hidden" id="tax" name="tax" value=2.90>
+                            <li><a>Total <span id="sum">€</span></a></li>
+                          </form>
+                        </ul>
+					{{/order}}
+                        <div class="payment_item">
+                            <div class="radion_btn">
+                                <input type="radio" id="f-option5" name="selector">
+                                <label for="f-option5">Contrarreembolso</label>
+                                <div class="check"></div>
+                            </div>
+                            <p>Este método de pago conlleva un recargo adicional de 2.90€.</p>
+                        </div>
+                        <div class="creat_account">
+                            <input type="checkbox" id="f-option4" name="selector" required>
+                            <label for="f-option4">He leído y acepto</label>
+                            <a href="https://themes.getbootstrap.com/terms/">los términos y condiciones*</a>
+                        </div>
+                        <div class="text-center">
+                          <button class="button button-paypal" type="submit" form="myForm">Proceder al pago</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+  <!--================End Checkout Area =================-->
+ {{>footer}}
