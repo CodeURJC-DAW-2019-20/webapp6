@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.webapp.animeshop.blog.BlogRepository;
 import com.webapp.animeshop.order.Order;
@@ -200,6 +201,24 @@ public class ProductService {
 		return maxFranchise;
 
 		// maxFranchise is the most purchased franchise
+	}
+	
+	public List<Product> initializeFilters(String franchise, String distributor,
+			Integer width,  Integer height, Integer min_price, Integer max_price) {
+		if(franchise == null)
+			franchise = "Cualquiera";
+		if(distributor == null)
+			distributor = "cualquiera";
+		if(width == null)
+			width = 150;
+		if(height == null)
+			height = 150;
+		if(min_price == null) 
+			min_price = 0;
+		if(max_price == null)
+			max_price = 5000;
+		List <Product> list = this.filterProducts(franchise, distributor, width, height, min_price, max_price);
+		return list;
 	}
 
 }

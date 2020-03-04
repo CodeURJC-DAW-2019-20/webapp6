@@ -1,12 +1,14 @@
 package com.webapp.animeshop.product;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -75,6 +77,19 @@ public class ProductRestController {
 	@GetMapping("/search")
 	public List<Product> searchProduct(@RequestParam String key) {
 		return this.productService.search(key);
+	}
+	
+	@GetMapping("/filterProduct")
+	public ResponseEntity<?> filterProducts(@RequestParam (required = false) String franchise, @RequestParam (required = false) String distributor,
+			@RequestParam (required = false) Integer width, @RequestParam (required = false) Integer height, @RequestParam (required = false) Integer min_price,
+			@RequestParam (required = false) Integer max_price) {
+		List<Product> products = this.productService.initializeFilters(franchise, distributor, width, height, min_price,
+				max_price);
+		if(!products.isEmpty()) {
+			return new ResponseEntity<>(products, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>("Products not found with these filters", HttpStatus.NOT_FOUND);
+		}
 	}
 	
 	@GetMapping("/recommendations")
