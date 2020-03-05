@@ -97,14 +97,14 @@ public class OrderRestController {
 	}
 	
 	@RequestMapping(value = "/{id}",method = RequestMethod.POST)
-	public ResponseEntity<Order> addProduct(@PathVariable long id, @RequestBody ProductAmount pAmount/*, @PathVariable int qt*/) {
+	public ResponseEntity<?> addProduct(@PathVariable long id, @RequestBody ProductAmount pAmount/*, @PathVariable int qt*/) {
 		User user = userComponent.getLoggedUser();
 		if(user!=null)
 			user = userRepository.findByName(user.getName());
 		if(this.orderRepository.findById(id)==null)
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			return new ResponseEntity<>("This order does not exist", HttpStatus.NOT_FOUND);
 		if((this.orderRepository.findById(id).getUser()==null && user!=null) || (this.orderRepository.findById(id)!=null && user==null && this.orderRepository.findById(id).getUser()!=null))
-			return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+			return new ResponseEntity<>("This user does not contains this order", HttpStatus.FORBIDDEN);
 		this.orderService.buildOrders();
 		Order order;
 		if(user==null)
@@ -112,37 +112,37 @@ public class OrderRestController {
 		else
 			order = this.orderRepository.findById(id);
 		if(user!=null && order.getUser().getId()!=user.getId())
-			return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+			return new ResponseEntity<>("This user does not contains this order",HttpStatus.FORBIDDEN);
 		if(order.getStatus()!=null)
-			return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+			return new ResponseEntity<>("This order is already completed",HttpStatus.FORBIDDEN);
     	if(productRepository.findById(pAmount.getProduct().getId())==null)
-    		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    		return new ResponseEntity<>("This product does not exist",HttpStatus.NOT_FOUND);
     	this.orderService.addProductToOrder(order.getId(), pAmount.getProduct().getId(), pAmount.getAmount());
 		return new ResponseEntity<>(order, HttpStatus.OK);
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-	public ResponseEntity<Order> updateProduct(@PathVariable long id, @RequestBody ProductAmount pAmount/*, @PathVariable int qt*/) {
+	public ResponseEntity<?> updateProduct(@PathVariable long id, @RequestBody ProductAmount pAmount/*, @PathVariable int qt*/) {
 		User user = userComponent.getLoggedUser();
 		if(user!=null)
 			user = userRepository.findByName(user.getName());
 		if(this.orderRepository.findById(id)==null)
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			return new ResponseEntity<>("This order does not exist",HttpStatus.NOT_FOUND);
 		if((this.orderRepository.findById(id).getUser()==null && user!=null) || (this.orderRepository.findById(id)!=null && user==null && this.orderRepository.findById(id).getUser()!=null))
-			return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+			return new ResponseEntity<>("This user does not contains this order",HttpStatus.FORBIDDEN);
 		Order order;
 		if(user==null)
 			order = this.orderRepository.findNotRelated();
 		else
 			order = this.orderRepository.findById(id);
 		if(user!=null && order.getUser().getId()!=user.getId())
-			return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+			return new ResponseEntity<>("This user does not contains this order",HttpStatus.FORBIDDEN);
 		if(order.getStatus()!=null)
-			return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+			return new ResponseEntity<>("This order is already completed",HttpStatus.FORBIDDEN);
 		if(pAmountRepository.findById(pAmount.getId()).getOrder().getId()!=order.getId())
-    		return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+    		return new ResponseEntity<>("This order does not contain this product",HttpStatus.FORBIDDEN);
     	if(pAmountRepository.findById(pAmount.getId())==null)
-    		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    		return new ResponseEntity<>("This product does not exist",HttpStatus.NOT_FOUND);
     	this.orderService.updateProduct(order.getId(), pAmount.getId(), pAmount.getAmount());
 		//pAmount.setTotal(pAmount.getAmount(), pAmount.getProduct().getPrice());
 		//pAmountRepository.saveAndFlush(pAmount);
@@ -150,7 +150,7 @@ public class OrderRestController {
 	}
 	
 	@RequestMapping(value = "/{id}/confirmation", method = RequestMethod.PUT)
-	public ResponseEntity<List<Object>> confirmation(@RequestBody (required = false) List <Address> dirs, @PathVariable long id) throws Exception{
+	public ResponseEntity<?> confirmation(@RequestBody (required = false) List <Address> dirs, @PathVariable long id) throws Exception{
     	User user = userComponent.getLoggedUser();
     	Address billing_address = new Address();
     	Address delivery_address = new Address();
@@ -161,23 +161,23 @@ public class OrderRestController {
 			user = userRepository.findByName(user.getName());
     	
     	if(this.orderRepository.findById(id)==null)
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			return new ResponseEntity<>("This product does not exist",HttpStatus.NOT_FOUND);
     	
     	if((this.orderRepository.findById(id).getUser()==null && user!=null) || (this.orderRepository.findById(id)!=null && user==null && this.orderRepository.findById(id).getUser()!=null))
-			return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+			return new ResponseEntity<>("This user does not contains this order",HttpStatus.FORBIDDEN);
     	
     	if(user == null)
-    		return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+    		return new ResponseEntity<>("This user does not exist",HttpStatus.FORBIDDEN);
     	
     	orderaux = orderRepository.findById(id);
     	if(user!=null && orderaux.getUser().getId()!=user.getId())
-			return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+			return new ResponseEntity<>("This user does not contains this order",HttpStatus.FORBIDDEN);
     	
     	if(orderaux.getStatus()!=null)
-			return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+			return new ResponseEntity<>("This order is already completed",HttpStatus.FORBIDDEN);
     	
     	if(orderaux.getProductList().isEmpty())
-    		return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+    		return new ResponseEntity<>("This order is empty",HttpStatus.FORBIDDEN);
     	
     	if(dirs == null) {
     		billing_address = user.getDelivery();
@@ -187,7 +187,7 @@ public class OrderRestController {
     		delivery_address = new Address(dirs.get(0));
     	}
     	if(billing_address == null || delivery_address == null) {
-    		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    		return new ResponseEntity<>("Addres not found",HttpStatus.NOT_FOUND);
     	}
     	//Order order1 = orderRepository.findById(id);
     	Order order = this.orderService.confirmOrder(delivery_address, billing_address, delivery_address.getName());
