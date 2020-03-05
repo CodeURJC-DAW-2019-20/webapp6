@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.webapp.animeshop.product.ProductService;
@@ -38,7 +39,7 @@ public class BlogRestController {
 		return blogService.getBlogs();
 	}
 	
-	@GetMapping("/showBlog/{id}")
+	@GetMapping("/blog/{id}")
 	public ResponseEntity<Blog> showBlog(@PathVariable long id) {
 		Blog blog = this.blogRepository.findById(id);
 		if (blog != null) {
@@ -47,19 +48,19 @@ public class BlogRestController {
 		return new ResponseEntity<Blog>(HttpStatus.NOT_FOUND);
 	}
 	
-	@DeleteMapping("/deleteBlog/{id}")
+	@DeleteMapping("/blog/{id}")
 	public Blog deleteBlog(@PathVariable long id) {
 		blogService.deleteBlog(id);
 		return this.deleteBlog(id);
 	}
 	
-	@PostMapping("/addBlog")
-	public Blog addBlog(@RequestParam String author , @RequestParam String name, @RequestParam String text, @RequestParam String textfull, @RequestParam String idproduct) {
-		Blog blog = new Blog(author, name, text, textfull, idproduct);
+	@PostMapping("/blog")
+	@ResponseStatus(HttpStatus.CREATED)
+	public Blog addBlog(@RequestBody Blog blog) {
 		blog.setImage("/img/product/newblog.png");
-		blog.setProduct(productService.getProduct(Long.parseLong(idproduct)));
+		blog.setProduct(productService.getProduct(blog.getProduct().getId()));
 		this.blogService.addBlog(blog);
-		return blogService.addBlog(blog);
+		return blog;
 	}
 	
 	@GetMapping("/search")
