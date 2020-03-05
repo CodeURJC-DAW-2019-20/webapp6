@@ -30,8 +30,28 @@ public class ProductRestController {
 	private ProductService productService;
 	
 	@GetMapping()
-	public List<Product> showProducts() {
-		return productRepository.findAll();
+	public ResponseEntity<List<Product>> showProducts(@RequestParam (required = false) String sort, @RequestParam (required = false) String category, 
+				@RequestParam (required = false) String key) {
+		if(sort!=null)
+			switch(sort) {
+			case "desc":
+				return new ResponseEntity<>(this.productRepository.findByPriceDesc(),HttpStatus.OK);
+			case "asc":
+				return new ResponseEntity<>(this.productRepository.findByPriceAsc(),HttpStatus.OK);
+			default:
+				return new ResponseEntity<>(productRepository.findAll(),HttpStatus.NOT_FOUND);
+			}
+		if(category!=null) {
+			if(this.productRepository.findByFranchise(category).isEmpty())
+				return new ResponseEntity<>(productRepository.findAll(),HttpStatus.NOT_FOUND);
+			return new ResponseEntity<>(productRepository.findByFranchise(category),HttpStatus.OK);
+		}
+		if(key!=null) {
+			if(this.productService.search(key).isEmpty())
+				return new ResponseEntity<>(productRepository.findAll(),HttpStatus.NOT_FOUND);
+			return new ResponseEntity<>(productService.search(key),HttpStatus.OK);
+		}
+		return new ResponseEntity<>(productRepository.findAll(),HttpStatus.OK);
 	}
 	
 	@GetMapping("/{id}")
@@ -43,7 +63,7 @@ public class ProductRestController {
 	public List<Product> addProduct(@RequestBody Product p) {
 		Product product = p;
 		productRepository.save(product);
-		return this.showProducts();
+		return productRepository.findAll();
 	}
 	
 	@DeleteMapping("/{id}")
@@ -57,29 +77,7 @@ public class ProductRestController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
 	
-	@GetMapping("/sortBy")
-	public ResponseEntity<List<Product>> sortByProducts(@RequestParam String key) {
-		switch(key) {
-		case "desc":
-			return new ResponseEntity<>(this.productRepository.findByPriceDesc(),HttpStatus.OK);
-		case "asc":
-			return new ResponseEntity<>(this.productRepository.findByPriceAsc(),HttpStatus.OK);
-		default:
-			return new ResponseEntity<>(productRepository.findAll(),HttpStatus.NOT_FOUND);
-		}
-	}
-	
-	@GetMapping("/franchises")
-	public List<Product> franchisesProducts(@RequestParam String franchise) {
-		return productRepository.findByFranchise(franchise);
-	}
-	
-	@GetMapping("/search")
-	public List<Product> searchProduct(@RequestParam String key) {
-		return this.productService.search(key);
-	}
-	
-	@GetMapping("/filterProduct")
+	@GetMapping("/filter")
 	public ResponseEntity<?> filterProducts(@RequestParam (required = false) String franchise, @RequestParam (required = false) String distributor,
 			@RequestParam (required = false) Integer width, @RequestParam (required = false) Integer height, @RequestParam (required = false) Integer min_price,
 			@RequestParam (required = false) Integer max_price) {
