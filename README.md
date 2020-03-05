@@ -60,59 +60,59 @@
 Money spent per order and average
 ### Screenshots :camera:
 * **Home**
-<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/resources/static/Screenshots/Home.PNG"/>
+<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/backend/src/main/resources/static/Screenshots/Home.PNG"/>
 In this screen we can see the home of the page, which includes the recommendations based in your last purchases.
 
 * **Products** 
-<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/resources/static/Screenshots/products.PNG"/>
+<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/backend/src/main/resources/static/Screenshots/products.PNG"/>
 Here we can choose what products we want to buy.
 
 * **Product Details** 
-<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/resources/static/Screenshots/singleProduct.PNG"/>
+<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/backend/src/main/resources/static/Screenshots/singleProduct.PNG"/>
 When we choose a product, here we can see the details.
 
 * **Cart** 
-<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/resources/static/Screenshots/shopping cart.PNG"/>
+<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/backend/src/main/resources/static/Screenshots/shopping cart.PNG"/>
 Here you can see all the products that have been added to the cart and are waiting to be purchased.
 
 * **Checkout** 
-<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/resources/static/Screenshots/checkout.PNG"/>
+<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/backend/src/main/resources/static/Screenshots/checkout.PNG"/>
 If you are not logged you have to do it before finishing the checkout.
 
 * **Checkout when logged** 
-<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/resources/static/Screenshots/logged checkout.PNG"/>
+<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/backend/src/main/resources/static/Screenshots/logged checkout.PNG"/>
 If logged you can fill all the information and see the details of the order.
 
 * **Confirmation** 
-<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/resources/static/Screenshots/confirmation.PNG"/>
+<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/backend/src/main/resources/static/Screenshots/confirmation.PNG"/>
 Detailed description of the order.
 
 * **Blog** 
-<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/resources/static/Screenshots/Blog.PNG"/>
+<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/backend/src/main/resources/static/Screenshots/Blog.PNG"/>
 When a new products come to the shop there will be a post about it here.
 
 * **Blog details** 
-<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/resources/static/Screenshots/Blogextend.PNG"/>
+<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/backend/src/main/resources/static/Screenshots/Blogextend.PNG"/>
 Detailed information about the new product.
 
 * **Login** 
-<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/resources/static/Screenshots/Login.PNG"/>
+<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/backend/src/main/resources/static/Screenshots/Login.PNG"/>
 If you have an account, use this page to log in.
 
 * **Register** 
-<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/resources/static/Screenshots/register.PNG"/>
+<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/backend/src/main/resources/static/Screenshots/register.PNG"/>
 If you don't have an account here you can register.
 
 * **My Profile**
-<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/resources/static/Screenshots/My profile.PNG"/>
+<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/backend/src/main/resources/static/Screenshots/My profile.PNG"/>
 All the information about your account.
 
 * **Edit Profile** 
-<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/resources/static/Screenshots/My profile edit.PNG"/>
+<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/backend/src/main/resources/static/Screenshots/Myprofileedit.PNG"/>
 Use this screen if you want to edit some of your profile information.
 
 * **Admin Profile(Graph)** 
-<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/resources/static/Screenshots/Admin profile.PNG"/>
+<img src="https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/backend/src/main/resources/static/Screenshots/Adminprofile.PNG"/>
 The admin can use this screen to see information about the website.
 
 ## Development Environment
@@ -124,5 +124,16 @@ To run the application the port that we use is 8443, so the URL will be:
 https://localhost:8443
 A MySQL database is needed so you have to create a database in a client with MySQL and Apache (We use XAMPP, more info at: https://www.apachefriends.org/es/index.html)
 
+### Build the application image with Docker
+
+To buid the image of the application you need, first of all, to use the create_image.bat script located in the docker folder, this will generate the .jar file needed to build the image. Then the script will create the image.
+
+Otherwise, if you have maven installed you need to run:
+>mvn package or mvn clean install, this will generate the .jar file in target folder in backend directory
 
 
+## Run the application using Docker Compose
+
+You can run the application using Docker Compose. For that, you need to go to the docker folder and run the following command:
+>docker-compose up
+This will download the images needed, mysql and the app from Docker Hub. The application will run in the following URL: https://127.0.0.1:8080.
