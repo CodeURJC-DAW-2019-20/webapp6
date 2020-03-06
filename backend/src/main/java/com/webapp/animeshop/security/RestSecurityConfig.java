@@ -23,11 +23,11 @@ public class RestSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/logIn").authenticated();
 		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/index").permitAll();
 		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/").permitAll();
-		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/showBlog/{id}").permitAll();
+		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/blogs/{id}").permitAll();
 		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/logOut").permitAll();
-		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/register").permitAll();
-		http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/newUser").permitAll();
-		http.authorizeRequests().antMatchers(HttpMethod.GET,  "/api/allUsers").permitAll();
+		http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/register").permitAll();
+		//http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/newUser").permitAll();
+		http.authorizeRequests().antMatchers(HttpMethod.GET,  "/api/users").permitAll();
 		http.authorizeRequests().antMatchers(HttpMethod.GET,  "/api/currentuser").permitAll();
 		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/products/**").permitAll();
 		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/products/{id}/").permitAll();

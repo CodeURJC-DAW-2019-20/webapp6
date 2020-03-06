@@ -19,6 +19,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.webapp.animeshop.blog.BlogRepository;
+
 @RestController
 @RequestMapping("/api/products")
 public class ProductRestController {
@@ -70,7 +72,8 @@ public class ProductRestController {
 	public ResponseEntity<List<Product>> deleteProduct(@PathVariable long id) {
 		Product product = productRepository.findById(id);
 		if(product!=null) {
-			productRepository.deleteById(id);
+			productService.deleteProduct(id);
+			
 			return new ResponseEntity<>(productRepository.findAll(),HttpStatus.OK);
 		}
 		else

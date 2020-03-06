@@ -50,7 +50,7 @@ public class UserRestController {
 			return new ResponseEntity<>(HttpStatus.CONFLICT);
 	}
 	
-	@GetMapping("/currentuser")
+	@GetMapping("/user/{id}")
 	public User getCurrentUser() {
 		User user = userComponent.getLoggedUser();
 		if(user!=null)
