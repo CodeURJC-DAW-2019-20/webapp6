@@ -1,12 +1,68 @@
 {
 	"info": {
-		"_postman_id": "b4ec3074-9300-4220-90e2-3f227ad1a25b",
+		"_postman_id": "99d25b58-8f46-48d8-ac40-071a5bc9abc1",
 		"name": "api.postman_collection",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "https://localhost:8443/api/blogs",
+			"name": "Get recommended products",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "11812134-027f-43d2-9f4a-4e97cec2bd37",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "pass",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "user",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:8443/api/products/recommendations",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"products",
+						"recommendations"
+					]
+				},
+				"description": "Show recommendations based in user orders (random if not logged or user with 0 orders)"
+			},
+			"response": []
+		},
+		{
+			"name": "Get all blogs",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -33,7 +89,7 @@
 					}
 				],
 				"url": {
-					"raw": "https://localhost:8443/api/blogs/20",
+					"raw": "https://localhost:8443/api/blogs",
 					"protocol": "https",
 					"host": [
 						"localhost"
@@ -41,8 +97,7 @@
 					"port": "8443",
 					"path": [
 						"api",
-						"blogs",
-						"20"
+						"blogs"
 					]
 				},
 				"description": "Show all blogs"
@@ -50,7 +105,7 @@
 			"response": []
 		},
 		{
-			"name": "https://localhost:8443/api/blogs/20",
+			"name": "Get specific blog",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -94,7 +149,7 @@
 			"response": []
 		},
 		{
-			"name": "https://localhost:8443/api/products",
+			"name": "Get all products",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -137,7 +192,7 @@
 			"response": []
 		},
 		{
-			"name": "https://localhost:8443/api/products/3",
+			"name": "Get specific products",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -181,7 +236,7 @@
 			"response": []
 		},
 		{
-			"name": "https://localhost:8443/api/products/filter?distributor=Figuarts ZERO",
+			"name": "Get products according to selected filters",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -231,103 +286,7 @@
 			"response": []
 		},
 		{
-			"name": "https://localhost:8443/api/products/recommendations",
-			"event": [
-				{
-					"listen": "prerequest",
-					"script": {
-						"id": "11812134-027f-43d2-9f4a-4e97cec2bd37",
-						"exec": [
-							""
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"auth": {
-					"type": "noauth"
-				},
-				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "https://localhost:8443/api/products/recommendations",
-					"protocol": "https",
-					"host": [
-						"localhost"
-					],
-					"port": "8443",
-					"path": [
-						"api",
-						"products",
-						"recommendations"
-					]
-				},
-				"description": "Show recommendations based in user orders (random if not logged or user with 0 orders)"
-			},
-			"response": []
-		},
-		{
-			"name": "https://localhost:8443/api/register",
-			"event": [
-				{
-					"listen": "prerequest",
-					"script": {
-						"id": "11812134-027f-43d2-9f4a-4e97cec2bd37",
-						"exec": [
-							""
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"auth": {
-					"type": "noauth"
-				},
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"name\": \"carlos\",\n\t\"passwordHash\": \"1234\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "https://localhost:8443/api/register",
-					"protocol": "https",
-					"host": [
-						"localhost"
-					],
-					"port": "8443",
-					"path": [
-						"api",
-						"register"
-					]
-				},
-				"description": "Creater user, body must be something like this:\n{\n\t\"name\": \"carlos\",\n\t\"passwordHash\": \"1234\"\n}"
-			},
-			"response": []
-		},
-		{
-			"name": "https://localhost:8443/api/users",
+			"name": "Get all users",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -370,7 +329,7 @@
 			"response": []
 		},
 		{
-			"name": "https://localhost:8443/api/user/1",
+			"name": "Get logged user",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -426,7 +385,7 @@
 			"response": []
 		},
 		{
-			"name": "https://localhost:8443/api/order/23",
+			"name": "Get specific order",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -482,7 +441,7 @@
 			"response": []
 		},
 		{
-			"name": "https://localhost:8443/api/order/23",
+			"name": "Add product to order",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -547,7 +506,7 @@
 			"response": []
 		},
 		{
-			"name": "https://localhost:8443/api/order/23/31",
+			"name": "Removes product from order",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -586,7 +545,7 @@
 					}
 				],
 				"url": {
-					"raw": "https://localhost:8443/api/order/23/31",
+					"raw": "https://localhost:8443/api/order/23/27",
 					"protocol": "https",
 					"host": [
 						"localhost"
@@ -596,7 +555,7 @@
 						"api",
 						"order",
 						"23",
-						"31"
+						"27"
 					]
 				},
 				"description": "Deletes product with id 31 from the order with id 23"
@@ -604,7 +563,72 @@
 			"response": []
 		},
 		{
-			"name": "https://localhost:8443/api/order/23",
+			"name": "Add product to order",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "11812134-027f-43d2-9f4a-4e97cec2bd37",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "pass",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "user",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"product\": {\n\t\t\"id\": 3\n\t},\n\t\"amount\": 2\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8443/api/order/23",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"order",
+						"23"
+					]
+				},
+				"description": "Adds products to order. The body must be something like this.\n{\n\t\"product\": {\n\t\t\"id\": 3\n\t},\n\t\"amount\": 2\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "Edit product quantity from an order",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -669,7 +693,7 @@
 			"response": []
 		},
 		{
-			"name": "https://localhost:8443/api/order/23/confirmation",
+			"name": "Confirm an specific order",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -726,7 +750,7 @@
 			"response": []
 		},
 		{
-			"name": "https://localhost:8443/api/logOut",
+			"name": "Log out the current logged user",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -781,7 +805,7 @@
 			"response": []
 		},
 		{
-			"name": "https://localhost:8443/api/blogs/20",
+			"name": "Delete blog entry",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -837,7 +861,7 @@
 			"response": []
 		},
 		{
-			"name": "https://localhost:8443/api/blogs",
+			"name": "Create new blog entry",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -901,7 +925,7 @@
 			"response": []
 		},
 		{
-			"name": "https://localhost:8443/api/products/4",
+			"name": "Delete product",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -957,7 +981,7 @@
 			"response": []
 		},
 		{
-			"name": "https://localhost:8443/api/products",
+			"name": "Create new product",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -1017,6 +1041,113 @@
 					]
 				},
 				"description": "Creates a new product. The user must be admin type. The body must be something like this:\n{\n\t\"name\": \"Funko Pop! Doquixote Doflamingo\",\n\t\"franchise\": \"One Piece\",\n\t\"price\": 14.49,\n\t\"decription\": \"Figura funko pop de Doquixote Doflamingo\",\n\t\"width\": 5.0,\n\t\"height\": 9.0,\n\t\"weight\": 200.0,\n\t\"distributor\": \"Funko Pop!\",\n\t\"reference\": \"TM0FFJ448XA003\",\n\t\"sotk\": 100,\n\t\"actual_Stock\": 100,\n\t\"image\": \"/img/product/newblog.png\",\n\t\"imagefull\": \"/img/product/newblog.png\"\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "Log out the current logged user Copy",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "11812134-027f-43d2-9f4a-4e97cec2bd37",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "pass",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "user",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:8443/api/logOut",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"logOut"
+					]
+				},
+				"description": "To log out"
+			},
+			"response": []
+		},
+		{
+			"name": "Register new user",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "11812134-027f-43d2-9f4a-4e97cec2bd37",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"carlos\",\n\t\"passwordHash\": \"1234\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8443/api/register",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"register"
+					]
+				},
+				"description": "Creater user, body must be something like this:\n{\n\t\"name\": \"carlos\",\n\t\"passwordHash\": \"1234\"\n}"
 			},
 			"response": []
 		}
