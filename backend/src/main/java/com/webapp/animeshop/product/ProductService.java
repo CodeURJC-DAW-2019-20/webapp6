@@ -205,7 +205,7 @@ public class ProductService {
 		if(franchise == null)
 			franchise = "Cualquiera";
 		if(distributor == null)
-			distributor = "cualquiera";
+			distributor = "Cualquiera";
 		if(width == null)
 			width = 150;
 		if(height == null)
