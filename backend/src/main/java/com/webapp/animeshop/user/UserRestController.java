@@ -42,6 +42,7 @@ public class UserRestController {
 		if (userRepository.findByName(user.getName()) == null) {
 			Order order = new Order();
 			newUser.getOrderList().add(order);
+			newUser.setDelivery(new Address());
 			userService.save(newUser);
 			order.setUser(newUser);
 			this.orderRepository.save(order);
@@ -51,10 +52,10 @@ public class UserRestController {
 	}
 	
 	@GetMapping("/user/{id}")
-	public User getCurrentUser() {
+	public User getCurrentUser(@PathVariable long id) {
 		User user = userComponent.getLoggedUser();
-		if(user!=null)
-			user = userRepository.findByName(user.getName());
+		if(user.getId()==userRepository.findById(id).getId())
+			user = userRepository.findById(id);
 		return user;
 	}
 	
