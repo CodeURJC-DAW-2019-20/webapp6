@@ -6,6 +6,11 @@ import java.util.LinkedList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
@@ -32,30 +37,30 @@ public class ProductRestController {
 	private ProductService productService;
 	
 	@GetMapping()
-	public ResponseEntity<List<Product>> showProducts(@RequestParam (required = false) String sort, @RequestParam (required = false) String category, 
+	public ResponseEntity<Page<Product>> showProducts(@PageableDefault (value=10) Pageable page, @RequestParam (required = false) String sort, @RequestParam (required = false) String category, 
 				@RequestParam (required = false) String key) {
 		if(sort!=null)
 			switch(sort) {
 			case "desc":
-				return new ResponseEntity<>(this.productRepository.findByPriceDesc(),HttpStatus.OK);
+				return new ResponseEntity<>(this.productRepository.findByPriceDesc(page),HttpStatus.OK);
 			case "asc":
-				return new ResponseEntity<>(this.productRepository.findByPriceAsc(),HttpStatus.OK);
+				return new ResponseEntity<>(this.productRepository.findByPriceAsc(page),HttpStatus.OK);
 			default:
-				return new ResponseEntity<>(productRepository.findAll(),HttpStatus.NOT_FOUND);
+				return new ResponseEntity<>(productRepository.findAll(page),HttpStatus.NOT_FOUND);
 			}
 		if(category!=null) {
 			if(this.productRepository.findByFranchise(category).isEmpty())
-				return new ResponseEntity<>(productRepository.findAll(),HttpStatus.NOT_FOUND);
-			return new ResponseEntity<>(productRepository.findByFranchise(category),HttpStatus.OK);
+				return new ResponseEntity<>(productRepository.findAll(page),HttpStatus.NOT_FOUND);
+			return new ResponseEntity<>(productRepository.findByFranchise(page, category),HttpStatus.OK);
 		}
 		if(key!=null) {
 			if(this.productService.search(key).isEmpty())
-				return new ResponseEntity<>(productRepository.findAll(),HttpStatus.NOT_FOUND);
-			return new ResponseEntity<>(productService.search(key),HttpStatus.OK);
+				return new ResponseEntity<>(productRepository.findAll(page),HttpStatus.NOT_FOUND);
+			return new ResponseEntity<>(productService.searchV2(page, key),HttpStatus.OK);
 		}
-		return new ResponseEntity<>(productRepository.findAll(),HttpStatus.OK);
+		return new ResponseEntity<>(productRepository.findAll(page),HttpStatus.OK);
 	}
-	
+
 	@GetMapping("/{id}")
 	public Product showProduct(@PathVariable long id) {
 		return productRepository.findById(id);

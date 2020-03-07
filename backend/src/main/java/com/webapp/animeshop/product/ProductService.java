@@ -5,6 +5,9 @@ import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -135,13 +138,7 @@ public class ProductService {
 	}
 	
 	public List<Product> search(String key){
-		List<Product> products = this.productRepository.findAll();
-		List<Product> aux = new ArrayList<Product>();
-		for(int i = 0; i < products.size(); i++) {
-			if(products.get(i).getName().toLowerCase().contains(key.toLowerCase()))
-				aux.add(products.get(i));
-		}
-		return aux;
+		return this.productRepository.search(key);
 	}
 	
 	public HashMap<String, Integer> nProductsByFranchise(){
@@ -219,6 +216,14 @@ public class ProductService {
 			max_price = 5000;
 		List <Product> list = this.filterProducts(franchise, distributor, width, height, min_price, max_price);
 		return list;
+	}
+	
+	public Page<Product> findAll (Pageable page){
+		return productRepository.findAll(page);
+	}
+	
+	public Page<Product> searchV2(Pageable page, String key){
+		return productRepository.search(page, key);
 	}
 
 }
