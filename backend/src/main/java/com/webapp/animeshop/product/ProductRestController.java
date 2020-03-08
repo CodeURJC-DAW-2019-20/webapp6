@@ -46,7 +46,7 @@ public class ProductRestController {
 			case "asc":
 				return new ResponseEntity<>(this.productRepository.findByPriceAsc(page),HttpStatus.OK);
 			default:
-				return new ResponseEntity<>(productRepository.findAll(page),HttpStatus.NOT_FOUND);
+				return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 			}
 		if(category!=null) {
 			if(this.productRepository.findByFranchise(category).isEmpty())
@@ -67,19 +67,19 @@ public class ProductRestController {
 	}
 	
 	@PostMapping()
-	public List<Product> addProduct(@RequestBody Product p) {
+	public Product addProduct(@RequestBody Product p) {
 		Product product = p;
 		productRepository.save(product);
-		return productRepository.findAll();
+		return product;
 	}
 	
 	@DeleteMapping("/{id}")
-	public ResponseEntity<List<Product>> deleteProduct(@PathVariable long id) {
+	public ResponseEntity<Product> deleteProduct(@PathVariable long id) {
 		Product product = productRepository.findById(id);
 		if(product!=null) {
 			productService.deleteProduct(id);
 			
-			return new ResponseEntity<>(productRepository.findAll(),HttpStatus.OK);
+			return new ResponseEntity<>(product,HttpStatus.OK);
 		}
 		else
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);

@@ -23,6 +23,7 @@ public class RestSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/logIn").authenticated();
 		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/index").permitAll();
 		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/").permitAll();
+		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/blogs").permitAll();
 		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/blogs/{id}").permitAll();
 		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/logOut").permitAll();
 		http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/register").permitAll();
@@ -32,7 +33,7 @@ public class RestSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/products/**").permitAll();
 		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/products/{id}/").permitAll();
 		http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/order/**").permitAll();
-		http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/order/**").permitAll();
+		http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/order/**").permitAll(); 
 		
 		
 		// URLs that need authentication to access to it

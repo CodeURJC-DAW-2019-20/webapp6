@@ -52,7 +52,7 @@ public class UserRestController {
 	}
 	
 	@GetMapping("/user/{id}")
-	public User getCurrentUser(@PathVariable long id) {
+	public User getCurrentUser(@PathVariable long id) { 
 		User user = userComponent.getLoggedUser();
 		if(user.getId()==userRepository.findById(id).getId())
 			user = userRepository.findById(id);
