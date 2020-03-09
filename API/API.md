@@ -17,7 +17,7 @@ The base URL is: https: // localhost: 8443.
 - [Authentication](#authentication)
 - [Login](#login)
 - [Logout](#logout)
-
+####
 - [Products](#products)
 - [Show all products](#show-all-products)
 - [Show all products ordered by price](#show-all-products-ordered-by-price)
@@ -27,14 +27,14 @@ The base URL is: https: // localhost: 8443.
 - [Filter products](#filter-products)
 - [Create new product(Administrator)](#create-new-product-as-administrator)
 - [Delete determinate product(Administrator)](#delete-determinate-product-as-administrator)
-
+####
 - [Blogs](#blogs)
 - [Show all blogs](#show-all-blogs)
 - [Search determinate blog](#search-determinate-blog)
 - [Show determinate blog](#show-determinate-blog)
 - [Create new blog (Administrator)](#create-new-blog-as-administrator)
 - [Delete determinate blog (Administrator)](#delete-determinate-blog-as-administrator)
-
+####
 - [Orders](#orders)
 - [Show all orders](#show-all-orders)
 - [Show determinate order](#show-determinate-order)
@@ -42,7 +42,7 @@ The base URL is: https: // localhost: 8443.
 - [Delete product amount to determinate order](#delete-product-amount-to-determinate-order)
 - [Update product amount from determinate order](#update-product-amount-from-determinate-order)
 - [Confirm determinate order](#confirm-determinate-order)
-
+####
 - [Users](#users)
 - [Show all users](#show-all-users)
 - [Show determinate user information](#show-determinate-user-information)
