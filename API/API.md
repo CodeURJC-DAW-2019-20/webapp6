@@ -13,6 +13,9 @@ All you can find in our API Rest is information about users, products, product a
 The resource API has GET, POST, PUT and DELETE methods.
 The base URL is: https: // localhost: 8443.
 
+### Index
+- [Authentication](#authentication)
+
 **All API queries have been preceded by /api**
 
 ## Authentication
