@@ -38,7 +38,7 @@
 ![github-large](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/backend/bin/src/main/resources/templates/Screenshots/DiagramaNavFinal1.PNG)
 
 ### Classes Diagram
-![github-large](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/backend/bin/src/main/resources/templates/Screenshots/FinalClassesDiagram.png)
+![github-large](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/backend/src/main/resources/static/Screenshots/FinalClassesDiagram.png)
 
 ### Phase 2
 | Name        | Most significant Commit 1  | Most significant Commit 2  | Most significant Commit 3  | Most significant Commit 4  | Most significant Commit 5  |
