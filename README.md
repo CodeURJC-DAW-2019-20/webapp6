@@ -38,7 +38,7 @@
 ![github-large](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/backend/bin/src/main/resources/templates/Screenshots/DiagramaNavFinal1.PNG)
 
 ### Classes Diagram
-![github-large](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/backend/src/main/resources/static/Screenshots/class_diagram_phase3.png)
+![github-large](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/backend/src/main/resources/static/Screenshots/Classes_diagram.png)
 
 ### Phase 2
 | Name        | Most significant Commit 1  | Most significant Commit 2  | Most significant Commit 3  | Most significant Commit 4  | Most significant Commit 5  |
@@ -57,23 +57,6 @@
 | Enrique Márquez Jiménez | [DatabaseInitializer](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/java/com/webapp/animeshop/DatabaseInitializer.java) | [OrderController](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/java/com/webapp/animeshop/order/OrderController.java) | [OrderService](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/java/com/webapp/animeshop/order/OrderService.java) | [ProductController](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/java/com/webapp/animeshop/product/ProductController.java) | [Order](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/src/main/java/com/webapp/animeshop/order/Order.java) |
 | Carlos González Valtierra |  |  |  |  |  |
 
-### Phase 3
-
-| Name        | Most significant Commit 1  | Most significant Commit 2  | Most significant Commit 3  | Most significant Commit 4  | Most significant Commit 5  |
-| :-------------: |:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|
-| David Amor Antolín |  |  |  |  |  |
-| Carlos Francisco Corraliza |  |  |  |  |  |
-| Ramón Barrabes Parra |  |  |  |  |  |
-|Enrique Márquez Jiménez |  |  |  |  |  |
-| Carlos González Valtierra |  |  |  |  |  |
-
-| Name        | File 1   | File 2   | File 3   | File 4   | File 5   |
-| :-------------: |:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|
-| David Amor Antolín |  |  |  |  |  |
-| Carlos Francisco Corraliza |  |  |  |  |  |
-| Ramón Barrabes Parra | [ |  |  |  |  |
-| Enrique Márquez Jiménez |  |  |  |  |  |
-| Carlos González Valtierra |  |  |  |  |  |
 
 ### Graphics
 Money spent per order and average
@@ -143,6 +126,8 @@ To run the application the port that we use is 8443, so the URL will be:
 https://localhost:8443
 A MySQL database is needed so you have to create a database in a client with MySQL and Apache (We use XAMPP, more info at: https://www.apachefriends.org/es/index.html)
 
+## Phase 3
+
 ### Build the application image with Docker
 
 To buid the image of the application you need, first of all, to use the create_image.bat script located in the docker folder, this will generate the .jar file needed to build the image. Then the script will create the image.
@@ -151,14 +136,33 @@ Otherwise, if you have maven installed you need to run:
 >mvn package or mvn clean install, this will generate the .jar file in target folder in backend directory
 
 
-## Run the application using Docker Compose
+### Run the application using Docker Compose
 
 You can run the application using Docker Compose. For that, you need to go to the docker folder and run the following command:
 >docker-compose up
 This will download the images needed, mysql and the app from Docker Hub. The application will run in the following URL: https://127.0.0.1:8080.
 
 
-## Postman documentation
+### Postman documentation
 
 We made a documentation file with all the Postman requests you can use with our App. You can check it in the next URL:
 https://git.io/JvoKi
+
+### Classes diagram
+![github-large](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/backend/src/main/resources/static/Screenshots/class_diagram_phase3.png)
+
+| Name        | Most significant Commit 1  | Most significant Commit 2  | Most significant Commit 3  | Most significant Commit 4  | Most significant Commit 5  |
+| :-------------: |:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|
+| David Amor Antolín |  |  |  |  |  |
+| Carlos Francisco Corraliza |  |  |  |  |  |
+| Ramón Barrabes Parra |  |  |  |  |  |
+|Enrique Márquez Jiménez |  |  |  |  |  |
+| Carlos González Valtierra |  |  |  |  |  |
+
+| Name        | File 1   | File 2   | File 3   | File 4   | File 5   |
+| :-------------: |:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|
+| David Amor Antolín |  |  |  |  |  |
+| Carlos Francisco Corraliza |  |  |  |  |  |
+| Ramón Barrabes Parra |  |  |  |  |  |
+| Enrique Márquez Jiménez |  |  |  |  |  |
+| Carlos González Valtierra |  |  |  |  |  |
