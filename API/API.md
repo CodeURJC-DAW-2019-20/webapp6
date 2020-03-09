@@ -71,7 +71,6 @@ Allows a user to log in.
   {
     "id": 1,
     "name": "user",
-    "passwordHash": "$2a$10$/ceGzo0z3/gxarMV3ehTyehDHNDyQQT/4OyGOmWLhXQIO7x/.vn..",
     "delivery": {
         "shippingname": "David",
         "lastname": "Amor",
@@ -334,13 +333,14 @@ Resource to show all pagined products ordered by price with its information.
   
 * ##### URL Params:
 	* `page=[Integer] or Empty`
+	`toDo=[String]`
     `sort=[String]`
 	
 * ##### Example of query:
 
 	* URL
 		
-		`/api/products?page=1&sort=asc`
+		`/api/products?page=1&toDo=sort&sort=asc`
 
 * ##### Success Response:
 
@@ -481,13 +481,14 @@ Resource to search for all pagined products based on a keyword with its informat
   
 * ##### URL Params:
 	* `page=[Integer] or Empty`
+	`toDo=[String]`
     `key=[String]`
 	
 * ##### Example of query:
 
 	* URL
 		
-		`/api/products?key=nar`
+		`/api/products?toDo=search&key=nar`
 
 * ##### Success Response:
 
@@ -620,17 +621,20 @@ If not logged user, it recomends randomly.
 
 * ##### URL:
 
-	< /products/recommendations >
+	< /products >
 
 * ##### Method:
 
 	`GET`
 	
+* ##### URL Params:
+	* `toDo=[String]`
+	
 * ##### Example of query:
 
 	* URL
 		
-		`/api/products/recommendations`
+		`/api/products?toDo=recommendations`
 
 * ##### Success Response:
 
@@ -725,13 +729,13 @@ Resource to show determinate products based on franchise, distributor, height, w
 
 * ##### URL:
 
-	< /products/filter >
+	< /products >
 
 * ##### Method:
 
 	`GET`
   
-* ##### URL Params:
+* ##### URL Params (Optional):
 	* `franchise=[String]`
     `distributor=[String]`
     `height=[Integer]`
@@ -743,7 +747,7 @@ Resource to show determinate products based on franchise, distributor, height, w
 
 	* URL
 		
-		`/api/products/filter?distributor=Figuarts ZERO&height=26&max_price=70`
+		`/api/products?toDo=filter&distributor=Figuarts ZERO&height=26&max_price=70`
 
 * ##### Success Response:
 
@@ -1794,7 +1798,7 @@ Resource to show all users with their data.
 
 * ##### URL:
 
-	< /users >
+	< /user >
 
 * ##### Method:
 
@@ -1807,7 +1811,6 @@ Resource to show all users with their data.
     {
         "id": 1,
         "name": "user",
-        "passwordHash": "$2a$10$af11CBhkX8ymgbBDZ9ROKONWqO/YDxNymiqeS8oTDXwZBUG67t80K",
         "delivery": {
             "shippingname": "Carlos Francisco",
             "lastname": "Corraliza",
@@ -1891,7 +1894,6 @@ Resource to show all users with their data.
     {
         "id": 2,
         "name": "admin",
-        "passwordHash": "$2a$10$cuS9RsHKTDOCMga/qCwzHee6QWPRICnl9KC6A9pR5HgcWOZyXN9CW",
         "delivery": {
             "shippingname": "",
             "lastname": "",
@@ -1936,7 +1938,6 @@ Resource to show all information of determinate user.
   {
     "id": 1,
     "name": "user",
-    "passwordHash": "$2a$10$TmBML/Clhc9oHbgijxbuWO.ZHcaG8E9yE6EnRUiwgJdGxa4AQr8sS",
     "delivery": {
         "shippingname": "David",
         "lastname": "Amor",
@@ -2066,7 +2067,6 @@ Resource to edit all information of determinate user.
   {
     "id": 1,
     "name": "user",
-    "passwordHash": "$2a$10$af11CBhkX8ymgbBDZ9ROKONWqO/YDxNymiqeS8oTDXwZBUG67t80K",
     "delivery": {
         "shippingname": "Carlos Francisco",
         "lastname": "Corraliza",
@@ -2159,7 +2159,7 @@ Resource to create new user with all his information.
 
 * ##### URL:
 
-	< /register >
+	< /user >
 
 * ##### Method:
 
@@ -2175,7 +2175,7 @@ Resource to create new user with all his information.
 
 	* URL
 		
-		`/api/register`  
+		`/api/user`  
 
 * ##### Success Response:
   
@@ -2183,7 +2183,6 @@ Resource to create new user with all his information.
   {
     "id": 35,
     "name": "Ramon",
-    "passwordHash": "$2a$10$cgCBd5.yy2YCmkYGJraTzuS/Flc.bcqRlJPzEz4NDZppmqSBc0Spe",
     "delivery": {
         "shippingname": "",
         "lastname": "",
