@@ -156,3 +156,9 @@ Otherwise, if you have maven installed you need to run:
 You can run the application using Docker Compose. For that, you need to go to the docker folder and run the following command:
 >docker-compose up
 This will download the images needed, mysql and the app from Docker Hub. The application will run in the following URL: https://127.0.0.1:8080.
+
+
+## Postman documentation
+
+We made a documentation file with all the Postman requests you can use with our App. You can check it in the next URL:
+https://git.io/JvoKi
