@@ -1,5 +1,6 @@
 package com.webapp.animeshop.user;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.webapp.animeshop.order.Order;
 import com.webapp.animeshop.order.OrderRepository;
+import com.webapp.animeshop.product.Product;
 
 
 @RestController
@@ -34,7 +36,7 @@ public class UserRestController {
 	@Autowired
 	private OrderRepository orderRepository;
 	
-	@PostMapping("/register")
+	@PostMapping("/user")
 	public ResponseEntity<?> addNewUser(@RequestBody User user) {
 		if(userComponent.getLoggedUser()!=null)
 			return new ResponseEntity<>("Please, loggout first to register a new user", HttpStatus.CONFLICT);
@@ -59,7 +61,7 @@ public class UserRestController {
 		return user;
 	}
 	
-	@GetMapping("/users")
+	@GetMapping("/user")
 	public List<User> getAllUsers(){
 		return userService.findAll();
 	}

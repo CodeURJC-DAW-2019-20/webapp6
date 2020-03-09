@@ -36,7 +36,7 @@ public class ProductRestController {
 	@Autowired
 	private ProductService productService;
 	
-	@GetMapping()
+	/*@GetMapping()
 	public ResponseEntity<Page<Product>> showProducts(@PageableDefault (value=10) Pageable page, @RequestParam (required = false) String sort, @RequestParam (required = false) String category, 
 				@RequestParam (required = false) String key) {
 		if(sort!=null)
@@ -58,6 +58,53 @@ public class ProductRestController {
 				return new ResponseEntity<>(productRepository.findAll(page),HttpStatus.NOT_FOUND);
 			return new ResponseEntity<>(productService.searchV2(page, key),HttpStatus.OK);
 		}
+		return new ResponseEntity<>(productRepository.findAll(page),HttpStatus.OK);
+	}*/
+	
+	@GetMapping()
+	public ResponseEntity<?> showProducts(@PageableDefault (value=10) Pageable page, @RequestParam (required = false) String toDo ,@RequestParam (required = false) String sort, @RequestParam (required = false) String category, 
+				@RequestParam (required = false) String key, @RequestParam (required = false) String franchise, @RequestParam (required = false) String distributor,
+				@RequestParam (required = false) Integer width, @RequestParam (required = false) Integer height, @RequestParam (required = false) Integer min_price,
+				@RequestParam (required = false) Integer max_price) {
+		if(toDo!=null)
+			switch(toDo) {
+			case "sort":
+				switch(sort) {
+				case "desc":
+					return new ResponseEntity<>(this.productRepository.findByPriceDesc(page),HttpStatus.OK);
+				case "asc":
+					return new ResponseEntity<>(this.productRepository.findByPriceAsc(page),HttpStatus.OK);
+				default:
+					return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+				}
+			case "search":
+				if(key!=null) {
+					if(this.productService.search(key).isEmpty())
+						return new ResponseEntity<>(productRepository.findAll(page),HttpStatus.NOT_FOUND);
+					return new ResponseEntity<>(productService.searchV2(page, key),HttpStatus.OK);
+				}
+			case "filter":
+				List<Product> products = this.productService.initializeFilters(franchise, distributor, width, height, min_price,
+						max_price);
+				if(!products.isEmpty()) {
+					return new ResponseEntity<>(products, HttpStatus.OK);
+				} else {
+					return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+				}
+			case "recommendations":
+				String franchise_aux = this.productService.showRecommendations();
+				List<Product> auxList = this.productRepository.findByFranchise(franchise_aux);
+				int cont = 5;
+				LinkedList<Product> list = new LinkedList<>();
+				while(!auxList.isEmpty() && cont > 0) {
+					int rand = (int) (Math.random() * auxList.size());
+					list.add(auxList.remove(rand));
+					cont--;
+				}
+				return new ResponseEntity<>(list,HttpStatus.OK);
+			default:
+				return new ResponseEntity<>(productRepository.findAll(page),HttpStatus.OK);
+			}
 		return new ResponseEntity<>(productRepository.findAll(page),HttpStatus.OK);
 	}
 
@@ -85,7 +132,7 @@ public class ProductRestController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
 	
-	@GetMapping("/filter")
+	/*@GetMapping("/filter")
 	public ResponseEntity<?> filterProducts(@RequestParam (required = false) String franchise, @RequestParam (required = false) String distributor,
 			@RequestParam (required = false) Integer width, @RequestParam (required = false) Integer height, @RequestParam (required = false) Integer min_price,
 			@RequestParam (required = false) Integer max_price) {
@@ -110,5 +157,5 @@ public class ProductRestController {
 			cont--;
 		}
 		return list;
-	}
+	}*/
 }

@@ -6,10 +6,6 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
-import javax.persistence.AttributeOverride;
-import javax.persistence.AttributeOverrides;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
@@ -18,11 +14,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.fasterxml.jackson.databind.introspect.TypeResolutionContext.Basic;
 import com.webapp.animeshop.order.Order;
@@ -41,9 +39,8 @@ public class User implements Serializable {
 	@JsonView(Basic.class)
     private String name;
 
-    //@JsonIgnore
-    
-	@JsonView(Basic.class)
+    @JsonView(Basic.class)
+    @JsonProperty(access = Access.WRITE_ONLY)
     private String passwordHash;
     
 	@JsonView(Address.class)
@@ -74,6 +71,7 @@ public class User implements Serializable {
 		this.name = name;
 	}
 
+	@JsonIgnore
 	public String getPasswordHash() {
 		return passwordHash;
 	}

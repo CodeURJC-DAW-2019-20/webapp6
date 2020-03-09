@@ -27,13 +27,13 @@ public class RestSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/blogs/{id}").permitAll();
 		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/logOut").permitAll();
 		http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/register").permitAll();
-		//http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/newUser").permitAll();
-		http.authorizeRequests().antMatchers(HttpMethod.GET,  "/api/users").permitAll();
+		http.authorizeRequests().antMatchers(HttpMethod.GET,  "/api/user").permitAll();
 		http.authorizeRequests().antMatchers(HttpMethod.GET,  "/api/currentuser").permitAll();
 		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/products/**").permitAll();
 		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/products/{id}/").permitAll();
 		http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/order/**").permitAll();
 		http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/order/**").permitAll(); 
+		http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/user").permitAll();
 		
 		
 		// URLs that need authentication to access to it

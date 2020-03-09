@@ -31,7 +31,7 @@ public class BlogRestController {
 	@Autowired
 	public ProductService productService;
 	
-	@GetMapping("")
+	@GetMapping()
 	public ResponseEntity<List<Blog>> showBlogs(@RequestParam (required = false) String key) {
 		if(key!=null) {
 			if(this.productService.search(key).isEmpty())
