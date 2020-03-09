@@ -1,4 +1,4 @@
-# Anime Sop - API REST Documentation
+# Anime Shop - API REST Documentation
 
 ## About our API
 All you can find in our API Rest is information about users, products, product amount, blogs and orders. All you need to do is simply; you have to follow the API rules. If you try to do following a different way, it's probably what you will recieve an error.
@@ -15,6 +15,41 @@ The base URL is: https: // localhost: 8443.
 
 ### Index
 - [Authentication](#authentication)
+- [Login](#login)
+- [Logout](#logout)
+
+- [Products](#products)
+- [Show all products](#show-all-products)
+- [Show all products ordered by price](#show-all-products-ordered-by-price)
+- [Search all products based on a keyword](#search-all-products-based-on-a-keyword)
+- [Show determinate product](#show-determinate-product)
+- [Show recommended products based on your orders](#show-recommended-products-based-on-your-orders)
+- [Filter products](#filter-products)
+- [Create new product(Administrator)](#create-new-product-as-administrator)
+- [Delete determinate product(Administrator)](#delete-determinate-product-as-administrator)
+
+- [Blogs](#blogs)
+- [Show all blogs](#show-all-blogs)
+- [Search determinate blog](#search-determinate-blog)
+- [Show determinate blog](#show-determinate-blog)
+- [Create new blog (Administrator)](#create-new-blog-as-administrator)
+- [Delete determinate blog (Administrator)](#delete-determinate-blog-as-administrator)
+
+- [Orders](#orders)
+- [Show all orders](#show-all-orders)
+- [Show determinate order](#show-determinate-order)
+- [Add product amount to determinate order](#add-product-amount-to-determinate-order)
+- [Delete product amount to determinate order](#delete-product-amount-to-determinate-order)
+- [Update product amount from determinate order](#update-product-amount-from-determinate-order)
+- [Confirm determinate order](#confirm-determinate-order)
+
+- [Users](#users)
+- [Show all users](#show-all-users)
+- [Show determinate user information](#show-determinate-user-information)
+- [Edit information of determinate user](#edit-information-of-determinate-user)
+- [Create new user](#create-new-user)
+
+
 
 **All API queries have been preceded by /api**
 
@@ -70,7 +105,7 @@ Allows a user to log in.
 
 	**Code**: 401 UNAUTHORIZED
 	
-#### Loguot  
+#### Logout  
 Allows a user to log out.
 
 * ##### URL:
@@ -769,7 +804,7 @@ Resource to show determinate products based on franchise, distributor, height, w
 
 	**Code**: 404 NOT FOUND
   
-#### Create new product (Administrator)
+#### Create new product as administrator
 
 Resource to create new product with its information.
 
@@ -829,7 +864,7 @@ Resource to create new product with its information.
 
 	**Code**: 401 UNAUTHORIZED or 400 BAD REQUEST 
   
-#### Delete determinate product (Administrator)
+#### Delete determinate product as administrator
 
 Resource to delete determinate product based on its id.
 
@@ -1084,7 +1119,7 @@ Resource to show determinate blog with its information.
 
 	**Code**: 404 NOT FOUND  
   
-#### Create new blog (Administrator)
+#### Create new blog as administrator
 
 Resource to create new blog with its information and product refer.
 
@@ -1221,7 +1256,7 @@ Resource to create new blog with its information and product refer.
 
 	**Code**: 401 UNAUTHORIZED or 400 BAD REQUEST  
   
-#### Delete determinate blog (Administrator)
+#### Delete determinate blog as administrator
 
 Resource to delete determinate blog based on its id.
 
