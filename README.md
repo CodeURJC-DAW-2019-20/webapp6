@@ -162,7 +162,7 @@ https://git.io/JvoKi
 | Name        | File 1   | File 2   | File 3   | File 4   | File 5   |
 | :-------------: |:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|
 | David Amor Antolín | [ProductRestController](https://git.io/JvoiS) | [OrderRestController](https://git.io/Jvoid) | [UserRestController](https://git.io/JvoiF) | [API.md](https://git.io/JvoKi) | [apiV2.postman_collection.json](https://git.io/Jvoib) |
-| Carlos Francisco Corraliza |  |  |  |  |  |
+| Carlos Francisco Corraliza | [OrderRestController](https://git.io/Jvoid) | [ProductRestController](https://git.io/JvoiS) | [ProductService](https://git.io/JvoX1) | [ProductController](https://git.io/JvoXS) | [apiV2.postman_collection.json](https://git.io/Jvoib) |
 | Ramón Barrabes Parra |  |  |  |  |  |
 | Enrique Márquez Jiménez |  |  |  |  |  |
 | Carlos González Valtierra |  |  |  |  |  |
