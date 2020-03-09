@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "f016472d-73e0-4144-96f9-f8d9d07d0aa4",
-		"name": "api",
+		"_postman_id": "81d39cdc-64cc-4f1f-b68d-fe557361d2d8",
+		"name": "apiV2",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -48,50 +48,7 @@
 			"response": []
 		},
 		{
-			"name": "Show determinate product",
-			"event": [
-				{
-					"listen": "prerequest",
-					"script": {
-						"id": "11812134-027f-43d2-9f4a-4e97cec2bd37",
-						"exec": [
-							""
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"auth": {
-					"type": "noauth"
-				},
-				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "https://localhost:8443/api/products/4",
-					"protocol": "https",
-					"host": [
-						"localhost"
-					],
-					"port": "8443",
-					"path": [
-						"api",
-						"products",
-						"4"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Show second products page",
+			"name": "Show all products (page2)",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -139,7 +96,7 @@
 			"response": []
 		},
 		{
-			"name": "Show products by price descending",
+			"name": "Sort products by price (asc)",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -166,7 +123,7 @@
 					}
 				],
 				"url": {
-					"raw": "https://localhost:8443/api/products?sort=desc",
+					"raw": "https://localhost:8443/api/products?toDo=sort&sort=asc",
 					"protocol": "https",
 					"host": [
 						"localhost"
@@ -178,8 +135,12 @@
 					],
 					"query": [
 						{
+							"key": "toDo",
+							"value": "sort"
+						},
+						{
 							"key": "sort",
-							"value": "desc"
+							"value": "asc"
 						}
 					]
 				}
@@ -187,7 +148,7 @@
 			"response": []
 		},
 		{
-			"name": "Show products by price descending page 2",
+			"name": "Sort products by price (asc) (page 2)",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -214,7 +175,7 @@
 					}
 				],
 				"url": {
-					"raw": "https://localhost:8443/api/products?sort=desc&page=1",
+					"raw": "https://localhost:8443/api/products?toDo=sort&sort=asc&page=1",
 					"protocol": "https",
 					"host": [
 						"localhost"
@@ -226,8 +187,12 @@
 					],
 					"query": [
 						{
+							"key": "toDo",
+							"value": "sort"
+						},
+						{
 							"key": "sort",
-							"value": "desc"
+							"value": "asc"
 						},
 						{
 							"key": "page",
@@ -239,7 +204,7 @@
 			"response": []
 		},
 		{
-			"name": "Show products by price ascending",
+			"name": "Sort products by price (desc)",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -266,7 +231,7 @@
 					}
 				],
 				"url": {
-					"raw": "https://localhost:8443/api/products?sort=asc",
+					"raw": "https://localhost:8443/api/products?toDo=sort&sort=desc",
 					"protocol": "https",
 					"host": [
 						"localhost"
@@ -278,8 +243,12 @@
 					],
 					"query": [
 						{
+							"key": "toDo",
+							"value": "sort"
+						},
+						{
 							"key": "sort",
-							"value": "asc"
+							"value": "desc"
 						}
 					]
 				}
@@ -287,7 +256,7 @@
 			"response": []
 		},
 		{
-			"name": "Show products by price ascending page 2",
+			"name": "Sort products by price (desc) (page 2)",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -314,7 +283,7 @@
 					}
 				],
 				"url": {
-					"raw": "https://localhost:8443/api/products?sort=asc&page=1",
+					"raw": "https://localhost:8443/api/products?toDo=sort&sort=desc&page=1",
 					"protocol": "https",
 					"host": [
 						"localhost"
@@ -326,8 +295,12 @@
 					],
 					"query": [
 						{
+							"key": "toDo",
+							"value": "sort"
+						},
+						{
 							"key": "sort",
-							"value": "asc"
+							"value": "desc"
 						},
 						{
 							"key": "page",
@@ -366,7 +339,7 @@
 					}
 				],
 				"url": {
-					"raw": "https://localhost:8443/api/products?key=nar",
+					"raw": "https://localhost:8443/api/products?toDo=search&key=nar",
 					"protocol": "https",
 					"host": [
 						"localhost"
@@ -378,8 +351,72 @@
 					],
 					"query": [
 						{
+							"key": "toDo",
+							"value": "search"
+						},
+						{
 							"key": "key",
 							"value": "nar"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Filter products",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "11812134-027f-43d2-9f4a-4e97cec2bd37",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:8443/api/products?toDo=filter&distributor=Figuarts ZERO&height=26&max_price=70",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"products"
+					],
+					"query": [
+						{
+							"key": "toDo",
+							"value": "filter"
+						},
+						{
+							"key": "distributor",
+							"value": "Figuarts ZERO"
+						},
+						{
+							"key": "height",
+							"value": "26"
+						},
+						{
+							"key": "max_price",
+							"value": "70"
 						}
 					]
 				}
@@ -414,7 +451,7 @@
 					}
 				],
 				"url": {
-					"raw": "https://localhost:8443/api/products/recommendations",
+					"raw": "https://localhost:8443/api/products?toDo=recommendations",
 					"protocol": "https",
 					"host": [
 						"localhost"
@@ -422,15 +459,20 @@
 					"port": "8443",
 					"path": [
 						"api",
-						"products",
-						"recommendations"
+						"products"
+					],
+					"query": [
+						{
+							"key": "toDo",
+							"value": "recommendations"
+						}
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Show products with determinate filters",
+			"name": "Show determinate product (id 4)",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -457,7 +499,7 @@
 					}
 				],
 				"url": {
-					"raw": "https://localhost:8443/api/products/filter?distributor=Figuarts ZERO&height=26&max_price=70",
+					"raw": "https://localhost:8443/api/products/4",
 					"protocol": "https",
 					"host": [
 						"localhost"
@@ -466,28 +508,14 @@
 					"path": [
 						"api",
 						"products",
-						"filter"
-					],
-					"query": [
-						{
-							"key": "distributor",
-							"value": "Figuarts ZERO"
-						},
-						{
-							"key": "height",
-							"value": "26"
-						},
-						{
-							"key": "max_price",
-							"value": "70"
-						}
+						"4"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Create product",
+			"name": "Create new product",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -527,7 +555,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n        \"name\": \"Saitama\",\r\n        \"franchise\": \"One Punch Man\",\r\n        \"price\": 85.49,\r\n        \"description\": \"Esta fantástica figura está fabricada en PVC y mide aproximadamente 25 centímetros de alto. Saitama, si te mira te destruye\",\r\n        \"width\": 8.0,\r\n        \"height\": 25.0,\r\n        \"weight\": 680.0,\r\n        \"distributor\": \"Banpresto\",\r\n        \"reference\": \"TM0ZZH441XB0027\",\r\n        \"stock\": 100,\r\n        \"actual_Stock\": 100,\r\n        \"image\": \"/img/product/notavailable.png\",\r\n        \"imagefull\": \"/img/product/notavailable2.jpg\"\r\n    }",
+					"raw": "{\r\n  \"name\": \"Saitama\",\r\n  \"franchise\": \"One Punch Man\",\r\n  \"price\": 85.49,\r\n  \"description\": \"Esta fantástica figura está fabricada en PVC y mide aproximadamente 25 centímetros de alto. Saitama, si te mira te destruye\",\r\n  \"width\": 8,\r\n  \"height\": 25,\r\n  \"weight\": 680,\r\n  \"distributor\": \"Banpresto\",\r\n  \"reference\": \"TM0ZZH441XB0027\",\r\n  \"stock\": 100,\r\n  \"actual_Stock\": 100,\r\n  \"image\": \"/img/product/notavailable.png\",\r\n  \"imagefull\": \"/img/product/notavailable2.jpg\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -605,7 +633,7 @@
 			"response": []
 		},
 		{
-			"name": "Show al blogs",
+			"name": "Show all blogs",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -647,7 +675,7 @@
 			"response": []
 		},
 		{
-			"name": "Show all blogs based on keyword",
+			"name": "Search blogs based on keyword",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -696,18 +724,6 @@
 		},
 		{
 			"name": "Create new blog",
-			"event": [
-				{
-					"listen": "prerequest",
-					"script": {
-						"id": "11812134-027f-43d2-9f4a-4e97cec2bd37",
-						"exec": [
-							""
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
 			"request": {
 				"auth": {
 					"type": "basic",
@@ -725,17 +741,10 @@
 					]
 				},
 				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
+				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n        \"author\": \"Administrador\",\r\n        \"name\": \"Nuevo Funko Pop! de Chopper - One Piece\",\r\n        \"text\": \"No pierdas la oportunidad de hacerte con esta nueva pieza por parte de Funko Pop! de uno de los personajes más icónicos de One Piece.\",\r\n        \"image\": \"/img/product/newblog.png\",\r\n        \"textfull\": \"¡Buenos días gente! Hoy empezamos la mañana con buenas noticias, y es que gracias a Funko Pop! ya que hoy acaba de lanzar una nueva figura\",\r\n        \"product\": {\r\n            \"id\": 9\r\n        }\r\n    }",
+					"raw": "{\n    \"author\": \"Administrador\",\n    \"name\": \"Nuevo Funko Pop! de Chopper - One Piece\",\n    \"text\": \"No pierdas la oportunidad de hacerte con esta nueva pieza por parte de Funko Pop! de uno de los personajes más icónicos de One Piece.\",\n    \"image\": \"/img/product/newblog.png\",\n    \"textfull\": \"¡Buenos días gente! Hoy empezamos la mañana con buenas noticias, y es que gracias a Funko Pop! ya que hoy acaba de lanzar una nueva figura\",\n    \"product\": {\n        \"id\": 9\n    }\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -813,7 +822,7 @@
 			"response": []
 		},
 		{
-			"name": "Admin logout",
+			"name": "Logout",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -952,7 +961,7 @@
 			"response": []
 		},
 		{
-			"name": "Add product amount to order with id 24",
+			"name": "Add product amount to order 24",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -1004,7 +1013,7 @@
 			"response": []
 		},
 		{
-			"name": "Add product amount to order with id 24",
+			"name": "Add product amount to order 24",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -1056,7 +1065,7 @@
 			"response": []
 		},
 		{
-			"name": "Delete product amount with id 28 from order with id 24",
+			"name": "Delete product amount amount with id 28 from order 24",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -1100,7 +1109,7 @@
 			"response": []
 		},
 		{
-			"name": "Update product amount from order with id 24",
+			"name": "Modify product amount quantity in order 24",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -1152,7 +1161,7 @@
 			"response": []
 		},
 		{
-			"name": "Add product amount to order with id 23 with user credentials",
+			"name": "Add product amount to order 23",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -1272,7 +1281,7 @@
 			"response": []
 		},
 		{
-			"name": "Check user information after confirmation",
+			"name": "Show user information with id 1",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -1327,7 +1336,7 @@
 			"response": []
 		},
 		{
-			"name": "Edit user information",
+			"name": "Modify user information with id 1",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -1401,7 +1410,7 @@
 			"response": []
 		},
 		{
-			"name": "User logout",
+			"name": "Logout",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -1455,7 +1464,7 @@
 			"response": []
 		},
 		{
-			"name": "User login with new password",
+			"name": "Login with new password",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -1510,7 +1519,7 @@
 			"response": []
 		},
 		{
-			"name": "User logout",
+			"name": "Logout",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -1564,7 +1573,7 @@
 			"response": []
 		},
 		{
-			"name": "Register new user",
+			"name": "Create new user",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -1592,7 +1601,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n        \"name\": \"Ramon\",\r\n        \"passwordHash\": \"2020urjc\"\r\n}",
+					"raw": "{\n\t\"name\": \"Ramon\",\n\t\"passwordHash\": \"2020urjc\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -1600,7 +1609,7 @@
 					}
 				},
 				"url": {
-					"raw": "https://localhost:8443/api/register",
+					"raw": "https://localhost:8443/api/user",
 					"protocol": "https",
 					"host": [
 						"localhost"
@@ -1608,14 +1617,14 @@
 					"port": "8443",
 					"path": [
 						"api",
-						"register"
+						"user"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Check new user created with his credenteials",
+			"name": "Show new user infor with id 35",
 			"event": [
 				{
 					"listen": "prerequest",
