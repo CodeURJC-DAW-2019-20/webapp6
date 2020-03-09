@@ -155,7 +155,7 @@ https://git.io/JvoKi
 | :-------------: |:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|
 | David Amor Antolín | https://git.io/JvoP3 | https://git.io/JvoPs | https://git.io/JvoPn | https://git.io/JvoPC | https://git.io/JvoPW |
 | Carlos Francisco Corraliza | https://git.io/JvoXY | https://git.io/JvoXZ | https://git.io/JvoXc | https://git.io/JvoXC | https://git.io/JvoXR |
-| Ramón Barrabes Parra |  |  |  |  |  |
+| Ramón Barrabes Parra | https://git.io/JvoyX | https://git.io/JvoyM | https://git.io/JvoyS | https://git.io/JvoyH | https://git.io/JvoyN |
 |Enrique Márquez Jiménez | https://github.com/CodeURJC-DAW-2019-20/webapp6/commit/b7d23b947ef807f0021e1a91adadd066bce4208d | https://github.com/CodeURJC-DAW-2019-20/webapp6/commit/e7d806e8eff5261994090d34742b4fd0d3d53ac4 | https://github.com/CodeURJC-DAW-2019-20/webapp6/commit/b4ab507b9573b763dbeb3006462a240d3f5df824 | https://github.com/CodeURJC-DAW-2019-20/webapp6/commit/ab5ff957962275b8551e7e02eb5a0a914a92b5eb | https://github.com/CodeURJC-DAW-2019-20/webapp6/commit/74eefc86ce6af69279b3ce305d7a08eed4d4a9ca |
 | Carlos González Valtierra |  |  |  |  |  |
 
@@ -163,6 +163,6 @@ https://git.io/JvoKi
 | :-------------: |:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|
 | David Amor Antolín | [ProductRestController](https://git.io/JvoiS) | [OrderRestController](https://git.io/Jvoid) | [UserRestController](https://git.io/JvoiF) | [API.md](https://git.io/JvoKi) | [apiV2.postman_collection.json](https://git.io/Jvoib) |
 | Carlos Francisco Corraliza | [OrderRestController](https://git.io/Jvoid) | [ProductRestController](https://git.io/JvoiS) | [ProductService](https://git.io/JvoX1) | [ProductController](https://git.io/JvoXS) | [apiV2.postman_collection.json](https://git.io/Jvoib) |
-| Ramón Barrabes Parra |  |  |  |  |  |
+| Ramón Barrabes Parra | [Dockerfile](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/docker/Dockerfile) | [create_image.bat](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/docker/create_image.bat) | [docker-compose](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/docker/docker-compose.yml) | [animeshop-0.0.1-SNAPSHOT.jar](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/docker/app/animeshop-0.0.1-SNAPSHOT.jar) | [UserRestController](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/backend/src/main/java/com/webapp/animeshop/user/UserRestController.java) |
 | Enrique Márquez Jiménez | [BlogRestController](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/backend/src/main/java/com/webapp/animeshop/blog/BlogRestController.java) | [OrderRestController](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/backend/src/main/java/com/webapp/animeshop/order/OrderRestController.java) | [API.md](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/API/API.md) | [README.md](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/README.md) | []() |
 | Carlos González Valtierra |  |  |  |  |  |
