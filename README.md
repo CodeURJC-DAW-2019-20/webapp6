@@ -153,7 +153,7 @@ https://git.io/JvoKi
 
 | Name        | Most significant Commit 1  | Most significant Commit 2  | Most significant Commit 3  | Most significant Commit 4  | Most significant Commit 5  |
 | :-------------: |:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|
-| David Amor Antolín |  |  |  |  |  |
+| David Amor Antolín | https://git.io/JvoP3 | https://git.io/JvoPs | https://git.io/JvoPn | https://git.io/JvoPC | https://git.io/JvoPW |
 | Carlos Francisco Corraliza |  |  |  |  |  |
 | Ramón Barrabes Parra |  |  |  |  |  |
 |Enrique Márquez Jiménez |  |  |  |  |  |
@@ -161,7 +161,7 @@ https://git.io/JvoKi
 
 | Name        | File 1   | File 2   | File 3   | File 4   | File 5   |
 | :-------------: |:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|
-| David Amor Antolín |  |  |  |  |  |
+| David Amor Antolín | [ProductRestController](https://git.io/JvoiS) | [OrderRestController](https://git.io/Jvoid) | [UserRestController](https://git.io/JvoiF) | [API.md](https://git.io/JvoKi) | [apiV2.postman_collection.json](https://git.io/Jvoib) |
 | Carlos Francisco Corraliza |  |  |  |  |  |
 | Ramón Barrabes Parra |  |  |  |  |  |
 | Enrique Márquez Jiménez |  |  |  |  |  |
