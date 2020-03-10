@@ -157,7 +157,7 @@ We made a documentation file with all the Postman requests you can use with our 
 | Carlos Francisco Corraliza | https://git.io/JvoXY | https://git.io/JvoXZ | https://git.io/JvoXc | https://git.io/JvoXC | https://git.io/JvoXR |
 | Ramón Barrabes Parra | https://git.io/JvoyX | https://git.io/JvoyM | https://git.io/JvoyS | https://git.io/JvoyH | https://git.io/JvoyN |
 |Enrique Márquez Jiménez | https://git.io/Jvod3 | https://git.io/Jvods | https://git.io/JvodG | https://git.io/JvodZ | https://git.io/Jvodn |
-| Carlos González Valtierra |  |  |  |  |  |
+| Carlos González Valtierra | https://git.io/JvoNj  |  |  |  |  |
 
 | Name        | File 1   | File 2   | File 3   | File 4   | File 5   |
 | :-------------: |:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|
@@ -165,4 +165,4 @@ We made a documentation file with all the Postman requests you can use with our 
 | Carlos Francisco Corraliza | [OrderRestController](https://git.io/Jvoid) | [ProductRestController](https://git.io/JvoiS) | [ProductService](https://git.io/JvoX1) | [ProductController](https://git.io/JvoXS) | [apiV2.postman_collection.json](https://git.io/Jvoib) |
 | Ramón Barrabes Parra | [Dockerfile](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/docker/Dockerfile) | [create_image.bat](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/docker/create_image.bat) | [docker-compose](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/docker/docker-compose.yml) | [animeshop-0.0.1-SNAPSHOT.jar](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/docker/app/animeshop-0.0.1-SNAPSHOT.jar) | [UserRestController](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/backend/src/main/java/com/webapp/animeshop/user/UserRestController.java) |
 | Enrique Márquez Jiménez | [BlogRestController](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/backend/src/main/java/com/webapp/animeshop/blog/BlogRestController.java) | [OrderRestController](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/backend/src/main/java/com/webapp/animeshop/order/OrderRestController.java) | [API.md](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/API/API.md) | [README.md](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/README.md) | []() |
-| Carlos González Valtierra |  |  |  |  |  |
+| Carlos González Valtierra | [README.md](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/README.md) | |  |  |  |
