@@ -8,4 +8,4 @@ const appRoutes = [
   {path: '', redirectTo: '/', pathMatch: 'full'}
 ];
 
-export const routing = RouterModule.forRoot(appRoutes);
+// export const routing = RouterModule.forRoot(appRoutes);

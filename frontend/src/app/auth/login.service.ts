@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-import { Address } from 'cluster';
 import { Order } from '../order/order.model';
+import { Address } from './address.model';
 
 const URL = '/api';
 
