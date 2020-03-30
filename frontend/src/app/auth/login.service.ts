@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Order } from '../order/order.model';
 import { Address } from './address.model';
+import { Observable } from 'rxjs';
 
 const URL = '/api';
 
@@ -61,6 +62,13 @@ export class LoginService {
           return response;
         }),
     );
+  }
+
+  saveUser(user: User): Observable<User> {
+    const formData = new FormData();
+    formData.append('name', user.name);
+    formData.append('authdata', user.authdata);
+    return this.http.post<User>('https://localhost:8443/api/user/', formData);
   }
 
   private setCurrentUser(user: User) {
