@@ -7,8 +7,8 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProductComponent } from './product/product.component';
-import { RouterOutlet } from '@angular/router';
 import { OrderComponent } from './order/order.component';
+import { routing } from './app.routing';
 
 @NgModule({
   declarations: [
@@ -17,12 +17,12 @@ import { OrderComponent } from './order/order.component';
     HeaderComponent,
     FooterComponent,
     ProductComponent,
-    OrderComponent,
-    RouterOutlet
+    OrderComponent
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    routing
   ],
   providers: [],
   bootstrap: [AppComponent]

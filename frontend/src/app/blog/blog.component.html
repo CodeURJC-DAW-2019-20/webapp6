@@ -1,1 +1,185 @@
-<p>blog works!</p>
+<meta charset="UTF-8">
+
+<!-- ================ start banner area ================= -->
+<section class="blog-banner-area" id="blog">
+    <img src="/assets/banner/tokyo ghoul.png" style="float:left;width:100%;height:100%;object-fit:cover;opacity: 0.3;">
+    <div class="container h-100">
+        <div class="blog-banner">
+            <div class="text-center">
+                <h1>Nuestro Blog</h1>
+                <nav aria-label="breadcrumb" class="banner-breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a [routerLink]="['/']">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Blog</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ================ end banner area ================= -->
+<!--================Blog Area =================-->
+<section class="blog_area">
+    <div class="container" style="padding-top: 30px;">
+        <!--{{#admin}}
+    <button class="add-product" data-toggle="modal" data-target="#exampleModal">A&ntilde;adir +</button>
+    {{/admin}}-->
+        <!--<div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Nueva entrada de blog</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="newBlog" action="addBlog" method="post">
+                            <div class="form-group">
+                                <label class="col-form-label">Título:</label>
+                                <input type="text" class="form-control" name="name">
+                                <div class="form-row mb-4">
+                                    <div class="col">
+                                        <label class="col-form-label">Autor:</label>
+                                        <input type="text" class="form-control" name="author">
+                                    </div>
+                                </div>
+                                <label class="col-form-label">Extracto:</label>
+                                <textarea class="form-control" name="text"></textarea>
+                                <label class="col-form-label">Texto completo:</label>
+                                <textarea class="form-control" name="textfull"></textarea><br>
+                                <label class="col-form-label">ID:</label>
+                                <textarea class="form-control" name="idproduct"></textarea>
+                                <div>
+                                    <select name="idproduct" id="idproduct" onfocus='this.size=5;' onblur='this.size=1;'
+                                        onchange='this.size=1; this.blur();'>
+                                        {{#productsblog}}
+                                  <option value={{id}}>{{name}}</option>
+                                  {{/productsblog}}
+                                    </select>
+                                </div>
+                                <input type="hidden" name="_csrf" value="{{token}}"/>
+                                <div>
+                              {{#productsblog}}
+                              <p class="add-product">{{name}}, ID: {{id}}</p>
+                              {{/productsblog}}
+                          </div>
+                                <input type="hidden" name="_csrf" value="{{token}}" />
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="close-submit-product" data-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="submit-product" form="newBlog">Enviar</button>
+                    </div>
+                </div>
+            </div>
+        </div>-->
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="blog_left_sidebar">
+                    <!--{{#blogspage}}-->
+                    <article class="row blog_item">
+                        <div class="col-md-3">
+                            <div class="blog_info text-right">
+                                <div class="post_tag">
+                                    <a>Noticias,</a>
+                                    <a class="active" href="/products">
+                                        <!-- franquicia --></a>
+                                    <a>Nueva figura</a>
+                                </div>
+                                <ul class="blog_meta list">
+                                    <li>
+                                        <a>
+                                            <!--{{author}}-->
+                                            <i class="lnr lnr-user"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a>
+                                            <!--{{day}}/{{month}}/{{year}}-->
+                                            <i class="lnr lnr-calendar-full"></i>
+                                        </a>
+                                    </li>
+                                    <!-- <li>
+                                        <a href="#">1.2M Visitas
+                                            <i class="lnr lnr-eye"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">06 Comentarios
+                                            <i class="lnr lnr-bubble"></i>
+                                        </a>
+                                    </li>-->
+                                    <!--{{#admin}}-->
+                                    <li>
+                                        <!--<form action="/deleteBlog/{{id}}" method="POST">
+                                            <button class="remove-blog-entrie">Eliminar</button>
+                                            <input type="hidden" name="_csrf" value="{{token}}" />
+                                        </form>-->
+
+                                    </li>
+                                    <!--{{/admin}}-->
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="blog_post">
+                                <!--<img src="{{image}}" alt="">-->
+                                <div class="blog_details">
+                                    <!--<a href="/blog/{{id}}">
+                                        <h2></h2>{{name}}
+                                    </a>-->
+                                    <p></p>
+                                    <!--{{text}}-->
+                                    <a class="button button-blog">Ver más</a>
+                                    <!--href="blog/{{id}}"-->
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <!--{{/blogspage}}-->
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="blog_right_sidebar">
+                    <aside class="single_sidebar_widget search_widget">
+                        <form action="/searchBlog" method="post">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Buscar post" name="key">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button">
+                                        <i class="lnr lnr-magnifier"></i>
+                                    </button>
+                                </span>
+                                <input type="hidden" name="_csrf" />
+                                <!--value="{{token}}"-->
+                            </div>
+                            <!-- /input-group -->
+                            <div class="br"></div>
+                        </form>
+                    </aside>
+
+                    <aside class="single_sidebar_widget popular_post_widget">
+                        <h3 class="widget_title">Posts populares</h3>
+                        <!--{{#blogspage}}-->
+                        <div class="media post_item">
+                            <!--<img src="{{image}}" width="100" height="60" alt="post">-->
+                            <div class="media-body">
+                                <!--<a href="blog/{{id}}">
+                                    <h3>{{name}}</h3>
+                                </a>-->
+                                <p></p>
+                                <!--{{day}}/{{month}}/{{year}}-->
+                            </div>
+                        </div>
+                        <!--{{/blogspage}}-->
+                        <div class="br"></div>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================Blog Area =================-->
