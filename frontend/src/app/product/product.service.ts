@@ -8,7 +8,10 @@ import {catchError, map} from 'rxjs/operators';
 const URL = '/api/products/';
 // const ALL = 'api/products/**';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
+
 export class ProductService {
 
   constructor(private loginService: LoginService, private http: HttpClient) { }
@@ -26,6 +29,12 @@ export class ProductService {
     .pipe(catchError((error) => this.handleError(error)));
   }
 
+  getProductsbyPage(page: number): Observable<Product[]> {
+    return this.http.get<any>(URL + '?page=' + page, {withCredentials: false})
+        .pipe(
+            map(result => result.content),
+            catchError((error) => this.handleError(error)));
+}
   saveProduct(product: Product): Observable<Product> {
     const body = JSON.stringify(product);
     const headers = new HttpHeaders({'Content-Type': 'application/json'});

@@ -6,6 +6,7 @@ export interface Product {
   price: number;
   description: string;
   height: number;
+  width: number;
   weight: number;
   distributor: string;
   reference: string;

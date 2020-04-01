@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProductComponent } from './product/product.component';
 import { OrderComponent } from './order/order.component';
 import { routing } from './app.routing';
+import { SingleProductComponent } from './product/singleProduct.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { routing } from './app.routing';
     HeaderComponent,
     FooterComponent,
     ProductComponent,
+    SingleProductComponent,
     OrderComponent
   ],
   imports: [

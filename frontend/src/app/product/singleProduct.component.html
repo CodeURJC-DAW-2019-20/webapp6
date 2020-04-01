@@ -1,0 +1,144 @@
+<div *ngIf="product">
+  <meta charset="UTF-8">
+  <!--================Single Product Area =================-->
+	<div class="product_image_area">
+		<div class="container">
+			<div class="row s_product_inner">
+				<div class="col-lg-6">
+					<div class="owl-carousel owl-theme s_Product_carousel">
+						<div class="single-prd-item">
+							<img class="img-fluid" src="{{product.imagefull}}" alt="">
+						</div>
+						<div class="single-prd-item">
+							<img class="img-fluid" src="{{product.imagefull}}" alt="">
+						</div>
+						<!-- <div class="single-prd-item">
+							<img class="img-fluid" src="img/category/s-p1.jpg" alt="">
+						</div> -->
+					</div>
+				</div>
+				<div class="col-lg-5 offset-lg-1">
+					<div class="s_product_text">
+						<h3>{{product.name}}</h3>
+						<h2>{{product.price}}&euro;</h2>
+						<ul class="list">
+							<li><a class="active"><span>Categor&iacute;a</span> : {{product.franchise}}</a></li>
+							<li><a><span>Disponibilidad</span> : {{product.actual_stock}}/{{product.stock}}</a></li>
+						</ul>
+						<p>{{product.description}}</p>
+						<!--<div class="product_count">
+						<form method="post" action="/addFromProduct/{{id}}"><br>
+              				<label for="qty">Cantidad:</label>
+              				<div class="product_count">
+                            	<input type="text" name="qt" id="sst" maxlength="12" value="1" title="Quantity:" class="input-text qty">
+                                <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;" class="increase items-count" type="button">
+                                	<i class="lnr lnr-chevron-up"></i>
+                                </button>
+                                <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) & sst > 0 ) result.value--;return false;" class="reduced items-count" type="button">
+                                	<i class="lnr lnr-chevron-down"></i>
+                                </button>
+                            </div>
+							<button class="add-product single-product-font">Añadir +</button>
+							<input type="hidden" name="_csrf" value="{{token}}" />
+						</form>
+						</div>-->
+						<div class="card_area d-flex align-items-center">
+							<a class="icon_btn" href="#"><i class="lnr lnr lnr-diamond"></i></a>
+							<a class="icon_btn" href="#"><i class="lnr lnr lnr-heart"></i></a>
+							<!--<form method="post" action="/deleteProduct/{{id}}">
+								<button class="remove-single-product">Eliminar</button>
+								<input type="hidden" name="_csrf" value="{{token}}" />
+							</form>-->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--================End Single Product Area =================-->
+
+	<!--================Product Description Area =================-->
+	<section class="product_description_area">
+		<div class="container">
+			<ul class="nav nav-tabs" id="myTab" role="tablist">
+				<li class="nav-item">
+					<a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Descripci&oacute;n</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+					 aria-selected="false">Especificaciones</a>
+				</li>
+				<!-- <li class="nav-item">
+					<a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact"
+					 aria-selected="false">Comentarios</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link active" id="review-tab" data-toggle="tab" href="#review" role="tab" aria-controls="review"
+					 aria-selected="false">Reseï¿½as</a>
+				</li> -->
+			</ul>
+			<div class="tab-content" id="myTabContent">
+				<div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab">
+					<p>{{product.description}}</p>
+				</div>
+				<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+					<div class="table-responsive">
+						<table class="table">
+							<tbody>
+								<tr>
+									<td>
+										<h5>Ancho</h5>
+									</td>
+									<td>
+										<h5>{{product.width}} cm</h5>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<h5>Alto</h5>
+									</td>
+									<td>
+										<h5>{{product.height}} cm</h5>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<h5>Categor&iacute;a</h5>
+									</td>
+									<td>
+										<h5>{{product.franchise}}</h5>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<h5>Peso</h5>
+									</td>
+									<td>
+										<h5>{{product.weight}} gr</h5>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<h5>Fabricante</h5>
+									</td>
+									<td>
+										<h5>{{product.distributor}}</h5>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<h5>Referencia</h5>
+									</td>
+									<td>
+										<h5>{{ product.reference }}</h5>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+			</div>
+		</div>
+  </section>
+</div>
