@@ -15,23 +15,27 @@
             <li class="nav-item"><a class="nav-link" [routerLink]="['/']">Inicio</a></li>
             <li class="nav-item"><a class="nav-link"  [routerLink]="['/product']">Comprar</a></li>
             <li class="nav-item"><a class="nav-link" [routerLink]="['/blog']">Blog</a></li>
-            <li class="nav-item submenu dropdown">
+            <!--<li class="nav-item submenu dropdown">-->
               <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                 aria-expanded="false">Usuarios</a>
-              <ul class="dropdown-menu">
-                <li class="nav-item"><a class="nav-link" href="/">Iniciar sesión</a></li>
-                <li class="nav-item"><a class="nav-link" href="/">Registrarse</a></li>
-              <div>
-                <form action="/logout" method="post">
-                  <li class="nav-item"><a href="/"></a><button class="nav-link" href="/">Cerrar sesión</button></li>
-                </form>
-          </div>
+                <!--<ul class="dropdown-menu">-->
+                <div *ngIf="!service.isLogged">
+                <li class="nav-item"><a class="nav-link" [routerLink]="['/login']">Iniciar sesión</a></li>
+                <li class="nav-item"><a class="nav-link" [routerLink]="['/register']">Registrarse</a></li>
+                </div>
+              <div *ngIf="service.isLogged">
+                <div>
+                  <form action="/logout" method="post">
+                    <li class="nav-item"><a href="/"></a><button (click)="logOut()" class="nav-link" href="/">Cerrar sesión</button></li>
+                  </form>
+                </div>
                 <!-- <li class="nav-item"><a class="nav-link" href="/trackingOrder">Seguimiento</a></li> -->
-                <li class="nav-item"><a class="nav-link" href="/">Mi perfil</a></li>
-              </ul>
-            </li>
+                <li class="nav-item"><a class="nav-link" [routerLink]="['/userPage', user.id]">Mi perfil</a></li>
+              </div>
+            </ul>
+            <!--</li>-->
             <!-- <li class="nav-item"><a class="nav-link" href="contact">Contacto</a></li> -->
-          </ul>
+          <!--</ul>-->
 
           <ul class="nav-shop">
             <!-- <li class="nav-item"><button><i class="ti-search"></i></button></li> -->

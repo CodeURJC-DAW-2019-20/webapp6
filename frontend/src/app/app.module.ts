@@ -12,7 +12,13 @@ import { routing } from './app.routing';
 import { SingleProductComponent } from './product/singleProduct.component';
 import { ProductService } from './product/product.service';
 import { LoginService } from './auth/login.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './login/register.component';
+import { BasicAuthInterceptor } from './auth/auth.interceptor';
+import { ErrorInterceptor } from './auth/error.interceptor';
+import { FormsModule} from '@angular/forms';
+import { UserPageComponent } from './login/userPage.component';
 
 @NgModule({
   declarations: [
@@ -22,15 +28,22 @@ import { HttpClientModule } from '@angular/common/http';
     FooterComponent,
     ProductComponent,
     SingleProductComponent,
-    OrderComponent
+    OrderComponent,
+    LoginComponent,
+    RegisterComponent,
+    UserPageComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
     routing
   ],
-  providers: [ProductService, LoginService],
+  providers: [ProductService, LoginService,
+    { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
