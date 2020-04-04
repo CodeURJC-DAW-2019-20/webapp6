@@ -1,1 +1,126 @@
-<p>order works!</p>
+<meta charset="UTF-8">
+<!-- ================ start banner area ================= -->
+<section class="blog-banner-area" id="category">
+    <img src="/assets/banner/onepiece.png" style="float:left;width:100%;height:100%;object-fit:cover;opacity: 0.3;">
+    <div class="container h-100">
+        <div class="blog-banner">
+            <div class="text-center">
+                <h1>Cesta</h1>
+                <nav aria-label="breadcrumb" class="banner-breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Cesta</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ================ end banner area ================= -->
+
+<!--================Cart Area ================= -->
+<section class="cart_area">
+    <div class="container">
+        <div class="cart_inner">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Producto</th>
+                            <th scope="col">Precio</th>
+                            <th scope="col">Cantidad</th>
+                            <th scope="col">Total</th>
+                        </tr>
+                    </thead>
+                    <div *ngIf="order.productList.length > 0">
+                        <div *ngFor="let productAmount of order.productList">
+                            <td id="product">
+                                <div class="media">
+                                    <div class="d-flex">
+                                        <img src="{{productAmount.product.image}}" alt=""
+                                            style="width:50%; height:50% ;">
+                                    </div>
+                                    <div class="media-body">
+                                        <p><a [routerLink]="['/singleProduct', productAmount.product.id]"
+                                                style="color:black;">{{productAmount.product.name}} -
+                                                {{productAmount.product.franchise}}</a></p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <h5>{{productAmount.product.price}}€</h5>
+                                <!-- <input type="hidden" id="price-product{{id}}" name="price-product{{id}}"
+                                    value={{product.price}}>-->
+                            </td>
+                            <td>{{productAmount.amount}}
+                          <!--<div class="product_count">
+                                <form id="update-product{{id}}" action="/updateProduct/{{id}}" method="POST">
+                                  <input type="text" name="qty" id="sstupdate{{id}}" maxlength="12" value="{{amount}}" title="Quantity:"
+                                  class="input-text qty">
+                                  <input type="hidden" name="_csrf" value="{{token}}" />
+                              </form>
+                              <button id="update{{id}}" onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;"
+                                  class="increase items-count" type="button"><i class="lnr lnr-chevron-up"></i></button>
+                              <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) & sst > 0 ) result.value--;return false;"
+                                  class="reduced items-count" type="button"><i class="lnr lnr-chevron-down"></i></button>
+                                
+                                <button class="fa fa-refresh" type="submit" form="update-product{{id}}"></button>
+                                
+                          </div>-->
+                      </td>
+                            <td>
+                                <!--<input type="hidden" id="finalTotal" class="sum_item" value={{total}}>-->
+                                <h5 id="result">{{productAmount.total}}€</h5>
+                            </td>
+                            <td>
+                                <!--<button class="product-remove remove-blog-entrie" id="{{id}}"
+                                    type="submit">Eliminar</button>-->
+                            </td>
+                        </div>
+                    </div>
+
+                    <tr>
+                        <td>
+                            <a class="button" [routerLink]="['/order']">Actualizar cesta</a>
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+                            <h5>Total: </h5>
+                        </td>
+                        <td>
+                            {{order.total}}
+                            <!--<h5 id="total" class="total"></h5>-->
+                        </td>
+                    </tr>
+
+                    <tr class="out_button_area">
+                        <td class="d-none-l">
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <!--
+                        <td>
+                            <div class="checkout_btn_inner d-flex align-items-center">
+                                {{^empty}}
+                                <a id="empty-cart" class="gray_btn" href="/products">Seguir comprando</a>
+                                {{/empty}}
+                                {{#empty}}
+                                <a id="not-empty-cart" class="primary-btn finish-btn" href="/checkout">Finalizar</a>
+                                {{/empty}}
+                            </div>
+                        </td>-->
+                    </tr>
+                    <!--</tbody>-->
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ================End Cart Area =================-->

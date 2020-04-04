@@ -5,7 +5,7 @@ export interface Order {
 
   id?: number;
   status: string;
-  productList?: ProductAmount;
+  productList?: ProductAmount[];
   user?: User;
   total: number;
   day: number;

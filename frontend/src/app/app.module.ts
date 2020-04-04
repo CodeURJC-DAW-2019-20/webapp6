@@ -19,6 +19,7 @@ import { BasicAuthInterceptor } from './auth/auth.interceptor';
 import { ErrorInterceptor } from './auth/error.interceptor';
 import { FormsModule} from '@angular/forms';
 import { UserPageComponent } from './login/userPage.component';
+import { OrderService } from './order/order.service';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,7 @@ import { UserPageComponent } from './login/userPage.component';
     BrowserAnimationsModule,
     routing
   ],
-  providers: [ProductService, LoginService,
+  providers: [ProductService, LoginService,OrderService,
     { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
   ],
