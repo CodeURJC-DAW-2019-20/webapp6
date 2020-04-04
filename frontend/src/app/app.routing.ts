@@ -11,7 +11,7 @@ const appRoutes: Routes = [
   {path: 'blog', component: BlogComponent},
   {path: 'order', component: OrderComponent},
   {path: 'product', component: ProductComponent},
-  {path: 'singleProduct', component: SingleProductComponent},
+  {path: 'singleProduct/:id', component: SingleProductComponent},
   // ruta usada por defecto a la hora de abrir la pagina
   {path: '', redirectTo: '/', pathMatch: 'full'}
 ];

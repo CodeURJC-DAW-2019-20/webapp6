@@ -103,9 +103,9 @@ public class ProductRestController {
 				}
 				return new ResponseEntity<>(list,HttpStatus.OK);
 			default:
-				return new ResponseEntity<>(productRepository.findAll(page),HttpStatus.OK);
+				return new ResponseEntity<>(productRepository.findAll(page).getContent(),HttpStatus.OK);
 			}
-		return new ResponseEntity<>(productRepository.findAll(page),HttpStatus.OK);
+		return new ResponseEntity<>(productRepository.findAll(page).getContent(),HttpStatus.OK);
 	}
 
 	@GetMapping("/{id}")

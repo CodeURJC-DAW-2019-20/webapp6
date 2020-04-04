@@ -17,7 +17,9 @@ export class SingleProductComponent {
     service.getProductById(id).subscribe((product => this.product = product), (error) => console.error(error));
 }
 
-removeEvent() {
+
+
+deleteProduct() {
             this.service.deleteProduct(this.product).subscribe((_) => this.router.navigate(['/products']), (error) => console.error(error));
 
       }

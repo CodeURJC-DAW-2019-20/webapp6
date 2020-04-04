@@ -10,6 +10,9 @@ import { ProductComponent } from './product/product.component';
 import { OrderComponent } from './order/order.component';
 import { routing } from './app.routing';
 import { SingleProductComponent } from './product/singleProduct.component';
+import { ProductService } from './product/product.service';
+import { LoginService } from './auth/login.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,10 +26,11 @@ import { SingleProductComponent } from './product/singleProduct.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     routing
   ],
-  providers: [],
+  providers: [ProductService, LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

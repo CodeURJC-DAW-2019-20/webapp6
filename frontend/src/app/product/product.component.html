@@ -203,14 +203,14 @@
 					</div>
 				</div>
 				<!-- End Filter Bar -->
-				<!-- Start Best Seller -->
+        <!-- Start Best Seller -->
 				<section class="lattest-product-area pb-40 category-list">
           <div class="row" ></div>
           <div *ngFor="let product of products">
 						<div class="col-md-6 col-lg-4" id="products">
 							<div class="card text-center card-product">
 								<div class="card-product__img">
-									<img class="card-img" src="{{product.image}}" alt="">
+                  <img *ngIf="product.image" src="{{product.image}}">
 									<ul class="card-product__imgOverlay">
 										<!--<li><button onclick="location.href='/product/{{id}}'">
 												<i class="ti-search"></i>
@@ -238,7 +238,7 @@
 								<div class="card-body">
 									<p>{{product.franchise}}</p>
 									<h4 class="card-product__title">
-										<a href="/product/:id">{{product.name}}</a>
+										<a [routerLink]="['/singleProduct', product.id]">{{product.name}}</a>
 									</h4>
 									<p class="card-product__price">{{product.price}}&euro;</p>
 								</div>

@@ -5,32 +5,35 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {catchError, map} from 'rxjs/operators';
 
-const URL = '/api/products/';
-// const ALL = 'api/products/**';
+const URL = 'api/products/';
+const ALL = 'api/products/all';
 
-@Injectable({
-  providedIn: 'root'
-})
-
+@Injectable()
 export class ProductService {
 
   constructor(private loginService: LoginService, private http: HttpClient) { }
 
 
   getProducts(): Observable<Product[]> {
-    return this.http.get<any>(URL, {withCredentials: false})
+    return this.http.get<any>(URL, {withCredentials: true})
       .pipe(
         map(result => result.content),
         catchError((error) => this.handleError(error)));
   }
 
+  getAllProducts(): Observable<Product[]>{
+    console.log("pidiendo todos los datos");
+    return this.http.get<Product[]>(URL,{withCredentials:true})
+        .pipe(catchError((error)=>this.handleError(error)));
+  }
+
   getProductById(id: number| string): Observable<Product> {
-    return this.http.get<Product>(URL + id, {withCredentials: false})
+    return this.http.get<Product>(URL + id, {withCredentials: true})
     .pipe(catchError((error) => this.handleError(error)));
   }
 
   getProductsbyPage(page: number): Observable<Product[]> {
-    return this.http.get<any>(URL + '?page=' + page, {withCredentials: false})
+    return this.http.get<any>(URL + '?page=' + page, {withCredentials: true})
         .pipe(
             map(result => result.content),
             catchError((error) => this.handleError(error)));
