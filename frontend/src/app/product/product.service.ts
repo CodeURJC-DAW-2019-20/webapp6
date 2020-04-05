@@ -3,7 +3,7 @@ import {Product} from './product.model';
 import { LoginService } from '../auth/login.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import {catchError, map} from 'rxjs/operators';
+import {catchError, map } from 'rxjs/operators';
 
 const URL = 'api/products/';
 const ALL = 'api/products/all';
@@ -37,7 +37,8 @@ export class ProductService {
         .pipe(
             map(result => result.content),
             catchError((error) => this.handleError(error)));
-}
+  }
+  
   saveProduct(product: Product): Observable<Product> {
     const body = JSON.stringify(product);
     const headers = new HttpHeaders({'Content-Type': 'application/json'});
@@ -47,16 +48,17 @@ export class ProductService {
         return this.http.post<Product>(URL, body, {headers}).pipe(catchError((error) => this.handleError(error)));
     } else {
         return this.http.put<Product>(URL + product.id, body, {headers}).pipe(catchError((error) => this.handleError(error)));
-    }  }
+    }  
+  }
 
-    deleteProduct(product: Product): Observable<Product> {
-      return this.http.delete<Product>(URL + product.id).pipe(catchError((error) => this.handleError(error)));
-    }
+  deleteProduct(product: Product): Observable<Product> {
+    return this.http.delete<Product>(URL + product.id).pipe(catchError((error) => this.handleError(error)));
+  }
 
   private handleError(error: any) {
     console.error(error);
     // tslint:disable-next-line: deprecation
     return Observable.throw('Server error (' + error.status + ' ): ' + error);
-}
+  }
 
 }

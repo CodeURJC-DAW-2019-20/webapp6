@@ -13,7 +13,7 @@ export interface User {
   roles: string[];
   delivery: Address;
   orderList: Order;
-  authdata: string;
+  pass: string;
 }
 
 @Injectable()
@@ -42,11 +42,12 @@ export class LoginService {
     });
 
     return this.http.get<User>('/api/logIn', { headers })
+        // tslint:disable-next-line: no-shadowed-variable
         .pipe(map(user => {
 
           if (user) {
             this.setCurrentUser(user);
-            user.authdata = auth;
+            user.pass = auth;
             localStorage.setItem('currentUser', JSON.stringify(user));
           }
 
@@ -67,7 +68,8 @@ export class LoginService {
   saveUser(user: User): Observable<User> {
     const formData = new FormData();
     formData.append('name', user.name);
-    formData.append('authdata', user.authdata);
+    formData.append('email', user.delivery.email);
+    formData.append('pass', user.pass);
     return this.http.post<User>('https://localhost:8443/api/user/', formData);
   }
 
@@ -75,6 +77,10 @@ export class LoginService {
     this.isLogged = true;
     this.user = user;
     this.isAdmin = this.user.roles.indexOf('ROLE_ADMIN') !== -1;
+  }
+
+  getCurrentUser(id: number| string): Observable<User> {
+    return this.http.get<User>(URL + '/user/' + id);
   }
 
   removeCurrentUser() {

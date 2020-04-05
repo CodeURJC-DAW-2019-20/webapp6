@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: animeshop
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: Ramón Barrabés Parra
+Implementation-Vendor-Id: com.webapp
+Build-Jdk: 1.8.0_241
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/animeshop
+Created-By: Maven Integration for Eclipse
+
