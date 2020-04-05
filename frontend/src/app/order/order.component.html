@@ -53,7 +53,7 @@
                                     value={{product.price}}>-->
                             </td>
                             <td>{{productAmount.amount}}
-                          <!--<div class="product_count">
+                                <!--<div class="product_count">
                                 <form id="update-product{{id}}" action="/updateProduct/{{id}}" method="POST">
                                   <input type="text" name="qty" id="sstupdate{{id}}" maxlength="12" value="{{amount}}" title="Quantity:"
                                   class="input-text qty">
@@ -67,7 +67,7 @@
                                 <button class="fa fa-refresh" type="submit" form="update-product{{id}}"></button>
                                 
                           </div>-->
-                      </td>
+                            </td>
                             <td>
                                 <!--<input type="hidden" id="finalTotal" class="sum_item" value={{total}}>-->
                                 <h5 id="result">{{productAmount.total}}€</h5>
@@ -105,19 +105,19 @@
                         <td>
 
                         </td>
-                        <!--
+
                         <td>
                             <div class="checkout_btn_inner d-flex align-items-center">
-                                {{^empty}}
-                                <a id="empty-cart" class="gray_btn" href="/products">Seguir comprando</a>
-                                {{/empty}}
-                                {{#empty}}
-                                <a id="not-empty-cart" class="primary-btn finish-btn" href="/checkout">Finalizar</a>
-                                {{/empty}}
+
+                                <a id="empty-cart" class="gray_btn" [routerLink]="['/product']">Seguir comprando </a>
+
                             </div>
-                        </td>-->
+                            <div *ngIf="order.productList.length > 0">
+                                <a id="not-empty-cart" class="primary-btn finish-btn"
+                                    [routerLink]="['/checkout']">Finalizar</a>
+                            </div>
+                        </td>
                     </tr>
-                    <!--</tbody>-->
                 </table>
             </div>
         </div>

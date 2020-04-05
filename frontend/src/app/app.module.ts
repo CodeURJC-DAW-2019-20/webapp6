@@ -25,6 +25,8 @@ import { ErrorInterceptor } from './auth/error.interceptor';
 import { FormsModule} from '@angular/forms';
 import { UserPageComponent } from './login/userPage.component';
 import { OrderService } from './order/order.service';
+import { CheckoutComponent } from './order/checkout.component';
+import { ConfirmationComponent } from './order/confirmation.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { OrderService } from './order/order.service';
     OrderComponent,
     LoginComponent,
     RegisterComponent,
-    UserPageComponent
+    UserPageComponent,
+    CheckoutComponent,
+    ConfirmationComponent
   ],
   imports: [
     BrowserModule,

@@ -78,73 +78,58 @@
         </div>-->
         <div class="row">
             <div class="col-lg-8">
-                <div class="blog_left_sidebar">
+                <div class="blog_left_sidebar" style="padding-top: 60px;">
                     <!--{{#blogspage}}-->
-                    <article class="row blog_item">
-                        <div class="col-md-3">
-                            <div class="blog_info text-right">
-                                <div class="post_tag">
-                                    <a>Noticias,</a>
-                                    <a class="active" href="/products">
-                                        <!-- franquicia --></a>
-                                    <a>Nueva figura</a>
-                                </div>
-                                <ul class="blog_meta list">
-                                    <li>
-                                        <a>
-                                            <!--{{author}}-->
-                                            <i class="lnr lnr-user"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a>
-                                            <!--{{day}}/{{month}}/{{year}}-->
-                                            <i class="lnr lnr-calendar-full"></i>
-                                        </a>
-                                    </li>
-                                    <!-- <li>
-                                        <a href="#">1.2M Visitas
-                                            <i class="lnr lnr-eye"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">06 Comentarios
-                                            <i class="lnr lnr-bubble"></i>
-                                        </a>
-                                    </li>-->
-                                    <!--{{#admin}}-->
-                                    <li>
-                                        <!--<form action="/deleteBlog/{{id}}" method="POST">
-                                            <button class="remove-blog-entrie">Eliminar</button>
-                                            <input type="hidden" name="_csrf" value="{{token}}" />
-                                        </form>-->
-
-                                    </li>
-                                    <!--{{/admin}}-->
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-9">
-                            <div class="blog_post">
-                                <!--<img src="{{image}}" alt="">-->
-                                <div class="blog_details">
-                                    <!--<a href="/blog/{{id}}">
-                                        <h2></h2>{{name}}
-                                    </a>-->
-                                    <p></p>
-                                    <!--{{text}}-->
-                                    <a class="button button-blog">Ver más</a>
-                                    <!--href="blog/{{id}}"-->
+                    <div *ngFor="let blogitem of blog">
+                        <article class="row blog_item">
+                            <div class="col-md-3">
+                                <div class="blog_info text-right">
+                                    <div class="post_tag">
+                                        <a>Noticias, </a>
+                                        <!-- <a class="active" href="/products">
+                                            {{blog[0].franchise}}</a> -->
+                                        <a class="active">Nueva figura</a>
+                                    </div>
+                                    <ul class="blog_meta list">
+                                        <li>
+                                            <a>
+                                                {{blogitem.author}}
+                                                <i class="lnr lnr-user"></i>
+                                            </a>
+                                        </li>
+                                        <!--{{#admin}}-->
+                                        <!--<li> -->
+                                            <!--<form action="/deleteBlog/{{id}}" method="POST">
+                                                <button class="remove-blog-entrie">Eliminar</button>
+                                                <input type="hidden" name="_csrf" value="{{token}}" />
+                                            </form>-->
+                                        <!--</li>-->
+                                        <!--{{/admin}}-->
+                                    </ul>
                                 </div>
                             </div>
-                        </div>
-                    </article>
+                            <div class="col-md-9">
+                                <div class="blog_post">
+                                    <img *ngIf="blogitem.image" src="assets/{{blogitem.image}}" width="550" height="270">
+                                    <div class="blog_details">
+                                        <!--<a href="/blog/{{id}}"> -->
+                                            <h2></h2>{{blogitem.name}}
+                                        <!--> </a> -->
+                                        <p></p>
+                                        {{blogitem.text}}
+                                        <a class="button button-blog">Ver más</a>
+                                        <!--href="blog/{{id}}"-->
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
                     <!--{{/blogspage}}-->
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="blog_right_sidebar">
-                    <aside class="single_sidebar_widget search_widget">
+                    <aside class="single_sidebar_widget search_widget" style="padding-bottom: 20px;">
                         <form action="/searchBlog" method="post">
                             <div class="input-group">
                                 <input type="text" class="form-control" placeholder="Buscar post" name="key">
@@ -164,14 +149,16 @@
                     <aside class="single_sidebar_widget popular_post_widget">
                         <h3 class="widget_title">Posts populares</h3>
                         <!--{{#blogspage}}-->
-                        <div class="media post_item">
-                            <!--<img src="{{image}}" width="100" height="60" alt="post">-->
-                            <div class="media-body">
-                                <!--<a href="blog/{{id}}">
-                                    <h3>{{name}}</h3>
-                                </a>-->
-                                <p></p>
-                                <!--{{day}}/{{month}}/{{year}}-->
+                        <div *ngFor="let blogitem of blog">
+                            <div class="media post_item">
+                                <img *ngIf="blogitem.image" src="assets/{{blogitem.image}}" width="100" height="50" alt="post">
+                                <div class="media-body">
+                                    <!--<a href="blog/{{id}}"> -->
+                                        <h3>{{blogitem.name}}</h3>
+                                    <!--</a>-->
+                                    <p></p>
+                                    <!--{{day}}/{{month}}/{{year}}-->
+                                </div>
                             </div>
                         </div>
                         <!--{{/blogspage}}-->
@@ -180,6 +167,11 @@
                 </div>
             </div>
         </div>
+        <nav aria-label="breadcrumb" class="banner-breadcrumb">
+            <ol class="breadcrumb">
+            </ol>
+        </nav>
     </div>
+    
 </section>
 <!--================Blog Area =================-->

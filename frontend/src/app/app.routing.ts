@@ -7,6 +7,8 @@ import { SingleProductComponent } from './product/singleProduct.component';
 import { RegisterComponent } from './login/register.component';
 import { LoginComponent } from './login/login.component';
 import { UserPageComponent } from './login/userPage.component';
+import { CheckoutComponent } from './order/checkout.component';
+import { ConfirmationComponent } from './order/confirmation.component';
 
 const appRoutes: Routes = [
     // Rutas usadas para categorias
@@ -18,6 +20,8 @@ const appRoutes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
   {path: 'userPage/:id', component: UserPageComponent},
+  {path: 'checkout', component: CheckoutComponent},
+  {path: 'confirmation', component: ConfirmationComponent},
   // ruta usada por defecto a la hora de abrir la pagina
   {path: '', redirectTo: '/', pathMatch: 'full'}
 ];
