@@ -1,0 +1,181 @@
+<meta charset="UTF-8">
+<!--================Checkout Area =================-->
+<section class="checkout_area section-margin--small">
+    <div class="container">
+        <div *ngIf="!loginService.isLogged">
+            <app-login></app-login>
+        </div>
+        <p></p>
+        <div class="billing_details">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div *ngIf="loginService.isLogged">
+                        <h3>Detalles de la direcciÃ³n</h3>
+                        <form class="row contact_form" id="myForm" method="POST" action="/confirmation">
+                            <div class="col-md-6 form-group p_star">
+                                <input #shippingnameElement #shippingnameControl="ngModel" type="text" class="form-control" id="shippingname" name="shippingname"
+                                    placeholder="Nombre" [(ngModel)]="shippingnameElement.value">
+                                <span class="placeholder" data-placeholder="First name"></span>
+                            </div>
+                            <div class="col-md-6 form-group p_star">
+                                <input #lastnameElement #lastnameControl="ngModel" type="text" class="form-control" id="last" name="lastname"
+                                    placeholder="Apellidos" [(ngModel)]="lastnameElement.value">
+                                <span class="placeholder" data-placeholder="Last name"></span>
+                            </div>
+                            <div class="col-md-6 form-group p_star">
+                                <input #companyElement #companyControl="ngModel" type="text" class="form-control" id="company" name="company"
+                                    placeholder="Empresa" [(ngModel)]="companyElement.value">
+                            </div>
+                            <div class="col-md-6 form-group p_star">
+                                <input #numberElement #numberControl="ngModel" type="text" class="form-control" id="number" name="number"
+                                    placeholder="TelÃ©fono" [(ngModel)]="numberElement.value">
+                                <span class="placeholder" data-placeholder="Phone number"></span>
+                            </div>
+                            <div class="col-md-6 form-group p_star">
+                                <input #emailElement #emailControl="ngModel" type="text" class="form-control" id="email" name="email"
+                                    placeholder="Correo electrÃ³nico" [(ngModel)]="emailElement.value">
+                                <span class="placeholder" data-placeholder="Email Address"></span>
+                            </div>
+                            <div class="col-md-12 form-group p_star">
+                                <input #streetElement #streetControl="ngModel" type="text" class="form-control" id="add1" name="street" placeholder="Calle"
+                                    [(ngModel)]="streetElement.value">
+                                <span class="placeholder" data-placeholder="Address line 01"></span>
+                            </div>
+                            <div class="col-md-6 form-group p_star">
+                                <input #floorElement #floorControl="ngModel" type="text" class="form-control" id="add2" name="floor" placeholder="Piso"
+                                [(ngModel)]="floorElement.value">
+                                <span class="placeholder" data-placeholder="Address line 02"></span>
+                            </div>
+                            <div class="col-md-6 form-group p_star">
+                                <input #cityElement #cityControl="ngModel" type="text" class="form-control" id="city" name="city" placeholder="Ciudad"
+                                [(ngModel)]="cityElement.value">
+                                <span class="placeholder" data-placeholder="Town/City"></span>
+                            </div>
+                            <div class="col-md-6 form-group p_star">
+                                <input #countryElement #countryControl="ngModel" type="text" class="form-control" id="country" name="country" placeholder="PaÃ­s"
+                                [(ngModel)]="countryElement.value">
+                                <span class="placeholder" data-placeholder="Country"></span>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <input #zipcodeElement #zipcodeControl="ngModel" type="text" class="form-control" id="zip" name="zipcode"
+                                    placeholder="CÃ³digo postal" [(ngModel)]="zipcodeElement.value">
+                            </div>
+                            <!--<input type="hidden" name="_csrf" value="{{token}}" />
+                            <div class="col-md-12 form-group mb-0">
+                                <div class="creat_account">
+                                    <h3>Detalles de facturaciÃ³n</h3>
+                                    <input type="checkbox" data-toggle="collapse" href="#collapseExample" role="button"
+                                        aria-expanded="false" aria-controls="collapseExample">
+                                    <label for="f-option3">Enviar a una direcciÃ³n distinta</label>
+                                    <div class="collapse" id="collapseExample">
+                                        <div class="col-md-6 form-group p_star">
+                                            <input type="text" class="form-control" id="first" name="shippingname2"
+                                                placeholder="Nombre" required value={{delivery.shippingname}}>
+                                            <span class="placeholder" data-placeholder="First name"></span>
+                                        </div>
+                                        <div class="col-md-6 form-group p_star">
+                                            <input type="text" class="form-control" id="last" name="lastname2"
+                                                placeholder="Apellidos" required value={{delivery.lastname}}>
+                                            <span class="placeholder" data-placeholder="Last name"></span>
+                                        </div>
+                                        <div class="col-md-6 form-group p_star">
+                                            <input type="text" class="form-control" id="company" name="company2"
+                                                placeholder="Empresa" value={{delivery.company}}>
+                                        </div>
+                                        <div class="col-md-6 form-group p_star">
+                                            <input type="text" class="form-control" id="number" name="number2"
+                                                placeholder="TelÃ©fono" required value={{delivery.number}}>
+                                            <span class="placeholder" data-placeholder="Phone number"></span>
+                                        </div>
+                                        <div class="col-md-6 form-group p_star">
+                                            <input type="text" class="form-control" id="email" name="email2"
+                                                placeholder="Correo electrÃ³nico" required value={{delivery.email}}>
+                                            <span class="placeholder" data-placeholder="Email Address"></span>
+                                        </div>
+                                        <div class="col-md-12 form-group p_star">
+                                            <input type="text" class="form-control" id="add1" name="street2"
+                                                placeholder="Calle" required value="{{delivery.street}}">
+                                            <span class="placeholder" data-placeholder="Address line 01"></span>
+                                        </div>
+                                        <div class="col-md-6 form-group p_star">
+                                            <input type="text" class="form-control" id="add2" name="floor2"
+                                                placeholder="Piso" required value={{delivery.floor}}>
+                                            <span class="placeholder" data-placeholder="Address line 02"></span>
+                                        </div>
+                                        <div class="col-md-6 form-group p_star">
+                                            <input type="text" class="form-control" id="city" name="city2"
+                                                placeholder="Ciudad" required value={{delivery.city}}>
+                                            <span class="placeholder" data-placeholder="Town/City"></span>
+                                        </div>
+                                        <div class="col-md-6 form-group p_star">
+                                            <input type="text" class="form-control" id="country" name="country2"
+                                                placeholder="PaÃ­s" required value={{delivery.country}}>
+                                            <span class="placeholder" data-placeholder="Country"></span>
+                                        </div>
+                                        <div class="col-md-6 form-group">
+                                            <input type="text" class="form-control" id="zip" name="zipcode2"
+                                                placeholder="CÃ³digo postal" required value={{delivery.zipcode}}>
+                                        </div>
+                                    </div>
+                                </div>
+                                <textarea class="form-control" name="message" id="message" rows="1"
+                                    placeholder="Notas"></textarea>
+                            </div>-->
+                            <div class="text-center">
+                                <button class="button button-paypal" type="submit" form="myForm" [routerLink]="['/']" (click)="changeAdress(shippingnameElement.value, lastnameElement.value,companyElement.value, numberElement.value,emailElement.value, streetElement.value,floorElement.value, cityElement.value,countryElement.value,zipcodeElement.value)">Proceder al pago</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="order_box">
+                        <!--order-->>
+                        <h2>Tu pedido</h2>
+                        <ul class="list">
+                            <li><a>
+                                    <h4>Productos <span>Total</span></h4>
+                                </a></li>
+                            <div *ngFor="let productAmount of order.productList">
+                                <li>
+                                    <a class="a">{{productAmount.product.name}}</a><span
+                                        class="middle">{{productAmount.product.price}} x {{productAmount.amount}}</span>
+                                    <!--href="/product/{{product.id}}"-->
+                                    <span class="last" style="float:right;">{{productAmount.total}}â‚¬</span>
+                                </li>
+                            </div>
+                            <!--end ngFor-->
+                        </ul><br>
+                        <ul class="list list_2">
+                            <form>
+                                <input type="hidden" id="tax" name="tax" value=2.90>
+                                <li><a>Subtotal <span>{{order.total}}â‚¬</span></a></li>
+                                <!--<input type="hidden" id="totalCheck" name="totalCheck" value={{total}}>-->
+                                <li><a>Precio envÃ­o <span>2.90â‚¬</span></a></li>
+                                <input type="hidden" id="tax" name="tax" value=2.90>
+                                <li><a>Total <span id="sum">â‚¬</span></a></li>
+                            </form>
+                        </ul>
+                        <!--order-->
+                        <div class="payment_item">
+                            <div class="radion_btn">
+                                <input type="radio" id="f-option5" name="selector">
+                                <label for="f-option5">Contrarreembolso</label>
+                                <div class="check"></div>
+                            </div>
+                            <p>Este mÃ©todo de pago conlleva un recargo adicional de 2.90â‚¬.</p>
+                        </div>
+                        <div class="creat_account">
+                            <input type="checkbox" id="f-option4" name="selector" required>
+                            <label for="f-option4">He leÃ­do y acepto</label>
+                            <a href="https://themes.getbootstrap.com/terms/">los tÃ©rminos y condiciones*</a>
+                        </div>
+                        <!--<div class="text-center">
+                            <button class="button button-paypal" type="submit" form="myForm" (click)="changeAdress(shippingnameElement.value)">Proceder al pago</button>
+                        </div>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================End Checkout Area =================-->
