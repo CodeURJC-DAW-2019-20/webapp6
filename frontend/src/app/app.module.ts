@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 import { AppComponent } from './app.component';
 import { BlogComponent } from './blog/blog.component';
@@ -28,6 +30,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    MatMenuModule,
+    MatToolbarModule,
     routing
   ],
   providers: [ProductService, LoginService],
