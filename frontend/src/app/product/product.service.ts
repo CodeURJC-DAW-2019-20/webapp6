@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import {catchError, map } from 'rxjs/operators';
 
 const URL = 'api/products/';
+const URL2 = 'api/products';
 const ALL = 'api/products/all';
 
 @Injectable()
@@ -37,6 +38,20 @@ export class ProductService {
         .pipe(
             map(result => result.content),
             catchError((error) => this.handleError(error)));
+  }
+
+  getProductsbySort(toDo: string, sort: string): Observable<Product[]> {
+    return this.http.get<any>(URL2 + '?toDo=' + toDo + '&sort=' + sort, {withCredentials: true})
+    .pipe(
+      map(result => result.content),
+      catchError((error) => this.handleError(error)));
+  }
+
+  getProductsbyKey(toDo: string, key: string): Observable<Product[]> {
+    return this.http.get<any>(URL2 + '?toDo=' + toDo + '&key=' + key, {withCredentials: true})
+    .pipe(
+      map(result => result.content),
+      catchError((error) => this.handleError(error)));
   }
   
   saveProduct(product: Product): Observable<Product> {

@@ -2,6 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatBadgeModule} from '@angular/material/badge';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
 
 import { AppComponent } from './app.component';
 import { BlogComponent } from './blog/blog.component';
@@ -43,6 +46,9 @@ import { OrderService } from './order/order.service';
     BrowserAnimationsModule,
     MatMenuModule,
     MatToolbarModule,
+    MatBadgeModule,
+    MatButtonModule,
+    MatIconModule,
     routing
   ],
   providers: [ProductService, LoginService,OrderService,

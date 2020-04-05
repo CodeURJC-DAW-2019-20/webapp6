@@ -6,20 +6,20 @@
         <a class="navbar-brand logo_h" href="/"><img src="/assets/img/shop-logo.png" alt=""></a>
         <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
           <ul class="nav navbar-nav menu_nav ml mr-auto">
-            <li class="nav-item"><a class="nav-link transparent" [routerLink]="['/']">Inicio</a></li>
-            <li class="nav-item ml2"><a class="nav-link transparent"  [routerLink]="['/product']">Comprar</a></li>
-            <li class="nav-item ml2"><a class="nav-link transparent" [routerLink]="['/blog']">Blog</a></li>
+            <li class="nav-item"><a mat-button class="nav-link transparent" [routerLink]="['/']">Inicio</a></li>
+            <li class="nav-item ml2"><a mat-button class="nav-link transparent"  [routerLink]="['/product']">Comprar</a></li>
+            <li class="nav-item ml2"><a mat-button class="nav-link transparent" [routerLink]="['/blog']">Blog</a></li>
             <li class="nav-item ml2">
               <div class="dropdown">
-                <button class="dropbtn">Usuario</button>
+                <button mat-button class="dropbtn">Usuario</button>
                   <div class="dropdown-content" *ngIf="!service.isLogged">
-                    <a [routerLink]="['/login']">Iniciar sesión</a>
-                    <a [routerLink]="['/register']">Registrarse</a>
+                    <a mat-button [routerLink]="['/login']">Iniciar sesión</a>
+                    <a mat-button [routerLink]="['/register']">Registrarse</a>
                   </div>
                   <div class="dropdown-content" *ngIf="service.isLogged">
-                    <a [routerLink]="['/userPage', user.id]">Mi perfil</a>
+                    <a mat-button [routerLink]="['/userPage', user.id]">Mi perfil</a>
                     <form action="/logout" method="post">
-                      <li class="nav-item"><a href="/"></a><button (click)="logOut()" class="nav-link" href="/">Cerrar sesión</button></li>
+                      <li class="nav-item"><a mat-button href="/"></a><button (click)="logOut()" class="nav-link" href="/">Cerrar sesión</button></li>
                     </form>
                   </div>
               </div>
@@ -57,8 +57,11 @@
             <!--{{#cartSize}}
             <li class="nav-item"><button onclick="location.href='/shoppingCart'"><i class="ti-shopping-cart"></i><span class="nav-shop__circle">{{cartSize}}</span></button> </li>
             {{/cartSize}}-->
-            <button class="mr cart"><i class="material-icons">shopping_cart</i><span class="nav-shop__circle">2</span></button>
-            <a class="button button-header" [routerLink]="['/product']">Comprar ahora</a>
+            <p>
+              <button mat-icon-button class="mr cart"><mat-icon matBadge="2" matBadgePosition="after">shopping_cart</mat-icon>
+              </button>
+            </p>
+            <a mat-flat-button class="button button-header" [routerLink]="['/product']">Comprar ahora</a>
         </div>
       </div>
     </nav>

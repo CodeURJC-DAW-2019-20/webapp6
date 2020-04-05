@@ -91,16 +91,22 @@
 			<div class="col-xl-9 col-lg-8 col-md-7">
 				<!-- Start Filter Bar -->
 				<div class="filter-bar d-flex flex-wrap align-items-center">
-					<div class="sorting">
+					<button mat-button [matMenuTriggerFor]="menu" class="sorting">Orden predeterminado</button>
+					<mat-menu #menu="matMenu">
+						<button mat-menu-item (click)="sortBy('sort','desc')" [routerLink]="['/product']">Precio mayor a menor</button>
+						<button mat-menu-item (click)="sortBy('sort','asc')" [routerLink]="['/product']">Precio menor a mayor</button>
+					</mat-menu>
+					<!--<div class="sorting">
 						<form id="sort" action="/sortBy" method="post">
 							<select onchange="this.form.submit()" name="value">
 								<option value="Default">Orden predeterminado</option>
 								<option value="Desc">Precio mayor - menor</option>
 								<option value="Asc">Precio menor - mayor</option>
-							</select> <!--<input type="hidden" name="_csrf" value="{{token}}" />-->
+							</select>
 						</form>
-					</div>
+					</div>-->
 					<div class="sorting mr-auto">
+						<button mat-button class="add-product">Añadir producto</button>
 						<!--{{#admin}}
 						<button class="add-product" data-toggle="modal"
 							data-target="#exampleModal">A&ntilde;adir +</button>
@@ -186,6 +192,16 @@
 								</div>
 							</div>
 						</div>
+					</div>
+					<div>
+							<div class="input-group filter-bar-search">
+								<input #key #keyControl="ngModel" type="text" [(ngModel)]="key.value" placeholder="Buscar" (keydown.enter)="search(key.value)">
+								<div class="input-group-append">
+									<button type="button" (click)="search(key.value)">
+										<i class="ti-search"></i>
+									</button>
+								</div>
+							</div>
 					</div>
 					<div>
 						<!--<form action="/search" method="post">

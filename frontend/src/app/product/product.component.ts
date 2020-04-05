@@ -22,4 +22,20 @@ export class ProductComponent implements OnInit {
     );
   }
 
+  sortBy(toDo: string, sort: string) {
+    this.service.getProductsbySort(toDo, sort).subscribe(
+      products => this.products = products,
+      error => console.log(error)
+    );
+  }
+
+  search(key: string) {
+    this.service.getProductsbyKey("search", key).subscribe(
+      products => this.products = products,
+      error => console.log(error)
+    );
+  }
+
 }
+
+
