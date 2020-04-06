@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { UserPageComponent } from './login/userPage.component';
 import { CheckoutComponent } from './order/checkout.component';
 import { ConfirmationComponent } from './order/confirmation.component';
+import { SingleBlogComponent } from './blog/singleBlog.component';
 
 const appRoutes: Routes = [
     // Rutas usadas para categorias
@@ -16,6 +17,7 @@ const appRoutes: Routes = [
   {path: 'blog', component: BlogComponent},
   {path: 'order', component: OrderComponent},
   {path: 'product', component: ProductComponent},
+  {path: 'singleBlog/:id', component: SingleBlogComponent},
   {path: 'singleProduct/:id', component: SingleProductComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
