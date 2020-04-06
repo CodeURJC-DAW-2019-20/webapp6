@@ -1,1 +1,143 @@
-<p>confirmation works!</p>
+<meta charset="UTF-8">
+  <!--================Order Details Area =================-->
+  <section class="order_details section-margin--small">
+    <div class="container">
+      <p class="text-center billing-alert">Gracias. Tu pedido ha sido recibido.</p>
+      <div class="row mb-5">
+        <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
+          <div class="confirmation-card">
+            <h3 class="billing-title">Información del pedido</h3>
+            <table class="order-rable">
+              <tr>
+                <td>Número del pedido</td>
+                <td>: {{order.id}}</td>
+              </tr>
+              <tr>
+                <td>Fecha</td>
+                <td>: {{order.day}}/{{order.month}}/{{order.year}}</td>
+              </tr>
+              <tr>
+                <td>Total</td>
+                <td>: {{order.total}}€</td>
+              </tr>
+              <tr>
+                <td>Método de pago</td>
+                <td>: Efectivo</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
+          <div class="confirmation-card">
+            <h3 class="billing-title">Dirección de facturación</h3>
+            <table class="order-rable">
+              <tr>
+                <td>Calle</td>
+                <td>: {{user.delivery.street}}</td>
+              </tr>
+              <tr>
+                <td>Ciudad</td>
+                <td>: {{user.delivery.city}}</td>
+              </tr>
+              <tr>
+                <td>País</td>
+                <td>: {{user.delivery.country}}</td>
+              </tr>
+              <tr>
+                <td>Código postal</td>
+                <td>: {{user.delivery.zipcode}}</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
+          <div class="confirmation-card">
+            <h3 class="billing-title">Dirección de envío</h3>
+            <table class="order-rable">
+              <tr>
+                <td>Calle</td>
+                <td>: {{user.delivery.street}}</td>
+              </tr>
+              <tr>
+                <td>Ciudad</td>
+                <td>: {{user.delivery.city}}</td>
+              </tr>
+              <tr>
+                <td>País</td>
+                <td>: {{user.delivery.country}}</td>
+              </tr>
+              <tr>
+                <td>Código postal</td>
+                <td>: {{user.delivery.zipcode}}</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="order_details_table">
+        <h2>Detalles del pedido</h2>
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Producto</th>
+                <th scope="col">Cantidad</th>
+                <th scope="col">Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <div *ngFor="let productAmount of order.productList">
+              <tr>
+                <td>
+                  <p>{{productAmount.product.name}}</p>
+                </td>
+                <td>
+                  <h5>x {{productAmount.amount}}</h5>
+                </td>
+                <td>
+                  <p>{{productAmount.total}}€</p>
+                </td>
+              </tr>
+            </div>
+              <tr>
+                <td>
+                  <h4>Subtotal</h4>
+                </td>
+                <td>
+                  <h5></h5>
+                </td>
+                <td>
+                  <input type="hidden" id="totalCheck" name="totalCheck" ><!--value={{total}}-->
+                  <p>{{order.total}}€</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h4>Envío</h4>
+                </td>
+                <td>
+                  <h5></h5>
+                </td>
+                <td>
+                  <input type="hidden" id="tax" name="tax" value=2.90>
+                  <p>2.90€</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h4>Total</h4>
+                </td>
+                <td>
+                  <h5></h5>
+                </td>
+                <td>
+                  <h4 id="sum"></h4>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--================End Order Details Area =================-->
