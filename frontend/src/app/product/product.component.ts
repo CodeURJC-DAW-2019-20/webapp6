@@ -36,6 +36,13 @@ export class ProductComponent implements OnInit {
     );
   }
 
+  delete(product: Product){
+    this.service.deleteProduct(product).subscribe(
+      products => this.products = products,
+      error => console.log(error)
+    );
+  }
+
 }
 
 

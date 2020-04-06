@@ -121,12 +121,12 @@ public class ProductRestController {
 	}
 	
 	@DeleteMapping("/{id}")
-	public ResponseEntity<Product> deleteProduct(@PathVariable long id) {
+	public ResponseEntity<List<Product>> deleteProduct(@PathVariable long id) {
 		Product product = productRepository.findById(id);
 		if(product!=null) {
 			productService.deleteProduct(id);
 			
-			return new ResponseEntity<>(product,HttpStatus.OK);
+			return new ResponseEntity<>(productRepository.findAll(),HttpStatus.OK);
 		}
 		else
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);

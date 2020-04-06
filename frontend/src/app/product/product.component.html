@@ -220,35 +220,33 @@
 				<!-- End Filter Bar -->
         <!-- Start Best Seller -->
 				<section class="lattest-product-area pb-40 category-list">
-          <div class="row" ></div>
-          <div *ngFor="let product of products">
-						<div class="col-md-6 col-lg-4" id="products">
+          		<div class="row" >
+          			<div *ngFor="let product of products" class="col-md-6 col-lg-4" id="products">
 							<div class="card text-center card-product">
 								<div class="card-product__img">
-                  <img *ngIf="product.image" src="{{product.image}}">
+                  					<img *ngIf="product.image" class="card-img" src="/assets/img/product/narutosasuke.png">
 									<ul class="card-product__imgOverlay">
-										<!--<li><button onclick="location.href='/product/{{id}}'">
-												<i class="ti-search"></i>
-											</button></li>-->
+										<li><button [routerLink]="['/singleProduct', product.id]">
+											<mat-icon class="material-icons md-18 md-light">search</mat-icon>
+											</button></li>
 										<li>
-											<!--<form action="/addFromProduct/{{id}}" method="post">
+											<!--<form action="/addFromProduct/{{id}}" method="post">-->
 												<button id="add">
-													<i class="ti-shopping-cart"></i>
+													<mat-icon class="material-icons md-18 md-light">add_shopping_cart</mat-icon>
 												</button>
-												<input type="hidden" name="qt" id="qt" value=1 /> <input
-													type="hidden" name="_csrf" value="{{token}}" />
-											</form>-->
+												<input type="hidden" name="qt" id="qt" value=1 />
+											<!--</form>-->
 										</li>
 									</ul>
 									<div *ngIf="loginService.isAdmin">
-									<!--<form method="post" action="/deleteProduct/:id">
+									<!--<form method="post" action="/deleteProduct/:id">-->
 										<ul class="card-product-remove__imgOverlay">
-											<li><button (click)="deleteProduct()">
-													<i class="ti-trash"></i>
-												</button> <input type="hidden" name="_csrf" value="{{token}}" /></li>
+											<li><button (click)="delete(product)">
+												<mat-icon class="material-icons md-18 md-light">delete_forever</mat-icon>
+												</button>
 										</ul>
-									</form>-->
-                  </div>
+									<!--</form>-->
+                  					</div>
 								</div>
 								<div class="card-body">
 									<p>{{product.franchise}}</p>
