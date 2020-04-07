@@ -27,6 +27,13 @@ export class BlogComponent implements OnInit {
       blog => this.blog = blog,
       error => console.log(error)
     );
-}
+  }
+
+  search(key: string) {
+    this.service.getBlogsByKey(key).subscribe(
+      blog => this.blog = blog,
+      error => console.log(error)
+    );
+  }
 
 }

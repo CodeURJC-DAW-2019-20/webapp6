@@ -1,11 +1,71 @@
+.blog-banner {
+	position: relative
+}
+
+.blog-banner h4,
+.blog-banner h1,
+.blog-banner a {
+	text-transform: capitalize;
+	color: #fff
+}
+
+.blog-banner h4 {
+	font-size: 18px;
+	margin-bottom: 15px
+}
+
+.blog-banner h1 {
+	font-size: 30px;
+	margin-bottom: 10px;
+	color: #222
+}
+
+@media (min-width: 992px) {
+	.blog-banner h1 {
+		font-size: 36px
+	}
+}
+
 .blog-banner-area {
 	height: 280px;
 	position: relative;
 	z-index: 1
 }
 
-.blog-banner {
-	position: relative
+@media (min-width: 1000px) {
+	.blog-banner-area {
+		height: 410px
+	}
+}
+
+.blog-banner-area .blog-banner {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 100%;
+	transform: translate(-50%, -50%)
+}
+
+.blog-banner-area::after {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #f1f6f7;
+	z-index: -1
+}
+
+.blog-banner-btn {
+	border: 2px solid #384aeb;
+	padding: 10px 45px
+}
+
+.blog-banner-btn:hover {
+	background: #384aeb;
+	color: #fff
 }
 
 .banner-breadcrumb {
@@ -197,4 +257,88 @@
 	border: none;
 	border-radius: 4px;
 	background: #ff8888;
+}
+
+.card-blog__title a {
+	color: #222;
+	font-weight: 750;
+	font-size: 13px;
+	letter-spacing: -0.5px;
+}
+
+.card-blog:hover .card-blog__title a {
+	color: #384aeb;
+	text-decoration: none;
+}
+
+.blog_details {
+	padding-top: 20px;
+}
+
+.blog_details a {
+	font-size: 20px;
+	line-height: 42px;
+	color: #222;
+	font-weight: bold;
+	transition: all 0.3s linear;
+}
+
+.blog_details a:hover {
+	color: #384aeb;
+	text-decoration: none;
+}
+
+.blog_details p {
+	margin-bottom: 26px;
+}
+
+.button-blog {
+	padding: 0px 31px;
+	font-size: 14px;
+	background: #f9f9ff;
+	border-color: #EEEEEE;
+	border-radius: 0;
+	color: #222
+}
+
+.button-blog:hover {
+	background: #384aeb !important;
+	color: #fff !important
+}
+
+::ng-deep .mat-flat-button.blog{
+    height:40px !important;
+    width:115px !important;
+    font-size:14px !important;
+}
+
+::ng-deep .mat-flat-button.blog:hover{
+    background: #384aeb !important;
+	color: #fff !important
+}
+
+::ng-deep .mat-flat-button.blog-tittle:hover{
+	background: none;
+}
+
+.blog_right_sidebar .br {
+	width: 100%;
+	height: 1px;
+	background: #eee;
+	margin: 30px 0px;
+	margin-bottom: 10px;
+}
+
+.blog_right_sidebar .search_widget .input-group .btn-default {
+	position: absolute;
+	right: 20px;
+	background: transparent;
+	border: 0px;
+	box-shadow: none;
+	font-size: 14px;
+	color: #fff;
+	padding: 0px;
+	top: 50%;
+	transform: translateY(-50%);
+	z-index: 1
 }

@@ -70,7 +70,7 @@ public class DatabaseInitializer {
 		this.userRepository.save(admin);
 
 		
-		this.productService.addProduct(new Product("Funko Pop! Levi Ackerman","Attack on Titans",14.49,"Figura vinilo Funko POP de 9cm en caja regalo.",5,9,200,"Funko Pop!","TM0ZZH441XA001",100, "/img/product/levimin.png", "/img/product/levi2.jpg"));
+		this.productService.addProduct(new Product("Funko Pop! Levi Ackerman","Attack on Titans",14.49,"Figura vinilo Funko POP de 9cm en caja regalo.",5,9,200,"Funko Pop!","TM0ZZH441XA001",100, "/img/product/levi2.jpg", "/img/product/levi2.jpg"));
 		this.productService.addProduct(new Product("Attack on Titans - Mikasa Ackerman","Attack on Titans",40.50,"De la serie de anime Attack on Titan viene una figura de Mikasa con articulaciones regulables.",50,30,1200,"Figuarts ZERO","TM0ZZH441XC002",160, "/img/product/mikasa.png", "/img/product/mikasa2.jpg"));
 		this.productService.addProduct(new Product("Eren Jaeguer","Attack on Titans",50.25,"Figura articulada del anime 'Attack on Titan', tamaño aprox. 25 cm. Viene en una caja con ventana.",31,25,100,"Figuarts ZERO","TM0ZZH441XC003",40, "/img/product/ErenJaeguer.png", "/img/product/ErenJaeguer2.jpg"));
 		this.productService.addProduct(new Product("Funko Pop! -Titan Armadura","Attack on Titans",20.00,"A diferencia de los Pop! normales este mide 15cm; los denominados Super Sized.",40,19,200,"Funko Pop!","TM0ZZH441XC004",58, "/img/product/titanArmadura.png", "/img/product/titanArmadura2.jpg"));

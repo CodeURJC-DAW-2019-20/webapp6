@@ -23,9 +23,7 @@ export class SingleBlogComponent implements OnInit {
     constructor(private router: Router, activatedRoute: ActivatedRoute, private service: BlogService, public loginService: LoginService) {
         const id = activatedRoute.snapshot.params.id;
 
-        service.getBlogById(id).subscribe(
-            (blog => this.blog = blog),
-            (error) => console.error(error));
+        service.getBlogById(id).subscribe((blog => this.blog = blog),(error) => console.error(error));
 
         //blogs barra derecha
         //service.getAllBlogs().subscribe(

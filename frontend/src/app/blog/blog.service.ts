@@ -6,6 +6,7 @@ import { catchError, map } from 'rxjs/operators';
 
 
 const URL = 'api/blogs/';
+const URL2 = 'api/blogs';
 
 
 @Injectable({
@@ -19,6 +20,12 @@ export class BlogService {
     return this.http.get<any>(URL, {withCredentials: true})
       .pipe(
         map(result => result.content),
+        catchError((error) => this.handleError(error)));
+  }
+
+  getBlogsByKey(key:string): Observable<Blog[]> {
+    return this.http.get<any>(URL2 + '?key=' + key, {withCredentials: true})
+      .pipe(
         catchError((error) => this.handleError(error)));
   }
 

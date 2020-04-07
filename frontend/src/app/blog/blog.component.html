@@ -1,5 +1,4 @@
 <meta charset="UTF-8">
-
 <!-- ================ start banner area ================= -->
 <section class="blog-banner-area" id="blog">
     <img src="/assets/banner/tokyo ghoul.png" style="float:left;width:100%;height:100%;object-fit:cover;opacity: 0.3;">
@@ -78,7 +77,7 @@
         </div>-->
         <div class="row">
             <div class="col-lg-8">
-                <div class="blog_left_sidebar" style="padding-top: 60px;">
+                <div class="blog_left_sidebar">
                     <!--{{#blogspage}}-->
                     <div *ngFor="let blogitem of blog">
                         <article class="row blog_item">
@@ -92,40 +91,34 @@
                                         <a>{{blogitem.product.franchise}}</a>
                                     </div>
                                     <ul class="blog_meta list">
-                                        <li>
-                                            <a>
-                                                {{blogitem.author}}
-                                                <i class="lnr lnr-user"></i>
-                                            </a>
-                                        </li>
-                                        <!--{{#admin}}-->
+                                        <a>
+                                            {{blogitem.author}}
+                                            <i class="lnr lnr-user"></i>
+                                        </a>
                                         <div *ngIf="loginService.isAdmin">
-                                            <button class="remove-blog-entrie" (click)="delete(blogitem)">Eliminar</button>
+                                            <button class="remove-blog-entrie"
+                                                (click)="delete(blogitem)">Eliminar</button>
                                         </div>
-                                        <li>
-                                            <!--<form action="/deleteBlog/{{id}}" method="POST">
-                                                <button class="remove-blog-entrie">Eliminar</button>
-                                                <input type="hidden" name="_csrf" value="{{token}}" />
-                                            </form>-->
-                                        </li>
-                                        <!--{{/admin}}-->
                                     </ul>
                                 </div>
                             </div>
                             <div class="col-md-9">
                                 <div class="blog_post">
-                                    <img *ngIf="blogitem.image" src="assets/{{blogitem.image}}" width="550" height="270">
+                                    <img *ngIf="blogitem.image" src="assets/{{blogitem.image}}" width="550"
+                                        height="270">
                                     <div class="blog_details">
-                                        <a [routerLink]="['/singleBlog', blogitem.id]">
-                                            <h2>{{blogitem.name}}</h2>
-                                        </a>
-                                        <p></p>
-                                        {{blogitem.text}}
-                                        <a class="button button-blog" [routerLink]="['/singleBlog', blogitem.id]">Ver más</a>
-                                        <!--href="blog/{{id}}"-->
+                                        <h2>
+                                            <a class="blog-tittle"[routerLink]="['/singleBlog', blogitem.id]">{{blogitem.name}}</a>
+                                            <!--<a mat-flat-button class="blog-tittle"[routerLink]="['/singleBlog', blogitem.id]">{{blogitem.name}}</a>-->
+                                        </h2>
+                                        <p>{{blogitem.text}}</p>
+                                        <a mat-flat-button class="button button-blog blog"
+                                            [routerLink]="['/singleBlog', blogitem.id]">Ver
+                                            más</a>
                                     </div>
                                 </div>
                             </div>
+
                         </article>
                     </div>
                     <!--{{/blogspage}}-->
@@ -134,33 +127,30 @@
             <div class="col-lg-4">
                 <div class="blog_right_sidebar">
                     <aside class="single_sidebar_widget search_widget" style="padding-bottom: 20px;">
-                        <form action="/searchBlog" method="post">
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Buscar post" name="key">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button">
-                                        <i class="lnr lnr-magnifier"></i>
-                                    </button>
-                                </span>
-                                <input type="hidden" name="_csrf" />
-                                <!--value="{{token}}"-->
-                            </div>
-                            <!-- /input-group -->
-                            <div class="br"></div>
-                        </form>
+                        <div class="input-group">
+                            <input #key #keyControl="ngModel" class="form-control" type="text" [(ngModel)]="key.value" placeholder="Buscar"
+								(keydown.enter)="search(key.value)">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">
+                                    <i class="lnr lnr-magnifier"></i>
+                                </button>
+                            </span>
+                        </div>
+                        <!-- /input-group -->
+                        <div class="br"></div>
                     </aside>
-
                     <aside class="single_sidebar_widget popular_post_widget">
                         <h3 class="widget_title">Posts populares</h3>
                         <!--{{#blogspage}}-->
                         <div *ngFor="let blogitem of blog">
-                            <div class="media post_item">
-                                <img *ngIf="blogitem.image" src="assets/{{blogitem.image}}" width="100" height="50" alt="post">
+                            <div class="media post_item card-blog">
+                                <img *ngIf="blogitem.image" src="/assets/{{blogitem.image}}" width="100" height="50"
+                                    alt="post">
                                 <div class="media-body">
-                                    <!--<a href="blog/{{id}}"> -->
-                                        <h3 [routerLink]="['/singleBlog', blogitem.id]">{{blogitem.name}}</h3>
-                                    <!--</a>-->
+                                    <h3 class="card-blog__title"><a
+                                            [routerLink]="['/singleBlog', blogitem.id]">{{blogitem.name}}</a></h3>
                                     <p></p>
+                                    <br>
                                     <!--{{day}}/{{month}}/{{year}}-->
                                 </div>
                             </div>
@@ -176,6 +166,6 @@
             </ol>
         </nav>
     </div>
-    
+
 </section>
 <!--================Blog Area =================-->

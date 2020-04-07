@@ -27,13 +27,11 @@
                                         </a></li>
                                     <li><a>{{blog.day}}/{{blog.month}}/{{blog.year}} <i class="lnr lnr-calendar-full"></i>
                                         </a></li>
-                                    <!--{{#admin}}
                                     <li>
-                                        <form action="/deleteBlog/{{id}}" method="POST">
-                                            <button class="remove-blog-entrie">Eliminar</button>
-                                            <input type="hidden" name="_csrf" value="{{token}}" />
-                                        </form>
-                                    </li> {{/admin}} -->
+                                        <div *ngIf="loginService.isAdmin">
+                                            <button class="remove-blog-entrie" (click)="deleteBlog()">Eliminar</button>
+                                        </div>
+                                    </li>
                                     <li>
                                         <!--<div *ngIf="loginService.isAdmin">
                                             <button class="remove-blog-entrie" (click)="deleteBlog()">Eliminar</button>
