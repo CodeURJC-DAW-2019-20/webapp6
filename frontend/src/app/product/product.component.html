@@ -238,7 +238,7 @@
 							<div class="card text-center card-product">
 								<div class="card-product__img">
 									<img *ngIf="product.image" class="card-img"
-										src="/assets/img/product/narutosasuke.png">
+										src="/assets/{{product.image}}">
 									<ul class="card-product__imgOverlay">
 										<li>
 											<button [routerLink]="['/singleProduct', product.id]"><mat-icon class="material-icons md-18 md-light">search</mat-icon></button>
@@ -293,14 +293,13 @@
 					<div *ngFor="let product of recommendedProducts">
 						<div class="card text-center card-product">
 							<div class="card-product__img">
-								<img class="img-fluid" src="/assets/img/product/narutosasuke.png" alt="">
+								<img class="img-fluid" src="/assets/{{product.image}}" alt="" width="300" height="300">
 								<ul class="card-product__imgOverlay">
-									<li><button [routerLink]="['/singleProduct', product.id]">
-											<i class="ti-search"></i>
-										</button></li>
+									<li><button [routerLink]="['/singleProduct', product.id]"><mat-icon class="material-icons md-18 md-light">search</mat-icon></button></li>
 									<li><button>
-											<i class="ti-shopping-cart"></i>
-										</button></li>
+										<mat-icon class="material-icons md-18 md-light">add_shopping_cart
+										</mat-icon>
+									</button></li>
 								</ul>
 							</div>
 							<div class="card-body">

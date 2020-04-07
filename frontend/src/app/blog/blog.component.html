@@ -116,9 +116,9 @@
                                 <div class="blog_post">
                                     <img *ngIf="blogitem.image" src="assets/{{blogitem.image}}" width="550" height="270">
                                     <div class="blog_details">
-                                        <!--<a href="/blog/{{id}}"> -->
-                                            <h2></h2>{{blogitem.name}}
-                                        <!--> </a> -->
+                                        <a [routerLink]="['/singleBlog', blogitem.id]">
+                                            <h2>{{blogitem.name}}</h2>
+                                        </a>
                                         <p></p>
                                         {{blogitem.text}}
                                         <a class="button button-blog" [routerLink]="['/singleBlog', blogitem.id]">Ver más</a>
