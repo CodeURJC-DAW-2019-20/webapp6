@@ -22,79 +22,91 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-xl-3 col-lg-4 col-md-5">
-				<!--<form id="filter" action="/filterProduct" method="post">
 					<div class="sidebar-categories">
 						<div class="head">Explorar categor&iacute;as</div>
 						<ul class="main-categories">
-							<li class="common-filter">
-								<ul>
-									{{#total}}
-									<li class="filter-list"><input class="pixel-radio" type="radio" id="cualquiera" name="franchise"
-										value="Cualquiera" required><label>Cualquiera<span>({{total}})</span></label></li>
-									{{/total}}
-									{{#franchises.entrySet}}
-									<li class="filter-list"><input class="pixel-radio"
-										type="radio" id="{{key}}" name="franchise" value="{{key}}"><label>{{key}}<span> ({{value}})</span>
-									</label></li>
-									{{/franchises.entrySet}}
-								</ul>
-							</li>
+							<!--<mat-radio-group class="example-radio-group">
+								<mat-radio-button class="example-radio-button" color="primary" *ngFor="let product of products" [value]="product.franchise">
+									{{product.franchise}}
+								</mat-radio-button>
+							</mat-radio-group>-->
+							<mat-radio-group class="example-radio-group" [(ngModel)]="franchise">
+								<mat-radio-button class="example-radio-button" color="primary" value="Cualquiera">
+									Cualquiera
+								</mat-radio-button>
+								<mat-radio-button class="example-radio-button" color="primary" value="One Piece">
+									One Piece
+								</mat-radio-button>
+								<mat-radio-button class="example-radio-button" color="primary" value="Attack on Titans">
+									Attack on Titans
+								</mat-radio-button>
+								<mat-radio-button class="example-radio-button" color="primary" value="Naruto">
+									Naruto
+								</mat-radio-button>
+								<mat-radio-button class="example-radio-button" color="primary" value="Predator">
+									Predator
+								</mat-radio-button>
+							</mat-radio-group>
 						</ul>
 					</div>
 					<div class="sidebar-filter">
 						<div class="top-filter-head">Filtros de productos</div>
 						<div class="common-filter">
 							<div class="head">Distribuidores</div>
-							<ul>
-								{{#total}}
-								<li class="filter-list"><input class="pixel-radio"
-									type="radio" id="banpresto" name="distributor"
-									value="Cualquiera" required><label>Cualquiera<span>({{total}})</span></label></li>
-								{{/total}}
-								{{#distributors.entrySet}}
-								<li class="filter-list"><input class="pixel-radio"
-									type="radio" id="{{key}}" name="distributor" value="{{key}}"><label>{{key}}<span>({{value}})</span></label></li>
-								{{/distributors.entrySet}}
+							<ul class="filter-pad">
+								<mat-radio-group class="example-radio-group" [(ngModel)]="distributor">
+									<mat-radio-button class="example-radio-button" color="primary" value="Cualquiera">
+										Cualquiera
+									</mat-radio-button>
+									<mat-radio-button class="example-radio-button" color="primary" value="Figuarts ZERO">
+										Figuarts ZERO
+									</mat-radio-button>
+									<mat-radio-button class="example-radio-button" color="primary" value="Banpresto">
+										Banpresto
+									</mat-radio-button>
+									<mat-radio-button class="example-radio-button" color="primary" value="Funko Pop!">
+										Funko Pop!
+									</mat-radio-button>
+									<mat-radio-button class="example-radio-button" color="primary" value="Tsume">
+										Tsume
+									</mat-radio-button>
+								</mat-radio-group>
 							</ul>
 						</div>
 						<div class="common-filter">
 							<div class="head">Tama&ntilde;o</div>
-							<ul>
-								<li class="filter-list w-50">Ancho<input
-									class="form-control" type="number" id="width" name="width"
-									value="150"></li>
-								<li class="filter-list w-50">Alto<input
-									class="form-control" type="number" id="height" name="height"
-									value="150"></li>
-							</ul>
+								<div class="filter-list w-50">Ancho
+									<input matInput class="form-control" type="number" [(ngModel)]="height">
+								</div>
+								<div class="filter-list w-50">Alto
+									<input matInput class="form-control" type="number" [(ngModel)]="width">
+								</div>
 						</div>
 						<div class="common-filter">
 							<div class="head">Precio</div>
 							<ul>
-								<li class="filter-list w-50">Min<input type="number"
-									class="form-control" min="0" name="min_price" value="0" /></li>
-								<li class="filter-list w-50">Max<input type="number"
-									class="form-control" min="0" name="max_price" value="5000" /></li>
+								<mat-slider thumbLabel [displayWith]="formatLabel" tickInterval="500" min="1" max="3000" color="primary"
+								[tickInterval]="getSliderTickInterval()" [(ngModel)]="value"></mat-slider>
 							</ul>
+								<div class="filter-list w-50">Min<input matInput type="number"  class="form-control" [(ngModel)]="min"/></div>
+								<div class="filter-list w-50">Max<input matInput type="number" class="form-control" [(ngModel)]="value"/></div>
 						</div>
 						<div class="common-filter">
 							<div class="head">Búsqueda</div>
-							<ul>
-								<li class="filter-list"><button type="submit"
-										class="add-product" form="filter">Aplicar</button></li>
-							</ul>
+								<div class="filter-list"><button mat-button (click)="filter()" class="add-product">Aplicar</button>
+								</div>
 						</div>
 					</div>
-					<input type="hidden" name="_csrf" value="{{token}}" />
-				</form>-->
 			</div>
 			<div class="col-xl-9 col-lg-8 col-md-7">
 				<!-- Start Filter Bar -->
 				<div class="filter-bar d-flex flex-wrap align-items-center">
-					<button mat-button [matMenuTriggerFor]="menu" class="sorting">Orden predeterminado</button>
+					<button mat-flat-button [matMenuTriggerFor]="menu" class="sorting dropdown">Orden predeterminado
+						<mat-icon class="material-icons md-18 padding-dropdown md-grey">expand_more</mat-icon>
+					</button>
 					<mat-menu #menu="matMenu">
-						<button mat-menu-item (click)="sortBy('sort','desc')" [routerLink]="['/product']">Precio mayor a menor</button>
-						<button mat-menu-item (click)="sortBy('sort','asc')" [routerLink]="['/product']">Precio menor a mayor</button>
+						<button mat-menu-item (click)="sortBy('sort','desc')">Precio mayor a menor</button>
+						<button mat-menu-item (click)="sortBy('sort','asc')">Precio menor a mayor</button>
 					</mat-menu>
 					<!--<div class="sorting">
 						<form id="sort" action="/sortBy" method="post">
@@ -198,7 +210,7 @@
 								<input #key #keyControl="ngModel" type="text" [(ngModel)]="key.value" placeholder="Buscar" (keydown.enter)="search(key.value)">
 								<div class="input-group-append">
 									<button type="button" (click)="search(key.value)">
-										<i class="ti-search"></i>
+										<mat-icon class="material-icons md-18 padding md-grey">search</mat-icon>
 									</button>
 								</div>
 							</div>
@@ -226,9 +238,9 @@
 								<div class="card-product__img">
                   					<img *ngIf="product.image" class="card-img" src="/assets/img/product/narutosasuke.png">
 									<ul class="card-product__imgOverlay">
-										<li><button [routerLink]="['/singleProduct', product.id]">
-											<mat-icon class="material-icons md-18 md-light">search</mat-icon>
-											</button></li>
+										<li>
+											<button [routerLink]="['/singleProduct', product.id]"><mat-icon class="material-icons md-18 md-light">search</mat-icon></button>
+										</li>
 										<li>
 											<!--<form action="/addFromProduct/{{id}}" method="post">-->
 												<button id="add">
@@ -239,13 +251,11 @@
 										</li>
 									</ul>
 									<div *ngIf="loginService.isAdmin">
-									<!--<form method="post" action="/deleteProduct/:id">-->
 										<ul class="card-product-remove__imgOverlay">
-											<li><button (click)="delete(product)">
-												<mat-icon class="material-icons md-18 md-light">delete_forever</mat-icon>
-												</button>
+											<li>
+												<button (click)="delete(product)"><mat-icon class="material-icons md-18 md-light">delete_forever</mat-icon></button>
+											</li>
 										</ul>
-									<!--</form>-->
                   					</div>
 								</div>
 								<div class="card-body">
