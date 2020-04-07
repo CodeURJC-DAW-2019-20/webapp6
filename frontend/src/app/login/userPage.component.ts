@@ -13,7 +13,7 @@ export class UserPageComponent implements OnInit {
 
   constructor(private router: Router, activatedRoute: ActivatedRoute, private service: LoginService) {
     const id = activatedRoute.snapshot.params.id;
-    service.getCurrentUser(id).subscribe((user => this.user = user), (error) => console.error(error));
+    service.getUserById(id).subscribe((user => this.user = user), (error) => console.error(error));
   }
 
   ngOnInit(): void {

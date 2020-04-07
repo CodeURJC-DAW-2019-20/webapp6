@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+import { map, catchError } from 'rxjs/operators';
 import { Order } from '../order/order.model';
 import { Address } from './address.model';
 import { Observable } from 'rxjs';
+import { ITS_JUST_ANGULAR } from '@angular/core/src/r3_symbols';
 
 const URL = '/api';
+const URLuser = '/api/user/';
 
 export interface User {
   id?: number;
@@ -65,12 +67,15 @@ export class LoginService {
     );
   }
 
-  saveUser(user: User): Observable<User> {
-    const formData = new FormData();
-    formData.append('name', user.name);
-    formData.append('email', user.delivery.email);
-    formData.append('pass', user.pass);
-    return this.http.post<User>('https://localhost:8443/api/user/', formData);
+  saveUser(user: User): Observable<User>{
+    const body = JSON.stringify(user);
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+    console.log(user);
+    return this.http
+        .post<User>(URLuser, body, {headers})
+        .pipe(catchError((error) => this.handleError(error)));
   }
 
   private setCurrentUser(user: User) {
@@ -83,9 +88,21 @@ export class LoginService {
     return this.http.get<User>(URL + '/user/' + id);
   }
 
+  getUserById(id: number| string): Observable<User> {
+    return this.http.get<User>(URLuser + id, {withCredentials: true})
+    .pipe(catchError((error) => this.handleError(error)));
+  }
+
   removeCurrentUser() {
     localStorage.removeItem('currentUser');
     this.isLogged = false;
     this.isAdmin = false;
   }
+
+  private handleError(error: any) {
+    console.error(error);
+    // tslint:disable-next-line: deprecation
+    return Observable.throw('Server error (' + error.status + ' ): ' + error);
+  }
+
 }

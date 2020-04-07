@@ -5,6 +5,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatSliderModule} from '@angular/material/slider';
 
 import { AppComponent } from './app.component';
 import { BlogComponent } from './blog/blog.component';
@@ -53,6 +55,8 @@ import { ConfirmationComponent } from './order/confirmation.component';
     MatBadgeModule,
     MatButtonModule,
     MatIconModule,
+    MatRadioModule,
+    MatSliderModule,
     routing
   ],
   providers: [ProductService, LoginService,OrderService,
