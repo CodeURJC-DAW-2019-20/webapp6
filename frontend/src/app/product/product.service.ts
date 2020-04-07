@@ -83,4 +83,9 @@ export class ProductService {
     return Observable.throw('Server error (' + error.status + ' ): ' + error);
   }
 
+  getProductsbyRecommendations(): Observable<Product[]> {
+    return this.http.get<any>(URL2 + '?toDo=recommendations', {withCredentials: true})
+    .pipe(catchError((error) => this.handleError(error)));
+  }
+
 }
