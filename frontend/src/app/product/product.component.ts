@@ -13,9 +13,6 @@ export class ProductComponent implements OnInit {
 
   product: Product;
   products: Product[];
-<<<<<<< HEAD
-  recommendedProducts: Product[];
-=======
   franchises: string[];
   value = 100;
   min = 0;
@@ -28,24 +25,19 @@ export class ProductComponent implements OnInit {
   height = 150;
   width = 150;
   recommendedProducts : Product[];
->>>>>>> c8f466c076916bc5c8837d00d53c39862d9f5b4a
 
   constructor(private router: Router, private service: ProductService, public loginService: LoginService) { }
 
   ngOnInit() {
     this.service.getAllProducts().subscribe(
       products => this.products = products,
-<<<<<<< HEAD
       error => console.log(error)
     );
-=======
-      error => console.log(error + 'hola')
-    );    
->>>>>>> c8f466c076916bc5c8837d00d53c39862d9f5b4a
+    error => console.log(error);
     this.service.getProductsbyRecommendations().subscribe(
       recommendedProducts => this.recommendedProducts = recommendedProducts,
       error => console.log(error)
-    );  
+    );
   }
 
   formatLabel(value: number) {
@@ -83,22 +75,22 @@ export class ProductComponent implements OnInit {
     );
   }
 
-<<<<<<< HEAD
   saveProduct() {
     this.service.saveProduct(this.product).subscribe(
     _ => {}, (error: Error) => console.error('error creating new product: ' + error));
-=======
+  }
   filter() {
-    this.service.getProductsbyFilter(this.franchise,this.distributor,this.width,this.height,this.min,this.value).subscribe(
+    this.service.getProductsbyFilter(this.franchise, this.distributor, this.width, this.height, this.min, this.value).subscribe(
       products => this.products = products,
       error => console.log(error)
     );
   }
 
   getFranchises(){
-    for(let p of this.products){
-      if(!this.franchises.includes(p.franchise))
+    for (let p of this.products){
+      if (!this.franchises.includes(p.franchise)) {
       this.franchises.concat(p.franchise);
+      }
     }
     /*for(let i = 0; i < this.products.length; i++){
       if(!this.franchises.includes(this.products[i].franchise))
@@ -108,7 +100,3 @@ export class ProductComponent implements OnInit {
 
 }
 
->>>>>>> c8f466c076916bc5c8837d00d53c39862d9f5b4a
-
-}
-}

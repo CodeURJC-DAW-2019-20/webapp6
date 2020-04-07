@@ -54,16 +54,13 @@ export class ProductService {
       catchError((error) => this.handleError(error)));
   }
 
-<<<<<<< HEAD
-=======
   getProductsbyFilter(franchise: string, distributor: string, height: number, width: number, min_price: number, max_price: number): Observable<Product[]> {
     return this.http.get<any>(URL2 + '?toDo=filter' + '&franchise=' + franchise + '&distributor=' + distributor +
                               '&width=' + width + '&height=' + height + '&min_price=' + min_price + '&max_price=' +
                                max_price, {withCredentials: true})
     .pipe(catchError((error) => this.handleError(error)));
   }
-  
->>>>>>> c8f466c076916bc5c8837d00d53c39862d9f5b4a
+
   saveProduct(product: Product): Observable<Product> {
     const body = JSON.stringify(product);
     const headers = new HttpHeaders({'Content-Type': 'application/json'});

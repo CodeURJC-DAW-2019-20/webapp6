@@ -181,7 +181,10 @@
 	-o-transition: all 0.3s ease 0s;
 	transition: all 0.3s ease 0s;
 	margin-right: 10px;
-	z-index: 1
+	z-index: 1;
+	border-color: #AAAAAA;
+	border: 1px solid #eee;
+	font-size: 14px;
 }
 
 .add-product:hover {
@@ -195,7 +198,7 @@
 }
 
 .add-product{
-	color: #AAAAAA;
+	color: #999999;
 }
 
 .add-product:hover {
@@ -273,7 +276,8 @@
 }
 
 .card-product:hover .card-product__title a {
-	color: #384aeb
+	color: #384aeb;
+	text-decoration: none;
 }
 
 .card-product__img {
@@ -499,10 +503,149 @@
 	transform: translateY(0)
 }
 
-.card-product:hover .card-product__title a {
-	color: #384aeb
-}
-
 .material-icons.md-18 { font-size: 18px; }
 
 .material-icons.md-light { color: rgba(255, 255, 255, 1); }
+
+.material-icons.md-grey { color: rgb(180, 180, 180); }
+
+.material-icons.padding { padding: 7.5px 10px; }
+
+.material-icons.padding-dropdown { padding: 2px 10px; }
+
+.dropdown{
+	padding: 7.5px 15px;
+	background: #ffffff;
+	-webkit-transition: all 0.3s ease 0s;
+	-moz-transition: all 0.3s ease 0s;
+	-o-transition: all 0.3s ease 0s;
+	transition: all 0.3s ease 0s;
+	margin-right: 10px;
+	z-index: 1
+}
+
+.dropdown{
+	border-color: #AAAAAA;
+	border: 1px solid #eee;
+	font-size: 14px;
+	color: #999999;
+}
+
+.sidebar-categories .head {
+	font-family: 'Oswald', sans-serif;
+	line-height: 50px;
+	background: #384aeb;
+	padding: 0 30px;
+	font-size: 18px;
+	font-weight: 400;
+	color: #fff
+}
+
+.sidebar-categories .main-categories {
+	padding: 20px 28px;
+	background: #f1f6f7
+}
+
+.sidebar-categories .main-categories .pixel-radio {
+	background: transparent !important
+}
+
+.sidebar-categories .main-nav-list a {
+	font-size: 14px;
+	display: block;
+	line-height: 50px;
+	padding-left: 10px;
+	border-bottom: 1px solid #eee
+}
+
+.sidebar-categories .main-nav-list a:hover {
+	color: #384aeb
+}
+
+.sidebar-categories .main-nav-list a .number {
+	color: #cccccc;
+	margin-left: 10px
+}
+
+.sidebar-categories .main-nav-list a .lnr {
+	margin-right: 10px;
+	display: none
+}
+
+.sidebar-categories .main-nav-list.child a {
+	padding-left: 32px
+}
+
+.sidebar-filter {
+	margin-top: 30px
+}
+
+.sidebar-filter .top-filter-head {
+	font-family: 'Oswald', sans-serif;
+	line-height: 50px;
+	background: #384aeb;
+	padding: 0 30px;
+	font-size: 18px;
+	font-weight: 400;
+	color: #fff
+}
+
+.sidebar-filter .head {
+	line-height: 60px;
+	padding: 0 30px;
+	font-size: 15px;
+	font-weight: 400;
+	color: #222;
+	text-transform: capitalize
+}
+
+.sidebar-filter .common-filter {
+	background: #f1f6f7;
+	border-bottom: 1px solid #eee;
+	padding-bottom: 25px
+}
+
+.sidebar-filter .common-filter .filter-list {
+	position: relative;
+	padding-left: 28px
+}
+
+.sidebar-filter .common-filter:last-child {
+	border-bottom: 0
+}
+
+.filter-list {
+	line-height: 32px
+}
+
+.filter-list i {
+	margin-right: 10px;
+	cursor: pointer
+}
+
+.filter-list .number {
+	color: #ccc
+}
+
+.filter-list label {
+	margin-bottom: 3px;
+	cursor: pointer
+}
+
+.example-radio-group {
+	display: flex;
+	flex-direction: column;
+	margin: 15px 0;
+  }
+  
+  .example-radio-button {
+	margin: 5px;
+  }
+
+  .filter-pad{
+	padding: 0px 28px;
+  }
+
+  .mat-slider {
+	width: 175px;
+  }
