@@ -100,7 +100,7 @@
                                         </li>
                                         <!--{{#admin}}-->
                                         <div *ngIf="loginService.isAdmin">
-                                            <button class="remove-blog-entrie" (click)="deleteBlog(blogitem)">Eliminar</button>
+                                            <button class="remove-blog-entrie" (click)="delete(blogitem)">Eliminar</button>
                                         </div>
                                         <li>
                                             <!--<form action="/deleteBlog/{{id}}" method="POST">

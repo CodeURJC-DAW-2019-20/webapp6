@@ -52,8 +52,8 @@ export class BlogService {
     }  
   }
 
-  deleteBlog(blog: Blog): Observable<Blog> {
-    return this.http.delete<Blog>(URL + blog.id).pipe(catchError((error) => this.handleError(error)));
+  deleteBlog(blog: Blog): Observable<Blog[]> {
+    return this.http.delete<Blog[]>(URL + blog.id).pipe(catchError((error) => this.handleError(error)));
   }
 
   private handleError(error: any) {

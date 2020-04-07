@@ -22,8 +22,11 @@ export class BlogComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  deleteBlog(blog) {
-    this.service.deleteBlog(blog).subscribe((_) => this.router.navigate(['/blog']), (error) => console.error(error));
+  delete(blog: Blog) {
+    this.service.deleteBlog(blog).subscribe(
+      blog => this.blog = blog,
+      error => console.log(error)
+    );
 }
 
 }

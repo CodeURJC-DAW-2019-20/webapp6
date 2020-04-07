@@ -193,3 +193,8 @@
 	color: #384aeb
 }
 
+.remove-blog-entrie {
+	border: none;
+	border-radius: 4px;
+	background: #ff8888;
+}
