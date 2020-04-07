@@ -34,6 +34,12 @@
                                             <input type="hidden" name="_csrf" value="{{token}}" />
                                         </form>
                                     </li> {{/admin}} -->
+                                    <li>
+                                        <!--<div *ngIf="loginService.isAdmin">
+                                            <button class="remove-blog-entrie" (click)="deleteBlog()">Eliminar</button>
+                                        </div>-->
+                                    </li>
+                                    
                                 </ul>
                             </div>
                         </div>
@@ -72,6 +78,9 @@
                         </aside>
                         <aside class="single_sidebar_widget popular_post_widget">
                             <h3 class="widget_title">Posts populares</h3>
+                            <!--<div *ngFor="let blogitem of blogs">
+                                <p>Hola</p>
+                            </div> -->
                             <!--{{#popularblogs}}
                             <div class="media post_item">
                                 <img src="{{image}}" width="100" height="60" alt="post">
