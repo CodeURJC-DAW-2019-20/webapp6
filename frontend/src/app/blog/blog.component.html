@@ -88,7 +88,8 @@
                                         <a>Noticias, </a>
                                         <!-- <a class="active" href="/products">
                                             {{blog[0].franchise}}</a> -->
-                                        <a class="active">Nueva figura</a>
+                                        <a class="active">Nueva figura, </a>
+                                        <a>{{blogitem.product.franchise}}</a>
                                     </div>
                                     <ul class="blog_meta list">
                                         <li>
@@ -98,12 +99,15 @@
                                             </a>
                                         </li>
                                         <!--{{#admin}}-->
-                                        <!--<li> -->
+                                        <div *ngIf="loginService.isAdmin">
+                                            <button class="remove-blog-entrie" (click)="deleteBlog(blogitem)">Eliminar</button>
+                                        </div>
+                                        <li>
                                             <!--<form action="/deleteBlog/{{id}}" method="POST">
                                                 <button class="remove-blog-entrie">Eliminar</button>
                                                 <input type="hidden" name="_csrf" value="{{token}}" />
                                             </form>-->
-                                        <!--</li>-->
+                                        </li>
                                         <!--{{/admin}}-->
                                     </ul>
                                 </div>
