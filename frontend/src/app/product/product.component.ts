@@ -12,6 +12,7 @@ import { LoginService } from '../auth/login.service';
 export class ProductComponent implements OnInit {
 
   products: Product[];
+  recommendedProducts : Product[];
 
   constructor(private router: Router, private service: ProductService, public loginService: LoginService) { }
 
@@ -19,6 +20,10 @@ export class ProductComponent implements OnInit {
     this.service.getAllProducts().subscribe(
       products => this.products = products,
       error => console.log(error + 'hola')
+    );
+    this.service.getProductsbyRecommendations().subscribe(
+      recommendedProducts => this.recommendedProducts = recommendedProducts,
+      error => console.log(error)
     );
   }
 

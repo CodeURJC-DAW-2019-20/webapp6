@@ -1,6 +1,7 @@
 <!-- ================ start banner area ================= -->
 <section class="blog-banner-area" id="category">
-	<img src="/assets/banner/akatsuki.png" style="float: left; width: 100%; height: 100%; object-fit: cover; opacity: 0.3;">
+	<img src="/assets/banner/akatsuki.png"
+		style="float: left; width: 100%; height: 100%; object-fit: cover; opacity: 0.3;">
 	<div class="blog-banner">
 		<div class="text-center">
 			<h1>Comprar por categor&iacute;as</h1>
@@ -93,8 +94,10 @@
 				<div class="filter-bar d-flex flex-wrap align-items-center">
 					<button mat-button [matMenuTriggerFor]="menu" class="sorting">Orden predeterminado</button>
 					<mat-menu #menu="matMenu">
-						<button mat-menu-item (click)="sortBy('sort','desc')" [routerLink]="['/product']">Precio mayor a menor</button>
-						<button mat-menu-item (click)="sortBy('sort','asc')" [routerLink]="['/product']">Precio menor a mayor</button>
+						<button mat-menu-item (click)="sortBy('sort','desc')" [routerLink]="['/product']">Precio mayor a
+							menor</button>
+						<button mat-menu-item (click)="sortBy('sort','asc')" [routerLink]="['/product']">Precio menor a
+							mayor</button>
 					</mat-menu>
 					<!--<div class="sorting">
 						<form id="sort" action="/sortBy" method="post">
@@ -111,17 +114,14 @@
 						<button class="add-product" data-toggle="modal"
 							data-target="#exampleModal">A&ntilde;adir +</button>
 						{{/admin}}-->
-						<div class="modal fade bd-example-modal-lg" id="exampleModal"
-							tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-							aria-hidden="true">
-							<div class="modal-dialog modal-dialog-centered modal-lg"
-								role="document">
+						<div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog"
+							aria-labelledby="exampleModalLabel" aria-hidden="true">
+							<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
 								<div class="modal-content">
 									<div class="modal-header">
 										<h5 class="modal-title" id="exampleModalLabel">Nuevo
 											producto</h5>
-										<button type="button" class="close" data-dismiss="modal"
-											aria-label="Close">
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 											<span aria-hidden="true">&times;</span>
 										</button>
 									</div>
@@ -194,14 +194,15 @@
 						</div>
 					</div>
 					<div>
-							<div class="input-group filter-bar-search">
-								<input #key #keyControl="ngModel" type="text" [(ngModel)]="key.value" placeholder="Buscar" (keydown.enter)="search(key.value)">
-								<div class="input-group-append">
-									<button type="button" (click)="search(key.value)">
-										<i class="ti-search"></i>
-									</button>
-								</div>
+						<div class="input-group filter-bar-search">
+							<input #key #keyControl="ngModel" type="text" [(ngModel)]="key.value" placeholder="Buscar"
+								(keydown.enter)="search(key.value)">
+							<div class="input-group-append">
+								<button type="button" (click)="search(key.value)">
+									<i class="ti-search"></i>
+								</button>
 							</div>
+						</div>
 					</div>
 					<div>
 						<!--<form action="/search" method="post">
@@ -218,35 +219,38 @@
 					</div>
 				</div>
 				<!-- End Filter Bar -->
-        <!-- Start Best Seller -->
+				<!-- Start Best Seller -->
 				<section class="lattest-product-area pb-40 category-list">
-          		<div class="row" >
-          			<div *ngFor="let product of products" class="col-md-6 col-lg-4" id="products">
+					<div class="row">
+						<div *ngFor="let product of products" class="col-md-6 col-lg-4" id="products">
 							<div class="card text-center card-product">
 								<div class="card-product__img">
-                  					<img *ngIf="product.image" class="card-img" src="/assets/img/product/narutosasuke.png">
+									<img *ngIf="product.image" class="card-img"
+										src="/assets/img/product/narutosasuke.png">
 									<ul class="card-product__imgOverlay">
 										<li><button [routerLink]="['/singleProduct', product.id]">
-											<mat-icon class="material-icons md-18 md-light">search</mat-icon>
+												<mat-icon class="material-icons md-18 md-light">search</mat-icon>
 											</button></li>
 										<li>
 											<!--<form action="/addFromProduct/{{id}}" method="post">-->
-												<button id="add">
-													<mat-icon class="material-icons md-18 md-light">add_shopping_cart</mat-icon>
-												</button>
-												<input type="hidden" name="qt" id="qt" value=1 />
+											<button id="add">
+												<mat-icon class="material-icons md-18 md-light">add_shopping_cart
+												</mat-icon>
+											</button>
+											<input type="hidden" name="qt" id="qt" value=1 />
 											<!--</form>-->
 										</li>
 									</ul>
 									<div *ngIf="loginService.isAdmin">
-									<!--<form method="post" action="/deleteProduct/:id">-->
+										<!--<form method="post" action="/deleteProduct/:id">-->
 										<ul class="card-product-remove__imgOverlay">
 											<li><button (click)="delete(product)">
-												<mat-icon class="material-icons md-18 md-light">delete_forever</mat-icon>
+													<mat-icon class="material-icons md-18 md-light">delete_forever
+													</mat-icon>
 												</button>
 										</ul>
-									<!--</form>-->
-                  					</div>
+										<!--</form>-->
+									</div>
 								</div>
 								<div class="card-body">
 									<p>{{product.franchise}}</p>
@@ -266,24 +270,23 @@
 </section>
 
 
-<!--<section class="related-product-area">
+<section class="related-product-area">
 	<div class="container">
-
-			<section class="section-margin calc-60px">
-				<div class="container">
-					<div class="section-intro pb-60px">
-						<p>Figuras populares de la tienda</p>
-						<h2>
-							Figuras <span class="section-intro__style">recomendadas</span>
-						</h2>
-					</div>
-					<div class="owl-carousel owl-theme" id="bestSellerCarousel">
-						{{#list}}
+		<section class="section-margin calc-60px">
+			<div class="container">
+				<div class="section-intro pb-60px">
+					<p>Figuras populares de la tienda</p>
+					<h2>
+						Figuras <span class="section-intro__style">recomendadas</span>
+					</h2>
+				</div>
+				<div class="owl-carousel owl-theme" id="bestSellerCarousel">
+					<div *ngFor="let product of recommendedProducts">
 						<div class="card text-center card-product">
 							<div class="card-product__img">
-								<img class="img-fluid" src="{{image}}" alt="">
+								<img class="img-fluid" src="/assets/img/product/narutosasuke.png" alt="">
 								<ul class="card-product__imgOverlay">
-									<li><button onclick="location.href='/product/{{id}}'">
+									<li><button [routerLink]="['/singleProduct', product.id]">
 											<i class="ti-search"></i>
 										</button></li>
 									<li><button>
@@ -292,19 +295,17 @@
 								</ul>
 							</div>
 							<div class="card-body">
-								<p>{{franchise}}</p>
+								<p>{{product.franchise}}</p>
 								<h4 class="card-product__title">
-									<a href="/product/{{id}}">{{name}}</a>
+									<a>{{product.name}}</a>
+									<!--href="/product/{{id}}"-->
 								</h4>
-								<p class="card-product__price">{{price}}€</p>
+								<p class="card-product__price">{{product.price}}€</p>
 							</div>
 						</div>
-						{{/list}}
 					</div>
 				</div>
-			</section>
-		</div>
+			</div>
+		</section>
 	</div>
-</section>-->
-
-
+</section>
