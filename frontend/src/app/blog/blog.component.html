@@ -20,6 +20,9 @@
 <!--================Blog Area =================-->
 <section class="blog_area">
     <div class="container" style="padding-top: 30px;">
+        <div *ngIf="loginService.isAdmin">
+            <button mat-button class="add-blog" data-toggle="modal" data-target="#exampleModal">Añadir +</button>
+        </div>
         <!--{{#admin}}
     <button class="add-product" data-toggle="modal" data-target="#exampleModal">A&ntilde;adir +</button>
     {{/admin}}-->
@@ -108,7 +111,8 @@
                                         height="270">
                                     <div class="blog_details">
                                         <h2>
-                                            <a class="blog-tittle"[routerLink]="['/singleBlog', blogitem.id]">{{blogitem.name}}</a>
+                                            <a class="blog-tittle"
+                                                [routerLink]="['/singleBlog', blogitem.id]">{{blogitem.name}}</a>
                                             <!--<a mat-flat-button class="blog-tittle"[routerLink]="['/singleBlog', blogitem.id]">{{blogitem.name}}</a>-->
                                         </h2>
                                         <p>{{blogitem.text}}</p>
@@ -128,8 +132,8 @@
                 <div class="blog_right_sidebar">
                     <aside class="single_sidebar_widget search_widget" style="padding-bottom: 20px;">
                         <div class="input-group">
-                            <input #key #keyControl="ngModel" class="form-control" type="text" [(ngModel)]="key.value" placeholder="Buscar"
-								(keydown.enter)="search(key.value)">
+                            <input #key #keyControl="ngModel" class="form-control" type="text" [(ngModel)]="key.value"
+                                placeholder="Buscar" (keydown.enter)="search(key.value)">
                             <span class="input-group-btn">
                                 <button class="btn btn-default" type="button">
                                     <i class="lnr lnr-magnifier"></i>
