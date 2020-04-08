@@ -1,3 +1,6 @@
+#navlist li { display:inline }
+#navlist div { display:inline }
+
 .section-margin--small {
 	margin: 35px 0
 }
@@ -210,8 +213,38 @@
 
 .card-product {
 	border: 0;
-	margin-bottom: 30px
+	margin: 30px;
 }
+
+div.scrollmenu {
+	background-color: white;
+	overflow-y: hidden;
+	overflow-x: auto;
+	white-space: nowrap;
+  }
+  
+  div.scrollmenu li {
+	display: inline;
+	color: white;
+	text-align: center;
+	padding: 14px;
+	text-decoration: none;
+  }
+
+  div.scrollmenu p {
+	display: inline;
+	color: #000;
+	text-align: center;
+  }
+
+  div.scrollmenu a {
+	  color:black;
+	  display: inline;
+	  text-align: center;
+  }
+  div.scrollmenu div {
+	  display: list-item;
+  }
 
 .card-product p {
 	margin-bottom: 0
@@ -648,4 +681,9 @@
 
   .mat-slider {
 	width: 175px;
+  }
+
+  .owl-carouser {
+	overflow-y: hidden; 
+	overflow-x: auto;
   }

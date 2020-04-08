@@ -1,6 +1,7 @@
 <!-- ================ start banner area ================= -->
 <section class="blog-banner-area" id="category">
-	<img src="/assets/banner/akatsuki.png" style="float: left; width: 100%; height: 100%; object-fit: cover; opacity: 0.3;">
+	<img src="/assets/banner/akatsuki.png"
+		style="float: left; width: 100%; height: 100%; object-fit: cover; opacity: 0.3;">
 	<div class="container h-100">
 		<div class="blog-banner">
 			<div class="text-center">
@@ -299,32 +300,70 @@
 						Figuras <span class="section-intro__style">recomendadas</span>
 					</h2>
 				</div>
-				<div class="owl-carousel owl-theme" id="bestSellerCarousel">
-					<div *ngFor="let product of recommendedProducts">
-						<div class="card text-center card-product">
-							<div class="card-product__img">
-								<img class="img-fluid" src="/assets/{{product.image}}" alt="" width="300" height="300">
-								<ul class="card-product__imgOverlay">
-									<li><button [routerLink]="['/singleProduct', product.id]">
-											<mat-icon class="material-icons md-18 md-light">search</mat-icon>
-										</button></li>
-									<li><button>
-											<mat-icon class="material-icons md-18 md-light">add_shopping_cart
-											</mat-icon>
-										</button></li>
-								</ul>
-							</div>
-							<div class="card-body">
-								<p>{{product.franchise}}</p>
-								<h4 class="card-product__title">
-									<a>{{product.name}}</a>
-								</h4>
-								<p class="card-product__price">{{product.price}}€</p>
-							</div>
+				<div class="scrollmenu" id="bestSellerCarousel">
+					<ul id="navlist">
+						<div *ngFor="let product of recommendedProducts">
+							<li>
+								<div class="card text-center card-product">
+									<div class="card-product__img">
+											<img class="img-fluid" src="/assets/{{product.image}}" alt="" width="300"
+											height="300">
+										<ul class="card-product__imgOverlay">
+											<li><button [routerLink]="['/singleProduct', product.id]">
+													<mat-icon class="material-icons md-18 md-light">search</mat-icon>
+												</button></li>
+											<li><button>
+													<mat-icon class="material-icons md-18 md-light">add_shopping_cart
+													</mat-icon>
+												</button></li>
+										</ul>
+
+									</div>
+									<div>
+										<a>{{product.name}}, </a>
+										<p>{{product.franchise}}, </p>
+										<p class="card-product__price">{{product.price}}€</p>
+									</div>
+								</div>
+							</li>
+							
+						<!--<div class="card text-center card-product">
+								<div class="card-product__img">
+									<img class="img-fluid" src="/assets/{{product.image}}" alt="" width="300"
+										height="300">
+									<ul class="card-product__imgOverlay">
+										<li><button [routerLink]="['/singleProduct', product.id]">
+												<mat-icon class="material-icons md-18 md-light">search</mat-icon>
+											</button></li>
+										<li><button>
+												<mat-icon class="material-icons md-18 md-light">add_shopping_cart
+												</mat-icon>
+											</button></li>
+									</ul>
+								</div>
+								<div class="card-body">
+									<p>{{product.franchise}}</p>
+									<h4 class="card-product__title">
+										<a>{{product.name}}</a>
+									</h4>
+									<p class="card-product__price">{{product.price}}€</p>
+								</div>
+							</div> -->
 						</div>
-					</div>
+					</ul>
 				</div>
 			</div>
+			<ul id="navlist">
+				<li>
+					<div>...</div>
+				</li>
+				<li>
+					<div>...</div>
+				</li>
+				<li>
+					<div>...</div>
+				</li>
+			</ul>
 		</section>
 	</div>
 </section>

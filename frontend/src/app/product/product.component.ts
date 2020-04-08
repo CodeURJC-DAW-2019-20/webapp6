@@ -9,6 +9,7 @@ import { LoginService } from '../auth/login.service';
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.css']
 })
+
 export class ProductComponent implements OnInit {
 
   product: Product;
