@@ -27,12 +27,15 @@
 				<div class="sidebar-categories">
 					<div class="head">Explorar categor&iacute;as</div>
 					<ul class="main-categories">
-						<!--<mat-radio-group class="example-radio-group">
-								<mat-radio-button class="example-radio-button" color="primary" *ngFor="let product of products" [value]="product.franchise">
-									{{product.franchise}}
-								</mat-radio-button>
-							</mat-radio-group>-->
 						<mat-radio-group class="example-radio-group" [(ngModel)]="franchise">
+							<mat-radio-button class="example-radio-button" color="primary" value="Cualquiera">
+								Cualquiera
+							</mat-radio-button>
+							<mat-radio-button class="example-radio-button" color="primary" *ngFor="let franchise of franchises" [value]="franchise">
+								{{franchise}}
+							</mat-radio-button>
+						</mat-radio-group>
+						<!--<mat-radio-group class="example-radio-group" [(ngModel)]="franchise">
 							<mat-radio-button class="example-radio-button" color="primary" value="Cualquiera">
 								Cualquiera
 							</mat-radio-button>
@@ -48,7 +51,7 @@
 							<mat-radio-button class="example-radio-button" color="primary" value="Predator">
 								Predator
 							</mat-radio-button>
-						</mat-radio-group>
+						</mat-radio-group>-->
 					</ul>
 				</div>
 				<div class="sidebar-filter">
@@ -57,6 +60,14 @@
 						<div class="head">Distribuidores</div>
 						<ul class="filter-pad">
 							<mat-radio-group class="example-radio-group" [(ngModel)]="distributor">
+								<mat-radio-button class="example-radio-button" color="primary" value="Cualquiera">
+									Cualquiera
+								</mat-radio-button>
+								<mat-radio-button class="example-radio-button" color="primary" *ngFor="let distributor of distributors" [value]="distributor">
+									{{distributor}}
+								</mat-radio-button>
+							</mat-radio-group>
+							<!--<mat-radio-group class="example-radio-group" [(ngModel)]="distributor">
 								<mat-radio-button class="example-radio-button" color="primary" value="Cualquiera">
 									Cualquiera
 								</mat-radio-button>
@@ -72,7 +83,7 @@
 								<mat-radio-button class="example-radio-button" color="primary" value="Tsume">
 									Tsume
 								</mat-radio-button>
-							</mat-radio-group>
+							</mat-radio-group>-->
 						</ul>
 					</div>
 					<div class="common-filter">
