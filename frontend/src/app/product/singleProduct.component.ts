@@ -5,7 +5,9 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { LoginService } from '../auth/login.service';
 
 @Component({
-  templateUrl: './singleProduct.component.html'
+  selector: 'app-product',
+  templateUrl: './singleProduct.component.html',
+  styleUrls: ['./product.component.css']
 })
 
 export class SingleProductComponent {
@@ -18,7 +20,7 @@ export class SingleProductComponent {
   }
 
   deleteProduct() {
-    this.service.deleteProduct(this.product).subscribe((_) => this.router.navigate(['/products']), (error) => console.error(error));
+    this.service.deleteProduct(this.product).subscribe((_) => this.router.navigate(['/product']), (error) => console.error(error));
 
   }
 
