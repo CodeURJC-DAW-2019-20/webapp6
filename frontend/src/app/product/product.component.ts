@@ -3,7 +3,6 @@ import { ProductService} from './product.service';
 import { Product} from './product.model';
 import { Router } from '@angular/router';
 import { LoginService } from '../auth/login.service';
-import { CDK_CONNECTED_OVERLAY_SCROLL_STRATEGY_PROVIDER } from '@angular/cdk/overlay/overlay-directives';
 
 @Component({
   selector: 'app-product',
