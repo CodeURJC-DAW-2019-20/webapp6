@@ -52,29 +52,8 @@ export class OrderService {
   }
 
   getCurrentOrder(): Observable<Order> {  
-    let orders = this.getAllOrders
-    let user: User;
-    let current : Order;
-    return this.getOrderById(24);//To test without the rest of the code
-    /*if(this.loginService.isLogged) {
-      user = this.loginService.user;
-      
-      for (let i = 0; i <= orders.length; i++) {
-        current = orders[i];
-        if(current.user.id == user.id && current.status==null){
-          return this.getOrderById(current.id);
-          //returns order if logged
-        }     
-      }     
-    }else{
-      for(let i = 0; i<=orders.length;i++){
-        current = orders[i];
-        if(current.user==null){
-          return this.getOrderById(current.id);
-        }
-      }
-      
-    }*/
+    return this.http.get<Order>(URL + '0', {withCredentials: true})
+    .pipe(catchError((error) => this.handleError(error)));
   }
 
 }

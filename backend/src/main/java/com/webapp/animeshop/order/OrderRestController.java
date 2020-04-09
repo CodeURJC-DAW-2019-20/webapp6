@@ -58,6 +58,17 @@ public class OrderRestController {
 	
 	@GetMapping("/{id}")
 	public Order getOrder(@PathVariable long id) {
+		if(id==0) {
+			Order order;
+			User user = userComponent.getLoggedUser();
+			if(user!=null) {
+				order = this.orderRepository.findByStatus(user.getId());
+			}
+			else {
+				order = this.orderRepository.findNotRelated();
+			}
+			return order;
+		}
 		return orderRepository.findById(id);
 	}
 	
