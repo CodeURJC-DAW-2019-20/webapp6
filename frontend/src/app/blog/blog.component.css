@@ -1,3 +1,17 @@
+.add-blog {
+	padding: 7.5px 15px;
+	background: #ffffff;
+	-webkit-transition: all 0.3s ease 0s;
+	-moz-transition: all 0.3s ease 0s;
+	-o-transition: all 0.3s ease 0s;
+	transition: all 0.3s ease 0s;
+	margin-right: 10px;
+	z-index: 1;
+	border-color: #AAAAAA;
+	border: 1px solid #eee;
+	font-size: 14px;
+}
+
 .blog-banner {
 	position: relative
 }

@@ -3,17 +3,20 @@ import { ProductService} from './product.service';
 import { Product} from './product.model';
 import { Router } from '@angular/router';
 import { LoginService } from '../auth/login.service';
+import { CDK_CONNECTED_OVERLAY_SCROLL_STRATEGY_PROVIDER } from '@angular/cdk/overlay/overlay-directives';
 
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.css']
 })
+
 export class ProductComponent implements OnInit {
 
   product: Product;
   products: Product[];
-  franchises: string[];
+  franchises: string[] = [];
+  distributors: string[] = [];
   value = 100;
   min = 0;
   max = 3000;
@@ -33,7 +36,14 @@ export class ProductComponent implements OnInit {
       products => this.products = products,
       error => console.log(error)
     );
-    error => console.log(error);
+    this.service.getAllProducts().subscribe(
+      products => this.getFranchisesAndDistributors(products),
+      error => console.log(error)
+    );
+    this.service.getProductsbyPage(1).subscribe(
+      products => this.getFranchisesAndDistributors(products),
+      error => console.log(error)
+    );
     this.service.getProductsbyRecommendations().subscribe(
       recommendedProducts => this.recommendedProducts = recommendedProducts,
       error => console.log(error)
@@ -86,17 +96,17 @@ export class ProductComponent implements OnInit {
     );
   }
 
-  getFranchises(){
-    for (let p of this.products){
-      if (!this.franchises.includes(p.franchise)) {
-      this.franchises.concat(p.franchise);
-      }
+  getFranchisesAndDistributors(products: Product[]){
+    let franchisesaux: string[] = [];
+    let distributorsaux: string[] = [];
+    for(var i = 0; i < products.length; i++){
+      if(!franchisesaux.includes(products[i].franchise)&&!this.franchises.includes(products[i].franchise))
+        franchisesaux.push(products[i].franchise);
+      if(!distributorsaux.includes(products[i].distributor)&&!this.distributors.includes(products[i].distributor))
+        distributorsaux.push(products[i].distributor);
     }
-    /*for(let i = 0; i < this.products.length; i++){
-      if(!this.franchises.includes(this.products[i].franchise))
-      this.franchises.concat(this.products[i].franchise);
-    }*/
+    this.franchises = this.franchises.concat(franchisesaux);
+    this.distributors = this.distributors.concat(distributorsaux);
   }
-
 }
 

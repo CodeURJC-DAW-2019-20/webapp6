@@ -1,6 +1,7 @@
 <!-- ================ start banner area ================= -->
 <section class="blog-banner-area" id="category">
-	<img src="/assets/banner/akatsuki.png" style="float: left; width: 100%; height: 100%; object-fit: cover; opacity: 0.3;">
+	<img src="/assets/banner/akatsuki.png"
+		style="float: left; width: 100%; height: 100%; object-fit: cover; opacity: 0.3;">
 	<div class="container h-100">
 		<div class="blog-banner">
 			<div class="text-center">
@@ -27,12 +28,15 @@
 				<div class="sidebar-categories">
 					<div class="head">Explorar categor&iacute;as</div>
 					<ul class="main-categories">
-						<!--<mat-radio-group class="example-radio-group">
-								<mat-radio-button class="example-radio-button" color="primary" *ngFor="let product of products" [value]="product.franchise">
-									{{product.franchise}}
-								</mat-radio-button>
-							</mat-radio-group>-->
 						<mat-radio-group class="example-radio-group" [(ngModel)]="franchise">
+							<mat-radio-button class="example-radio-button" color="primary" value="Cualquiera">
+								Cualquiera
+							</mat-radio-button>
+							<mat-radio-button class="example-radio-button" color="primary" *ngFor="let franchise of franchises" [value]="franchise">
+								{{franchise}}
+							</mat-radio-button>
+						</mat-radio-group>
+						<!--<mat-radio-group class="example-radio-group" [(ngModel)]="franchise">
 							<mat-radio-button class="example-radio-button" color="primary" value="Cualquiera">
 								Cualquiera
 							</mat-radio-button>
@@ -48,7 +52,7 @@
 							<mat-radio-button class="example-radio-button" color="primary" value="Predator">
 								Predator
 							</mat-radio-button>
-						</mat-radio-group>
+						</mat-radio-group>-->
 					</ul>
 				</div>
 				<div class="sidebar-filter">
@@ -57,6 +61,14 @@
 						<div class="head">Distribuidores</div>
 						<ul class="filter-pad">
 							<mat-radio-group class="example-radio-group" [(ngModel)]="distributor">
+								<mat-radio-button class="example-radio-button" color="primary" value="Cualquiera">
+									Cualquiera
+								</mat-radio-button>
+								<mat-radio-button class="example-radio-button" color="primary" *ngFor="let distributor of distributors" [value]="distributor">
+									{{distributor}}
+								</mat-radio-button>
+							</mat-radio-group>
+							<!--<mat-radio-group class="example-radio-group" [(ngModel)]="distributor">
 								<mat-radio-button class="example-radio-button" color="primary" value="Cualquiera">
 									Cualquiera
 								</mat-radio-button>
@@ -72,7 +84,7 @@
 								<mat-radio-button class="example-radio-button" color="primary" value="Tsume">
 									Tsume
 								</mat-radio-button>
-							</mat-radio-group>
+							</mat-radio-group>-->
 						</ul>
 					</div>
 					<div class="common-filter">
@@ -299,32 +311,70 @@
 						Figuras <span class="section-intro__style">recomendadas</span>
 					</h2>
 				</div>
-				<div class="owl-carousel owl-theme" id="bestSellerCarousel">
-					<div *ngFor="let product of recommendedProducts">
-						<div class="card text-center card-product">
-							<div class="card-product__img">
-								<img class="img-fluid" src="/assets/{{product.image}}" alt="" width="300" height="300">
-								<ul class="card-product__imgOverlay">
-									<li><button [routerLink]="['/singleProduct', product.id]">
-											<mat-icon class="material-icons md-18 md-light">search</mat-icon>
-										</button></li>
-									<li><button>
-											<mat-icon class="material-icons md-18 md-light">add_shopping_cart
-											</mat-icon>
-										</button></li>
-								</ul>
-							</div>
-							<div class="card-body">
-								<p>{{product.franchise}}</p>
-								<h4 class="card-product__title">
-									<a>{{product.name}}</a>
-								</h4>
-								<p class="card-product__price">{{product.price}}€</p>
-							</div>
+				<div class="scrollmenu" id="bestSellerCarousel">
+					<ul id="navlist">
+						<div *ngFor="let product of recommendedProducts">
+							<li>
+								<div class="card text-center card-product">
+									<div class="card-product__img">
+											<img class="img-fluid" src="/assets/{{product.image}}" alt="" width="300"
+											height="300">
+										<ul class="card-product__imgOverlay">
+											<li><button [routerLink]="['/singleProduct', product.id]">
+													<mat-icon class="material-icons md-18 md-light">search</mat-icon>
+												</button></li>
+											<li><button>
+													<mat-icon class="material-icons md-18 md-light">add_shopping_cart
+													</mat-icon>
+												</button></li>
+										</ul>
+
+									</div>
+									<div>
+										<a>{{product.name}}, </a>
+										<p>{{product.franchise}}, </p>
+										<p class="card-product__price">{{product.price}}€</p>
+									</div>
+								</div>
+							</li>
+							
+						<!--<div class="card text-center card-product">
+								<div class="card-product__img">
+									<img class="img-fluid" src="/assets/{{product.image}}" alt="" width="300"
+										height="300">
+									<ul class="card-product__imgOverlay">
+										<li><button [routerLink]="['/singleProduct', product.id]">
+												<mat-icon class="material-icons md-18 md-light">search</mat-icon>
+											</button></li>
+										<li><button>
+												<mat-icon class="material-icons md-18 md-light">add_shopping_cart
+												</mat-icon>
+											</button></li>
+									</ul>
+								</div>
+								<div class="card-body">
+									<p>{{product.franchise}}</p>
+									<h4 class="card-product__title">
+										<a>{{product.name}}</a>
+									</h4>
+									<p class="card-product__price">{{product.price}}€</p>
+								</div>
+							</div> -->
 						</div>
-					</div>
+					</ul>
 				</div>
 			</div>
+			<ul id="navlist">
+				<li>
+					<div>...</div>
+				</li>
+				<li>
+					<div>...</div>
+				</li>
+				<li>
+					<div>...</div>
+				</li>
+			</ul>
 		</section>
 	</div>
 </section>

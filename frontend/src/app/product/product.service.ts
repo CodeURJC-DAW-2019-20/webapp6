@@ -34,9 +34,8 @@ export class ProductService {
   }
 
   getProductsbyPage(page: number): Observable<Product[]> {
-    return this.http.get<any>(URL + '?page=' + page, {withCredentials: true})
+    return this.http.get<Product[]>(URL2 + '?page=' + page, {withCredentials: true})
         .pipe(
-            map(result => result.content),
             catchError((error) => this.handleError(error)));
   }
 
