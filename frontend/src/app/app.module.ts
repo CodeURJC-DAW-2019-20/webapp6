@@ -7,6 +7,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatSliderModule} from '@angular/material/slider';
+import {MatInputModule} from '@angular/material/input';
 
 import { AppComponent } from './app.component';
 import { BlogComponent } from './blog/blog.component';
@@ -31,6 +32,7 @@ import { CheckoutComponent } from './order/checkout.component';
 import { ConfirmationComponent } from './order/confirmation.component';
 import { SingleBlogComponent } from './blog/singleBlog.component'
 import {MatTabsModule} from '@angular/material/tabs';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +48,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     RegisterComponent,
     UserPageComponent,
     CheckoutComponent,
-    ConfirmationComponent
+    ConfirmationComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,6 +65,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatSliderModule,
     routing,
     MatTabsModule
+    MatInputModule,
+    routing
   ],
   providers: [ProductService, LoginService,OrderService,
     { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },
