@@ -6,16 +6,18 @@
 		<div class="row no-gutters align-items-center pt-60px">
 			<div class="col-5 d-none d-sm-block">
 				<div class="hero-banner__img">
-					<img class="img-fluid" src="img/user/login.jpg" alt="">
+					<img class="img-fluid" src="assets/user/login.jpg" alt="">
 				</div>
 			</div>
 			<div class="col-sm-7 col-lg-6 offset-lg-1 pl-4 pl-md-5 pl-lg-0">
 				<div class="hero-banner__content">
 					<h4>Nombre: {{user.name}}</h4>
 					<h5>Dirección de facturación:</h5>
-					<h6 style="margin-bottom: 30px;">{{user.delivery.shippingname}}</h6>
+					<h6 style="margin-bottom: 30px;">Nombre: {{user.delivery.shippingname}}, Apellidos: {{user.delivery.lastname}}, Número: {{user.delivery.number}}
+					Dirección: {{user.delivery.street}}, {{user.delivery.floor}}, {{user.delivery.country}}, {{user.delivery.city}}, {{user.delivery.zipcode}} </h6>
 					<h5>Dirección de entrega:</h5>
-					<h6 style="margin-bottom: 30px;">{{user.delivery.shippingname}}</h6>
+					<h6 style="margin-bottom: 30px;">Nombre: {{user.delivery.shippingname}}, Apellidos: {{user.delivery.lastname}}, Número: {{user.delivery.number}}
+						Dirección: {{user.delivery.street}}, {{user.delivery.floor}}, {{user.delivery.country}}, {{user.delivery.city}}, {{user.delivery.zipcode}} </h6>
 					<h5>Mis métodos de pago:</h5>
 					<h6 id="payment" style="margin-bottom: 30px;">VISA que termina
 						en 7694</h6>
@@ -30,7 +32,7 @@
 							<a class="button button-hero" href="/userEdit">Editar
 								información</a>
 						</div>-->
-						<div id="divActivites" name="divActivites" style="border: thin"border-width:2px;>
+						<div id="divActivites" name="divActivites" >
 							<!-- <textarea id="inActivities" name="inActivities"
 								style="border: solid">
     						</textarea>-->

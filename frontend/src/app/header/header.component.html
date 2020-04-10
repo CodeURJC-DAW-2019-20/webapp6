@@ -17,7 +17,7 @@
                     <a mat-button [routerLink]="['/register']">Registrarse</a>
                   </div>
                   <div class="dropdown-content" *ngIf="service.isLogged">
-                    <a mat-button [routerLink]="['/userPage', user.id]">Mi perfil</a>
+                    <a mat-button [routerLink]="['/userPage', service.getCurrentUserId()]">Mi perfil</a>
                     <form action="/logout" method="post">
                       <li class="nav-item"><a mat-button href="/"></a><button (click)="logOut()" class="nav-link" href="/">Cerrar sesión</button></li>
                     </form>

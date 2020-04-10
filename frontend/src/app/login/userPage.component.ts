@@ -7,16 +7,19 @@ import { LoginService, User } from '../auth/login.service';
   templateUrl: './userPage.component.html',
   styleUrls: ['./login.component.css']
 })
-export class UserPageComponent implements OnInit {
+export class UserPageComponent /*implements OnInit*/ {
 
   user: User;
 
   constructor(private router: Router, activatedRoute: ActivatedRoute, private service: LoginService) {
     const id = activatedRoute.snapshot.params.id;
-    service.getUserById(id).subscribe((user => this.user = user), (error) => console.error(error));
+    console.log("id, " + id);
+    service.getUserById(id).subscribe((user => this.user = service.user), (error) => console.error(error));
+    //this.user = service.user;
+    console.log(service.user)
   }
 
-  ngOnInit(): void {
-  }
+  //ngOnInit(): void {
+  //}
 
 }
