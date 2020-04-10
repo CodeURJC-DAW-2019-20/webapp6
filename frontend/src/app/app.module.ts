@@ -30,6 +30,7 @@ import { OrderService } from './order/order.service';
 import { CheckoutComponent } from './order/checkout.component';
 import { ConfirmationComponent } from './order/confirmation.component';
 import { SingleBlogComponent } from './blog/singleBlog.component'
+import {MatTabsModule} from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { SingleBlogComponent } from './blog/singleBlog.component'
     MatIconModule,
     MatRadioModule,
     MatSliderModule,
-    routing
+    routing,
+    MatTabsModule
   ],
   providers: [ProductService, LoginService,OrderService,
     { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },
