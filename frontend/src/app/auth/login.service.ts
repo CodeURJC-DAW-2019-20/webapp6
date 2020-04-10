@@ -12,9 +12,9 @@ const URLuser = '/api/user/';
 export interface User {
   id?: number;
   name: string;
-  roles: string[];
   delivery: Address;
   orderList: Order;
+  roles: string[];
   pass: string;
 }
 
@@ -86,6 +86,10 @@ export class LoginService {
 
   getCurrentUser(id: number| string): Observable<User> {
     return this.http.get<User>(URL + '/user/' + id);
+  }
+
+  getCurrentUserId(): number {
+    return this.user.id;
   }
 
   getUserById(id: number| string): Observable<User> {

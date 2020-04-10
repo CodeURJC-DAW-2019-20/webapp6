@@ -365,70 +365,33 @@
 						Figuras <span class="section-intro__style">recomendadas</span>
 					</h2>
 				</div>
-				<div class="scrollmenu" id="bestSellerCarousel">
-					<ul id="navlist">
-						<div *ngFor="let product of recommendedProducts">
-							<li>
-								<div class="card text-center card-product">
-									<div class="card-product__img">
-											<img class="img-fluid" src="/assets/{{product.image}}" alt="" width="300"
-											height="300">
-										<ul class="card-product__imgOverlay">
-											<li><button [routerLink]="['/singleProduct', product.id]">
-													<mat-icon class="material-icons md-18 md-light">search</mat-icon>
-												</button></li>
-											<li><button>
-													<mat-icon class="material-icons md-18 md-light">add_shopping_cart
-													</mat-icon>
-												</button></li>
-										</ul>
-
-									</div>
-									<div>
-										<a>{{product.name}}, </a>
-										<p>{{product.franchise}}, </p>
-										<p class="card-product__price">{{product.price}}€</p>
-									</div>
-								</div>
-							</li>
-							
-						<!--<div class="card text-center card-product">
-								<div class="card-product__img">
-									<img class="img-fluid" src="/assets/{{product.image}}" alt="" width="300"
-										height="300">
-									<ul class="card-product__imgOverlay">
-										<li><button [routerLink]="['/singleProduct', product.id]">
-												<mat-icon class="material-icons md-18 md-light">search</mat-icon>
-											</button></li>
-										<li><button>
-												<mat-icon class="material-icons md-18 md-light">add_shopping_cart
-												</mat-icon>
-											</button></li>
-									</ul>
-								</div>
-								<div class="card-body">
-									<p>{{product.franchise}}</p>
-									<h4 class="card-product__title">
-										<a>{{product.name}}</a>
-									</h4>
-									<p class="card-product__price">{{product.price}}€</p>
-								</div>
-							</div> -->
-						</div>
-					</ul>
-				</div>
+				<mat-tab-group>
+					<div *ngFor="let product of recommendedProducts">
+						<mat-tab label="{{product.name}}"><div class="card text-center card-product">
+							<div class="card-product__img">
+								<img class="img-fluid" src="/assets/{{product.image}}" alt="" width="300"
+									height="300">
+								<ul class="card-product__imgOverlay">
+									<li><button [routerLink]="['/singleProduct', product.id]">
+											<mat-icon class="material-icons md-18 md-light">search</mat-icon>
+										</button></li>
+									<li><button>
+											<mat-icon class="material-icons md-18 md-light" (click)="addProductToOrder(product,1)">add_shopping_cart
+											</mat-icon>
+										</button></li>
+								</ul>
+							</div>
+							<div class="card-body">
+								<p>{{product.franchise}}</p>
+								<h4 class="card-product__title">
+									<a [routerLink]="['/singleProduct', product.id]">{{product.name}}</a>
+								</h4>
+								<p class="card-product__price">{{product.price}}€</p>
+							</div>
+						</div></mat-tab>
+					</div>
+				</mat-tab-group>			
 			</div>
-			<ul id="navlist">
-				<li>
-					<div>...</div>
-				</li>
-				<li>
-					<div>...</div>
-				</li>
-				<li>
-					<div>...</div>
-				</li>
-			</ul>
 		</section>
 	</div>
 </section>

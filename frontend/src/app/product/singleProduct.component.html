@@ -55,16 +55,75 @@
 	<!--================End Single Product Area =================-->
 
 	<!--================Product Description Area =================-->
+
+	
 	<section class="product_description_area">
 		<div class="container">
-			<ul class="nav nav-tabs" id="myTab" role="tablist">
-				<li class="nav-item">
+			<mat-tab-group>
+				<mat-tab label="Descripcion"> {{product.description}} </mat-tab>
+				<mat-tab label="Especificaciones"> 
+					<table class="table">
+						<tbody>
+							<tr>
+								<td>
+									<h5>Ancho</h5>
+								</td>
+								<td>
+									<h5>{{product.width}} cm</h5>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<h5>Alto</h5>
+								</td>
+								<td>
+									<h5>{{product.height}} cm</h5>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<h5>Categor&iacute;a</h5>
+								</td>
+								<td>
+									<h5>{{product.franchise}}</h5>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<h5>Peso</h5>
+								</td>
+								<td>
+									<h5>{{product.weight}} gr</h5>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<h5>Fabricante</h5>
+								</td>
+								<td>
+									<h5>{{product.distributor}}</h5>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<h5>Referencia</h5>
+								</td>
+								<td>
+									<h5>{{ product.reference }}</h5>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</mat-tab>
+			  </mat-tab-group>
+			<ul class="nav nav-tabs" id="myTab">
+				<!--<li class="nav-item">
 					<a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Descripci&oacute;n</a>
-				</li>
-				<li class="nav-item">
+				</li> -->
+				<!--<li class="nav-item">
 					<a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
 					 aria-selected="false">Especificaciones</a>
-				</li>
+				</li> -->
 				<!-- <li class="nav-item">
 					<a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact"
 					 aria-selected="false">Comentarios</a>
@@ -74,68 +133,7 @@
 					 aria-selected="false">Reseï¿½as</a>
 				</li> -->
 			</ul>
-			<div class="tab-content" id="myTabContent">
-				<div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab">
-					<p>{{product.description}}</p>
-				</div>
-				<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-					<div class="table-responsive">
-						<table class="table">
-							<tbody>
-								<tr>
-									<td>
-										<h5>Ancho</h5>
-									</td>
-									<td>
-										<h5>{{product.width}} cm</h5>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<h5>Alto</h5>
-									</td>
-									<td>
-										<h5>{{product.height}} cm</h5>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<h5>Categor&iacute;a</h5>
-									</td>
-									<td>
-										<h5>{{product.franchise}}</h5>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<h5>Peso</h5>
-									</td>
-									<td>
-										<h5>{{product.weight}} gr</h5>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<h5>Fabricante</h5>
-									</td>
-									<td>
-										<h5>{{product.distributor}}</h5>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<h5>Referencia</h5>
-									</td>
-									<td>
-										<h5>{{ product.reference }}</h5>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-				</div>
-
-			</div>
+			
 		</div>
   </section>
 </div>

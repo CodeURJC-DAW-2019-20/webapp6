@@ -34,6 +34,7 @@ import { OrderService } from './order/order.service';
 import { CheckoutComponent } from './order/checkout.component';
 import { ConfirmationComponent } from './order/confirmation.component';
 import { SingleBlogComponent } from './blog/singleBlog.component'
+import {MatTabsModule} from '@angular/material/tabs';
 import { HomeComponent } from './home/home.component';
 
 @NgModule({
@@ -51,7 +52,7 @@ import { HomeComponent } from './home/home.component';
     UserPageComponent,
     CheckoutComponent,
     ConfirmationComponent,
-    HomeComponent,
+    HomeComponent
   ],
   imports: [
     NgbModule,
@@ -66,6 +67,8 @@ import { HomeComponent } from './home/home.component';
     MatIconModule,
     MatRadioModule,
     MatSliderModule,
+    routing,
+    MatTabsModule,
     MatInputModule,
     MatFormFieldModule,
     MatDialogModule,
