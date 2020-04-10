@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService} from './product.service';
+import { OrderService } from '../order/order.service';
 import { Product} from './product.model';
+import { ProductAmount} from './productamount.model';
 import { Router } from '@angular/router';
 import { LoginService } from '../auth/login.service';
+import { Order } from '../order/order.model';
 
 @Component({
   selector: 'app-product',
@@ -27,8 +30,12 @@ export class ProductComponent implements OnInit {
   height = 150;
   width = 150;
   recommendedProducts : Product[];
+  pAmount: ProductAmount;
+  order: Order;
 
-  constructor(private router: Router, private service: ProductService, public loginService: LoginService) { }
+  constructor(private router: Router, private service: ProductService, public loginService: LoginService, private orderService: OrderService) { 
+    this.order = {status: '', productList: [], total: 0, day: 0, month: 0, year: 0}
+  }
 
   ngOnInit() {
     this.service.getAllProducts().subscribe(
@@ -45,6 +52,10 @@ export class ProductComponent implements OnInit {
     );
     this.service.getProductsbyRecommendations().subscribe(
       recommendedProducts => this.recommendedProducts = recommendedProducts,
+      error => console.log(error)
+    );
+    this.orderService.getCurrentOrder().subscribe(
+      order => this.order = order,
       error => console.log(error)
     );
   }
@@ -107,5 +118,15 @@ export class ProductComponent implements OnInit {
     this.franchises = this.franchises.concat(franchisesaux);
     this.distributors = this.distributors.concat(distributorsaux);
   }
+
+  addProductToOrder(productAux: Product, qt: number){
+    let productAmount = { product: productAux, amount: qt }
+    this.pAmount = productAmount;
+    this.orderService.addProduct(this.pAmount, this.order.id ).subscribe(
+      order => { this.order = order;
+                  this.router.navigate(['/order']);
+      },error => console.log(error));
+  }
+
 }
 

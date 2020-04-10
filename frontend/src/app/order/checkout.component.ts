@@ -13,24 +13,9 @@ export class CheckoutComponent implements OnInit {
 
   order: Order;
   user: User;
+  dirs: Address[] = [];
 
   constructor(private router: Router, private orderService: OrderService, public loginService: LoginService) { }
-
-  changeAdress(shippingname: string, lastname:string, company:string,number:string,email:string,street:string,floor:string,city:string,country:string,zipcode:string){
-    //Meter los datos dentro de la dirección del user
-        
-       /* this.user.delivery.shippingname = shippingname;
-        this.user.delivery.lastname = lastname;
-        this.user.delivery.company = company;
-        this.user.delivery.number = number;
-        this.user.delivery.email = email;
-        this.user.delivery.street = street;
-        this.user.delivery.floor = floor;
-        this.user.delivery.city = city;
-        this.user.delivery.country = country;
-        this.user.delivery.zipcode = zipcode;
-        this.loginService.saveUser(this.user);*/
-  }  
 
   ngOnInit() {
     this.orderService.getCurrentOrder().subscribe(
@@ -42,5 +27,22 @@ export class CheckoutComponent implements OnInit {
         error => console.log(error)
     );
   }
+
+  finish(shippingnameaux: string, lastnameaux:string, companyaux:string,numberaux:string,emailaux:string,streetaux:string,flooraux:string,cityaux:string,countryaux:string,zipcodeaux:string){
+    //Meter los datos dentro de la dirección del user
+      let auxaddress = {shippingname: shippingnameaux,
+                        lastname: lastnameaux,
+                        company: companyaux,
+                        number: numberaux,
+                        email: emailaux,
+                        street: streetaux,
+                        floor: flooraux,
+                        city: cityaux,
+                        country: countryaux,
+                        zipcode: zipcodeaux
+      }
+      this.dirs.push(auxaddress)
+      this.orderService.finishOrder(this.dirs, this.order.id);
+  }  
 
 }
