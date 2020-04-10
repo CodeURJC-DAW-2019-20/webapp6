@@ -239,7 +239,7 @@
 					</div>
 					<div>
 						<div class="input-group filter-bar-search">
-							<input #key #keyControl="ngModel" type="text" [(ngModel)]="key.value" placeholder="Buscar"
+							<input matInput #key #keyControl="ngModel" type="text" [(ngModel)]="key.value" placeholder="Buscar"
 								(keydown.enter)="search(key.value)">
 							<div class="input-group-append">
 								<button type="button" (click)="search(key.value)">
@@ -265,7 +265,7 @@
 											</button>
 										</li>
 										<li>
-											<button id="add">
+											<button id="add" (click)="addProductToOrder(product,1)" [routerLink]="['/order']">
 												<mat-icon class="material-icons md-18 md-light">add_shopping_cart
 												</mat-icon>
 											</button>

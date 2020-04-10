@@ -6,6 +6,6 @@ export interface ProductAmount {
   id?: number;
   product: Product;
   amount: number;
-  total: number;
-  order: Order;
+  total?: number;
+  order?: Order;
 }

@@ -10,55 +10,55 @@
             <div class="row">
                 <div class="col-lg-8">
                     <div *ngIf="loginService.isLogged">
-                        <h3>Detalles de la direcciÃ³n</h3>
+                        <h3>Detalles de la dirección</h3>
                         <form class="row contact_form" id="myForm" method="POST" action="/confirmation">
                             <div class="col-md-6 form-group p_star">
-                                <input #shippingnameElement #shippingnameControl="ngModel" type="text" class="form-control" id="shippingname" name="shippingname"
-                                    placeholder="Nombre" [(ngModel)]="shippingnameElement.value">
+                                <input matInput type="text" class="form-control" id="shippingname" name="user.delivery.shippingname"
+                                    placeholder="Nombre" [(ngModel)]="user.delivery.shippingname">
                                 <span class="placeholder" data-placeholder="First name"></span>
                             </div>
                             <div class="col-md-6 form-group p_star">
-                                <input #lastnameElement #lastnameControl="ngModel" type="text" class="form-control" id="last" name="lastname"
-                                    placeholder="Apellidos" [(ngModel)]="lastnameElement.value">
+                                <input matInput type="text" class="form-control" id="last" name="user.delivery.lastname"
+                                    placeholder="Apellidos" [(ngModel)]="user.delivery.lastname">
                                 <span class="placeholder" data-placeholder="Last name"></span>
                             </div>
                             <div class="col-md-6 form-group p_star">
-                                <input #companyElement #companyControl="ngModel" type="text" class="form-control" id="company" name="company"
-                                    placeholder="Empresa" [(ngModel)]="companyElement.value">
+                                <input matInput type="text" class="form-control" id="company" name="user.delivery.company"
+                                    placeholder="Empresa" [(ngModel)]="user.delivery.company">
                             </div>
                             <div class="col-md-6 form-group p_star">
-                                <input #numberElement #numberControl="ngModel" type="text" class="form-control" id="number" name="number"
-                                    placeholder="TelÃ©fono" [(ngModel)]="numberElement.value">
+                                <input matInput type="text" class="form-control" id="number" name="user.delivery.number"
+                                    placeholder="Teléfono" [(ngModel)]="user.delivery.number">
                                 <span class="placeholder" data-placeholder="Phone number"></span>
                             </div>
                             <div class="col-md-6 form-group p_star">
-                                <input #emailElement #emailControl="ngModel" type="text" class="form-control" id="email" name="email"
-                                    placeholder="Correo electrÃ³nico" [(ngModel)]="emailElement.value">
+                                <input matInput type="text" class="form-control" id="email" name="user.delivery.email"
+                                    placeholder="Correo electrónico" [(ngModel)]="user.delivery.email">
                                 <span class="placeholder" data-placeholder="Email Address"></span>
                             </div>
                             <div class="col-md-12 form-group p_star">
-                                <input #streetElement #streetControl="ngModel" type="text" class="form-control" id="add1" name="street" placeholder="Calle"
-                                    [(ngModel)]="streetElement.value">
+                                <input matInput type="text" class="form-control" id="add1" name="user.delivery.street" placeholder="Calle"
+                                    [(ngModel)]="user.delivery.street">
                                 <span class="placeholder" data-placeholder="Address line 01"></span>
                             </div>
                             <div class="col-md-6 form-group p_star">
-                                <input #floorElement #floorControl="ngModel" type="text" class="form-control" id="add2" name="floor" placeholder="Piso"
-                                [(ngModel)]="floorElement.value">
+                                <input matInput type="text" class="form-control" id="add2" name="user.delivery.floor" placeholder="Piso"
+                                [(ngModel)]="user.delivery.floor">
                                 <span class="placeholder" data-placeholder="Address line 02"></span>
                             </div>
                             <div class="col-md-6 form-group p_star">
-                                <input #cityElement #cityControl="ngModel" type="text" class="form-control" id="city" name="city" placeholder="Ciudad"
-                                [(ngModel)]="cityElement.value">
+                                <input matInput type="text" class="form-control" id="city" name="user.delivery.city" placeholder="Ciudad"
+                                [(ngModel)]="user.delivery.city">
                                 <span class="placeholder" data-placeholder="Town/City"></span>
                             </div>
                             <div class="col-md-6 form-group p_star">
-                                <input #countryElement #countryControl="ngModel" type="text" class="form-control" id="country" name="country" placeholder="PaÃ­s"
-                                [(ngModel)]="countryElement.value">
+                                <input matInput type="text" class="form-control" id="country" name="user.delivery.country" placeholder="País"
+                                [(ngModel)]="user.delivery.country">
                                 <span class="placeholder" data-placeholder="Country"></span>
                             </div>
                             <div class="col-md-6 form-group">
-                                <input #zipcodeElement #zipcodeControl="ngModel" type="text" class="form-control" id="zip" name="zipcode"
-                                    placeholder="CÃ³digo postal" [(ngModel)]="zipcodeElement.value">
+                                <input matInput type="text" class="form-control" id="zip" name="user.delivery.zipcode"
+                                    placeholder="Código postal" [(ngModel)]="user.delivery.zipcode">
                             </div>
                             <!--<input type="hidden" name="_csrf" value="{{token}}" />
                             <div class="col-md-12 form-group mb-0">
@@ -122,7 +122,7 @@
                                     placeholder="Notas"></textarea>
                             </div>-->
                             <div class="text-center">
-                                <button class="button button-paypal" type="submit" form="myForm" [routerLink]="['/confirmation']" (click)="changeAdress(shippingnameElement.value, lastnameElement.value,companyElement.value, numberElement.value,emailElement.value, streetElement.value,floorElement.value, cityElement.value,countryElement.value,zipcodeElement.value)">Proceder al pago</button>
+                                <button class="button button-paypal" type="submit" (click)="finish(user.delivery.shippingname, user.delivery.lastname,user.delivery.company, user.delivery.number,user.delivery.email, user.delivery.street,user.delivery.floor, user.delivery.city,user.delivery.country,user.delivery.zipcode)" [routerLink]="['/confirmation']">Proceder al pago</button>
                             </div>
                         </form>
                     </div>
