@@ -10,7 +10,6 @@ import { UserPageComponent } from './login/userPage.component';
 import { CheckoutComponent } from './order/checkout.component';
 import { ConfirmationComponent } from './order/confirmation.component';
 import { SingleBlogComponent } from './blog/singleBlog.component';
-import { HomeComponent } from './home/home.component';
 
 const appRoutes: Routes = [
     // Rutas usadas para categorias
@@ -25,7 +24,6 @@ const appRoutes: Routes = [
   {path: 'userPage/:id', component: UserPageComponent},
   {path: 'checkout', component: CheckoutComponent},
   {path: 'confirmation', component: ConfirmationComponent},
-  {path: 'home', component: HomeComponent},
   // ruta usada por defecto a la hora de abrir la pagina
   {path: '', redirectTo: '/', pathMatch: 'full'}
 ];
