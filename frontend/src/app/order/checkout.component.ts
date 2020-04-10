@@ -15,7 +15,9 @@ export class CheckoutComponent implements OnInit {
   user: User;
   dirs: Address[] = [];
 
-  constructor(private router: Router, private orderService: OrderService, public loginService: LoginService) { }
+  constructor(private router: Router, private orderService: OrderService, public loginService: LoginService) {
+    this.order = {status: '', productList: [], total: 0, day: 0, month: 0, year: 0}
+   }
 
   ngOnInit() {
     this.orderService.getCurrentOrder().subscribe(
@@ -42,7 +44,10 @@ export class CheckoutComponent implements OnInit {
                         zipcode: zipcodeaux
       }
       this.dirs.push(auxaddress)
-      this.orderService.finishOrder(this.dirs, this.order.id);
+      this.orderService.finishOrder(this.dirs, this.order.id).subscribe(
+        order => this.order = order,
+        error => console.log(error)
+      );
   }  
 
 }

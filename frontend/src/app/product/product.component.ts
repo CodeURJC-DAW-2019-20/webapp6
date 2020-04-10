@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { ProductService} from './product.service';
 import { OrderService } from '../order/order.service';
 import { Product} from './product.model';
@@ -6,6 +6,7 @@ import { ProductAmount} from './productamount.model';
 import { Router } from '@angular/router';
 import { LoginService } from '../auth/login.service';
 import { Order } from '../order/order.model';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-product',
@@ -32,9 +33,13 @@ export class ProductComponent implements OnInit {
   recommendedProducts : Product[];
   pAmount: ProductAmount;
   order: Order;
+  closeResult = '';
+  newProduct: Product;
 
-  constructor(private router: Router, private service: ProductService, public loginService: LoginService, private orderService: OrderService) { 
+  constructor(private router: Router, private service: ProductService, public loginService: LoginService, private orderService: OrderService, private modalService: NgbModal) { 
     this.order = {status: '', productList: [], total: 0, day: 0, month: 0, year: 0}
+    this.newProduct = { name:'', franchise:'', distributor:'', price:0, description:'', 
+                        height:0, width:0, weight:0, reference:'', stock:0, image: '../assets/img/product/notavailable.png', imagefull: '../assets/img/product/notavailable2.png' }
   }
 
   ngOnInit() {
@@ -96,9 +101,10 @@ export class ProductComponent implements OnInit {
   }
 
   saveProduct() {
-    this.service.saveProduct(this.product).subscribe(
-    _ => {}, (error: Error) => console.error('error creating new product: ' + error));
+    this.service.saveProduct(this.newProduct).subscribe(
+    _ => {this.router.navigate(['/product']);}, (error: Error) => console.error('error creating new product: ' + error));
   }
+
   filter() {
     this.service.getProductsbyFilter(this.franchise, this.distributor, this.width, this.height, this.min, this.value).subscribe(
       products => this.products = products,
@@ -128,5 +134,8 @@ export class ProductComponent implements OnInit {
       },error => console.log(error));
   }
 
+  openVerticallyCentered(content) {
+    this.modalService.open(content, { centered: true, size: 'lg' });
+  }
 }
 

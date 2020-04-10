@@ -13,7 +13,7 @@ const URL = '/api/order/';
 export class OrderService {
 
   httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    headers: new HttpHeaders({ 'Content-Type': 'application/json'})
   }
 
   constructor(private loginService: LoginService, private http: HttpClient) { }
@@ -58,7 +58,7 @@ export class OrderService {
   }
 
   getCurrentOrder(): Observable<Order> {  
-    return this.http.get<Order>(URL + '0', {withCredentials: true})
+    return this.http.get<Order>(URL + '0', this.httpOptions)
     .pipe(catchError((error) => this.handleError(error)));
   }
 
@@ -72,7 +72,9 @@ export class OrderService {
 
   finishOrder(address: Address[], id:number): Observable<Order>{
     const body = JSON.stringify(address);
-    const headers = new HttpHeaders({'Content-Type': 'application/json'});
+    const headers = new HttpHeaders({
+      'Content-Type':  'application/json'
+    })
     return this.http.put<any>(URL + id + "/confirmation", body, {headers}).pipe(catchError((error) => this.handleError(error))) as Observable<Order>;
   }
 

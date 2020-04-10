@@ -11,7 +11,7 @@ export interface Product {
   distributor: string;
   reference: string;
   stock: number;
-  actual_stock: number;
-  image: string;
-  imagefull: string;
+  actual_stock?: number;
+  image?: string;
+  imagefull?: string;
 }
