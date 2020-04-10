@@ -30,6 +30,7 @@ import { UserPageComponent } from './login/userPage.component';
 import { OrderService } from './order/order.service';
 import { CheckoutComponent } from './order/checkout.component';
 import { ConfirmationComponent } from './order/confirmation.component';
+import { SingleBlogComponent } from './blog/singleBlog.component'
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { ConfirmationComponent } from './order/confirmation.component';
     FooterComponent,
     ProductComponent,
     SingleProductComponent,
+    SingleBlogComponent,
     OrderComponent,
     LoginComponent,
     RegisterComponent,

@@ -3,9 +3,8 @@ import { BlogService } from './blog.service';
 import { Blog } from './blog.model';
 import { Router, ActivatedRoute } from '@angular/router';
 import { LoginService } from '../auth/login.service';
-import { Product } from '../product/product.model';
 import { ProductService } from '../product/product.service';
-import { log } from 'util';
+import { Observable, interval, Subscription } from 'rxjs';
 
 @Component ( {
     selector: 'app-blog',
@@ -13,37 +12,39 @@ import { log } from 'util';
     styleUrls: ['./blog.component.css']
 } )
 
-export class SingleBlogComponent implements OnInit {
-
-    pService: ProductService;
+export class SingleBlogComponent implements OnInit{
 
     blog: Blog;
-    //blogs: Blog[] = []; blogs barra derecha
+    blogs: Blog[] = []; //blogs barra derecha
+    updateSubscription: Subscription;
 
-    constructor(private router: Router, activatedRoute: ActivatedRoute, private service: BlogService, public loginService: LoginService) {
+    constructor(private router: Router, activatedRoute: ActivatedRoute, public service: BlogService, public loginService: LoginService) {
         const id = activatedRoute.snapshot.params.id;
-
         service.getBlogById(id).subscribe((blog => this.blog = blog),(error) => console.error(error));
+        console.log(loginService.user.name)
 
-        //blogs barra derecha
-        //service.getAllBlogs().subscribe(
-        //    (blogs => this.blogs = blogs),
-        //    (error) => console.error(error));
-
-        //console.log(this.blogs.length.toString())
-        console.log(loginService.isAdmin)
+    }
+    ngOnInit(): void {
+        this.service.getAllBlogs().subscribe(
+            (blogs => this.blogs = blogs),
+            (error) => console.error(error));
     }
 
     deleteBlog() {
         this.service.deleteBlog(this.blog).subscribe((_) => this.router.navigate(['/blog']), (error) => console.error(error));
     }
 
-    ngOnInit(): void {
-        //blogs barra derecha
-        /*this.service.getAllBlogs().subscribe(
-            (blogs => this.blogs = blogs),
-            (error) => console.error(error));
-            console.log(this.blogs.length.toString())*/
-    }
+    search(key: string) {
+        this.service.getBlogsByKey(key).subscribe(
+          blog => this.blogs = blog,
+          error => console.log(error)
+        );
+      }
+
+ /*public navToBlog(blogId: number) {
+        this.router.navigate(['/singleBlog', blogId]);
+        
+      } */
+
 
 }
