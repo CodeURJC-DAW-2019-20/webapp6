@@ -49,7 +49,7 @@ import { HomeComponent } from './home/home.component';
     UserPageComponent,
     CheckoutComponent,
     ConfirmationComponent,
-    HomeComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -64,7 +64,7 @@ import { HomeComponent } from './home/home.component';
     MatRadioModule,
     MatSliderModule,
     routing,
-    MatTabsModule
+    MatTabsModule,
     MatInputModule,
     routing
   ],
