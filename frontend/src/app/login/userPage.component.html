@@ -39,6 +39,23 @@
 
 						</div>
 					</div>
+					<div *ngIf="service.isAdmin">
+						<div style="border: 1px solid black;">
+							<div *ngFor="let metricitem of metrics">
+								<div class= "column" style="margin: 5px;">
+									<img src="assets/img/blueMetrics.PNG" height="20" width="{{metricitem.lastMoney}}"
+									alt="Metrics">
+									<p>{{metricitem.lastMoney}} €</p>
+								</div>
+							</div>
+							<div style="margin: 5px;">
+								<img src="assets/img/blueMetrics.PNG" height="20" width="{{average}}"
+								alt="Metrics">
+								<p>Media: {{lastMetric.averageToPrint}} €</p>
+							</div>
+						</div>
+						
+					</div>
 				<!--	{{#admin}}
 					<h6>Precio de los pedidos realizados.</h6>
 					<div class="row" style="border: 1px solid black;">

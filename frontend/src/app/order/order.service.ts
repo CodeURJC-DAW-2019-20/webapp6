@@ -6,8 +6,10 @@ import { Observable } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { ProductAmount } from '../product/productamount.model';
 import { Address } from '../auth/address.model';
+import { Metric } from './metric.model';
 
 const URL = '/api/order/';
+const URLmetrics = '/api/metrics/';
 
 @Injectable({ providedIn: 'root' })
 export class OrderService {
@@ -35,6 +37,22 @@ export class OrderService {
     return this.http.get<Order>(URL + id, {withCredentials: true})
     .pipe(catchError((error) => this.handleError(error)));
   }
+
+  getMetrics(): Observable<Metric> {
+    return this.http.get<Metric>(URLmetrics, {withCredentials: true})
+    .pipe(catchError((error) => this.handleError(error)));
+  }
+
+  getAllMetrics(): Observable<Metric[]> {
+    return this.http.get<Metric[]>(URLmetrics + "all", {withCredentials: true})
+    .pipe(catchError((error) => this.handleError(error)));
+  }
+
+  /*updateMetrics(metric: Metric): Observable<Metric> {
+    const body = JSON.stringify(metric);
+    const headers = new HttpHeaders({'Content-Type': 'application/json'});
+    return this.http.post<Metric>(URL, body, {headers}).pipe(catchError((error) => this.handleError(error)));
+  }*/
 
   saveOrder(order: Order): Observable<Order> {
     const body = JSON.stringify(order);
