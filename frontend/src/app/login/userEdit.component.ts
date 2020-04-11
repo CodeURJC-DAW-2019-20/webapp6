@@ -3,15 +3,15 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { LoginService, User } from '../auth/login.service';
 
 @Component({
-  selector: 'app-userpage',
-  templateUrl: './userPage.component.html',
+  selector: 'app-useredit',
+  templateUrl: './userEdit.component.html',
   styleUrls: ['./login.component.css']
 })
-export class UserPageComponent /*implements OnInit*/ {
+export class UserEditComponent /*implements OnInit*/ {
 
   user: User;
 
-  constructor(private router: Router, activatedRoute: ActivatedRoute, public service: LoginService) {
+  constructor(private router: Router, activatedRoute: ActivatedRoute, private service: LoginService) {
     const id = activatedRoute.snapshot.params.id;
     console.log("id, " + id);
     service.getUserById(id).subscribe((user => this.user = service.user), (error) => console.error(error));
@@ -21,5 +21,12 @@ export class UserPageComponent /*implements OnInit*/ {
 
   //ngOnInit(): void {
   //}
+
+  saveInfo(){
+      this.service.saveUser(this.user).subscribe(
+        user => { this.user = user;
+                    this.router.navigate(['/userPage/' + this.service.getCurrentUserId()]);
+        },error => console.log(error));
+  }
 
 }

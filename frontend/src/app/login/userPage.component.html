@@ -24,7 +24,7 @@
 
 					<div class="row" style="margin-bottom: 10px;">
 						<div class="column">
-							<a class="button button-hero" href="/userEdit"
+							<a class="button button-hero" [routerLink]="['/userEdit', service.getCurrentUserId()]"
 								style="margin-right: 30px;">Editar información</a>
 						</div>
 

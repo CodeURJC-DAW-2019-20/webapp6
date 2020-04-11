@@ -7,6 +7,7 @@ import { SingleProductComponent } from './product/singleProduct.component';
 import { RegisterComponent } from './login/register.component';
 import { LoginComponent } from './login/login.component';
 import { UserPageComponent } from './login/userPage.component';
+import { UserEditComponent } from './login/userEdit.component';
 import { CheckoutComponent } from './order/checkout.component';
 import { ConfirmationComponent } from './order/confirmation.component';
 import { SingleBlogComponent } from './blog/singleBlog.component';
@@ -23,6 +24,7 @@ const appRoutes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
   {path: 'userPage/:id', component: UserPageComponent},
+  {path: 'userEdit/:id', component: UserEditComponent},
   {path: 'checkout', component: CheckoutComponent},
   {path: 'confirmation', component: ConfirmationComponent},
   {path: 'home', component: HomeComponent},

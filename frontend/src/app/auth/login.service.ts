@@ -68,13 +68,18 @@ export class LoginService {
   }
 
   saveUser(user: User): Observable<User>{
-    const body = JSON.stringify(user);
+    this.setCurrentUser(user);
+    const address = user.delivery;
+    const body = JSON.stringify(address);
+    const id = user.id;
+    const shippingnameaux = user.delivery.shippingname;
+    const newpass = user.pass;
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
     console.log(user);
     return this.http
-        .post<User>(URLuser, body, {headers})
+        .put<User>(URLuser + id + "?shippingName=" + shippingnameaux + "&passwordHash=" + newpass, body, {headers})
         .pipe(catchError((error) => this.handleError(error)));
   }
 

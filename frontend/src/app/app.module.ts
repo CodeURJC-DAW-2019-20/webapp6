@@ -30,11 +30,12 @@ import { BasicAuthInterceptor } from './auth/auth.interceptor';
 import { ErrorInterceptor } from './auth/error.interceptor';
 import { FormsModule} from '@angular/forms';
 import { UserPageComponent } from './login/userPage.component';
+import { UserEditComponent } from './login/userEdit.component';
 import { OrderService } from './order/order.service';
 import { CheckoutComponent } from './order/checkout.component';
 import { ConfirmationComponent } from './order/confirmation.component';
 import { SingleBlogComponent } from './blog/singleBlog.component'
-import {MatTabsModule} from '@angular/material/tabs';
+import { MatTabsModule } from '@angular/material/tabs';
 import { HomeComponent } from './home/home.component';
 
 @NgModule({
@@ -52,7 +53,8 @@ import { HomeComponent } from './home/home.component';
     UserPageComponent,
     CheckoutComponent,
     ConfirmationComponent,
-    HomeComponent
+    HomeComponent,
+    UserEditComponent,
   ],
   imports: [
     NgbModule,
