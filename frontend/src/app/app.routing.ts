@@ -15,7 +15,7 @@ import { HomeComponent } from './home/home.component';
 
 const appRoutes: Routes = [
     // Rutas usadas para categorias
-  {path: '', component: AppComponent},
+  {path: '', component: HomeComponent},
   {path: 'blog', component: BlogComponent},
   {path: 'order', component: OrderComponent},
   {path: 'product', component: ProductComponent},
@@ -27,7 +27,7 @@ const appRoutes: Routes = [
   {path: 'userEdit/:id', component: UserEditComponent},
   {path: 'checkout', component: CheckoutComponent},
   {path: 'confirmation', component: ConfirmationComponent},
-  {path: 'home', component: HomeComponent},
+
   // ruta usada por defecto a la hora de abrir la pagina
   {path: '', redirectTo: '/', pathMatch: 'full'}
 ];
