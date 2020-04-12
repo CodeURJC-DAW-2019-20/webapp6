@@ -13,9 +13,9 @@ export interface User {
   id?: number;
   name: string;
   delivery: Address;
-  orderList: Order;
+  orderList: Order[];
   roles: string[];
-  pass: string;
+  passwordHash: string;
 }
 
 @Injectable()
@@ -49,7 +49,7 @@ export class LoginService {
 
           if (user) {
             this.setCurrentUser(user);
-            user.pass = auth;
+            user.passwordHash = auth;
             localStorage.setItem('currentUser', JSON.stringify(user));
           }
 
@@ -73,13 +73,23 @@ export class LoginService {
     const body = JSON.stringify(address);
     const id = user.id;
     const shippingnameaux = user.delivery.shippingname;
-    const newpass = user.pass;
+    const newpass = user.passwordHash;
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
     console.log(user);
     return this.http
         .put<User>(URLuser + id + "?shippingName=" + shippingnameaux + "&passwordHash=" + newpass, body, {headers})
+        .pipe(catchError((error) => this.handleError(error)));
+  }
+
+  newUser(user: User): Observable<User>{
+    const body = JSON.stringify(user);
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+    return this.http
+        .post<User>(URLuser, body, {headers})
         .pipe(catchError((error) => this.handleError(error)));
   }
 

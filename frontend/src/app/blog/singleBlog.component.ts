@@ -21,7 +21,6 @@ export class SingleBlogComponent implements OnInit{
     constructor(private router: Router, activatedRoute: ActivatedRoute, public service: BlogService, public loginService: LoginService) {
         const id = activatedRoute.snapshot.params.id;
         service.getBlogById(id).subscribe((blog => this.blog = blog),(error) => console.error(error));
-        console.log(loginService.user.name)
 
     }
     ngOnInit(): void {

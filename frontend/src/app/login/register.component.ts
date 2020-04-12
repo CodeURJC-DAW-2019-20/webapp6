@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { LoginService, User } from '../auth/login.service';
+import { Order } from '../order/order.model'
+import { Address } from '../auth/address.model';
+
 
 @Component({
   selector: 'app-register',
@@ -10,8 +13,13 @@ import { LoginService, User } from '../auth/login.service';
 export class RegisterComponent {
 
   user: User;
+  address: Address;
+  orderList: Order[] = [];
 
   constructor(private router: Router, private service: LoginService) {
+
+    this.address = { shippingname: '', lastname: '', company: '', number: '', email: '', street: '', floor: '', city: '', country: '', zipcode: '' }
+    this.user = { name: '', passwordHash: '', delivery: this.address, orderList: this.orderList, roles: ['ROLE_USER'] }
 
   }
 
@@ -27,9 +35,10 @@ export class RegisterComponent {
  * }
  */
 
-saveUser() {
-  this.service.saveUser(this.user).subscribe(
-  _ => {}, (error: Error) => console.error('error creating new user: ' + error));
+newUser() {
+  this.service.newUser(this.user).subscribe(
+  _ => { this.router.navigate(['/login']);},
+   (error: Error) => console.error('error creating new user: ' + error));
   // window.history.back();
 }
 

@@ -37,17 +37,17 @@
 						<form class="row login_form" #registerForm="ngForm">
 
 							<div class="col-md-12 form-group">
-								<input  #userFormComponent #userFormControl="ngModel" type="text" class="form-control" [(ngModel)]="userFormComponent.value" id="name" name="name" placeholder="Usuario" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'">
+								<input type="text" class="form-control" [(ngModel)]="user.name" id="name" name="name" placeholder="Usuario" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'">
 							</div>
 							<div class="col-md-12 form-group">
-								<input #emailFormComponent #emailFormControl="ngModel" type="email" class="form-control" id="email" [(ngModel)]="emailFormComponent.value" name="email" placeholder="Correo electrónico" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'">
+								<input type="email" class="form-control" id="email" [(ngModel)]="user.delivery.email" name="email" placeholder="Correo electrónico" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'">
 							</div>
               				<div class="col-md-12 form-group">
-								<input #passFormComponent #passFormControl="ngModel" type="password" class="form-control" id="password-edit" [(ngModel)]="passFormComponent.value" name="password" placeholder="Contraseña" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Contraseña'">
-								<span data-toggle="#password-edit" class="fa fa-fw fa-eye field-icon toggle-password" onclick="showPass()"></span>
+								<input type="password" class="form-control" id="password-edit" [(ngModel)]="user.passwordHash" name="password" placeholder="Contraseña" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Contraseña'">
+								<span data-toggle="#password-edit" class="fa fa-fw fa-eye field-icon toggle-password"></span>
               				</div>
 							<div class="col-md-12 form-group">
-								<button type="submit" value="submit" class="button button-register w-100" (click)="saveUser()">Registrarse</button>
+								<button type="submit" value="submit" class="button button-register w-100" (click)="newUser()">Registrarse</button>
 							</div>
 						</form>
 					</div>
