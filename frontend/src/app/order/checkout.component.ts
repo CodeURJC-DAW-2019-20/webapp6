@@ -43,7 +43,19 @@ export class CheckoutComponent implements OnInit {
                         country: countryaux,
                         zipcode: zipcodeaux
       }
+      let auxaddress2 = {shippingname: shippingnameaux,
+        lastname: lastnameaux,
+        company: companyaux,
+        number: numberaux,
+        email: emailaux,
+        street: streetaux,
+        floor: flooraux,
+        city: cityaux,
+        country: countryaux,
+        zipcode: zipcodeaux
+}
       this.dirs.push(auxaddress)
+      this.dirs.push(auxaddress2)
       this.orderService.finishOrder(this.dirs, this.order.id).subscribe(
         order => this.order = order,
         error => console.log(error)
