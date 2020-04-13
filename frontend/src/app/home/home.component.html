@@ -35,16 +35,10 @@
 <!--================ Hero banner start =================-->
 
 <!-- ================ Best Selling item  carousel ================= -->
-<section class="section-margin calc-60px">
-    <div class="container">
-        <div class="section-intro pb-60px">
-            <p>Descubre el colecionismo</p>
-            <h2>
-                Nuestras <span class="section-intro__style">Figuras</span>
-            </h2>
-        </div>
-        <div class="owl-carousel owl-theme" id="bestSellerCarousel">
-            <div *ngFor="let product of products">
+<section class="lattest-product-area pb-40 category-list">
+    <div class="container-products">
+        <div class="row">
+            <div *ngFor="let product of products" class="col-md-6 col-lg-4" id="products">
                 <div class="card text-center card-product">
                     <div class="card-product__img">
                         <img *ngIf="product.image" class="card-img" src="/assets/{{product.image}}">
@@ -53,13 +47,6 @@
                                 <button [routerLink]="['/singleProduct', product.id]">
                                     <mat-icon class="material-icons md-18 md-light">search</mat-icon>
                                 </button>
-                            </li>
-                            <li>
-                                <button id="add">
-                                    <mat-icon class="material-icons md-18 md-light">add_shopping_cart
-                                    </mat-icon>
-                                </button>
-                                <input type="hidden" name="qt" id="qt" value=1 />
                             </li>
                         </ul>
                     </div>
@@ -88,7 +75,7 @@
         </div>
         <div class="row">
             <div *ngFor="let blog of blogs">
-                <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
+                <div class="card text-center card-blog">
                     <div class="card card-blog">
                         <div class="card-blog__img">
                             <img class="card-img rounded-0" src="assets/{{blog.image}}" alt="">

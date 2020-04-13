@@ -21,7 +21,45 @@
 <section class="blog_area">
     <div class="container" style="padding-top: 30px;">
         <div *ngIf="loginService.isAdmin">
-            <button mat-button class="add-blog" data-toggle="modal" data-target="#exampleModal">Añadir +</button>
+            <button mat-button class="add-product" (click)="openVerticallyCentered(content)">Añadir
+                blog</button>
+            <ng-template #content let-modal>
+                <div class="modal-header">
+                    <h4 class="modal-title">Nuevo blog</h4>
+                    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-row mb-4">
+                        <label class="col-form-label">Nombre:</label>
+                        <input type="text" class="form-control" name="name" required [(ngModel)]="newblog.name">
+                        <div class="col">
+                            <label class="col-form-label">Autor:</label>
+                            <input type="text" class="form-control" name="author" required [(ngModel)]="newblog.author">
+                        </div>
+                        <div class="col">
+                            <label class="col-form-label">Texto:</label>
+                            <textarea class="form-control" name="text" required [(ngModel)]="newblog.text"></textarea>
+                        </div>
+                        <div class="col">
+                            <label class="col-form-label">Texto completo:</label>
+                            <textarea class="form-control" name="textfull" required
+                                [(ngModel)]="newblog.textfull"></textarea>
+                        </div>
+                    </div>
+                    <label class="col-form-label">Producto relacionado:</label>
+                    <div *ngFor="let product of products">
+                        <p>{{product.id}}, {{product.name}}</p>
+                    </div>
+                    <textarea class="form-control" name="idproduct" required [(ngModel)]="newblog.product.id"></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="submit-product" form="newBlog" (click)="saveBlog()"
+                        (click)="modal.close('Close click')">Enviar</button>
+                    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+                </div>
+            </ng-template>
         </div>
         <!--{{#admin}}
     <button class="add-product" data-toggle="modal" data-target="#exampleModal">A&ntilde;adir +</button>
