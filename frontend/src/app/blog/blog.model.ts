@@ -5,11 +5,11 @@ export interface Blog {
     author: string;
     name: string;
     text: string;
-    image: string;
+    image?: string;
     textfull: string;
-    day: number;
-    month: number;
-    year: number;
+    day?: number;
+    month?: number;
+    year?: number;
     idproduct: number;
     product?: Product;
 
