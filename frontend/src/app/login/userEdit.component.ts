@@ -14,18 +14,21 @@ export class UserEditComponent /*implements OnInit*/ {
   constructor(private router: Router, activatedRoute: ActivatedRoute, private service: LoginService) {
     const id = activatedRoute.snapshot.params.id;
     console.log("id, " + id);
-    service.getUserById(id).subscribe((user => this.user = service.user), (error) => console.error(error));
     //this.user = service.user;
     console.log(service.user)
   }
 
-  //ngOnInit(): void {
-  //}
+  ngOnInit(): void {
+    this.service.getUserById(this.service.user.id).subscribe(
+      user => this.user = user,
+      error => console.log(error)
+    );
+  }
 
   saveInfo(){
       this.service.saveUser(this.user).subscribe(
         user => { this.user = user;
-                    this.router.navigate(['/userPage/' + this.service.getCurrentUserId()]);
+                  this.router.navigate(['/userPage/' + this.service.getCurrentUserId()]);
         },error => console.log(error));
   }
 

@@ -67,7 +67,7 @@ public class UserRestController {
 	}
 	
 	@PutMapping("/user/{id}")
-	public ResponseEntity<?> newInfo(@PathVariable long id, @RequestParam String shippingName, @RequestBody Address address, @RequestParam String passwordHash) {
+	public ResponseEntity<?> newInfo(@PathVariable long id, @RequestParam String shippingName, @RequestBody Address address, @RequestParam (required = false) String passwordHash) {
 		User user = this.userComponent.getLoggedUser();
 		if(user!=null)
 			user = userRepository.findByName(user.getName());
@@ -77,7 +77,8 @@ public class UserRestController {
 			return new ResponseEntity<>("You can't modify other users information", HttpStatus.UNAUTHORIZED);
 		user.setDelivery(address);
 		user.getDelivery().setName(shippingName);
-		user.setPassword(passwordHash);
+		if(passwordHash!=null)
+			user.setPassword(passwordHash);
 		this.userRepository.save(user);		
 		return new ResponseEntity<>(user, HttpStatus.OK);
 	}

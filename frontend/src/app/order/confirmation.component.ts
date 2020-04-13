@@ -13,19 +13,29 @@ export class ConfirmationComponent implements OnInit {
 
   order: Order;
   user: User;
+  tax: number = 2.90;
+  totalaux: number;
   /*metric: Metric = { average: null, averageToPrint: 0, 
     lastMoney:0, toPrint: 0, totalMoney: 0, totalOrders: 0};*/
 
-  constructor(private router: Router, private orderService: OrderService, public loginService: LoginService) { }  
+  constructor(private router: Router, private orderService: OrderService, public loginService: LoginService) { 
+    this.order = {status: '', productList: [], total: 0, day: 0, month: 0, year: 0}
+    this.totalaux = 0;
+    this.loginService.getUserById(this.loginService.user.id).subscribe(
+      user => this.user = user,
+      error => console.log(error)
+    );
+  }  
 
   ngOnInit() {
+    this.loginService.getUserById(this.loginService.user.id).subscribe(
+      user => this.user = user,
+      error => console.log(error)
+  );
     this.orderService.getCurrentOrder().subscribe(
-      order => this.order = order,
+      order => {this.order = order;
+                this.totalaux = order.total + this.tax},
       error => console.log(error),
-    );
-    this.loginService.getCurrentUser(this.loginService.user.id).subscribe(
-        user => this.user = user,
-        error => console.log(error)
     );
     /*this.orderService.getMetrics().subscribe(
       metric => {

@@ -18,13 +18,6 @@ export class UserPageComponent /*implements OnInit*/ {
 
   constructor(private router: Router, activatedRoute: ActivatedRoute, public service: LoginService, oService: OrderService) {
     const id = activatedRoute.snapshot.params.id;
-    console.log("id, " + id);
-    service.getUserById(id).subscribe(
-      (user => this.user = service.user),
-      (error) => console.error(error));
-    //this.user = service.user;
-
-    console.log(service.user)
     oService.getAllMetrics().subscribe(
       (metrics => {
         this.metrics = metrics,
@@ -41,7 +34,11 @@ export class UserPageComponent /*implements OnInit*/ {
     
   }
 
-  //ngOnInit(): void {
-  //}
+  ngOnInit(): void {
+    this.service.getUserById(this.service.user.id).subscribe(
+      user => this.user = user,
+      error => console.log(error)
+    );
+  }
 
 }

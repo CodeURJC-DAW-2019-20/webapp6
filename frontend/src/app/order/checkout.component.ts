@@ -7,27 +7,33 @@ import { Address } from '../auth/address.model';
 
 @Component({
   selector: 'app-checkout',
-  templateUrl: './checkout.component.html'
+  templateUrl: './checkout.component.html',
+  styleUrls: ['./checkout.component.css']
 })
 export class CheckoutComponent implements OnInit {
 
   order: Order;
   user: User;
   dirs: Address[] = [];
+  tax: number = 2.90;
+  totalaux: number;
 
   constructor(private router: Router, private orderService: OrderService, public loginService: LoginService) {
+    this.totalaux = 0;
     this.order = {status: '', productList: [], total: 0, day: 0, month: 0, year: 0}
    }
 
   ngOnInit() {
     this.orderService.getCurrentOrder().subscribe(
-      order => this.order = order,
+      order => {this.order = order;
+                this.totalaux = order.total + this.tax},
       error => console.log(error)
     );
-    this.loginService.getCurrentUser(this.loginService.user.id).subscribe(
+    this.loginService.getUserById(this.loginService.user.id).subscribe(
         user => this.user = user,
         error => console.log(error)
     );
+    //this.totalaux = this.order.total + this.tax;
   }
 
   finish(shippingnameaux: string, lastnameaux:string, companyaux:string,numberaux:string,emailaux:string,streetaux:string,flooraux:string,cityaux:string,countryaux:string,zipcodeaux:string){

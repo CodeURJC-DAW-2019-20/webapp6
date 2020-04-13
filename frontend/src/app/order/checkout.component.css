@@ -1,0 +1,449 @@
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0
+}
+
+.section-margin--small {
+	margin: 35px 0
+}
+
+@media (min-width: 1000px) {
+	.section-margin--small {
+		margin: 98px 0
+	}
+}
+
+.navbar .container {
+    padding-left: 15px;
+    padding-right: 15px
+}
+
+.instagram_area .container {
+	max-width: 1625px
+}
+
+.returning_customer .contact_form {
+	max-width: 710px;
+	margin-left: 15px
+}
+
+.returning_customer .contact_form .form-group {
+	margin-bottom: 20px
+}
+
+.returning_customer .contact_form .form-group input {
+	border: 1px solid #eeeeee;
+	height: 40px;
+	border-radius: 3px;
+	font-size: 14px;
+	color: #999999;
+	font-weight: normal
+}
+
+.returning_customer .contact_form .form-group input.placeholder {
+	font-size: 14px;
+	color: #999999;
+	font-weight: normal
+}
+
+.returning_customer .contact_form .form-group input:-moz-placeholder {
+	font-size: 14px;
+	color: #999999;
+	font-weight: normal
+}
+
+.returning_customer .contact_form .form-group input::-moz-placeholder {
+	font-size: 14px;
+	color: #999999;
+	font-weight: normal
+}
+
+.returning_customer .contact_form .form-group input::-webkit-input-placeholder {
+	font-size: 14px;
+	color: #999999;
+	font-weight: normal
+}
+
+.returning_customer .contact_form .form-group .primary-btn {
+	line-height: 38px;
+	padding: 0px 38px;
+	text-transform: uppercase;
+	margin-right: 10px;
+	border-radius: 2px;
+	border: none
+}
+
+.returning_customer .contact_form .form-group .creat_account {
+	display: inline-block;
+	margin-left: 15px
+}
+
+.returning_customer .contact_form .form-group .creat_account input {
+	height: auto;
+	margin-right: 10px
+}
+
+.returning_customer .contact_form .form-group .lost_pass {
+	display: block;
+	margin-top: 20px;
+	font-size: 14px;
+	color: #777;
+	font-weight: normal
+}
+
+.billing_details h3 {
+	font-size: 18px;
+	color: #222;
+	border-bottom: 1px solid #eee;
+	padding-bottom: 10px;
+	margin-bottom: 30px
+}
+
+.billing_details .contact_form .form-group {
+	margin-bottom: 20px
+}
+
+.billing_details .contact_form .form-group .placeholder::before {
+	font-size: 14px;
+	color: #999999
+}
+
+.billing_details .contact_form .form-group input {
+	font-size: 14px;
+	border-radius: 3px;
+	color: #999999;
+	border-color: #EEEEEE
+}
+
+.billing_details .contact_form .form-group input.placeholder {
+	color: #999999;
+	font-size: 14px
+}
+
+.billing_details .contact_form .form-group input:-moz-placeholder {
+	color: #999999;
+	font-size: 14px
+}
+
+.billing_details .contact_form .form-group input::-moz-placeholder {
+	color: #999999;
+	font-size: 14px
+}
+
+.billing_details .contact_form .form-group input::-webkit-input-placeholder {
+	color: #999999;
+	font-size: 14px
+}
+
+.billing_details .contact_form .form-group .form-control {
+	border-color: #EEEEEE;
+	font-size: 14px;
+	color: #777777
+}
+
+.billing_details .contact_form .form-group .form-control::placeholder {
+	color: #777777
+}
+
+.billing_details .contact_form .form-group label {
+	color: #999999
+}
+
+.billing_details .contact_form .form-group textarea {
+	height: 150px;
+	border-radius: 3px;
+	margin-top: 15px
+}
+
+.billing_details .contact_form .form-group .country_select {
+	width: 100%;
+	height: 40px;
+	border-color: #EEEEEE
+}
+
+.billing_details .contact_form .form-group .country_select .current {
+	color: #999999
+}
+
+.billing_details .contact_form .form-group .country_select span {
+	color: #777
+}
+
+.billing_details .contact_form .form-group .country_select .list {
+	width: 100%;
+	border-radius: 0px
+}
+
+.billing_details .contact_form .form-group .country_select .list li {
+	font-size: 14px;
+	font-weight: normal
+}
+
+.billing_details .contact_form .form-group .creat_account #f-option2 {
+	margin-right: 5px
+}
+
+.billing_details .contact_form .form-group .creat_account #f-option3 {
+	margin-right: 5px
+}
+
+.billing_details .contact_form .form-group .creat_account a {
+	color: #384aeb
+}
+
+.order_box {
+	background: #e8f0f2;
+	padding: 30px
+}
+
+.order_box h2 {
+	border-bottom: 1px solid #dddddd;
+	font-size: 18px;
+	font-weight: 500;
+	color: #222;
+	padding-bottom: 15px
+}
+
+.order_box .list li a {
+	font-size: 14px;
+	color: #777;
+	font-weight: normal;
+	border-bottom: 1px solid #eeeeee;
+	display: block;
+	line-height: 42px
+}
+
+.order_box .list li a h4 {
+	font-family: "Roboto", sans-serif;
+	font-size: 15px;
+	margin-top: 15px
+}
+
+.order_box .list li a span {
+	float: right
+}
+
+.order_box .list li a .middle {
+	float: none;
+	width: 50px;
+	text-align: right;
+	display: inline-block;
+	margin-left: 30px;
+	color: #222
+}
+
+.order_box .list li:nth-child(4) a .middle {
+	margin-left: 48px
+}
+
+.order_box .list_2 li a {
+	text-transform: uppercase;
+	color: #222;
+	font-weight: 500
+}
+
+.order_box .list_2 li a span {
+	color: #777;
+	text-transform: capitalize
+}
+
+.order_box .list_2 li:last-child a span {
+	color: #222
+}
+
+.order_box .payment_item h4 {
+	font-size: 14px;
+	text-transform: uppercase;
+	color: #222;
+	font-weight: 500;
+	padding-left: 22px;
+	position: relative;
+	margin-bottom: 15px;
+	margin-top: 15px
+}
+
+.order_box .payment_item h4:before {
+	content: "";
+	width: 14px;
+	height: 14px;
+	border-radius: 50%;
+	border: 1px solid #cdcdcd;
+	background: #fff;
+	display: block;
+	position: absolute;
+	left: 0px;
+	top: 50%;
+	transform: translateY(-50%)
+}
+
+.order_box .payment_item h4:after {
+	content: "";
+	height: 4px;
+	width: 4px;
+	background: #fff;
+	border-radius: 50%;
+	display: block;
+	position: absolute;
+	left: 5px;
+	top: 8px
+}
+
+.order_box .payment_item h4 img {
+	padding-left: 60px
+}
+
+.order_box .payment_item p {
+	background: #fff;
+	padding: 15px 20px;
+	font-size: 12px
+}
+
+.order_box .payment_item.active h4:before {
+	background: #384aeb;
+	border-color: #384aeb
+}
+
+.order_box .creat_account {
+	margin-bottom: 15px
+}
+
+.order_box .creat_account label {
+	padding-left: 10px;
+	font-size: 12px;
+	color: #222
+}
+
+.order_box .creat_account a {
+	color: #c5322d
+}
+
+.order_box .primary-btn {
+	display: block;
+	line-height: 38px;
+	text-transform: uppercase;
+	text-align: center;
+	border-radius: 2px
+}
+
+.order_box .primary-btn:hover:before {
+	left: 310px
+}
+
+.order_box .creat_account a {
+	font-size: 12px;
+	color: #384aeb
+}
+
+.radion_btn input[type=radio] {
+	position: absolute;
+	visibility: hidden
+}
+
+.radion_btn {
+	position: relative;
+	margin-top: 10px;
+	margin-bottom: 15px
+}
+
+.radion_btn img {
+	position: absolute;
+	right: 40px;
+	top: 0px
+}
+
+.radion_btn label {
+	display: block;
+	position: relative;
+	font-weight: 300;
+	font-size: 1.35em;
+	padding: 0px 25px 21px 25px;
+	height: 14px;
+	z-index: 9;
+	cursor: pointer;
+	font-weight: 500;
+	color: #222;
+	font-size: 15px;
+	letter-spacing: .25px;
+	text-transform: capitalize
+}
+
+.radion_btn .check {
+	display: block;
+	position: absolute;
+	border: 1px solid #cdcdcd;
+	border-radius: 100%;
+	height: 14px;
+	width: 14px;
+	top: 5px;
+	left: 0px;
+	background: #fff;
+	z-index: 5;
+	transition: border .25s linear;
+	-webkit-transition: border .25s linear
+}
+
+.radion_btn .check::before {
+	display: block;
+	position: absolute;
+	content: '';
+	border-radius: 100%;
+	height: 4px;
+	width: 4px;
+	top: 4px;
+	left: 4px;
+	margin: auto;
+	transition: background 0.25s linear;
+	-webkit-transition: background 0.25s linear
+}
+
+.radion_btn input[type=radio]:checked~.check {
+	border: 1px solid #C5322D;
+	background: #C5322D
+}
+
+.radion_btn input[type=radio]:checked~.check::before {
+	background: #fff
+}
+
+.radion_btn input[type=radio]:checked~label {
+	color: #000
+}
+
+button {
+	cursor: pointer
+}
+
+button:focus {
+	outline: 0;
+	box-shadow: none
+}
+
+.button {
+	display: inline-block;
+	border: 1px solid #384aeb;
+	border-radius: 30px;
+	color: #222;
+	font-weight: 500;
+	padding: 12px 50px;
+	background: #384aeb;
+	color: #fff;
+	transition: all .4s ease
+}
+
+@media (max-width: 767px) {
+	.button {
+		padding: 8px 25px !important
+	}
+}
+
+.button-paypal {
+	width: 100%;
+	padding: 8px 30px
+}
+
+.button:hover {
+	border-color: #384aeb;
+	background: transparent;
+	color: #222
+}

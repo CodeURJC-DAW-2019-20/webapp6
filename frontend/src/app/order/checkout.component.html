@@ -121,15 +121,12 @@
                                 <textarea class="form-control" name="message" id="message" rows="1"
                                     placeholder="Notas"></textarea>
                             </div>-->
-                            <div class="text-center">
-                                <button class="button button-paypal" type="submit" (click)="finish(user.delivery.shippingname, user.delivery.lastname,user.delivery.company, user.delivery.number,user.delivery.email, user.delivery.street,user.delivery.floor, user.delivery.city,user.delivery.country,user.delivery.zipcode)" [routerLink]="['/confirmation']">Proceder al pago</button>
-                            </div>
                         </form>
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="order_box">
-                        <!--order-->>
+                        <!--order-->
                         <h2>Tu pedido</h2>
                         <ul class="list">
                             <li><a>
@@ -140,7 +137,7 @@
                                     <a class="a">{{productAmount.product.name}}</a><span
                                         class="middle">{{productAmount.product.price}} x {{productAmount.amount}}</span>
                                     <!--href="/product/{{product.id}}"-->
-                                    <span class="last" style="float:right;">{{productAmount.total}}â‚¬</span>
+                                    <span class="last" style="float:right;">{{productAmount.total}}€</span>
                                 </li>
                             </div>
                             <!--end ngFor-->
@@ -148,11 +145,11 @@
                         <ul class="list list_2">
                             <form>
                                 <input type="hidden" id="tax" name="tax" value=2.90>
-                                <li><a>Subtotal <span>{{order.total}}â‚¬</span></a></li>
+                                <li><a>Subtotal <span>{{order.total}}€</span></a></li>
                                 <!--<input type="hidden" id="totalCheck" name="totalCheck" value={{total}}>-->
-                                <li><a>Precio envÃ­o <span>2.90â‚¬</span></a></li>
+                                <li><a>Precio envío <span>2.90€</span></a></li>
                                 <input type="hidden" id="tax" name="tax" value=2.90>
-                                <li><a>Total <span id="sum">â‚¬</span></a></li>
+                                <li><a>Total <span id="sum">{{totalaux}}€</span></a></li>
                             </form>
                         </ul>
                         <!--order-->
@@ -162,16 +159,16 @@
                                 <label for="f-option5">Contrarreembolso</label>
                                 <div class="check"></div>
                             </div>
-                            <p>Este mÃ©todo de pago conlleva un recargo adicional de 2.90â‚¬.</p>
+                            <p>Este método de pago conlleva un recargo adicional de 2.90€.</p>
                         </div>
                         <div class="creat_account">
                             <input type="checkbox" id="f-option4" name="selector" required>
-                            <label for="f-option4">He leÃ­do y acepto</label>
-                            <a href="https://themes.getbootstrap.com/terms/">los tÃ©rminos y condiciones*</a>
+                            <label for="f-option4">He leí­do y acepto</label>
+                            <a href="https://themes.getbootstrap.com/terms/">los términos y condiciones*</a>
                         </div>
-                        <!--<div class="text-center">
-                            <button class="button button-paypal" type="submit" form="myForm" (click)="changeAdress(shippingnameElement.value)">Proceder al pago</button>
-                        </div>-->
+                        <div class="text-center">
+                            <button class="button button-paypal" type="submit" (click)="finish(user.delivery.shippingname, user.delivery.lastname,user.delivery.company, user.delivery.number,user.delivery.email, user.delivery.street,user.delivery.floor, user.delivery.city,user.delivery.country,user.delivery.zipcode)" [routerLink]="['/confirmation']">Proceder al pago</button>
+                        </div>
                     </div>
                 </div>
             </div>

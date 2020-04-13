@@ -73,13 +73,13 @@ export class LoginService {
     const body = JSON.stringify(address);
     const id = user.id;
     const shippingnameaux = user.delivery.shippingname;
-    const newpass = user.passwordHash;
+    //const newpass = user.passwordHash;
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
     console.log(user);
     return this.http
-        .put<User>(URLuser + id + "?shippingName=" + shippingnameaux + "&passwordHash=" + newpass, body, {headers})
+        .put<User>(URLuser + id + "?shippingName=" + shippingnameaux /*+ "&passwordHash=" + newpass*/, body, {headers})
         .pipe(catchError((error) => this.handleError(error)));
   }
 
