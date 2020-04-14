@@ -137,7 +137,7 @@
 								</div>
 								<div class="modal-body">
 									<div class="form-row mb-4">
-										<mat-label class="col-form-label">Nombre:</mat-label> 
+										<mat-label class="col-form-label">Nombre:</mat-label>
 										<input matInput type="text" class="form-control" name="name" required [(ngModel)]="newProduct.name">
 										<div class="col top">
 											<mat-label class="col-form-label">Franquicia:</mat-label>
@@ -170,11 +170,11 @@
 									</div>
 									<div class="form-row mb-4">
 										<div class="col">
-											<mat-label class="col-form-label">Distribuidor:</mat-label> 
+											<mat-label class="col-form-label">Distribuidor:</mat-label>
 											<input matInput type="text" class="form-control" name="distributor" required [(ngModel)]="newProduct.distributor">
 										</div>
 										<div class="col">
-											<mat-label class="col-form-label">Referencia:</mat-label> 
+											<mat-label class="col-form-label">Referencia:</mat-label>
 											<input matInput type="text" class="form-control" name="reference" required [(ngModel)]="newProduct.reference">
 										</div>
 									</div>
@@ -311,7 +311,7 @@
 						<div *ngFor="let product of products" class="col-md-6 col-lg-4" id="products">
 							<div class="card text-center card-product">
 								<div class="card-product__img">
-									<img *ngIf="product.image" class="card-img" src="/assets/{{product.image}}">
+									<img *ngIf="product.image" class="card-img" src="assets{{product.image}}">
 									<ul class="card-product__imgOverlay">
 										<li>
 											<button mat-icon-button [routerLink]="['/singleProduct', product.id]">
@@ -367,7 +367,7 @@
 					<div *ngFor="let product of recommendedProducts">
 						<mat-tab label="{{product.name}}"><div class="card text-center card-product">
 							<div class="card-product__img">
-								<img class="img-fluid" src="/assets/{{product.image}}" alt="" width="300"
+								<img *ngIf="product.image" class="img-fluid" src="assets{{product.image}}" alt="" width="300"
 									height="300">
 								<ul class="card-product__imgOverlay">
 									<li><button mat-icon-button [routerLink]="['/singleProduct', product.id]">
@@ -388,7 +388,7 @@
 							</div>
 						</div></mat-tab>
 					</div>
-				</mat-tab-group>			
+				</mat-tab-group>
 			</div>
 		</mat-card>
 	</div>

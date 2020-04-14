@@ -1,9 +1,12 @@
 package com.webapp.animeshop.product;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -27,7 +30,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.webapp.animeshop.blog.BlogRepository;
 
 @RestController
-@RequestMapping("/api/products")
 public class ProductRestController {
 	
 	@Autowired
@@ -61,7 +63,7 @@ public class ProductRestController {
 		return new ResponseEntity<>(productRepository.findAll(page),HttpStatus.OK);
 	}*/
 	
-	@GetMapping()
+	@GetMapping("/api/products")
 	public ResponseEntity<?> showProducts(@PageableDefault (value=10) Pageable page, @RequestParam (required = false) String toDo ,@RequestParam (required = false) String sort, @RequestParam (required = false) String category, 
 				@RequestParam (required = false) String key, @RequestParam (required = false) String franchise, @RequestParam (required = false) String distributor,
 				@RequestParam (required = false) Integer width, @RequestParam (required = false) Integer height, @RequestParam (required = false) Integer min_price,
@@ -108,19 +110,19 @@ public class ProductRestController {
 		return new ResponseEntity<>(productRepository.findAll(page).getContent(),HttpStatus.OK);
 	}
 
-	@GetMapping("/{id}")
+	@GetMapping("/api/products/{id}")
 	public Product showProduct(@PathVariable long id) {
 		return productRepository.findById(id);
 	}
 	
-	@PostMapping()
+	@PostMapping("/api/products")
 	public Product addProduct(@RequestBody Product p) {
 		Product product = p;
 		productRepository.save(product);
 		return product;
 	}
 	
-	@DeleteMapping("/{id}")
+	@DeleteMapping("/api/products/{id}")
 	public ResponseEntity<List<Product>> deleteProduct(@PathVariable long id) {
 		Product product = productRepository.findById(id);
 		if(product!=null) {
@@ -130,6 +132,26 @@ public class ProductRestController {
 		}
 		else
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+	}
+
+	@GetMapping("/new/api/products")
+	void productsG(HttpServletResponse response) throws IOException {
+	  response.sendRedirect("/api/products");
+	}
+
+	@GetMapping("/new/api/products/{id}")
+	void productG(HttpServletResponse response) throws IOException {
+	  response.sendRedirect("/api/products/{id}");
+	}
+
+	@PostMapping("/new/api/products")
+	void productP(HttpServletResponse response) throws IOException {
+	  response.sendRedirect("/api/products");
+	}
+
+	@DeleteMapping("/new/api/products/{id}")
+	void productD(HttpServletResponse response) throws IOException {
+	  response.sendRedirect("/api/products/{id}");
 	}
 	
 	/*@GetMapping("/filter")
