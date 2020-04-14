@@ -11,6 +11,8 @@ import {MatSliderModule} from '@angular/material/slider';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatCardModule} from '@angular/material/card';
+import {MatRippleModule} from '@angular/material/core';
 
 import { AppComponent } from './app.component';
 import { BlogComponent } from './blog/blog.component';
@@ -74,6 +76,8 @@ import { HomeComponent } from './home/home.component';
     MatInputModule,
     MatFormFieldModule,
     MatDialogModule,
+    MatCardModule,
+    MatRippleModule,
     routing
   ],
   providers: [ProductService, LoginService,OrderService,
