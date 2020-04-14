@@ -110,6 +110,19 @@
     padding-bottom: 80px
 }
 
+.submit-blog {
+	border: none;
+	border-radius: 4px;
+	padding: 7.5px 15px;
+	background: #6371ef;
+	-webkit-transition: all 0.3s ease 0s;
+	-moz-transition: all 0.3s ease 0s;
+	-o-transition: all 0.3s ease 0s;
+	transition: all 0.3s ease 0s;
+	margin-right: 10px;
+	z-index: 1
+}
+
 .navbar .container {
     padding-left: 15px;
     padding-right: 15px
