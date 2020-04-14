@@ -137,18 +137,18 @@
 								</div>
 								<div class="modal-body">
 									<div class="form-row mb-4">
-										<label class="col-form-label">Nombre:</label> 
+										<label class="col-form-label">Nombre:</label>
 										<input type="text" class="form-control" name="name" required [(ngModel)]="newProduct.name">
 										<div class="col">
 											<label class="col-form-label">Franquicia:</label>
 											<input type="text" class="form-control" name="franchise" required [(ngModel)]="newProduct.franchise">
 										</div>
 										<div class="col">
-											<label class="col-form-label">Precio:</label> 
+											<label class="col-form-label">Precio:</label>
 											<input type="text" class="form-control" name="price" required [(ngModel)]="newProduct.price">
 										</div>
 										<div class="col">
-											<label class="col-form-label">Stock:</label> 
+											<label class="col-form-label">Stock:</label>
 											<input type="text" class="form-control" name="stock" required [(ngModel)]="newProduct.stock">
 										</div>
 									</div>
@@ -156,25 +156,25 @@
 										<textarea class="form-control" name="description" required [(ngModel)]="newProduct.description"></textarea>
 									<div class="form-row mb-4">
 										<div class="col">
-											<label class="col-form-label">Anchura:</label> 
+											<label class="col-form-label">Anchura:</label>
 											<input type="number" class="form-control" name="width" required [(ngModel)]="newProduct.width">
 										</div>
 										<div class="col">
-											<label class="col-form-label">Altura:</label> 
+											<label class="col-form-label">Altura:</label>
 											<input type="number" class="form-control" name="height" required [(ngModel)]="newProduct.height">
 										</div>
 										<div class="col">
-											<label class="col-form-label">Peso:</label> 
+											<label class="col-form-label">Peso:</label>
 											<input type="number" class="form-control" name="weight" required [(ngModel)]="newProduct.weight">
 										</div>
 									</div>
 									<div class="form-row mb-4">
 										<div class="col">
-											<label class="col-form-label">Distribuidor:</label> 
+											<label class="col-form-label">Distribuidor:</label>
 											<input type="text" class="form-control" name="distributor" required [(ngModel)]="newProduct.distributor">
 										</div>
 										<div class="col">
-											<label class="col-form-label">Referencia:</label> 
+											<label class="col-form-label">Referencia:</label>
 											<input type="text" class="form-control" name="reference" required [(ngModel)]="newProduct.reference">
 										</div>
 									</div>
@@ -311,7 +311,7 @@
 						<div *ngFor="let product of products" class="col-md-6 col-lg-4" id="products">
 							<div class="card text-center card-product">
 								<div class="card-product__img">
-									<img *ngIf="product.image" class="card-img" src="/assets/{{product.image}}">
+									<img *ngIf="product.image" class="card-img" src="assets{{product.image}}">
 									<ul class="card-product__imgOverlay">
 										<li>
 											<button [routerLink]="['/singleProduct', product.id]">
@@ -369,7 +369,7 @@
 					<div *ngFor="let product of recommendedProducts">
 						<mat-tab label="{{product.name}}"><div class="card text-center card-product">
 							<div class="card-product__img">
-								<img class="img-fluid" src="/assets/{{product.image}}" alt="" width="300"
+								<img *ngIf="product.image" class="img-fluid" src="assets{{product.image}}" alt="" width="300"
 									height="300">
 								<ul class="card-product__imgOverlay">
 									<li><button [routerLink]="['/singleProduct', product.id]">
@@ -390,7 +390,7 @@
 							</div>
 						</div></mat-tab>
 					</div>
-				</mat-tab-group>			
+				</mat-tab-group>
 			</div>
 		</section>
 	</div>

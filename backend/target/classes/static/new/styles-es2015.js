@@ -413,9 +413,9 @@ module.exports = exported;
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /angular/node_modules/@angular/material/prebuilt-themes/indigo-pink.css */"./node_modules/@angular/material/prebuilt-themes/indigo-pink.css");
-__webpack_require__(/*! /angular/node_modules/bootstrap/dist/css/bootstrap.css */"./node_modules/bootstrap/dist/css/bootstrap.css");
-module.exports = __webpack_require__(/*! /angular/src/styles.css */"./src/styles.css");
+__webpack_require__(/*! C:\Users\Ramón Barrabés Parra\Desktop\Git\webapp6\frontend\node_modules\@angular\material\prebuilt-themes\indigo-pink.css */"./node_modules/@angular/material/prebuilt-themes/indigo-pink.css");
+__webpack_require__(/*! C:\Users\Ramón Barrabés Parra\Desktop\Git\webapp6\frontend\node_modules\bootstrap\dist\css\bootstrap.css */"./node_modules/bootstrap/dist/css/bootstrap.css");
+module.exports = __webpack_require__(/*! C:\Users\Ramón Barrabés Parra\Desktop\Git\webapp6\frontend\src\styles.css */"./src/styles.css");
 
 
 /***/ })

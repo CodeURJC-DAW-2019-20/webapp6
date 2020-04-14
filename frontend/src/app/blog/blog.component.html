@@ -1,7 +1,7 @@
 <meta charset="UTF-8">
 <!-- ================ start banner area ================= -->
 <section class="blog-banner-area" id="blog">
-    <img src="/assets/banner/tokyo ghoul.png" style="float:left;width:100%;height:100%;object-fit:cover;opacity: 0.3;">
+    <img src="assets/banner/tokyo ghoul.png" style="float:left;width:100%;height:100%;object-fit:cover;opacity: 0.3;">
     <div class="container h-100">
         <div class="blog-banner">
             <div class="text-center">
@@ -145,7 +145,7 @@
                             </div>
                             <div class="col-md-9">
                                 <div class="blog_post">
-                                    <img *ngIf="blogitem.image" src="assets/{{blogitem.image}}" width="550"
+                                    <img *ngIf="blogitem.image" src="assets{{blogitem.image}}" width="550"
                                         height="270">
                                     <div class="blog_details">
                                         <h2>
@@ -186,7 +186,7 @@
                         <!--{{#blogspage}}-->
                         <div *ngFor="let blogitem of blog">
                             <div class="media post_item card-blog">
-                                <img *ngIf="blogitem.image" src="/assets/{{blogitem.image}}" width="100" height="50"
+                                <img *ngIf="blogitem.image" src="assets{{blogitem.image}}" width="100" height="50"
                                     alt="post">
                                 <div class="media-body">
                                     <h3 class="card-blog__title"><a
