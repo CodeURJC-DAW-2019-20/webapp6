@@ -4,26 +4,51 @@
 	<div class="product_image_area">
 		<div class="container">
 			<div class="row s_product_inner">
-				<div class="col-lg-6">
-					<div class="owl-carousel owl-theme s_Product_carousel">
-						<div class="single-prd-item">
-							<img class="img-fluid" src="assets/{{product.imagefull}}" alt="">
-						</div>
-						
-						<!-- <div class="single-prd-item">
-							<img class="img-fluid" src="img/category/s-p1.jpg" alt="">
-						</div> -->
-					</div>
-				</div>
+
+				<ngb-carousel class="col-lg-6 carousel">
+					<ng-template ngbSlide class="carousel">
+					  <div class="picsum-img-wrapper">
+						<img *ngIf="product.image" class="card-img" src="/assets/{{product.imagefull}}">
+					  </div>
+					  <div class="carousel-caption">
+						<p>Imagen 1. {{product.name}}</p>
+					  </div>
+					</ng-template>
+					<ng-template ngbSlide class="carousel">
+					  <div class="picsum-img-wrapper">
+						<img *ngIf="product.imagefull" class="card-img" src="/assets/{{product.imagefull}}">
+					  </div>
+					  <div class="carousel-caption">
+						<p>Imagen 2. {{product.name}}</p>
+					  </div>
+					</ng-template>
+				</ngb-carousel>
+
 				<div class="col-lg-5 offset-lg-1">
 					<div class="s_product_text">
 						<h3>{{product.name}}</h3>
 						<h2>{{product.price}}&euro;</h2>
-						<ul class="list">
+						<ul class="list no-list">
 							<li><a class="active"><span>Categor&iacute;a</span> : {{product.franchise}}</a></li>
 							<li><a><span>Disponibilidad</span> : {{product.actual_stock}}/{{product.stock}}</a></li>
 						</ul>
 						<p>{{product.description}}</p>
+						<div class="product_count"><br>
+							<form>
+								<mat-label for="qty">Cantidad:</mat-label>
+								<div class="common-filter">
+									<input matInput type="text" name="qt" id="sst" maxlength="12" value="1" title="Quantity:" class="add-qty top" [(ngModel)]="qty">
+								</div><br>
+								<button mat-button class="add-product single-product-font single-product-button" (click)="addProductToOrder(product,qty)">Añadir +</button>
+							</form>
+						</div>
+						<div class="card_area d-flex align-items-center">
+							<a class="icon_btn" [routerLink]><mat-icon class="icon-style">grade</mat-icon></a>
+							<a class="icon_btn" [routerLink]><mat-icon class="icon-style">favorite_border</mat-icon></a>
+							<div *ngIf="loginService.isAdmin">
+								<button mat-button class="remove-single-product single-product-button" (click) ="deleteProduct()">Eliminar</button>
+							</div>
+						</div>
 						<!--<div class="product_count">
 						<form method="post" action="/addFromProduct/{{id}}"><br>
               				<label for="qty">Cantidad:</label>
@@ -40,13 +65,13 @@
 							<input type="hidden" name="_csrf" value="{{token}}" />
 						</form>
 						</div>-->
-						<div class="card_area d-flex align-items-center">
+						<!--<div class="card_area d-flex align-items-center">
 							<a class="icon_btn" href="#"><i class="lnr lnr lnr-diamond"></i></a>
 							<a class="icon_btn" href="#"><i class="lnr lnr lnr-heart"></i></a>
 							<div *ngIf="loginService.isAdmin">
 								<button class="remove-single-product" (click) ="deleteProduct()">Eliminar</button>
 							</div>
-						</div>
+						</div>-->
 					</div>
 				</div>
 			</div>
