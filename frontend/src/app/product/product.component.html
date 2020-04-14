@@ -1,5 +1,5 @@
 <!-- ================ start banner area ================= -->
-<section class="blog-banner-area" id="category">
+<mat-card class="blog-banner-area" id="category">
 	<img src="/assets/banner/akatsuki.png"
 		style="float: left; width: 100%; height: 100%; object-fit: cover; opacity: 0.3;">
 	<div class="container h-100">
@@ -16,11 +16,11 @@
 			</div>
 		</div>
 	</div>
-</section>
+</mat-card>
 <!-- ================ end banner area ================= -->
 
 <!-- ================ category section start ================= -->
-<section class="section-margin--small mb-5">
+<mat-card class="section-margin--small mb-5">
 	<div class="container">
 		<div class="row">
 			<div class="col-xl-3 col-lg-4 col-md-5">
@@ -131,57 +131,57 @@
 							<ng-template #content let-modal>
 								<div class="modal-header">
 								  <h4 class="modal-title">Nuevo producto</h4>
-								  <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+								  <button type="button" class="close" aria-label="Cerrar" (click)="modal.dismiss('Cross click')">
 									<span aria-hidden="true">&times;</span>
 								  </button>
 								</div>
 								<div class="modal-body">
 									<div class="form-row mb-4">
-										<label class="col-form-label">Nombre:</label>
-										<input type="text" class="form-control" name="name" required [(ngModel)]="newProduct.name">
+										<mat-label class="col-form-label">Nombre:</mat-label>
+										<input matInput type="text" class="form-control" name="name" required [(ngModel)]="newProduct.name">
 										<div class="col">
-											<label class="col-form-label">Franquicia:</label>
-											<input type="text" class="form-control" name="franchise" required [(ngModel)]="newProduct.franchise">
+											<mat-label class="col-form-label">Franquicia:</mat-label>
+											<input matInput type="text" class="form-control" name="franchise" required [(ngModel)]="newProduct.franchise">
 										</div>
 										<div class="col">
-											<label class="col-form-label">Precio:</label>
-											<input type="text" class="form-control" name="price" required [(ngModel)]="newProduct.price">
+											<mat-label class="col-form-label">Precio:</mat-label>
+											<input matInput type="text" class="form-control" name="price" required [(ngModel)]="newProduct.price">
 										</div>
 										<div class="col">
-											<label class="col-form-label">Stock:</label>
-											<input type="text" class="form-control" name="stock" required [(ngModel)]="newProduct.stock">
+											<mat-label class="col-form-label">Stock:</mat-label>
+											<input matInput type="text" class="form-control" name="stock" required [(ngModel)]="newProduct.stock">
 										</div>
 									</div>
 									<label class="col-form-label">Descripción:</label>
-										<textarea class="form-control" name="description" required [(ngModel)]="newProduct.description"></textarea>
+										<textarea matInput class="form-control" name="description" required [(ngModel)]="newProduct.description"></textarea>
 									<div class="form-row mb-4">
 										<div class="col">
-											<label class="col-form-label">Anchura:</label>
-											<input type="number" class="form-control" name="width" required [(ngModel)]="newProduct.width">
+											<mat-label class="col-form-label">Anchura:</mat-label>
+											<input matInput type="number" class="form-control" name="width" required [(ngModel)]="newProduct.width">
 										</div>
 										<div class="col">
-											<label class="col-form-label">Altura:</label>
-											<input type="number" class="form-control" name="height" required [(ngModel)]="newProduct.height">
+											<mat-label class="col-form-label">Altura:</mat-label>
+											<input matInput type="number" class="form-control" name="height" required [(ngModel)]="newProduct.height">
 										</div>
 										<div class="col">
-											<label class="col-form-label">Peso:</label>
-											<input type="number" class="form-control" name="weight" required [(ngModel)]="newProduct.weight">
+											<mat-label class="col-form-label">Peso:</mat-label>
+											<input matInput type="number" class="form-control" name="weight" required [(ngModel)]="newProduct.weight">
 										</div>
 									</div>
 									<div class="form-row mb-4">
 										<div class="col">
-											<label class="col-form-label">Distribuidor:</label>
-											<input type="text" class="form-control" name="distributor" required [(ngModel)]="newProduct.distributor">
+											<mat-label class="col-form-label">Distribuidor:</mat-label>
+											<input matInput type="text" class="form-control" name="distributor" required [(ngModel)]="newProduct.distributor">
 										</div>
 										<div class="col">
-											<label class="col-form-label">Referencia:</label>
-											<input type="text" class="form-control" name="reference" required [(ngModel)]="newProduct.reference">
+											<mat-label class="col-form-label">Referencia:</mat-label>
+											<input matInput type="text" class="form-control" name="reference" required [(ngModel)]="newProduct.reference">
 										</div>
 									</div>
 								</div>
 								<div class="modal-footer">
 									<button type="submit" class="submit-product" form="newProduct" (click)="saveProduct()" (click)="modal.close('Close click')">Enviar</button>
-								  <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+								  <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Cerrar</button>
 								</div>
 							  </ng-template>
 							<!--<button class="add-product" data-toggle="modal" data-target="#exampleModal">A&ntilde;adir
@@ -296,8 +296,8 @@
 							<input matInput #key #keyControl="ngModel" type="text" [(ngModel)]="key.value" placeholder="Buscar"
 								(keydown.enter)="search(key.value)">
 							<div class="input-group-append">
-								<button type="button" (click)="search(key.value)">
-									<mat-icon class="material-icons md-18 padding md-grey">search</mat-icon>
+								<button mat-flat-button class="search search-button" type="button" (click)="search(key.value)">
+									<mat-icon class="material-icons md-18 padding md-grey search">search</mat-icon>
 								</button>
 							</div>
 						</div>
@@ -306,7 +306,7 @@
 				</div>
 				<!-- End Filter Bar -->
 				<!-- Start Best Seller -->
-				<section class="lattest-product-area pb-40 category-list">
+				<mat-card class="lattest-product-area pb-40 category-list">
 					<div class="row">
 						<div *ngFor="let product of products" class="col-md-6 col-lg-4" id="products">
 							<div class="card text-center card-product">
@@ -314,13 +314,13 @@
 									<img *ngIf="product.image" class="card-img" src="assets{{product.image}}">
 									<ul class="card-product__imgOverlay">
 										<li>
-											<button [routerLink]="['/singleProduct', product.id]">
-												<mat-icon class="material-icons md-18 md-light">search</mat-icon>
+											<button mat-icon-button [routerLink]="['/singleProduct', product.id]">
+												<mat-icon class="material-icons md-18 md-light center-single-product">search</mat-icon>
 											</button>
 										</li>
 										<li>
-											<button id="add" (click)="addProductToOrder(product,1)">
-												<mat-icon class="material-icons md-18 md-light">add_shopping_cart
+											<button mat-icon-button id="add" (click)="addProductToOrder(product,1)">
+												<mat-icon class="material-icons md-18 md-light center-single-product">add_shopping_cart
 												</mat-icon>
 											</button>
 											<input type="hidden" name="qt" id="qt" value=1 />
@@ -329,8 +329,8 @@
 									<div *ngIf="loginService.isAdmin">
 										<ul class="card-product-remove__imgOverlay">
 											<li>
-												<button (click)="delete(product)">
-													<mat-icon class="material-icons md-18 md-light">delete_forever
+												<button mat-icon-button (click)="delete(product)">
+													<mat-icon class="material-icons md-18 md-light center-single-product">delete_forever
 													</mat-icon>
 												</button>
 											</li>
@@ -347,22 +347,20 @@
 							</div>
 						</div>
 					</div>
-				</section>
-
+				</mat-card>
 			</div>
 		</div>
 	</div>
-</section>
+</mat-card>
 
-
-<section class="related-product-area">
+<mat-card class="related-product-area">
 	<div class="container">
-		<section class="section-margin calc-60px">
+		<mat-card class="section-margin calc-60px">
 			<div class="container">
 				<div class="section-intro pb-60px">
 					<p>Figuras populares de la tienda</p>
 					<h2>
-						Figuras <span class="section-intro__style">recomendadas</span>
+						Figuras <span class="section-intro__style">Recomendadas</span>
 					</h2>
 				</div>
 				<mat-tab-group>
@@ -372,11 +370,11 @@
 								<img *ngIf="product.image" class="img-fluid" src="assets{{product.image}}" alt="" width="300"
 									height="300">
 								<ul class="card-product__imgOverlay">
-									<li><button [routerLink]="['/singleProduct', product.id]">
-											<mat-icon class="material-icons md-18 md-light">search</mat-icon>
+									<li><button mat-icon-button [routerLink]="['/singleProduct', product.id]">
+											<mat-icon class="material-icons md-18 md-light center-single-product">search</mat-icon>
 										</button></li>
-									<li><button>
-											<mat-icon class="material-icons md-18 md-light" (click)="addProductToOrder(product,1)">add_shopping_cart
+									<li><button mat-icon-button>
+											<mat-icon class="material-icons md-18 md-light center-single-product" (click)="addProductToOrder(product,1)">add_shopping_cart
 											</mat-icon>
 										</button></li>
 								</ul>
@@ -392,6 +390,6 @@
 					</div>
 				</mat-tab-group>
 			</div>
-		</section>
+		</mat-card>
 	</div>
-</section>
+</mat-card>

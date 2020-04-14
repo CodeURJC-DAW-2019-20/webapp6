@@ -274,7 +274,7 @@ div.scrollmenu {
 .card-product__imgOverlay li button {
 	border: 0;
 	border-radius: 0;
-	padding: 7px 12px;
+	padding: 7px 11px;
 	background: #8894ff
 }
 
@@ -294,10 +294,14 @@ div.scrollmenu {
 }
 
 .card-product__title a {
-	color: #222
+	color: #222;
+	font-size: 18px;
+	font-style: oswald;
+	word-wrap: break-word;
 }
 
 .card-product__price {
+	color: rgb(129, 129, 129);
 	font-size: 18px;
 	font-weight: 500
 }
@@ -361,10 +365,10 @@ div.scrollmenu {
 .card-product-remove__imgOverlay {
 	background: rgba(255, 255, 255, 0.5);
 	position: absolute;
-	bottom: 175px;
-	left: 191px;
+	bottom: 170px;
+	left: 183px;
 	width: 25%;
-	padding: 15px 5px;
+	padding: 10px 5px;
 	transform: translateX(30px);
 	opacity: 0;
 	z-index: -1;
@@ -378,7 +382,7 @@ div.scrollmenu {
 .card-product-remove__imgOverlay li button {
 	border: 0;
 	border-radius: 0;
-	padding: 7px 12px;
+	padding: 7px 11px;
 	background: #ff8888
 }
 
@@ -546,6 +550,10 @@ div.scrollmenu {
 
 .material-icons.padding-dropdown { padding: 2px 10px; }
 
+.material-icons.center-single-product { padding-bottom: 38px; padding-right: 30px; }
+
+.material-icons.search { padding-bottom: 20px; padding-right: 10px;}
+
 .dropdown{
 	padding: 7.5px 15px;
 	background: #ffffff;
@@ -669,21 +677,57 @@ div.scrollmenu {
 	display: flex;
 	flex-direction: column;
 	margin: 15px 0;
-  }
+}
   
-  .example-radio-button {
+.example-radio-button {
 	margin: 5px;
-  }
+}
 
-  .filter-pad{
+.filter-pad{
 	padding: 0px 28px;
-  }
+}
 
-  .mat-slider {
+.mat-slider {
 	width: 175px;
-  }
+}
 
-  .owl-carouser {
+.owl-carouser {
 	overflow-y: hidden; 
 	overflow-x: auto;
-  }
+}
+
+::ng-deep .mat-card{
+	border-style:  none !important;
+	box-shadow: none !important;
+}
+
+::ng-deep .mat-flat-button.search-button{
+	border-radius: 0px;
+	margin-top: -1px !important;
+	width: 50px!important;
+    min-width: unset!important;
+}
+
+::ng-deep .mat-flat-button.search-button:active{
+	outline:none;
+}
+
+::ng-deep .mat-flat-button.search-button:focus{
+	outline:none;
+}
+
+::ng-deep .mat-icon-button:active{
+	outline:none;
+}
+
+::ng-deep .mat-icon-button:focus{
+	outline:none;
+}
+
+::ng-deep .mat-menu-item:active{
+	outline:none;
+}
+
+::ng-deep .mat-menu-item:focus{
+	outline:none;
+}
