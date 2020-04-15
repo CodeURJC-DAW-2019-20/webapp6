@@ -18,8 +18,10 @@ public class RestSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 
+		http.antMatcher("/new/api/**");
 	    http.antMatcher("/api/**");
-	    
+		
+		
 		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/logIn").authenticated();
 		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/index").permitAll();
 		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/").permitAll();
@@ -35,6 +37,21 @@ public class RestSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/order/**").permitAll(); 
 		http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/user").permitAll();
 		
+		http.authorizeRequests().antMatchers(HttpMethod.GET, "/new/api/logIn").authenticated();
+		http.authorizeRequests().antMatchers(HttpMethod.GET, "/new/api/index").permitAll();
+		http.authorizeRequests().antMatchers(HttpMethod.GET, "/new/api/").permitAll();
+		http.authorizeRequests().antMatchers(HttpMethod.GET, "/new/api/blogs").permitAll();
+		http.authorizeRequests().antMatchers(HttpMethod.GET, "/new/api/blogs/{id}").permitAll();
+		http.authorizeRequests().antMatchers(HttpMethod.GET, "/new/api/logOut").permitAll();
+		http.authorizeRequests().antMatchers(HttpMethod.POST, "/new/api/register").permitAll();
+		http.authorizeRequests().antMatchers(HttpMethod.GET,  "/new/api/user").permitAll();
+		http.authorizeRequests().antMatchers(HttpMethod.GET,  "/new/api/currentuser").permitAll();
+		http.authorizeRequests().antMatchers(HttpMethod.GET, "/new/api/products/**").permitAll();
+		http.authorizeRequests().antMatchers(HttpMethod.GET, "/new/api/products/{id}/").permitAll();
+		http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/new/api/order/**").permitAll();
+		http.authorizeRequests().antMatchers(HttpMethod.POST, "/new/api/order/**").permitAll(); 
+		http.authorizeRequests().antMatchers(HttpMethod.POST, "/new/api/user").permitAll();
+		
 		
 		// URLs that need authentication to access to it
 		http.authorizeRequests().antMatchers(HttpMethod.PUT, "/api/user/**").hasAnyRole("USER","ADMIN");
@@ -43,6 +60,13 @@ public class RestSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/products/**").hasRole("ADMIN");
 		http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/blogs/**").hasRole("ADMIN");
 		http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/blogs/**").hasRole("ADMIN");
+
+		http.authorizeRequests().antMatchers(HttpMethod.PUT, "/new/api/user/**").hasAnyRole("USER","ADMIN");
+		http.authorizeRequests().antMatchers(HttpMethod.GET, "/new/api/user/**").hasAnyRole("USER","ADMIN");
+		http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/new/api/products/**").hasRole("ADMIN");
+		http.authorizeRequests().antMatchers(HttpMethod.POST, "/new/api/products/**").hasRole("ADMIN");
+		http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/new/api/blogs/**").hasRole("ADMIN");
+		http.authorizeRequests().antMatchers(HttpMethod.POST, "/new/api/blogs/**").hasRole("ADMIN");
 		
 		// Other URLs can be accessed without authentication
 		http.authorizeRequests().anyRequest().permitAll();

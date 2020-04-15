@@ -9,6 +9,7 @@ public class CustomWebMvcConfigurerAdapter implements WebMvcConfigurer {
 
 	@Override
 	public void addViewControllers(ViewControllerRegistry registry) {
+		registry.addViewController("/new").setViewName("redirect:/new/");
 		registry.addViewController("/new/").setViewName("forward:/new/index.html");
 	}
 }

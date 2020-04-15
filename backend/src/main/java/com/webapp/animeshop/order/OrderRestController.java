@@ -1,30 +1,33 @@
 package com.webapp.animeshop.order;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.webapp.animeshop.product.ProductAmount;
 import com.webapp.animeshop.product.ProductAmountRepository;
 import com.webapp.animeshop.product.ProductRepository;
-import com.webapp.animeshop.product.ProductService;
 import com.webapp.animeshop.user.Address;
 import com.webapp.animeshop.user.User;
 import com.webapp.animeshop.user.UserComponent;
 import com.webapp.animeshop.user.UserRepository;
 
 @RestController
-@RequestMapping("/api/order")
 public class OrderRestController {
 	
 	@Autowired
@@ -40,9 +43,6 @@ public class OrderRestController {
 	private ProductRepository productRepository;
 	
 	@Autowired
-	private ProductService productService;
-	
-	@Autowired
 	public UserComponent userComponent;
 	
 	@Autowired
@@ -51,12 +51,12 @@ public class OrderRestController {
 	@Autowired
 	private UserRepository userRepository;
 	
-	@GetMapping()
+	@GetMapping("/api/order")
 	public List<Order> getOrders() {
 		return orderRepository.findAll();
 	}
 	
-	@GetMapping("/{id}")
+	@GetMapping("/api/order/{id}")
 	public Order getOrder(@PathVariable long id) {
 		if(id==0) {
 			Order order;
@@ -72,12 +72,12 @@ public class OrderRestController {
 		return orderRepository.findById(id);
 	}
 	
-	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/api/order/{id}", method = RequestMethod.DELETE)
 	public void deleteProduct(@PathVariable long id) {
 		pAmountRepository.deleteById(id);
 	}
 	
-	@RequestMapping(value = "/{id}/{pid}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/api/order/{id}/{pid}", method = RequestMethod.DELETE)
 	public ResponseEntity<?> deleteProduct_Aux(@PathVariable long id, @PathVariable long pid) {
 		User user = userComponent.getLoggedUser();
 		if(user!=null)
@@ -107,7 +107,7 @@ public class OrderRestController {
 		return new ResponseEntity<>(order, HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/{id}",method = RequestMethod.POST)
+	@RequestMapping(value = "/api/order/{id}",method = RequestMethod.POST)
 	public ResponseEntity<?> addProduct(@PathVariable long id, @RequestBody ProductAmount pAmount/*, @PathVariable int qt*/) {
 		User user = userComponent.getLoggedUser();
 		if(user!=null)
@@ -132,7 +132,7 @@ public class OrderRestController {
 		return new ResponseEntity<>(order, HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+	@RequestMapping(value = "/api/order/{id}", method = RequestMethod.PUT)
 	public ResponseEntity<?> updateProduct(@PathVariable long id, @RequestBody ProductAmount pAmount/*, @PathVariable int qt*/) {
 		User user = userComponent.getLoggedUser();
 		if(user!=null)
@@ -160,7 +160,7 @@ public class OrderRestController {
 		return new ResponseEntity<>(order, HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/{id}/confirmation", method = RequestMethod.PUT)
+	@RequestMapping(value = "/api/order/{id}/confirmation", method = RequestMethod.PUT)
 	public ResponseEntity<?> confirmation(@RequestBody (required = false) List <Address> dirs, @PathVariable long id) throws Exception{
     	User user = userComponent.getLoggedUser();
     	Address billing_address = new Address();
@@ -213,6 +213,42 @@ public class OrderRestController {
     	response.add(billing_address);
     	return new ResponseEntity<>(response, HttpStatus.OK);
 	}
+
+	@GetMapping("/new/api/order")
+	void ordersG(HttpServletResponse response) throws IOException {
+	  response.sendRedirect("/api/order");
+	}
+
+	@GetMapping("/new/api/order/{id}")
+	void orderG(HttpServletResponse response) throws IOException {
+	  response.sendRedirect("/api/order/{id}");
+	}
+
+	@DeleteMapping("/new/api/order/{id}")
+	void orderProductDel(HttpServletResponse response) throws IOException {
+	  response.sendRedirect("/api/order/{id}");
+	}
+
+	@DeleteMapping("/new/api/order/{id}/{pid}")
+	void orderProductAuxDel(HttpServletResponse response) throws IOException {
+	  response.sendRedirect("/api/order/{id}/{pid}");
+	}
+
+	@PostMapping("/new/api/order/{id}")
+	void orderProductPost(HttpServletResponse response) throws IOException {
+	  response.sendRedirect("/api/order/{id}");
+	}
+
+	@PutMapping("/new/api/order/{id}")
+	void orderUpdateProduct(HttpServletResponse response) throws IOException {
+	  response.sendRedirect("/api/order/{id}");
+	}
+
+	@PutMapping("/new/api/order/{id}/confirmation")
+	void orderConfirmation(HttpServletResponse response) throws IOException {
+	  response.sendRedirect("/api/order/{id}/confirmation");
+	}
+
 	
 	/*@RequestMapping(value = "/confirmation", method = RequestMethod.POST)
 	public ResponseEntity<User> confirmation() throws Exception{

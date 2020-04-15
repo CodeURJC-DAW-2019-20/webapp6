@@ -37,7 +37,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 		// Private pages
 		
-		http.authorizeRequests().antMatchers("/new/**").permitAll();
 		http.authorizeRequests().antMatchers("/userPage").hasAnyRole("USER","ADMIN");
 		http.authorizeRequests().antMatchers("/userEdit").hasAnyRole("USER","ADMIN");
 		http.authorizeRequests().antMatchers("/confirmation").hasAnyRole("USER","ADMIN");

@@ -26,20 +26,20 @@ export class ProductComponent implements OnInit {
   autoTicks = false;
   showTicks = false;
   tickInterval = 1;
-  franchise = "";
-  distributor = "";
+  franchise = '';
+  distributor = '';
   height = 150;
   width = 150;
-  recommendedProducts : Product[];
+  recommendedProducts: Product[];
   pAmount: ProductAmount;
   order: Order;
   closeResult = '';
   newProduct: Product;
 
-  constructor(private router: Router, private service: ProductService, public loginService: LoginService, private orderService: OrderService, private modalService: NgbModal) { 
-    this.order = {status: '', productList: [], total: 0, day: 0, month: 0, year: 0}
-    this.newProduct = { name:'', franchise:'', distributor:'', price:0, description:'', 
-                        height:0, width:0, weight:0, reference:'', stock:0, image: '../assets/img/product/notavailable.png', imagefull: '../assets/img/product/notavailable2.png' }
+  constructor(private router: Router, private service: ProductService, public loginService: LoginService, private orderService: OrderService, private modalService: NgbModal) {
+    this.order = {status: '', productList: [], total: 0, day: 0, month: 0, year: 0};
+    this.newProduct = { name: '', franchise: '', distributor: '', price: 0, description: '',
+                        height: 0, width: 0, weight: 0, reference: '', stock: 0, image: '../assets/img/product/notavailable.png', imagefull: '../assets/img/product/notavailable2.png' };
   }
 
   ngOnInit() {
@@ -102,7 +102,7 @@ export class ProductComponent implements OnInit {
 
   saveProduct() {
     this.service.saveProduct(this.newProduct).subscribe(
-    _ => {this.router.navigate(['/product']);}, (error: Error) => console.error('error creating new product: ' + error));
+    _ => {this.router.navigate(['/product']); }, (error: Error) => console.error('error creating new product: ' + error));
   }
 
   filter() {
@@ -112,26 +112,28 @@ export class ProductComponent implements OnInit {
     );
   }
 
-  getFranchisesAndDistributors(products: Product[]){
-    let franchisesaux: string[] = [];
-    let distributorsaux: string[] = [];
-    for(var i = 0; i < products.length; i++){
-      if(!franchisesaux.includes(products[i].franchise)&&!this.franchises.includes(products[i].franchise))
+  getFranchisesAndDistributors(products: Product[]) {
+    const franchisesaux: string[] = [];
+    const distributorsaux: string[] = [];
+    for (let i = 0; i < products.length; i++) {
+      if (!franchisesaux.includes(products[i].franchise) && !this.franchises.includes(products[i].franchise)) {
         franchisesaux.push(products[i].franchise);
-      if(!distributorsaux.includes(products[i].distributor)&&!this.distributors.includes(products[i].distributor))
+      }
+      if (!distributorsaux.includes(products[i].distributor) && !this.distributors.includes(products[i].distributor)) {
         distributorsaux.push(products[i].distributor);
+      }
     }
     this.franchises = this.franchises.concat(franchisesaux);
     this.distributors = this.distributors.concat(distributorsaux);
   }
 
-  addProductToOrder(productAux: Product, qt: number){
-    let productAmount = { product: productAux, amount: qt }
+  addProductToOrder(productAux: Product, qt: number) {
+    const productAmount = { product: productAux, amount: qt };
     this.pAmount = productAmount;
     this.orderService.addProduct(this.pAmount, this.order.id ).subscribe(
       order => { this.order = order;
-                  this.router.navigate(['/order']);
-      },error => console.log(error));
+                 this.router.navigate(['/order']);
+      }, error => console.log(error));
   }
 
   openVerticallyCentered(content) {

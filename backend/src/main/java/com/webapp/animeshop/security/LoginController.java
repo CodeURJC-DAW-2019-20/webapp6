@@ -1,5 +1,8 @@
 package com.webapp.animeshop.security;
 
+import java.io.IOException;
+
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -47,4 +50,13 @@ public class LoginController {
         }
     }
 
+    @RequestMapping("/new/api/logIn")
+	void loogIn(HttpServletResponse response) throws IOException {
+	  response.sendRedirect("/api/logIn");
+    }
+    
+    @RequestMapping("/new/api/logOut")
+	void loogOut(HttpServletResponse response) throws IOException {
+	  response.sendRedirect("/api/logOut");
+	}
 }

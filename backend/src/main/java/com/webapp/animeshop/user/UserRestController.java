@@ -1,7 +1,10 @@
 package com.webapp.animeshop.user;
 
+import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,7 +24,6 @@ import com.webapp.animeshop.product.Product;
 
 
 @RestController
-@RequestMapping("/api")
 public class UserRestController {
 
 	@Autowired
@@ -36,7 +38,7 @@ public class UserRestController {
 	@Autowired
 	private OrderRepository orderRepository;
 	
-	@PostMapping("/user")
+	@PostMapping("/api/user")
 	public ResponseEntity<?> addNewUser(@RequestBody User user) {
 		if(userComponent.getLoggedUser()!=null)
 			return new ResponseEntity<>("Please, loggout first to register a new user", HttpStatus.CONFLICT);
@@ -53,7 +55,7 @@ public class UserRestController {
 			return new ResponseEntity<>(HttpStatus.CONFLICT);
 	}
 	
-	@GetMapping("/user/{id}")
+	@GetMapping("/api/user/{id}")
 	public User getCurrentUser(@PathVariable long id) { 
 		User user = userComponent.getLoggedUser();
 		if(user.getId()==userRepository.findById(id).getId())
@@ -61,12 +63,12 @@ public class UserRestController {
 		return user;
 	}
 	
-	@GetMapping("/user")
+	@GetMapping("/api/user")
 	public List<User> getAllUsers(){
 		return userService.findAll();
 	}
 	
-	@PutMapping("/user/{id}")
+	@PutMapping("/api/user/{id}")
 	public ResponseEntity<?> newInfo(@PathVariable long id, @RequestParam String shippingName, @RequestBody Address address, @RequestParam (required = false) String passwordHash) {
 		User user = this.userComponent.getLoggedUser();
 		if(user!=null)
@@ -83,4 +85,24 @@ public class UserRestController {
 		return new ResponseEntity<>(user, HttpStatus.OK);
 	}
 	
+	@PostMapping("/new/api/user")
+	void userPost(HttpServletResponse response) throws IOException {
+	  response.sendRedirect("/api/user");
+	}
+	
+	@GetMapping("/new/api/user/{id}")
+	void userG(HttpServletResponse response) throws IOException {
+	  response.sendRedirect("/api/user/{id}");
+	}
+	
+	@GetMapping("/new/api/user")
+	void usersG(HttpServletResponse response) throws IOException {
+	  response.sendRedirect("/api/user");
+	}
+
+	@PutMapping("/new/api/user/{id}")
+	void userInfoUpdate(HttpServletResponse response) throws IOException {
+	  response.sendRedirect("/api/user/{id}");
+	}
+
 }
