@@ -13,6 +13,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatCardModule} from '@angular/material/card';
 import {MatRippleModule} from '@angular/material/core';
+import {MatSelectModule} from '@angular/material/select';
 
 import { AppComponent } from './app.component';
 import { BlogComponent } from './blog/blog.component';
@@ -30,7 +31,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './login/register.component';
 import { BasicAuthInterceptor } from './auth/auth.interceptor';
 import { ErrorInterceptor } from './auth/error.interceptor';
-import { FormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserPageComponent } from './login/userPage.component';
 import { UserEditComponent } from './login/userEdit.component';
 import { OrderService } from './order/order.service';
@@ -78,6 +79,8 @@ import { HomeComponent } from './home/home.component';
     MatDialogModule,
     MatCardModule,
     MatRippleModule,
+    MatSelectModule,
+    ReactiveFormsModule,
     routing
   ],
   providers: [ProductService, LoginService,OrderService,

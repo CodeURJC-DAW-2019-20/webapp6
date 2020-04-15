@@ -1,58 +1,85 @@
- <meta charset="UTF-8">
-  <!-- ================ start banner area ================= -->
-<section class="blog-banner-area" id="category">
-		<img src="assets/banner/black-clover.png" style="float:left;width:100%;height:100%;object-fit:cover;opacity: 0.3;">
-		<div class="container h-100">
-			<div class="blog-banner">
-				<div class="text-center">
-					<h1>Registro</h1>
-					<nav aria-label="breadcrumb" class="banner-breadcrumb">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-              <li class="breadcrumb-item active" aria-current="page">Registro</li>
-            </ol>
-          </nav>
+<meta charset="UTF-8">
+<!-- ================ start banner area ================= -->
+<mat-card class="blog-banner-area" id="category">
+	<img src="assets/banner/black-clover.png" style="float:left;width:100%;height:100%;object-fit:cover;opacity: 0.3;">
+	<div class="container h-100">
+		<div class="blog-banner">
+			<div class="text-center">
+				<h1>Registro</h1>
+				<nav aria-label="breadcrumb" class="banner-breadcrumb">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a href="#">Inicio</a></li>
+						<li class="breadcrumb-item active" aria-current="page">Registro</li>
+					</ol>
+				</nav>
+			</div>
+		</div>
+	</div>
+</mat-card>
+<!-- ================ end banner area ================= -->
+
+<!--================Login Box Area =================-->
+<mat-card class="login_box_area section-margin">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="login_box_img">
+					<div class="hover">
+						<h4>¿Ya tienes una cuenta?</h4>
+						<p>Tenemos un montón de figuritas y accesorios exclusivos que podrían interesarte</p>
+						<a class="button button-account" [routerLink]="['/login']">Inicar sesión</a>
+					</div>
 				</div>
 			</div>
-    </div>
-	</section>
-	<!-- ================ end banner area ================= -->
+			<div class="col-lg-6">
+				<div class="login_form_inner register_form_inner">
+					<h3>Crear una cuenta</h3>
+					<form class="row login_form" #registerForm="ngForm">
 
-  <!--================Login Box Area =================-->
-<section class="login_box_area section-margin">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-6">
-					<div class="login_box_img">
-						<div class="hover">
-							<h4>¿Ya tienes una cuenta?</h4>
-							<p>Tenemos un montón de figuritas y accesorios exclusivos que podrían interesarte</p>
-							<a class="button button-account" [routerLink]="['/login']">Inicar sesión</a>
+						<!--<div class="col-md-12 form-group">
+							<input type="text" class="form-control" [(ngModel)]="user.name" id="name" name="name"
+								placeholder="Usuario" onfocus="this.placeholder = ''"
+								onblur="this.placeholder = 'Username'">
 						</div>
-					</div>
-				</div>
-				<div class="col-lg-6">
-					<div class="login_form_inner register_form_inner">
-						<h3>Crear una cuenta</h3>
-						<form class="row login_form" #registerForm="ngForm">
-
-							<div class="col-md-12 form-group">
-								<input type="text" class="form-control" [(ngModel)]="user.name" id="name" name="name" placeholder="Usuario" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'">
-							</div>
-							<div class="col-md-12 form-group">
-								<input type="email" class="form-control" id="email" [(ngModel)]="user.delivery.email" name="email" placeholder="Correo electrónico" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'">
-							</div>
-              				<div class="col-md-12 form-group">
-								<input type="password" class="form-control" id="password-edit" [(ngModel)]="user.passwordHash" name="password" placeholder="Contraseña" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Contraseña'">
-								<span data-toggle="#password-edit" class="fa fa-fw fa-eye field-icon toggle-password"></span>
-              				</div>
-							<div class="col-md-12 form-group">
-								<button type="submit" value="submit" class="button button-register w-100" (click)="newUser()">Registrarse</button>
-							</div>
-						</form>
-					</div>
+						<div class="col-md-12 form-group">
+							<input matInput type="email" class="form-control" id="email" [(ngModel)]="user.delivery.email"
+								name="email" placeholder="Correo electrónico" onfocus="this.placeholder = ''"
+								onblur="this.placeholder = 'Email'">
+						</div>
+						<div class="col-md-12 form-group">
+							<input matInput [type]="hide ? 'password' : 'text'" class="form-control" 
+								[(ngModel)]="user.passwordHash" name="password" placeholder="Contraseña"
+								onfocus="this.placeholder = ''" onblur="this.placeholder = 'Contraseña'">
+								<button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+									<mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+									</button>
+							<span data-toggle="#password-edit"
+								class="fa fa-fw fa-eye field-icon toggle-password"></span>
+						</div>-->
+						<mat-form-field appearance="fill" class="col-md-12">
+							<mat-label>Usuario</mat-label>
+							<input matInput [formControl]="name" required>
+							<mat-error *ngIf="name.invalid">{{getErrorMessage()}}</mat-error>
+						</mat-form-field>
+						<mat-form-field appearance="fill" class="col-md-12">
+							<mat-label>Email</mat-label>
+							<input matInput>
+						</mat-form-field>
+						<mat-form-field appearance="fill" class="col-md-12">
+							<mat-label>Contraseña</mat-label>
+							<input matInput [type]="hide ? 'password' : 'text'" [formControl]="pass" required>
+							<mat-error *ngIf="pass.invalid">{{getErrorMessage()}}</mat-error>
+							<button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+							<mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+							</button>
+						</mat-form-field>
+						<div class="col-md-12 form-group">
+							<button mat-button type="submit" value="submit" class="button button-register w-100 add" (click)="newUser()">Registrarse</button>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>
-	</section>
-	<!--================End Login Box Area =================-->
+	</div>
+</mat-card>
+<!--================End Login Box Area =================-->

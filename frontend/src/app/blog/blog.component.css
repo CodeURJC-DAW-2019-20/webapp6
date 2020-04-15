@@ -280,19 +280,6 @@
 	color: #384aeb
 }
 
-.remove-blog-entrie {
-	border: none;
-	border-radius: 4px;
-	padding: 7.5px 12px;
-	background: #ff8888;
-	-webkit-transition: all 0.3s ease 0s;
-	-moz-transition: all 0.3s ease 0s;
-	-o-transition: all 0.3s ease 0s;
-	transition: all 0.3s ease 0s;
-	margin-right: 10px;
-	z-index: 1
-}
-
 .card-blog__title a {
 	color: #222;
 	font-weight: 750;
@@ -375,4 +362,83 @@
 	top: 50%;
 	transform: translateY(-50%);
 	z-index: 1
+}
+
+::ng-deep .mat-card{
+	border-style:  none !important;
+	box-shadow: none !important;
+}
+
+.remove-single-blog {
+	border: none;
+	border-radius: 4px;
+	padding: 7.5px 12px;
+	background: #ff8888;
+	-webkit-transition: all 0.3s ease 0s;
+	-moz-transition: all 0.3s ease 0s;
+	-o-transition: all 0.3s ease 0s;
+	transition: all 0.3s ease 0s;
+	margin-right: 10px;
+	z-index: 1
+}
+
+.remove-single-blog:hover {
+	background: #fff;
+	box-shadow: 0px 10px 20px 0px rgba(153, 153, 153, 0.3)
+}
+
+.remove-single-blog:hover:after {
+	opacity: 1;
+	visibility: visible
+}
+
+.remove-single-blog{
+	color: rgba(255, 255, 255, 0.945);
+}
+
+.remove-single-blog:hover {
+	border: none;
+	border-radius: 4px;
+	background: #eb3838;
+}
+
+.single-blog-button{
+	width: 90px;
+	height: 40px;
+	border-radius: 5px;
+	padding: 0px 5px;
+}
+
+.add-product {
+	padding: 4px 12px;
+	background: #706dfd;
+	-webkit-transition: all 0.3s ease 0s;
+	-moz-transition: all 0.3s ease 0s;
+	-o-transition: all 0.3s ease 0s;
+	transition: all 0.3s ease 0s;
+	margin-right: 10px;
+	z-index: 1;
+	border-color: #AAAAAA;
+	border: 1px solid #eee;
+}
+
+.add-product:hover {
+	background: #fff;
+	box-shadow: 0px 10px 20px 0px rgba(153, 153, 153, 0.3)
+}
+
+.add-product:hover:after {
+	opacity: 1;
+	visibility: visible
+}
+
+.add-product{
+	color: rgba(255, 255, 255, 0.945);
+}
+
+.add-product:hover {
+	border: 1px solid #eee;
+	border-radius: 5px;
+	background: #3c39ff;
+	color: #fff;
 }

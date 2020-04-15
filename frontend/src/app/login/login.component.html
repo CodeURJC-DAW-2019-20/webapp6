@@ -1,53 +1,59 @@
 <meta charset="UTF-8">
-  <!-- ================ start banner area ================= -->
-	<section class="blog-banner-area" id="category">
-		<img src="assets/banner/sao.png" style="float:left;width:100%;height:100%;object-fit:cover;opacity: 0.3;">
-		<div class="container h-100">
-			<div class="blog-banner">
-				<div class="text-center">
-					<h1>Login / Registro</h1>
-					<nav aria-label="breadcrumb" class="banner-breadcrumb">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="/">Inicio</a></li>
-              <li class="breadcrumb-item active" aria-current="page">Login/Registro</li>
-            </ol>
-          </nav>
+<!-- ================ start banner area ================= -->
+<section class="blog-banner-area" id="category">
+	<img src="assets/banner/sao.png" style="float:left;width:100%;height:100%;object-fit:cover;opacity: 0.3;">
+	<div class="container h-100">
+		<div class="blog-banner">
+			<div class="text-center">
+				<h1>Login / Registro</h1>
+				<nav aria-label="breadcrumb" class="banner-breadcrumb">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a href="/">Inicio</a></li>
+						<li class="breadcrumb-item active" aria-current="page">Login/Registro</li>
+					</ol>
+				</nav>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- ================ end banner area ================= -->
+
+<!--================Login Box Area =================-->
+<section class="login_box_area section-margin">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="login_box_img">
+					<div class="hover">
+						<h4>¿Eres nuevo?</h4>
+						<p>Tenemos un montón de figuritas y accesorios exclusivos que podrían interesarte</p>
+						<a class="button button-account" [routerLink]="['/register']">Crear una cuenta</a>
+					</div>
 				</div>
 			</div>
-    </div>
-	</section>
-	<!-- ================ end banner area ================= -->
-
-  <!--================Login Box Area =================-->
-	<section class="login_box_area section-margin">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-6">
-					<div class="login_box_img">
-						<div class="hover">
-							<h4>¿Eres nuevo?</h4>
-							<p>Tenemos un montón de figuritas y accesorios exclusivos que podrían interesarte</p>
-							<a class="button button-account" [routerLink]="['/register']">Crear una cuenta</a>
+			<div class="col-lg-6">
+				<div class="login_form_inner">
+					<h3>Inicia sesión para acceder</h3>
+					<form class="row login_form" action="/login" id="contactForm" method="POST">
+						<div class="col-md-12 form-group">
+							<input #userElement #userControl="ngModel" type="text" class="form-control"
+								id="usernameInput" name="name" placeholder="Usuario" [(ngModel)]="userElement.value"
+								required onfocus="this.placeholder = ''" onblur="this.placeholder = 'Usuario'">
 						</div>
-					</div>
-				</div>
-				<div class="col-lg-6">
-					<div class="login_form_inner">
-						<h3>Inicia sesión para acceder</h3>
-						<form class="row login_form" action="/login" id="contactForm" method="POST" >
-							<div class="col-md-12 form-group">
-								<input #userElement #userControl="ngModel" type="text" class="form-control" id="usernameInput" name="name" placeholder="Usuario" [(ngModel)]="userElement.value" required onfocus="this.placeholder = ''" onblur="this.placeholder = 'Usuario'">
-							</div>
-							<div class="col-md-12 form-group">
-								<input #passElement #passControl="ngModel" type="password" class="form-control" [(ngModel)]="passElement.value" id="password-edit" name="password" placeholder="Contraseña" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Contraseña'">
-							</div>
-							<div class="col-md-12 form-group">
-								<button type="submit" value="submit" class="button button-login w-100" (click)="logIn(userElement.value, passElement.value)">Iniciar sesión</button>
-							</div>
-						</form>
-					</div>
+						<div class="col-md-12 form-group">
+							<input #passElement #passControl="ngModel" type="password" class="form-control"
+								[(ngModel)]="passElement.value" id="password-edit" name="password"
+								placeholder="Contraseña" onfocus="this.placeholder = ''"
+								onblur="this.placeholder = 'Contraseña'">
+						</div>
+						<div class="col-md-12 form-group">
+							<button type="submit" value="submit" class="button button-login w-100"
+								(click)="logIn(userElement.value, passElement.value)">Iniciar sesión</button>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>
-	</section>
-	<!--================End Login Box Area =================-->
+	</div>
+</section>
+<!--================End Login Box Area =================-->

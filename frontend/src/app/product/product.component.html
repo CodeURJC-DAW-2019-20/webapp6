@@ -311,7 +311,7 @@
 						<div *ngFor="let product of products" class="col-md-6 col-lg-4" id="products">
 							<div class="card text-center card-product">
 								<div class="card-product__img">
-									<img *ngIf="product.image" class="card-img" src="assets{{product.image}}">
+									<img *ngIf="product.image" class="card-img" src="/assets/{{product.image}}">
 									<ul class="card-product__imgOverlay">
 										<li>
 											<button mat-icon-button [routerLink]="['/singleProduct', product.id]">
