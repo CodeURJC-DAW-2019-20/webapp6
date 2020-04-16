@@ -56,7 +56,7 @@
             <li class="nav-item"><button onclick="location.href='/shoppingCart'"><i class="ti-shopping-cart"></i><span class="nav-shop__circle">{{cartSize}}</span></button> </li>
             {{/cartSize}}-->
             <p>
-              <button mat-icon-button [disableRipple]="true" class="mr cart" [routerLink]="['/order']"><mat-icon matBadge="2" matBadgePosition="after">shopping_cart</mat-icon>
+              <button mat-icon-button [disableRipple]="true" class="mr cart" [routerLink]="['/order']"><mat-icon matBadgePosition="after">shopping_cart</mat-icon>
               </button>
             </p>
             <a mat-flat-button [disableRipple]="true" class="shop button-header" [routerLink]="['/product']">Comprar ahora</a>
