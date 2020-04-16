@@ -25,6 +25,7 @@ export class LoginService {
   isAdmin = false;
   user: User;
   auth: string;
+  fix: string;
 
   constructor(private http: HttpClient) {
     let user = JSON.parse(localStorage.getItem('currentUser'));
@@ -77,9 +78,14 @@ export class LoginService {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
+    this.fix = "false";
+    if(user.orderList[0].id > user.orderList[1].id && user.orderList.length == 2){
+       this.fix = "true"
+    }
+    else  
     console.log(user);
     return this.http
-        .put<User>(URLuser + id + "?shippingName=" + shippingnameaux /*+ "&passwordHash=" + newpass*/, body, {headers})
+        .put<User>(URLuser + id + "?shippingName=" + shippingnameaux + "&fix=" + this.fix /*+ "&passwordHash=" + newpass*/, body, {headers})
         .pipe(catchError((error) => this.handleError(error)));
   }
 

@@ -24,6 +24,8 @@ export class CheckoutComponent implements OnInit {
    }
 
   ngOnInit() {
+    if(!this.loginService.isLogged)
+          this.router.navigate(['/login'])
     this.orderService.getCurrentOrder().subscribe(
       order => {this.order = order;
                 this.totalaux = order.total + this.tax},

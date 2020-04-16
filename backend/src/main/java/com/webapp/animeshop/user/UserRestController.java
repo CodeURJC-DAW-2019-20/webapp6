@@ -1,6 +1,7 @@
 package com.webapp.animeshop.user;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -69,14 +70,20 @@ public class UserRestController {
 	}
 	
 	@PutMapping("/api/user/{id}")
-	public ResponseEntity<?> newInfo(@PathVariable long id, @RequestParam String shippingName, @RequestBody Address address, @RequestParam (required = false) String passwordHash) {
+	public ResponseEntity<?> newInfo(@PathVariable long id, @RequestParam String shippingName, @RequestBody Address address, @RequestParam (required = false) String passwordHash, @RequestParam (required = false) String fix) {
 		User user = this.userComponent.getLoggedUser();
+		List<Order> orderaux = new ArrayList<Order>();
 		if(user!=null)
 			user = userRepository.findByName(user.getName());
 		else
 			return new ResponseEntity<>("You are not logged already", HttpStatus.UNAUTHORIZED);
 		if(user.getId()!=id)
 			return new ResponseEntity<>("You can't modify other users information", HttpStatus.UNAUTHORIZED);
+		if(fix.equals("true")) {
+			orderaux.add(user.getOrderList().get(1));
+			orderaux.add(user.getOrderList().get(0));
+			user.setOrderList(orderaux);
+		}
 		user.setDelivery(address);
 		user.getDelivery().setName(shippingName);
 		if(passwordHash!=null)

@@ -58,7 +58,7 @@ public class OrderRestController {
 	
 	@GetMapping("/api/order/{id}")
 	public Order getOrder(@PathVariable long id) {
-		if(id==0) {
+		if(id>=0) {
 			Order order;
 			User user = userComponent.getLoggedUser();
 			if(user!=null) {

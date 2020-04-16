@@ -76,7 +76,12 @@ export class OrderService {
   }
 
   getCurrentOrder(): Observable<Order> {  
-    return this.http.get<Order>(URL + '0', this.httpOptions)
+    let orderid = 0;
+    if(this.loginService.isLogged)
+      orderid = this.loginService.user.id
+    else
+      orderid = 0
+    return this.http.get<Order>(URL + orderid, this.httpOptions)
     .pipe(catchError((error) => this.handleError(error)));
   }
 
