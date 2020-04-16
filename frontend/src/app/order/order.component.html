@@ -37,7 +37,7 @@
                             <td id="product">
                                 <div class="media">
                                     <div class="d-flex">
-                                        <img src="{{productAmount.product.image}}" alt=""
+                                        <img src="/assets/{{productAmount.product.image}}" alt=""
                                             style="width:50%; height:50% ;">
                                     </div>
                                     <div class="media-body">
@@ -52,7 +52,15 @@
                                 <!-- <input type="hidden" id="price-product{{id}}" name="price-product{{id}}"
                                     value={{product.price}}>-->
                             </td>
-                            <td>{{productAmount.amount}}
+                            <td>
+                                <div class="common-filter">
+                                    <div class="filter-list w-50">
+                                        <input matInput class="form-control" type="number" [(ngModel)]="productAmount.amount">
+                                    </div>
+                                </div>
+                                <button mat-icon-button (click)="reloadAmount(productAmount.id,productAmount.product,productAmount.amount)"><mat-icon>refresh</mat-icon>
+                                    </button>
+                                    
                                 <!--<div class="product_count">
                                 <form id="update-product{{id}}" action="/updateProduct/{{id}}" method="POST">
                                   <input type="text" name="qty" id="sstupdate{{id}}" maxlength="12" value="{{amount}}" title="Quantity:"

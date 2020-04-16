@@ -100,4 +100,12 @@ export class OrderService {
     return this.http.delete<any>(URL + orderId + "/" + pId).pipe(catchError((error) => this.handleError(error))) as Observable<Order>;
   }
 
+  editOrder(pAmount: ProductAmount,id:number): Observable<Order>{
+    const body = JSON.stringify(pAmount);
+    const headers = new HttpHeaders({
+      'Content-Type':  'application/json'
+    })
+    return this.http.put<any>(URL + id, body, {headers}).pipe(catchError((error) => this.handleError(error))) as Observable<Order>;
+  }
+
 }
