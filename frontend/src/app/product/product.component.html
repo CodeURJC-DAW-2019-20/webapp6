@@ -118,16 +118,16 @@
 			<div class="col-xl-9 col-lg-8 col-md-7">
 				<!-- Start Filter Bar -->
 				<div class="filter-bar d-flex flex-wrap align-items-center">
-					<button mat-flat-button [matMenuTriggerFor]="menu" class="sorting dropdown">Orden predeterminado
+					<button mat-flat-button [disableRipple]="true" [matMenuTriggerFor]="menu" class="sorting dropdown">Orden predeterminado
 						<mat-icon class="material-icons md-18 padding-dropdown md-grey">expand_more</mat-icon>
 					</button>
 					<mat-menu #menu="matMenu">
-						<button mat-menu-item (click)="sortBy('sort','desc')">Precio mayor a menor</button>
-						<button mat-menu-item (click)="sortBy('sort','asc')">Precio menor a mayor</button>
+						<button mat-menu-item [disableRipple]="true" (click)="sortBy('sort','desc')">Precio mayor a menor</button>
+						<button mat-menu-item [disableRipple]="true" (click)="sortBy('sort','asc')">Precio menor a mayor</button>
 					</mat-menu>
 					<div class="sorting mr-auto">
 						<div *ngIf="loginService.isAdmin">
-							<button mat-button class="add-product" (click)="openVerticallyCentered(content)">Añadir producto</button>
+							<button mat-button [disableRipple]="true" class="add-product" (click)="openVerticallyCentered(content)">Añadir producto</button>
 							<ng-template #content let-modal>
 								<div class="modal-header">
 								  <h4 class="modal-title">Nuevo producto</h4>
@@ -292,7 +292,7 @@
 						</div>
 					</div>
 					<div>
-						<div class="input-group filter-bar-search">
+						<!--<div class="input-group filter-bar-search">
 							<input matInput #key #keyControl="ngModel" type="text" [(ngModel)]="key.value" placeholder="Buscar"
 								(keydown.enter)="search(key.value)">
 							<div class="input-group-append">
@@ -300,9 +300,12 @@
 									<mat-icon class="material-icons md-18 padding md-grey search">search</mat-icon>
 								</button>
 							</div>
+						</div>-->
+						<div class="col">
+							<input matInput #key #keyControl="ngModel" type="text"  [(ngModel)]="key.value" class="new-search form-control" 
+								placeholder="Buscar" (keydown.enter)="search(key.value)">
 						</div>
 					</div>
-					<div></div>
 				</div>
 				<!-- End Filter Bar -->
 				<!-- Start Best Seller -->
@@ -314,12 +317,12 @@
 									<img *ngIf="product.image" class="card-img" src="/assets/{{product.image}}">
 									<ul class="card-product__imgOverlay">
 										<li>
-											<button mat-icon-button [routerLink]="['/singleProduct', product.id]">
+											<button mat-icon-button [disableRipple]="true" [routerLink]="['/singleProduct', product.id]">
 												<mat-icon class="material-icons md-18 md-light center-single-product">search</mat-icon>
 											</button>
 										</li>
 										<li>
-											<button mat-icon-button id="add" (click)="addProductToOrder(product,1)">
+											<button mat-icon-button [disableRipple]="true" id="add" (click)="addProductToOrder(product,1)">
 												<mat-icon class="material-icons md-18 md-light center-single-product">add_shopping_cart
 												</mat-icon>
 											</button>
@@ -329,7 +332,7 @@
 									<div *ngIf="loginService.isAdmin">
 										<ul class="card-product-remove__imgOverlay">
 											<li>
-												<button mat-icon-button (click)="delete(product)">
+												<button mat-icon-button [disableRipple]="true" (click)="delete(product)">
 													<mat-icon class="material-icons md-18 md-light center-single-product">delete_forever
 													</mat-icon>
 												</button>

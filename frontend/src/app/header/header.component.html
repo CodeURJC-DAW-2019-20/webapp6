@@ -6,19 +6,19 @@
         <a class="navbar-brand logo_h" href="/"><img src="assets/img/shop-logo.png" alt=""></a>
         <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
           <ul class="nav navbar-nav menu_nav ml mr-auto">
-            <li class="nav-item"><a mat-button class="nav-link transparent" [routerLink]="['/']">Inicio</a></li>
-            <li class="nav-item ml2"><a mat-button class="nav-link transparent"  [routerLink]="['/product']">Comprar</a></li>
-            <li class="nav-item ml2"><a mat-button class="nav-link transparent" [routerLink]="['/blog']">Blog</a></li>
+            <li class="nav-item"><a mat-flat-button [disableRipple]="true" class="nav-link transparent" [routerLink]="['/']">Inicio</a></li>
+            <li class="nav-item ml2"><a mat-flat-button [disableRipple]="true" class="nav-link transparent"  [routerLink]="['/product']">Comprar</a></li>
+            <li class="nav-item ml2"><a mat-flat-button [disableRipple]="true" class="nav-link transparent" [routerLink]="['/blog']">Blog</a></li>
             <li class="nav-item ml2">
               <div class="dropdown">
-                <button mat-button class="dropbtn">Usuario</button>
+                <button mat-flat-button class="dropbtn" [disableRipple]="true">Usuario</button>
                   <div class="dropdown-content" *ngIf="!service.isLogged">
-                    <a mat-button [routerLink]="['/login']">Iniciar sesión</a>
-                    <a mat-button [routerLink]="['/register']">Registrarse</a>
+                    <a mat-flat-button class="submenu" [disableRipple]="true" [routerLink]="['/login']">Iniciar sesión</a>
+                    <a mat-flat-button class="submenu" [disableRipple]="true" [routerLink]="['/register']">Registrarse</a>
                   </div>
                   <div class="dropdown-content" *ngIf="service.isLogged">
-                    <a mat-button [routerLink]="['/userPage', service.getCurrentUserId()]">Mi perfil</a>
-                      <a mat-button class="nav-link transparent" (click)="logOut()">Cerrar sesión</a>
+                    <a mat-flat-button class="submenu" [disableRipple]="true" [routerLink]="['/userPage', service.getCurrentUserId()]">Mi perfil</a>
+                      <a mat-flat-button class="submenu" [disableRipple]="true" (click)="logOut()">Cerrar sesión</a>
                   </div>
               </div>
             </li>
@@ -56,10 +56,10 @@
             <li class="nav-item"><button onclick="location.href='/shoppingCart'"><i class="ti-shopping-cart"></i><span class="nav-shop__circle">{{cartSize}}</span></button> </li>
             {{/cartSize}}-->
             <p>
-              <button mat-icon-button class="mr cart" [routerLink]="['/order']"><mat-icon matBadge="2" matBadgePosition="after">shopping_cart</mat-icon>
+              <button mat-icon-button [disableRipple]="true" class="mr cart" [routerLink]="['/order']"><mat-icon matBadge="2" matBadgePosition="after">shopping_cart</mat-icon>
               </button>
             </p>
-            <a mat-flat-button class="button button-header" [routerLink]="['/product']">Comprar ahora</a>
+            <a mat-flat-button [disableRipple]="true" class="shop button-header" [routerLink]="['/product']">Comprar ahora</a>
         </div>
       </div>
     </nav>
