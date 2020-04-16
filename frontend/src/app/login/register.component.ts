@@ -45,12 +45,14 @@ export class RegisterComponent {
  */
 
 newUser() {
-  this.user.name = this.name.value;
-  this.user.passwordHash = this.pass.value;
-  this.service.newUser(this.user).subscribe(
-  _ => { this.router.navigate(['/login']);},
-   (error: Error) => console.error('error creating new user: ' + error));
-  // window.history.back();
+  if(!this.pass.invalid && !this.name.invalid){
+    this.user.name = this.name.value;
+    this.user.passwordHash = this.pass.value;
+    this.service.newUser(this.user).subscribe(
+    _ => { this.router.navigate(['/login']);},
+    (error: Error) => console.error('error creating new user: ' + error));
+    // window.history.back();
+  }
 }
 
 }

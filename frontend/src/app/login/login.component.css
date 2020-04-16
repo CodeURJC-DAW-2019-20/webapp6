@@ -355,3 +355,17 @@ button:focus {
 	font-size: 15px;
 	padding: 7px 44px
 }
+
+.button-edit {
+    display: inline-block;
+	border: 1px solid #ffffff;
+	border-radius: 30px;
+	color: #222;
+	font-weight: 500;
+	padding: 12px 50px;
+	background-color: #384aeb;
+	color: #fff;
+	transition: all .4s ease;
+	font-size: 15px;
+	padding: 7px 44px
+}

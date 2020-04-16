@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService, User } from '../auth/login.service';
+import {FormControl, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -12,6 +13,9 @@ export class LoginComponent implements OnInit {
   constructor(private router: Router, public service: LoginService, ) { }
 
   user: User;
+  hide = true;
+  pass = new FormControl('', [Validators.required]);
+  name = new FormControl('', [Validators.required]);
 
   logIn(name: string, pass: string) {
 
@@ -22,18 +26,27 @@ export class LoginComponent implements OnInit {
         },
         (error) => alert('Invalid user or password'),
     );
-}
+  }
 
-logOut() {
-  this.service.logout().subscribe(
-      (response) => {
-          this.router.navigate(['/']);
-      },
-      (error) => console.log('Error when trying to log out: ' + error),
-  );
-}
+  logOut() {
+    this.service.logout().subscribe(
+        (response) => {
+            this.router.navigate(['/']);
+        },
+        (error) => console.log('Error when trying to log out: ' + error),
+    );
+  }
 
   ngOnInit(): void {
+  }
+
+  getErrorMessage() {
+    if (this.pass.hasError('required')) {
+      return 'Introduzca un valor';
+    }
+    if (this.name.hasError('required')) {
+      return 'Introduzca un valor';
+    }
   }
 
 }

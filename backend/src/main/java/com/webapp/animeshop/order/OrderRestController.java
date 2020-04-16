@@ -67,6 +67,7 @@ public class OrderRestController {
 			else {
 				order = this.orderRepository.findNotRelated();
 			}
+			this.orderService.buildOrders();
 			return order;
 		}
 		return orderRepository.findById(id);
