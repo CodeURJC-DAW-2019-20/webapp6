@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { Blog } from './blog.model';
 import { BlogService } from './blog.service';
 import { LoginService } from '../auth/login.service';
@@ -20,6 +20,7 @@ export class BlogComponent implements OnInit {
   date: Date;
   products: Product[] = [];
   newProduct: Product;
+  mySubscription: any;
 
   constructor(private router: Router, activatedRoute: ActivatedRoute, private service: BlogService, private pservice: ProductService, public loginService: LoginService, private modalService: NgbModal) {
     const id = activatedRoute.snapshot.params.id;
@@ -29,7 +30,12 @@ export class BlogComponent implements OnInit {
       author: "", name: "", text: "", image: "../assets/img/blog/newblog.png",
       textfull: "", day: null, month: null, year: null, idproduct: 0, product: this.newProduct
     };
-
+    this.mySubscription = this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        // Trick the Router into believing it's last link wasn't previously loaded
+        this.router.navigated = false;
+      }
+    });
   }
 
   ngOnInit(): void {
@@ -41,7 +47,12 @@ export class BlogComponent implements OnInit {
         products => this.products = products,
         error => console.log(error)
       );
+  }
 
+  ngOnDestroy() {
+    if (this.mySubscription) {
+      this.mySubscription.unsubscribe();
+    }
   }
 
   delete(blog: Blog) {
