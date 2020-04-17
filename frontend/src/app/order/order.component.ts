@@ -22,6 +22,7 @@ export class OrderComponent implements OnInit {
   }
 
   ngOnInit() {
+    if(this.loginService.isLogged)
     this.loginService.getUserById(this.loginService.user.id).subscribe(
       user => {this.userAux = user;
           if(this.userAux.orderList[0].id > this.userAux.orderList[1].id && this.userAux.orderList.length == 2){

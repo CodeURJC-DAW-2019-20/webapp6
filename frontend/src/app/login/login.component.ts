@@ -38,6 +38,8 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if(this.service.isLogged)
+          this.router.navigate(['/userPage/' + this.service.getCurrentUserId()])
   }
 
   getErrorMessage() {

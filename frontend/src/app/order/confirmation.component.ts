@@ -17,7 +17,6 @@ export class ConfirmationComponent implements OnInit {
   totalaux: number;
   userAux: User;
   orderAux: Order;
-  orderAux2: Order;
   /*metric: Metric = { average: null, averageToPrint: 0, 
     lastMoney:0, toPrint: 0, totalMoney: 0, totalOrders: 0};*/
 
@@ -25,10 +24,6 @@ export class ConfirmationComponent implements OnInit {
     this.order = {status: '', productList: [], total: 0, day: 0, month: 0, year: 0}
     this.orderAux = {status: '', productList: [], total: 0, day: 0, month: 0, year: 0}
     this.totalaux = 0;
-    this.loginService.getUserById(this.loginService.user.id).subscribe(
-      user => this.user = user,
-      error => console.log(error)
-    );
   }  
 
   ngOnInit() {
