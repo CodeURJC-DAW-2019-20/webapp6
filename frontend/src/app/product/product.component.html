@@ -144,11 +144,11 @@
 											<input matInput type="text" class="form-control" name="franchise" required [(ngModel)]="newProduct.franchise">
 										</div>
 										<div class="col top">
-											<mat-label class="col-form-label">Precio:</mat-label> 
+											<mat-label class="col-form-label">Precio:</mat-label>
 											<input matInput type="text" class="form-control" name="price" required [(ngModel)]="newProduct.price">
 										</div>
 										<div class="col top">
-											<mat-label class="col-form-label">Stock:</mat-label> 
+											<mat-label class="col-form-label">Stock:</mat-label>
 											<input matInput type="text" class="form-control" name="stock" required [(ngModel)]="newProduct.stock">
 										</div>
 									</div>
@@ -156,15 +156,15 @@
 										<textarea matInput class="form-control" name="description" required [(ngModel)]="newProduct.description"></textarea>
 									<div class="form-row mb-4">
 										<div class="col top">
-											<mat-label class="col-form-label">Anchura:</mat-label> 
+											<mat-label class="col-form-label">Anchura:</mat-label>
 											<input matInput type="number" class="form-control" name="width" required [(ngModel)]="newProduct.width">
 										</div>
 										<div class="col top">
-											<mat-label class="col-form-label">Altura:</mat-label> 
+											<mat-label class="col-form-label">Altura:</mat-label>
 											<input matInput type="number" class="form-control" name="height" required [(ngModel)]="newProduct.height">
 										</div>
 										<div class="col top">
-											<mat-label class="col-form-label">Peso:</mat-label> 
+											<mat-label class="col-form-label">Peso:</mat-label>
 											<input matInput type="number" class="form-control" name="weight" required [(ngModel)]="newProduct.weight">
 										</div>
 									</div>
@@ -302,7 +302,7 @@
 							</div>
 						</div>-->
 						<div class="col">
-							<input matInput #key #keyControl="ngModel" type="text"  [(ngModel)]="key.value" class="new-search form-control" 
+							<input matInput #key #keyControl="ngModel" type="text"  [(ngModel)]="key.value" class="new-search form-control"
 								placeholder="Buscar" (keydown.enter)="search(key.value)">
 						</div>
 					</div>
@@ -314,7 +314,7 @@
 						<div *ngFor="let product of products" class="col-md-6 col-lg-4" id="products">
 							<div class="card text-center card-product">
 								<div class="card-product__img">
-									<img *ngIf="product.image" class="card-img" src="/assets/{{product.image}}">
+									<img *ngIf="product.image" class="card-img" src="assets{{product.image}}">
 									<ul class="card-product__imgOverlay">
 										<li>
 											<button mat-icon-button [disableRipple]="true" [routerLink]="['/singleProduct', product.id]">

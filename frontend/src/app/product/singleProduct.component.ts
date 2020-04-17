@@ -8,7 +8,7 @@ import { Order } from '../order/order.model';
 import { ProductAmount} from './productamount.model';
 
 @Component({
-  selector: 'app-product',
+  selector: 'app-singproduct',
   templateUrl: './singleProduct.component.html',
   styleUrls: ['./product.component.css']
 })
