@@ -19,13 +19,19 @@ export class RegisterComponent {
   hide = true;
   pass = new FormControl('', [Validators.required]);
   name = new FormControl('', [Validators.required]);
+  users: User[] = [];
 
-  constructor(private router: Router, private service: LoginService) {
-
+  constructor(private router: Router, activatedRoute: ActivatedRoute, private service: LoginService) {
     this.address = { shippingname: '', lastname: '', company: '', number: '', email: '', street: '', floor: '', city: '', country: '', zipcode: '' }
     this.user = { name: '', passwordHash: '', delivery: this.address, orderList: this.orderList, roles: ['ROLE_USER'] }
 
   }
+
+  ngOnInit(): void {
+    if(this.service.isLogged)
+          this.router.navigate(['/userPage/' + this.service.getCurrentUserId()])
+  }
+
   getErrorMessage() {
     if (this.pass.hasError('required')) {
       return 'Introduzca un valor';

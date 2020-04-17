@@ -3,7 +3,6 @@ import { Order } from './order.model';
 import { Router } from '@angular/router';
 import { OrderService } from './order.service';
 import { LoginService, User } from '../auth/login.service';
-import { TOUCH_BUFFER_MS } from '@angular/cdk/a11y';
 //import { Metric } from './metric.model';
 
 @Component({
@@ -18,7 +17,6 @@ export class ConfirmationComponent implements OnInit {
   totalaux: number;
   userAux: User;
   orderAux: Order;
-  orderAux2: Order;
   /*metric: Metric = { average: null, averageToPrint: 0, 
     lastMoney:0, toPrint: 0, totalMoney: 0, totalOrders: 0};*/
 
@@ -26,10 +24,6 @@ export class ConfirmationComponent implements OnInit {
     this.order = {status: '', productList: [], total: 0, day: 0, month: 0, year: 0}
     this.orderAux = {status: '', productList: [], total: 0, day: 0, month: 0, year: 0}
     this.totalaux = 0;
-    this.loginService.getUserById(this.loginService.user.id).subscribe(
-      user => this.user = user,
-      error => console.log(error)
-    );
   }  
 
   ngOnInit() {
