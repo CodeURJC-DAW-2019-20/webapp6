@@ -7,14 +7,15 @@
         </div>
         <p></p>
         <div class="billing_details">
-            <div class="row">
+            <div class="row" *ngIf="order.productList.length>0">
                 <div class="col-lg-8">
                     <div *ngIf="loginService.isLogged">
                         <h3>Detalles de la dirección</h3>
                         <form class="row contact_form" id="myForm" method="POST" action="/confirmation">
                             <div class="col-md-6 form-group p_star">
-                                <input matInput type="text" class="form-control" id="shippingname" name="user.delivery.shippingname"
-                                    placeholder="Nombre" [(ngModel)]="user.delivery.shippingname">
+                                <input matInput type="text" class="form-control" id="shippingname"
+                                    name="user.delivery.shippingname" placeholder="Nombre"
+                                    [(ngModel)]="user.delivery.shippingname">
                                 <span class="placeholder" data-placeholder="First name"></span>
                             </div>
                             <div class="col-md-6 form-group p_star">
@@ -23,8 +24,9 @@
                                 <span class="placeholder" data-placeholder="Last name"></span>
                             </div>
                             <div class="col-md-6 form-group p_star">
-                                <input matInput type="text" class="form-control" id="company" name="user.delivery.company"
-                                    placeholder="Empresa" [(ngModel)]="user.delivery.company">
+                                <input matInput type="text" class="form-control" id="company"
+                                    name="user.delivery.company" placeholder="Empresa"
+                                    [(ngModel)]="user.delivery.company">
                             </div>
                             <div class="col-md-6 form-group p_star">
                                 <input matInput type="text" class="form-control" id="number" name="user.delivery.number"
@@ -37,23 +39,23 @@
                                 <span class="placeholder" data-placeholder="Email Address"></span>
                             </div>
                             <div class="col-md-12 form-group p_star">
-                                <input matInput type="text" class="form-control" id="add1" name="user.delivery.street" placeholder="Calle"
-                                    [(ngModel)]="user.delivery.street">
+                                <input matInput type="text" class="form-control" id="add1" name="user.delivery.street"
+                                    placeholder="Calle" [(ngModel)]="user.delivery.street">
                                 <span class="placeholder" data-placeholder="Address line 01"></span>
                             </div>
                             <div class="col-md-6 form-group p_star">
-                                <input matInput type="text" class="form-control" id="add2" name="user.delivery.floor" placeholder="Piso"
-                                [(ngModel)]="user.delivery.floor">
+                                <input matInput type="text" class="form-control" id="add2" name="user.delivery.floor"
+                                    placeholder="Piso" [(ngModel)]="user.delivery.floor">
                                 <span class="placeholder" data-placeholder="Address line 02"></span>
                             </div>
                             <div class="col-md-6 form-group p_star">
-                                <input matInput type="text" class="form-control" id="city" name="user.delivery.city" placeholder="Ciudad"
-                                [(ngModel)]="user.delivery.city">
+                                <input matInput type="text" class="form-control" id="city" name="user.delivery.city"
+                                    placeholder="Ciudad" [(ngModel)]="user.delivery.city">
                                 <span class="placeholder" data-placeholder="Town/City"></span>
                             </div>
                             <div class="col-md-6 form-group p_star">
-                                <input matInput type="text" class="form-control" id="country" name="user.delivery.country" placeholder="País"
-                                [(ngModel)]="user.delivery.country">
+                                <input matInput type="text" class="form-control" id="country"
+                                    name="user.delivery.country" placeholder="País" [(ngModel)]="user.delivery.country">
                                 <span class="placeholder" data-placeholder="Country"></span>
                             </div>
                             <div class="col-md-6 form-group">
@@ -135,7 +137,8 @@
                             <div *ngFor="let productAmount of order.productList">
                                 <li>
                                     <a class="a">{{productAmount.product.name}}</a><span
-                                        class="middle">{{productAmount.product.price}} x {{productAmount.amount}}</span>
+                                        class="middle">{{productAmount.product.price}} x
+                                        {{productAmount.amount}}</span>
                                     <!--href="/product/{{product.id}}"-->
                                     <span class="last" style="float:right;">{{productAmount.total}}€</span>
                                 </li>
@@ -167,7 +170,9 @@
                             <a href="https://themes.getbootstrap.com/terms/">los términos y condiciones*</a>
                         </div>
                         <div class="text-center">
-                            <button class="button button-paypal" type="submit" (click)="finish(user.delivery.shippingname, user.delivery.lastname,user.delivery.company, user.delivery.number,user.delivery.email, user.delivery.street,user.delivery.floor, user.delivery.city,user.delivery.country,user.delivery.zipcode)" [routerLink]="['/confirmation']">Proceder al pago</button>
+                            <button class="button button-paypal" type="submit"
+                                (click)="finish(user.delivery.shippingname, user.delivery.lastname,user.delivery.company, user.delivery.number,user.delivery.email, user.delivery.street,user.delivery.floor, user.delivery.city,user.delivery.country,user.delivery.zipcode)"
+                                [routerLink]="['/confirmation']">Proceder al pago</button>
                         </div>
                     </div>
                 </div>

@@ -28,7 +28,9 @@ export class CheckoutComponent implements OnInit {
           this.router.navigate(['/login'])
     this.orderService.getCurrentOrder().subscribe(
       order => {this.order = order;
-                this.totalaux = order.total + this.tax},
+                this.totalaux = order.total + this.tax;
+                if(this.order.productList.length==0)
+                  this.router.navigate(['/product'])},
       error => console.log(error)
     );
     this.loginService.getUserById(this.loginService.user.id).subscribe(

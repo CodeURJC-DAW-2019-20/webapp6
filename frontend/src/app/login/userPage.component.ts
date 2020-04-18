@@ -35,6 +35,8 @@ export class UserPageComponent /*implements OnInit*/ {
   }
 
   ngOnInit(): void {
+    if(!this.service.isLogged)
+          this.router.navigate(['/login/'])
     this.service.getUserById(this.service.user.id).subscribe(
       user => this.user = user,
       error => console.log(error)

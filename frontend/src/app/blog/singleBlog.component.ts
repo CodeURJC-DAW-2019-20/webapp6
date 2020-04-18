@@ -35,7 +35,9 @@ export class SingleBlogComponent implements OnInit{
 
     search(key: string) {
         this.service.getBlogsByKey(key).subscribe(
-          blog => this.blogs = blog,
+          blog => {this.blogs = blog;
+                   this.blog = this.blogs[0];
+                   this.router.navigate(['/singleBlog/' + this.blogs[0].id])},
           error => console.log(error)
         );
       }

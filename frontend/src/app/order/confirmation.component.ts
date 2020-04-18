@@ -36,7 +36,9 @@ export class ConfirmationComponent implements OnInit {
     this.loginService.getUserById(this.loginService.user.id).subscribe(
       user => {this.user = user;
                 this.order = this.user.orderList[this.user.orderList.length-1];
-                this.totalaux = this.order.total + this.tax;},
+                this.totalaux = this.order.total + this.tax;
+                if(this.order.productList.length==0)
+                  this.router.navigate(['/product'])},
                 error => console.log(error)
     )
     /*this.orderService.getMetrics().subscribe(

@@ -1,7 +1,7 @@
 <meta charset="UTF-8">
   <!--================Order Details Area =================-->
   <section class="order_details section-margin--small">
-    <div class="container">
+    <div class="container" *ngIf="order.status=='Complete'">
       <p class="text-center billing-alert">Gracias. Tu pedido ha sido recibido.</p>
       <div class="row mb-5">
         <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
