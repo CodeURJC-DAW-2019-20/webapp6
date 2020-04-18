@@ -166,3 +166,25 @@ We made a documentation file with all the Postman requests you can use with our 
 | Ramón Barrabes Parra | [Dockerfile](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/docker/Dockerfile) | [create_image.bat](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/docker/create_image.bat) | [docker-compose](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/docker/docker-compose.yml) | [animeshop-0.0.1-SNAPSHOT.jar](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/docker/app/animeshop-0.0.1-SNAPSHOT.jar) | [UserRestController](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/backend/src/main/java/com/webapp/animeshop/user/UserRestController.java) |
 | Enrique Márquez Jiménez | [BlogRestController](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/backend/src/main/java/com/webapp/animeshop/blog/BlogRestController.java) | [OrderRestController](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/backend/src/main/java/com/webapp/animeshop/order/OrderRestController.java) | [API.md](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/API/API.md) | [README.md](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/README.md) | []() |
 | Carlos González Valtierra | [README.md](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/README.md) | |  |  |  |
+
+## Phase 4
+
+### Video
+
+### Classes and templates diagram
+![github-large](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/frontend/src/assets/diagram/Templates%20and%20clases%20diagram.png)
+
+| Name        | Most significant Commit 1  | Most significant Commit 2  | Most significant Commit 3  | Most significant Commit 4  | Most significant Commit 5  |
+| :-------------: |:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|
+| David Amor Antolín | | |  |  |  |
+| Carlos Francisco Corraliza |  |  |  |  |  |
+| Ramón Barrabes Parra |  |  |  |  |  |
+|Enrique Márquez Jiménez |  |  |  |  |  |
+| Carlos González Valtierra |  |  |  |  |  |
+
+| Name        | File 1   | File 2   | File 3   | File 4   | File 5   |
+| :-------------: |:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|
+| David Amor Antolín |  |  |  |  |  |
+| Ramón Barrabes Parra |  |  |  |  |  |
+| Enrique Márquez Jiménez |  |  |  |  |  |
+| Carlos González Valtierra |  |  |  |  |  |
