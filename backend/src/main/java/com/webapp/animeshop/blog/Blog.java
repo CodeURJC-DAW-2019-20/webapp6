@@ -61,7 +61,7 @@ public class Blog implements Serializable{
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(today);
 		this.day = cal.get(Calendar.DAY_OF_MONTH);
-		this.month = cal.get(Calendar.MONTH);
+		this.month = cal.get(Calendar.MONTH) + 1;
 		this.year = cal.get(Calendar.YEAR);
 	}
 
@@ -76,7 +76,7 @@ public class Blog implements Serializable{
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(today);
 		this.day = cal.get(Calendar.DAY_OF_MONTH);
-		this.month = cal.get(Calendar.MONTH);
+		this.month = cal.get(Calendar.MONTH) + 1;
 		this.year = cal.get(Calendar.YEAR);
 	}
 	
@@ -90,7 +90,7 @@ public class Blog implements Serializable{
 		Date today = new Date();
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(today);
-		this.day = cal.get(Calendar.DAY_OF_MONTH);
+		this.day = cal.get(Calendar.DAY_OF_MONTH) + 1;
 		this.month = cal.get(Calendar.MONTH);
 		this.year = cal.get(Calendar.YEAR);
 		
@@ -152,6 +152,40 @@ public class Blog implements Serializable{
 	public void setIdProduct() {
 		this.idproduct = this.getProduct().getId();
 	}
+
+	public int getDay() {
+		return day;
+	}
+
+	public void setDay(int day) {
+		this.day = day;
+	}
+
+	public int getMonth() {
+		return month;
+	}
+
+	public void setMonth(int month) {
+		this.month = month;
+	}
+
+	public int getYear() {
+		return year;
+	}
+
+	public void setYear(int year) {
+		this.year = year;
+	}
+
+	public long getIdproduct() {
+		return idproduct;
+	}
+
+	public void setIdproduct(long idproduct) {
+		this.idproduct = idproduct;
+	}
+	
+	
 	
 }
 

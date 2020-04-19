@@ -13,32 +13,36 @@
                     <div class="col-lg-3  col-md-3">
                         <div class="blog_info text-right">
                             <div class="post_tag">
-                                <a>Noticas,</a>
+                                <a>Noticias,</a><br>
                                 <!--<input type="submit" class="active" form="franchiseForm"
                                         id="submit-blog" value="{{blog.product.franchise}}"> -->
-                                <a>Nueva figura, </a>
-                                <a>{{blog.product.franchise}}</a>
+                                <a>{{blog.product.franchise}}, </a><br>
+                                <a>Nueva figura</a>
                             </div>
                             <!--<form id="franchiseForm" action="/products/{{blog.product.franchise}}" method="POST">
                                     <input type="hidden" name="franchise" value="{{product.franchise}}"> <input
                                         type="hidden" name="_csrf" value="{{token}}" />
                                 </form> -->
-                            <ul class="blog_meta list">
-                                <li><a>{{blog.author}} <i class="lnr lnr-user"></i>
-                                    </a></li>
-                                <li><a>{{blog.day}}/{{blog.month}}/{{blog.year}} <i class="lnr lnr-calendar-full"></i>
-                                    </a></li>
+                            <ul>
+                                <li>
+                                    <mat-icon>face</mat-icon>
+                                    <a>{{blog.author}}</a>
+                                </li>
+
+                                <li>
+                                    <mat-icon>calendar_today</mat-icon>
+                                    <a>{{blog.day}}/{{blog.month}}/{{blog.year}}</a>
+                                </li>
                                 <li>
                                     <div *ngIf="loginService.isAdmin">
-                                        <button mat-button class="remove-single-blog single-blog-button" (click)="deleteBlog()">Eliminar</button>
+                                        <button mat-button class="remove-single-blog single-blog-button"
+                                            (click)="deleteBlog()">Eliminar</button>
                                     </div>
 
                                 </li>
-                                <li>
                                     <!--<div *ngIf="loginService.isAdmin">
                                             <button class="remove-blog-entrie" (click)="deleteBlog()">Eliminar</button>
                                         </div>-->
-                                </li>
 
                             </ul>
                         </div>
@@ -50,7 +54,7 @@
                             {{blog.textfull}}
                         </p>
                         <p>
-                            <br><a class="active" [routerLink]="['/singleProduct', blog.product.id]" >Link de compra</a>
+                            <a class="active" [routerLink]="['/singleProduct', blog.product.id]">Link de compra</a>
                         </p>
                     </div>
                     <div class="col-lg-12">
@@ -62,18 +66,18 @@
             <div class="col-lg-4">
                 <div class="blog_right_sidebar">
                     <aside class="single_sidebar_widget search_widget">
-                            <div class="input-group">
-                                <input #key #keyControl="ngModel" class="form-control" type="text" [(ngModel)]="key.value"
+                        <div class="input-group">
+                            <input #key #keyControl="ngModel" class="form-control" type="text" [(ngModel)]="key.value"
                                 placeholder="Buscar" (keydown.enter)="search(key.value)">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button">
-                                        <i class="lnr lnr-magnifier"></i>
-                                    </button>
-                                </span>
-                                <!--<input type="hidden" name="_csrf" value="{{token}}" /> -->
-                            </div>
-                            <!-- /input-group -->
-                            <div class="br"></div>
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">
+                                    <i class="lnr lnr-magnifier"></i>
+                                </button>
+                            </span>
+                            <!--<input type="hidden" name="_csrf" value="{{token}}" /> -->
+                        </div>
+                        <!-- /input-group -->
+                        <div class="br"></div>
                     </aside>
                     <aside class="single_sidebar_widget popular_post_widget">
                         <h3 class="widget_title">Posts populares</h3>
@@ -82,8 +86,8 @@
                                 <img *ngIf="blogitem.image" src="assets{{blogitem.image}}" width="100" height="50"
                                     alt="post">
                                 <div class="media-body">
-                                    <h3 class="card-blog__title"><a
-                                            ([routerLink]="['/singleBlog', blogitem.id]")>{{blogitem.name}}</a></h3>
+                                    <h3 class="card-blog__title"><a ([routerLink]="['/singleBlog', blogitem.id]"
+                                            )>{{blogitem.name}}</a></h3>
                                     <p></p>
                                     <br>
                                     <!--{{day}}/{{month}}/{{year}}-->
