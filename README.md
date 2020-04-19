@@ -169,7 +169,9 @@ We made a documentation file with all the Postman requests you can use with our 
 
 ## Phase 4
 
-### Video
+### Video :video_camera:
+[Video corto demostración](https://youtu.be/g_N5_3xaJtI)<br/>
+[Video largo detallado](https://youtu.be/2uisByIiYT4)
 
 ### Classes and templates diagram
 ![github-large](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/frontend/src/assets/diagram/Templates%20and%20clases%20diagram.png)
