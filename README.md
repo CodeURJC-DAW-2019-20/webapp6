@@ -173,6 +173,19 @@ We made a documentation file with all the Postman requests you can use with our 
 [Video corto demostración](https://youtu.be/g_N5_3xaJtI)<br/>
 [Video largo detallado](https://youtu.be/2uisByIiYT4)
 
+### Instalation process
+First download node.js from https://node.org/ , select the recommended one for windows.
+Then go to the cmd. User the commands: 
+npm install -g
+wait some time and then do:
+npm install -g @angular/cli
+after that, angular-cli is ready for windows.
+
+To execute this project, clone this repository, open it with visual studio, open the terminal and write the commands: 
+npm install
+ng serve
+after using ng serve the application will be executed and can be opened in your browser.
+
 ### Classes and templates diagram
 ![github-large](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/frontend/src/assets/diagram/Templates%20and%20clases%20diagram.png)
 
@@ -181,7 +194,7 @@ We made a documentation file with all the Postman requests you can use with our 
 | David Amor Antolín | https://git.io/JfUVp | https://git.io/JfUVj | https://git.io/JfUwe | https://git.io/JfUwf | https://git.io/JfUwJ |
 | Carlos Francisco Corraliza | https://git.io/JfUVH | https://git.io/JfUV7 | https://git.io/JfUV5 | https://git.io/JfUVF | https://git.io/JfUVb |
 | Ramón Barrabes Parra |  |  |  |  |  |
-|Enrique Márquez Jiménez |  |  |  |  |  |
+|Enrique Márquez Jiménez | https://github.com/CodeURJC-DAW-2019-20/webapp6/commit/7196e4c0ea5c8ea2df42d83fe4b84c7251d8b774  |  https://github.com/CodeURJC-DAW-2019-20/webapp6/commit/0393641218124076b35576f33d8698903d06df22| https://github.com/CodeURJC-DAW-2019-20/webapp6/commit/044aa558c70088a363b242d6d75388980a6e1d28 | https://github.com/CodeURJC-DAW-2019-20/webapp6/commit/c480d1d23d53619d5638b483ff27daa86e33edcd | https://github.com/CodeURJC-DAW-2019-20/webapp6/commit/7aa9768c4d4182312df105d89282b93d3eb2fc25 |
 | Carlos González Valtierra |  |  |  |  |  |
 
 | Name        | File 1   | File 2   | File 3   | File 4   | File 5   |
@@ -189,5 +202,5 @@ We made a documentation file with all the Postman requests you can use with our 
 | David Amor Antolín | [product.component.ts](https://git.io/JfUwk) | [product.service.ts](https://git.io/JfUwc) | [product.component.html](https://git.io/JfUw3) | [checkout.component.ts](https://git.io/JfUwq) | [confirmation.component.ts](https://git.io/JfUw8) |
 | Carlos Francisco Corraliza | [blog.component.ts](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/frontend/src/app/blog/blog.component.ts) | [MetricsRestController.java](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/backend/src/main/java/com/webapp/animeshop/order/MetricsRestController.java) | [userPage.component.ts](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/frontend/src/app/login/userPage.component.ts) | [singleBlog.component.ts](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/frontend/src/app/blog/singleBlog.component.ts) | [order.service.ts](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/frontend/src/app/order/order.service.ts) |
 | Ramón Barrabes Parra |  |  |  |  |  |
-| Enrique Márquez Jiménez |  |  |  |  |  |
+| Enrique Márquez Jiménez | [order.component.html](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/frontend/src/app/order/order.component.html) | [chechout.component.ts](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/frontend/src/app/order/checkout.component.ts) | [order.service.ts](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/frontend/src/app/order/order.service.ts) | [order.component.ts](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/frontend/src/app/order/order.component.ts) | [confirmation.component.ts](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/frontend/src/app/order/confirmation.component.ts) |
 | Carlos González Valtierra |  |  |  |  |  |
