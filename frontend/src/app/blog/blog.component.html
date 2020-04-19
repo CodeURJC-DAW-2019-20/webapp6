@@ -76,21 +76,28 @@
                             <div class="col-md-3">
                                 <div class="blog_info text-right">
                                     <div class="post_tag">
-                                        <a>Noticias, </a>
+                                        <a>Noticias, </a><br>
                                         <!-- <a class="active" href="/products">
                                             {{blog[0].franchise}}</a> -->
-                                        <a class="active">Nueva figura, </a>
-                                        <a>{{blogitem.product.franchise}}</a>
+                                        <a class="active">{{blogitem.product.franchise}}, </a><br>
+                                        <a>Nueva figura</a>
                                     </div>
                                     <ul class="blog_meta list">
-                                        <a>
-                                            {{blogitem.author}}
-                                            <i class="lnr lnr-user"></i>
-                                        </a>
-                                        <div *ngIf="loginService.isAdmin">
-                                            <button mat-button class="remove-single-blog single-blog-button"
-                                                (click)="delete(blogitem)">Eliminar</button>
-                                        </div>
+                                        <li>
+                                            <mat-icon>face</mat-icon>
+                                            <a>{{blogitem.author}}</a>
+                                        </li>
+                                        <li>
+                                            <mat-icon>calendar_today</mat-icon>
+                                            <a>{{blogitem.day}}/{{blogitem.month}}/{{blogitem.year}}</a>
+                                        </li>
+                                        <li>
+                                            <div *ngIf="loginService.isAdmin">
+                                                <button mat-button class="remove-single-blog single-blog-button"
+                                                    (click)="delete(blogitem)">Eliminar</button>
+                                            </div>
+                                        </li>
+                                        
                                     </ul>
                                 </div>
                             </div>
