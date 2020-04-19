@@ -169,14 +169,16 @@ We made a documentation file with all the Postman requests you can use with our 
 
 ## Phase 4
 
-### Video
+### Video :video_camera:
+[Video corto demostración](https://youtu.be/g_N5_3xaJtI)<br/>
+[Video largo detallado](https://youtu.be/2uisByIiYT4)
 
 ### Classes and templates diagram
 ![github-large](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/frontend/src/assets/diagram/Templates%20and%20clases%20diagram.png)
 
 | Name        | Most significant Commit 1  | Most significant Commit 2  | Most significant Commit 3  | Most significant Commit 4  | Most significant Commit 5  |
 | :-------------: |:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|
-| David Amor Antolín | | |  |  |  |
+| David Amor Antolín | https://git.io/JfUVp | https://git.io/JfUVj | https://git.io/JfUwe | https://git.io/JfUwf | https://git.io/JfUwJ |
 | Carlos Francisco Corraliza | https://git.io/JfUVH | https://git.io/JfUV7 | https://git.io/JfUV5 | https://git.io/JfUVF | https://git.io/JfUVb |
 | Ramón Barrabes Parra |  |  |  |  |  |
 |Enrique Márquez Jiménez |  |  |  |  |  |
@@ -184,7 +186,7 @@ We made a documentation file with all the Postman requests you can use with our 
 
 | Name        | File 1   | File 2   | File 3   | File 4   | File 5   |
 | :-------------: |:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|
-| David Amor Antolín |  |  |  |  |  |
+| David Amor Antolín | [product.component.ts](https://git.io/JfUwk) | [product.service.ts](https://git.io/JfUwc) | [product.component.html](https://git.io/JfUw3) | [checkout.component.ts](https://git.io/JfUwq) | [confirmation.component.ts](https://git.io/JfUw8) |
 | Carlos Francisco Corraliza | [blog.component.ts](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/frontend/src/app/blog/blog.component.ts) | [MetricsRestController.java](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/backend/src/main/java/com/webapp/animeshop/order/MetricsRestController.java) | [userPage.component.ts](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/frontend/src/app/login/userPage.component.ts) | [singleBlog.component.ts](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/frontend/src/app/blog/singleBlog.component.ts) | [order.service.ts](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/frontend/src/app/order/order.service.ts) |
 | Ramón Barrabes Parra |  |  |  |  |  |
 | Enrique Márquez Jiménez |  |  |  |  |  |
