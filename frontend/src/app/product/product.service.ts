@@ -46,8 +46,8 @@ export class ProductService {
       catchError((error) => this.handleError(error)));
   }
 
-  getProductsbyKey(toDo: string, key: string): Observable<Product[]> {
-    return this.http.get<any>(URL2 + '?toDo=' + toDo + '&key=' + key, {withCredentials: true})
+  getProductsbyKey(toDo: string, key: string, page: number): Observable<Product[]> {
+    return this.http.get<any>(URL2 + '?page=' + page + '&toDo=' + toDo + '&key=' + key, {withCredentials: true})
     .pipe(
       map(result => result.content),
       catchError((error) => this.handleError(error)));

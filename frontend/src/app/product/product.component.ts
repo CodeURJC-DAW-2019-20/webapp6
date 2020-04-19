@@ -42,6 +42,8 @@ export class ProductComponent implements OnInit {
   filterqty: number = 99;
   sorting: boolean = false;
   sortingMethod: boolean = false;
+  searching: boolean = false;
+  searchkey: string = "";
 
   constructor(private router: Router, private service: ProductService, public loginService: LoginService, private orderService: OrderService, private modalService: NgbModal) {
     this.page=1;
@@ -106,6 +108,7 @@ export class ProductComponent implements OnInit {
     this.lastpage = false;
     this.page = 1;
     this.sorting = true;
+    this.searching = false;
     if(sort=="asc")
       this.sortingMethod = true
     else
@@ -127,9 +130,16 @@ export class ProductComponent implements OnInit {
 
   search(key: string) {
     this.lastpage = false;
-    this.service.getProductsbyKey('search', key).subscribe(
+    this.searching = true;
+    this.searchkey = key;
+    this.service.getProductsbyKey('search', key, 0).subscribe(
       products => {this.products = products;
-                   this.filterqty = products.length;},
+                   this.filterqty = 99;
+                   this.service.getProductsbyKey('search', key, this.page).subscribe(
+                    products => {this.productsAux = products;
+                                 if(this.productsAux.length==0)
+                                  this.lastpage = true},
+                  error => console.log(error));},
       error => console.log(error)
     );
   }
@@ -208,6 +218,15 @@ export class ProductComponent implements OnInit {
                                     this.lastpage = true},
                     error => console.log(error));
                   }
+
+                  else if(this.searching){
+                    this.service.getProductsbyKey('search', this.searchkey, this.page).subscribe(
+                      products => {this.products = this.products.concat(products);
+                                   this.filterqty = products.length;},
+                      error => console.log(error)
+                    );
+                  }
+
                   else{
 
                    this.productsAux = products
