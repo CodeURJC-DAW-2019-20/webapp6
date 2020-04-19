@@ -79,6 +79,7 @@ export class LoginService {
       'Content-Type': 'application/json',
     });
     this.fix = "false";
+    if(user.orderList.length>1)
     if(user.orderList[0].id > user.orderList[1].id && user.orderList.length == 2){
        this.fix = "true"
     }

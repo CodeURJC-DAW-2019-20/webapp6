@@ -14,6 +14,10 @@ export class UserEditComponent /*implements OnInit*/ {
   constructor(private router: Router, activatedRoute: ActivatedRoute, private service: LoginService) {
     const id = activatedRoute.snapshot.params.id;
     console.log("id, " + id);
+    this.service.getUserById(this.service.user.id).subscribe(
+      user => this.user = user,
+      error => console.log(error)
+    );
     //this.user = service.user;
     console.log(service.user)
   }
