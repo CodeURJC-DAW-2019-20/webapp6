@@ -24,12 +24,17 @@ export class BlogComponent implements OnInit {
 
   constructor(private router: Router, activatedRoute: ActivatedRoute, private service: BlogService, private pservice: ProductService, public loginService: LoginService, private modalService: NgbModal) {
     const id = activatedRoute.snapshot.params.id;
+    this.date = new Date();
+    let year = this.date.getFullYear();
+    let month = this.date.getMonth() + 1;
+    let day = this.date.getDate();
     this.newProduct = { name:'', franchise:'', distributor:'', price:0, description:'', 
                         height:0, width:0, weight:0, reference:'', stock:0, image: '../assets/img/product/notavailable.png', imagefull: '../assets/img/product/notavailable2.png' }
     this.newblog = {
       author: "", name: "", text: "", image: "../assets/img/blog/newblog.png",
-      textfull: "", day: null, month: null, year: null, idproduct: 0, product: this.newProduct
+      textfull: "", day: day, month: month, year: year, idproduct: 0, product: this.newProduct
     };
+    console.log(this.newblog);
     this.mySubscription = this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         // Trick the Router into believing it's last link wasn't previously loaded

@@ -1,6 +1,8 @@
 package com.webapp.animeshop.blog;
 
 import java.io.IOException;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
@@ -63,6 +65,12 @@ public class BlogRestController {
 	public List<Blog> addBlog(@RequestBody Blog blog) {
 		blog.setImage("/img/product/newblog.png");
 		blog.setProduct(productService.getProduct(blog.getProduct().getId()));
+		Date today = new Date();
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(today);
+		blog.setDay(cal.get(Calendar.DAY_OF_MONTH));
+		blog.setMonth(cal.get(Calendar.MONTH) + 1);
+		blog.setYear(cal.get(Calendar.YEAR));
 		this.blogService.addBlog(blog);
 		return this.blogRepository.findAll();
 	}

@@ -160,6 +160,9 @@
 .blog_info .post_tag a.active {
 	color: #384aeb
 }
+.active-link {
+	color: #384aeb
+}
 
 .blog_right_sidebar {
 	border: 1px solid #eeeeee;
