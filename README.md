@@ -177,7 +177,7 @@ We made a documentation file with all the Postman requests you can use with our 
 | Name        | Most significant Commit 1  | Most significant Commit 2  | Most significant Commit 3  | Most significant Commit 4  | Most significant Commit 5  |
 | :-------------: |:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|
 | David Amor Antolín | | |  |  |  |
-| Carlos Francisco Corraliza |  |  |  |  |  |
+| Carlos Francisco Corraliza | https://git.io/JfUVH | https://git.io/JfUV7 | https://git.io/JfUV5 | https://git.io/JfUVF | https://git.io/JfUVb |
 | Ramón Barrabes Parra |  |  |  |  |  |
 |Enrique Márquez Jiménez |  |  |  |  |  |
 | Carlos González Valtierra |  |  |  |  |  |
@@ -185,6 +185,7 @@ We made a documentation file with all the Postman requests you can use with our 
 | Name        | File 1   | File 2   | File 3   | File 4   | File 5   |
 | :-------------: |:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|
 | David Amor Antolín |  |  |  |  |  |
+| Carlos Francisco Corraliza | [blog.component.ts](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/frontend/src/app/blog/blog.component.ts) | [MetricsRestController.java](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/backend/src/main/java/com/webapp/animeshop/order/MetricsRestController.java) | [userPage.component.ts](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/frontend/src/app/login/userPage.component.ts) | [singleBlog.component.ts](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/frontend/src/app/blog/singleBlog.component.ts) | [order.service.ts](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/frontend/src/app/order/order.service.ts) |
 | Ramón Barrabes Parra |  |  |  |  |  |
 | Enrique Márquez Jiménez |  |  |  |  |  |
 | Carlos González Valtierra |  |  |  |  |  |
