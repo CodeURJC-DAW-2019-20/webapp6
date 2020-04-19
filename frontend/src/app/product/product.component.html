@@ -122,6 +122,7 @@
 						<mat-icon class="material-icons md-18 padding-dropdown md-grey">expand_more</mat-icon>
 					</button>
 					<mat-menu #menu="matMenu">
+						<button mat-menu-item [disableRipple]="true" (click)="sortBy('','')">Orden predeterminado</button>
 						<button mat-menu-item [disableRipple]="true" (click)="sortBy('sort','desc')">Precio mayor a menor</button>
 						<button mat-menu-item [disableRipple]="true" (click)="sortBy('sort','asc')">Precio menor a mayor</button>
 					</mat-menu>
@@ -351,6 +352,9 @@
 						</div>
 					</div>
 				</mat-card>
+				<div *ngIf="this.filterqty > 10">
+					<button class="btn btn-primary" *ngIf="!this.lastpage" (click)="loadMore()">Mostrar más</button>
+				</div>
 			</div>
 		</div>
 	</div>

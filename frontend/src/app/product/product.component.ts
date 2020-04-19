@@ -36,11 +36,18 @@ export class ProductComponent implements OnInit {
   closeResult = '';
   newProduct: Product;
   mySubscription: any;
+  page: number = 1;
+  productsAux: Product[] = [];
+  lastpage: boolean= false;
+  filterqty: number = 99;
+  sorting: boolean = false;
+  sortingMethod: boolean = false;
 
   constructor(private router: Router, private service: ProductService, public loginService: LoginService, private orderService: OrderService, private modalService: NgbModal) {
+    this.page=1;
     this.order = {status: '', productList: [], total: 0, day: 0, month: 0, year: 0};
     this.newProduct = { name: '', franchise: '', distributor: '', price: 0, description: '',
-                        height: 0, width: 0, weight: 0, reference: '', stock: 0, image: '../assets/img/product/notavailable.png', imagefull: '../assets/img/product/notavailable2.png' };
+                        height: 0, width: 0, weight: 0, reference: '', stock: 0, image: '/img/product/notavailable.png', imagefull: '/img/product/notavailable2.png' };
     this.router.routeReuseStrategy.shouldReuseRoute = function () {
         return false;
     };
@@ -96,15 +103,33 @@ export class ProductComponent implements OnInit {
   }
 
   sortBy(toDo: string, sort: string) {
-    this.service.getProductsbySort(toDo, sort).subscribe(
-      products => this.products = products,
+    this.lastpage = false;
+    this.page = 1;
+    this.sorting = true;
+    if(sort=="asc")
+      this.sortingMethod = true
+    else
+    this.sortingMethod = false
+    if(toDo=="")
+      this.service.getAllProducts().subscribe(
+        products => {this.products = products;
+                     this.sorting = false;
+                     this.filterqty = 99;},
+        error => console.log(error)
+      );
+    else
+    this.service.getProductsbySort(toDo, sort, 0).subscribe(
+      products => {this.products = products
+                   this.filterqty = 99;},
       error => console.log(error)
     );
   }
 
   search(key: string) {
+    this.lastpage = false;
     this.service.getProductsbyKey('search', key).subscribe(
-      products => this.products = products,
+      products => {this.products = products;
+                   this.filterqty = products.length;},
       error => console.log(error)
     );
   }
@@ -118,12 +143,18 @@ export class ProductComponent implements OnInit {
 
   saveProduct() {
     this.service.saveProduct(this.newProduct).subscribe(
-    _ => {this.router.navigate(['/product']); }, (error: Error) => console.error('error creating new product: ' + error));
+    product => { this.products.push(product);
+                  this.service.getProductsbyPage(this.page).subscribe(
+                    products => {this.getFranchisesAndDistributors(products)},
+                    error => console.log(error)
+                  );  
+    }, (error: Error) => console.error('error creating new product: ' + error));
   }
 
   filter() {
     this.service.getProductsbyFilter(this.franchise, this.distributor, this.width, this.height, this.min, this.value).subscribe(
-      products => this.products = products,
+      products => {this.products = products
+                    this.filterqty = products.length},
       error => console.log(error)
     );
   }
@@ -155,5 +186,53 @@ export class ProductComponent implements OnInit {
   openVerticallyCentered(content) {
     this.modalService.open(content, { centered: true, size: 'lg' });
   }
+
+  loadMore(){
+    this.service.getProductsbyPage(this.page).subscribe(
+      products => {if(this.sorting == true){
+                    if(this.sortingMethod == false){
+                      this.service.getProductsbySort("sort", "desc", this.page).subscribe(
+                        products => this.products = this.products.concat(products),
+                        error => console.log(error)
+                      );
+                    }   
+                    else{
+                      this.service.getProductsbySort("sort", "asc", this.page).subscribe(
+                        products => this.products = this.products.concat(products),
+                        error => console.log(error)
+                      );
+                    }
+                    this.page+=1
+                    this.service.getProductsbyPage(this.page).subscribe(
+                      products => {this.productsAux = products;
+                                   if(this.productsAux.length==0)
+                                    this.lastpage = true},
+                    error => console.log(error));
+                  }
+                  else{
+
+                   this.productsAux = products
+                   if(this.productsAux.length!=0){
+                      this.products = this.products.concat(this.productsAux)
+                      this.page+=1;
+                      this.service.getProductsbyPage(this.page).subscribe(
+                        products => {this.productsAux = products;
+                                     if(this.productsAux.length==0)
+                                      this.lastpage = true
+                                    else
+                                      this.service.getProductsbyPage(this.page).subscribe(
+                                        products => this.getFranchisesAndDistributors(products),
+                                        error => console.log(error)
+                                      );
+                                     },
+                      error => console.log(error));
+                   }
+                   else{
+                      this.lastpage = true
+                   }}},
+      error => console.log(error)
+    );
+  }
+
 }
 

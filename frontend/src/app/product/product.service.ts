@@ -39,8 +39,8 @@ export class ProductService {
             catchError((error) => this.handleError(error)));
   }
 
-  getProductsbySort(toDo: string, sort: string): Observable<Product[]> {
-    return this.http.get<any>(URL2 + '?toDo=' + toDo + '&sort=' + sort, {withCredentials: true})
+  getProductsbySort(toDo: string, sort: string, page: number): Observable<Product[]> {
+    return this.http.get<any>(URL2 + '?page=' + page + '&toDo=' + toDo + '&sort=' + sort, {withCredentials: true})
     .pipe(
       map(result => result.content),
       catchError((error) => this.handleError(error)));
