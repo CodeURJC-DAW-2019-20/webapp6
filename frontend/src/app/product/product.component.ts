@@ -143,8 +143,7 @@ export class ProductComponent implements OnInit {
 
   saveProduct() {
     this.service.saveProduct(this.newProduct).subscribe(
-    product => { this.products.push(product);
-                  this.service.getProductsbyPage(this.page).subscribe(
+    product => { this.service.getProductsbyPage(this.page).subscribe(
                     products => {this.getFranchisesAndDistributors(products)},
                     error => console.log(error)
                   );  
