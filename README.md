@@ -186,6 +186,11 @@ npm install
 ng serve
 after using ng serve the application will be executed and can be opened in your browser.
 
+### Run angular with Docker
+For this, you will need to go to the file create_image.ps1 and execute its content in the Windows Powershell.
+This will download angular-cli and node using a container, then it will move the files created in the dist directory to the new directory located in \backend\src\main\resources\static\.
+In order to access the angular application you need to put the following URL: https://127.0.0.1:8080/new/.
+
 ### Classes and templates diagram
 ![github-large](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/frontend/src/assets/diagram/Templates%20and%20clases%20diagram.png)
 
@@ -193,7 +198,7 @@ after using ng serve the application will be executed and can be opened in your 
 | :-------------: |:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|
 | David Amor Antolín | https://git.io/JfUVp | https://git.io/JfUVj | https://git.io/JfUwe | https://git.io/JfUwf | https://git.io/JfUwJ |
 | Carlos Francisco Corraliza | https://git.io/JfUVH | https://git.io/JfUV7 | https://git.io/JfUV5 | https://git.io/JfUVF | https://git.io/JfUVb |
-| Ramón Barrabes Parra |  |  |  |  |  |
+| Ramón Barrabes Parra | https://git.io/JfTeL | https://git.io/JfTeq | https://git.io/JfTeY | https://git.io/JfTeO | https://git.io/JfTeZ |
 |Enrique Márquez Jiménez | https://github.com/CodeURJC-DAW-2019-20/webapp6/commit/7196e4c0ea5c8ea2df42d83fe4b84c7251d8b774  |  https://github.com/CodeURJC-DAW-2019-20/webapp6/commit/0393641218124076b35576f33d8698903d06df22| https://github.com/CodeURJC-DAW-2019-20/webapp6/commit/044aa558c70088a363b242d6d75388980a6e1d28 | https://github.com/CodeURJC-DAW-2019-20/webapp6/commit/c480d1d23d53619d5638b483ff27daa86e33edcd | https://github.com/CodeURJC-DAW-2019-20/webapp6/commit/7aa9768c4d4182312df105d89282b93d3eb2fc25 |
 | Carlos González Valtierra |  |  |  |  |  |
 
@@ -201,6 +206,6 @@ after using ng serve the application will be executed and can be opened in your 
 | :-------------: |:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|
 | David Amor Antolín | [product.component.ts](https://git.io/JfUwk) | [product.service.ts](https://git.io/JfUwc) | [product.component.html](https://git.io/JfUw3) | [checkout.component.ts](https://git.io/JfUwq) | [confirmation.component.ts](https://git.io/JfUw8) |
 | Carlos Francisco Corraliza | [blog.component.ts](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/frontend/src/app/blog/blog.component.ts) | [MetricsRestController.java](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/backend/src/main/java/com/webapp/animeshop/order/MetricsRestController.java) | [userPage.component.ts](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/frontend/src/app/login/userPage.component.ts) | [singleBlog.component.ts](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/frontend/src/app/blog/singleBlog.component.ts) | [order.service.ts](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/frontend/src/app/order/order.service.ts) |
-| Ramón Barrabes Parra |  |  |  |  |  |
+| Ramón Barrabes Parra | [create_image.ps1](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/docker/create_image.ps1) | [login.component.ts](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/frontend/src/app/login/login.component.ts) | [product.component.ts](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/frontend/src/app/product/product.component.ts) | [product.service.ts](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/frontend/src/app/product/product.service.ts) | [singleProduct.component.ts](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/frontend/src/app/product/singleProduct.component.ts) |
 | Enrique Márquez Jiménez | [order.component.html](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/frontend/src/app/order/order.component.html) | [chechout.component.ts](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/frontend/src/app/order/checkout.component.ts) | [order.service.ts](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/frontend/src/app/order/order.service.ts) | [order.component.ts](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/frontend/src/app/order/order.component.ts) | [confirmation.component.ts](https://github.com/CodeURJC-DAW-2019-20/webapp6/blob/master/frontend/src/app/order/confirmation.component.ts) |
 | Carlos González Valtierra |  |  |  |  |  |

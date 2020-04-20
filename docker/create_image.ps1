@@ -10,9 +10,7 @@ mvn clean install
 :: Copy jar file to docker folder
 Remove-Item -path '../docker/app/animeshop-0.0.1-SNAPSHOT.jar'
 Move-Item -Path './target/animeshop-0.0.1-SNAPSHOT.jar' -Destination '../docker/app/animeshop-0.0.1-SNAPSHOT.jar'
-::cd target
 
-::copy animeshop-0.0.1-SNAPSHOT.jar ..\..\docker\app
 cd ../docker
 
 :: Create and push image

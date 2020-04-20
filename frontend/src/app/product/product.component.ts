@@ -38,7 +38,7 @@ export class ProductComponent implements OnInit {
   mySubscription: any;
   page: number = 1;
   productsAux: Product[] = [];
-  lastpage: boolean= false;
+  lastpage: boolean = false;
   filterqty: number = 99;
   sorting: boolean = false;
   sortingMethod: boolean = false;
@@ -46,7 +46,7 @@ export class ProductComponent implements OnInit {
   searchkey: string = "";
 
   constructor(private router: Router, private service: ProductService, public loginService: LoginService, private orderService: OrderService, private modalService: NgbModal) {
-    this.page=1;
+    this.page = 1;
     this.order = {status: '', productList: [], total: 0, day: 0, month: 0, year: 0};
     this.newProduct = { name: '', franchise: '', distributor: '', price: 0, description: '',
                         height: 0, width: 0, weight: 0, reference: '', stock: 0, image: '/img/product/notavailable.png', imagefull: '/img/product/notavailable2.png' };
@@ -109,23 +109,25 @@ export class ProductComponent implements OnInit {
     this.page = 1;
     this.sorting = true;
     this.searching = false;
-    if(sort=="asc")
-      this.sortingMethod = true
-    else
-    this.sortingMethod = false
-    if(toDo=="")
+    if (sort == "asc") {
+      this.sortingMethod = true;
+    } else {
+    this.sortingMethod = false;
+    }
+    if (toDo == "") {
       this.service.getAllProducts().subscribe(
         products => {this.products = products;
                      this.sorting = false;
-                     this.filterqty = 99;},
+                     this.filterqty = 99; },
         error => console.log(error)
       );
-    else
+    } else {
     this.service.getProductsbySort(toDo, sort, 0).subscribe(
-      products => {this.products = products
-                   this.filterqty = 99;},
+      products => {this.products = products;
+                   this.filterqty = 99; },
       error => console.log(error)
     );
+    }
   }
 
   search(key: string) {
@@ -137,9 +139,10 @@ export class ProductComponent implements OnInit {
                    this.filterqty = 99;
                    this.service.getProductsbyKey('search', key, this.page).subscribe(
                     products => {this.productsAux = products;
-                                 if(this.productsAux.length==0)
-                                  this.lastpage = true},
-                  error => console.log(error));},
+                                 if (this.productsAux.length == 0) {
+                                  this.lastpage = true;
+                                 }},
+                  error => console.log(error)); },
       error => console.log(error)
     );
   }
@@ -154,16 +157,16 @@ export class ProductComponent implements OnInit {
   saveProduct() {
     this.service.saveProduct(this.newProduct).subscribe(
     product => { this.service.getProductsbyPage(this.page).subscribe(
-                    products => {this.getFranchisesAndDistributors(products)},
+                    products => {this.getFranchisesAndDistributors(products);},
                     error => console.log(error)
-                  );  
+                  );
     }, (error: Error) => console.error('error creating new product: ' + error));
   }
 
   filter() {
     this.service.getProductsbyFilter(this.franchise, this.distributor, this.width, this.height, this.min, this.value).subscribe(
-      products => {this.products = products
-                    this.filterqty = products.length},
+      products => {this.products = products;
+                    this.filterqty = products.length;},
       error => console.log(error)
     );
   }
@@ -196,57 +199,53 @@ export class ProductComponent implements OnInit {
     this.modalService.open(content, { centered: true, size: 'lg' });
   }
 
-  loadMore(){
+  loadMore() {
     this.service.getProductsbyPage(this.page).subscribe(
-      products => {if(this.sorting == true){
-                    if(this.sortingMethod == false){
+      products => {if (this.sorting == true) {
+                    if (this.sortingMethod == false) {
                       this.service.getProductsbySort("sort", "desc", this.page).subscribe(
                         products => this.products = this.products.concat(products),
                         error => console.log(error)
                       );
-                    }   
-                    else{
+                    } else {
                       this.service.getProductsbySort("sort", "asc", this.page).subscribe(
                         products => this.products = this.products.concat(products),
                         error => console.log(error)
                       );
                     }
-                    this.page+=1
+                    this.page += 1;
                     this.service.getProductsbyPage(this.page).subscribe(
                       products => {this.productsAux = products;
-                                   if(this.productsAux.length==0)
-                                    this.lastpage = true},
+                                   if (this.productsAux.length == 0) {
+                                    this.lastpage = true;
+                                   }},
                     error => console.log(error));
-                  }
-
-                  else if(this.searching){
+                  } else if (this.searching) {
                     this.service.getProductsbyKey('search', this.searchkey, this.page).subscribe(
                       products => {this.products = this.products.concat(products);
-                                   this.filterqty = products.length;},
+                                   this.filterqty = products.length; },
                       error => console.log(error)
                     );
-                  }
+                  } else {
 
-                  else{
-
-                   this.productsAux = products
-                   if(this.productsAux.length!=0){
-                      this.products = this.products.concat(this.productsAux)
-                      this.page+=1;
+                   this.productsAux = products;
+                   if (this.productsAux.length != 0) {
+                      this.products = this.products.concat(this.productsAux);
+                      this.page += 1;
                       this.service.getProductsbyPage(this.page).subscribe(
                         products => {this.productsAux = products;
-                                     if(this.productsAux.length==0)
-                                      this.lastpage = true
-                                    else
+                                     if (this.productsAux.length == 0) {
+                                      this.lastpage = true;
+                                     } else {
                                       this.service.getProductsbyPage(this.page).subscribe(
                                         products => this.getFranchisesAndDistributors(products),
                                         error => console.log(error)
                                       );
+                                     }
                                      },
                       error => console.log(error));
-                   }
-                   else{
-                      this.lastpage = true
+                   } else {
+                      this.lastpage = true;
                    }}},
       error => console.log(error)
     );
